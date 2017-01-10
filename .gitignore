@@ -6,3 +6,7 @@
 *.out
 *.synctex.gz
 *.gz
+*.toc
+*.lof
+*.lot
+*.xml

@@ -41,6 +41,25 @@ headsepline, % Uncomment to get a line under the header
 
 \usepackage{palatino} % Use the Palatino font by default
 
+\setcounter{secnumdepth}{3}
+\usepackage{color}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{bbding}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{esint}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={Santiago Casas, PhD Thesis},
+ pdfauthor={Santiago Casas},
+ pdfsubject={Cosmology},
+ pdfkeywords={Cosmology},
+ colorlinks,linkcolor=darkgreen,citecolor=darkgreen,urlcolor=darkblue,colorlinks,linkcolor=darkgreen,citecolor=darkgreen,urlcolor=darkblue}
+
 \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 
 \addbibresource{example.bib} % The filename of the bibliography
@@ -72,7 +91,7 @@ headsepline, % Uncomment to get a line under the header
 \author{Santiago \textsc{Casas Castro}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
-\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\subject{Cosmology} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{http://www.university.com}{University Name}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{http://department.university.com}{Department or School Name}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
@@ -82,6 +101,9 @@ headsepline, % Uncomment to get a line under the header
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
 \hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+
+\input{mymacros.tex}
+
 
 \begin{document}
 
@@ -256,7 +278,7 @@ $\omega$ & angular frequency & \si{\radian} \\
 \include{Chapters/Chapter1}
 \include{Chapters/Chapter2} 
 \include{Chapters/Chapter3}
-\include{Chapters/Chapter4} 
+%\include{Chapters/Chapter4} 
 \include{Chapters/Chapter5} 
 \include{Chapters/Chapter6}
 
