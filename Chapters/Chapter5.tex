@@ -7,7 +7,19 @@
 
 %----------------------------------------------------------------------------------------
 
-\subsubsection{The non-linear standard equations in Fourier space}
+
+\section{Standard perturbation theory and higher orders}
+\begin{itemize}
+\item Vlasov-Poisson system
+\item System of equations in Fourier space
+\item Velocity divergence and vorticity
+\item Stress tensor and higher order hierarchy terms
+\item Field variable doublet and 1-loop expansion
+\end{itemize}
+
+
+
+\section{The non-linear standard equations in Fourier space}
 
 For studying large scale structure formation we will treat the Dark
 Matter distribution as a perfect fluid coupled to gravity, described
@@ -786,3 +798,16 @@ long as the cosmological parameters are not modified.
 Finally we compute the \ref{eq:evolution-eqn-Chi} for each $k$ mode
 in parallel, which using 8 cores on a normal machine, takes about
 15 seconds until redshift $z=0$.
+
+\section{Numerical approaches}
+
+\subsection{N-body simulations}
+\begin{itemize}
+\item The Vlasov-Poisson system can be discretized on a grid and the denisty
+can be represented with particles
+\item Particle-Mesh method
+\item Tree method
+\item Extraction of information: The power spectrum and Halo catalogs
+\end{itemize}
+
+\subsection{Fitting formulae and prescriptions}

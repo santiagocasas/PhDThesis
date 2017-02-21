@@ -224,8 +224,15 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 \begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
 
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere\\
-\textbf{WSF} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or\\
+\textbf{LSS} & \textbf{L}arge \textbf{S}cale \textbf{S}tructure\\
+\textbf{BAO} & \textbf{B}aryon \textbf{A}coustic \textbf{O}scillations\\
+\textbf{RSD} & \textbf{R}edshift \textbf{S}pace \textbf{D}istortions\\
+\textbf{SPT} & \textbf{S}tandard \textbf{P}erturbation \textbf{T}heory\\
+\textbf{RPT} & \textbf{R}enormalized \textbf{P}erturbation \textbf{T}heory\\
+\textbf{EFT} & \textbf{E}ffective \textbf{F}ield \textbf{T}heory\\
+\textbf{CDM} & \textbf{C}old \textbf{D}ark \textbf{M}atter\\
+\textbf{GNQ} & \textbf{G}rowing \textbf{N}eutrino \textbf{Q}uintessence\\
+\textbf{GR} & \textbf{G}eneral \textbf{R}elativity \\
 
 \end{abbreviations}
 
@@ -237,7 +244,7 @@ The acknowledgments and the people to thank go here, don't forget to include you
 
 % The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
 
-	Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+	Speed of Light & $c$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
 %Constant Name & $Symbol$ & $Constant Value$ with units\\
 
 \end{constants}
@@ -247,14 +254,20 @@ The acknowledgments and the people to thank go here, don't forget to include you
 %----------------------------------------------------------------------------------------
 
 \begin{symbols}{lll} % Include a list of Symbols (a three column table)
-
-$a$ & distance & \si{\meter} \\
-$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
 %Symbol & Name & Unit \\
+$a$ & scale factor &  \\
+$H_0$ & Hubble parameter & (\si{\km\per\second}$Mpc^{-1}$) \\
+$z$ & redshift &  \\
 
 \addlinespace % Gap to separate the Roman symbols from the Greek
 
-$\omega$ & angular frequency & \si{\radian} \\
+$\Omega_b$ & Fraction of energy density in baryons & \\
+$\Omega_c$ & Fraction of energy density in CDM & \\
+$\Omega_m$ & Fraction of energy density in non-relativistic matter & \\
+$\Omega_\nu$ & Fraction of energy density in neutrinos & \\
+$\Omega_r$ & Fraction of energy density in radiation & \\
+
+
 
 \end{symbols}
 
@@ -262,7 +275,7 @@ $\omega$ & angular frequency & \si{\radian} \\
 %	DEDICATION
 %----------------------------------------------------------------------------------------
 
-\dedicatory{For/Dedicated to/To my\ldots} 
+\dedicatory{Dedicated to \ldots} 
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - CHAPTERS
@@ -278,9 +291,10 @@ $\omega$ & angular frequency & \si{\radian} \\
 \include{Chapters/Chapter1}
 \include{Chapters/Chapter2} 
 \include{Chapters/Chapter3}
-%\include{Chapters/Chapter4} 
+\include{Chapters/Chapter4} 
 \include{Chapters/Chapter5} 
 \include{Chapters/Chapter6}
+\include{Chapters/Chapter7}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
