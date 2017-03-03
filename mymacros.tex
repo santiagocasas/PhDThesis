@@ -50,3 +50,63 @@
 
 \global\long\def\comment#1{\textcolor{red}{#1}}
 
+\usepackage{verbatim}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\HMG}{\mathrm{HMG}}
+\newcommand{\HGR}{\mathrm{HGR}}
+\newcommand{\LMG}{\mathrm{LMG}}
+\newcommand{\GRNL}{\mathrm{GR-NL}}
+\newcommand{\LIN}{\mathrm{L}}
+\newcommand{\cnl}{c_{\mathrm{nl}}}
+\newcommand{\Pobs}{P_{\mathrm{obs}}}
+\newcommand{\lmax}{\ell_{\mathrm{max}}}
+\newcommand{\lAs}{\ell \mathcal{A}_{s}}
+\newcommand{\planck}{{\it Planck}}
+
+
+\newcommand{\lcdm}{\Lambda\mathrm{CDM}}
+%\newcommand{\curH}{\mathcal{H}}
+\def\vdotov#1{\frac{\dot{#1}}{#1}}
+
+\newcommand*{\srr}{\srvtxt}
+\newcommand*{\scc}{\scmtxt}
+
+
+% Alter some LaTeX defaults for better treatment of figures:
+    % See p.105 of "TeX Unbound" for suggested values.
+    % See pp. 199-200 of Lamport's "LaTeX" book for details.
+    %   General parameters, for ALL pages:
+    \renewcommand{\topfraction}{0.9}	% max fraction of floats at top
+    \renewcommand{\bottomfraction}{0.8}	% max fraction of floats at bottom
+    %   Parameters for TEXT pages (not float pages):
+    \setcounter{topnumber}{2}
+    \setcounter{bottomnumber}{2}
+    \setcounter{totalnumber}{4}     % 2 may work better
+    \setcounter{dbltopnumber}{2}    % for 2-column pages
+    \renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+    \renewcommand{\textfraction}{0.07}	% allow minimal text w. figs
+    %   Parameters for FLOAT pages (not text pages):
+    \renewcommand{\floatpagefraction}{0.8}	% require fuller float pages
+	% N.B.: floatpagefraction MUST be less than topfraction !!
+    \renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+	% remember to use [htp] or [htpb] for placement
+
+\def\l@section{\@dottedtocline{1}{1em}{2em}}
+\def\l@subsection{\@dottedtocline{2}{2em}{4em}}
+\def\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
+
+\usepackage[titletoc]{appendix}
+
+\usepackage{colortbl}
+
+\newcommand{\todoinl}[1]{\todo[inline]{#1}}
+
+\newcommand{\Tstrut}{\rule{0pt}{2.6ex}}       % "top" strut
+\newcommand{\Bstrut}{\rule[-0.9ex]{0pt}{0pt}} % "bottom" strut
+\newcommand{\TBstrut}{\Tstrut\Bstrut} % top&bottom struts
+\newcommand{\Hstrut}{\rule{2.6ex}{0pt}} 
+
+
+\def\mnras{MNRAS}
+\newcommand{\noun}[1]{\textsc{#1}}
