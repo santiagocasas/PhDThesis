@@ -172,6 +172,7 @@ m_{c}(z)=m_{c,0}e^{-\beta(\phi(z)-\phi(0))}\,\,.
 
 
 \begin{table}
+\tiny
 \centering{}\label{tab:models} %
 \begin{tabular}{ccc|c}
 \textbf{Parameter}  & \textbf{Explanation}  & \textbf{Value}  & \textbf{Reference $\Lambda$CDM}\tabularnewline
@@ -184,38 +185,17 @@ $\beta$  & Coupling parameter  & $\{0.05,\,0.10,\,0.15\}$  & -- \tabularnewline
 $w_{\phi}(z=0)$  & DE equation of state  & $\{-0.997,\,-0.995,\,-0.992\}$  & $-1$ \tabularnewline
 $\sigma_{8}(z=0)$  & Power spectrum amplitude  & $\left\{ 0.825,\,0.875,\,0.967\right\} $  & $0.809$ \tabularnewline
 \hline 
-\end{tabular}\protect\protect\caption{\label{tab:normalization-conventions-codecs} The main parameters
+\small
+\end{tabular}
+\caption[Parameters of the coupled DE models with constant coupling.]{\label{tab:normalization-conventions-codecs} The main parameters
 and normalizations of the three coupled DE models of the Codecs
 suite considered in the present work. The last column displays the
 corresponding valuem for the reference $\Lambda$CDM cosmology.}
 \end{table}
-
-
-
-
-
+\normalsize
 
 
 \section{The CoDECS simulations}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -227,9 +207,6 @@ scales}
 
 
 \section{Fitting functions\label{sec:Fitting-functions}}
-
-
-
 
 
 
@@ -462,7 +439,9 @@ syst. bias with $\delta\psi=1$ & -0.0094 & -0.11 & 0.045 & 0.0021 & -0.0039\tabu
 \hline 
 syst. bias with $\delta\psi=1$ & -0.0032 & -0.04 & 0.018 & 0.00026 & -0.0024\tabularnewline
 \hline 
-\end{tabular}\protect\caption{\label{tab:systbias} Systematic bias on the $\protect\lcdm$ cosmological
+\end{tabular}\protect
+\caption[Systematic bias on the $\protect\lcdm$ cosmological
+parameters.]{\label{tab:systbias} Systematic bias on the $\protect\lcdm$ cosmological
 parameters evaluated at our fiducial model. The systematic bias is
 higher when probing smaller scales, where uncertainties in the non-linear
 power spectrum are higher. This highlights the importance of modelling
@@ -690,7 +669,8 @@ $\sigma_{v}$  & 300 km/s  & Fiducial pairwise velocity dispersion\tabularnewline
 $\Delta z$  & 0.2  & Redshift bin width\tabularnewline
 $\{z_{min},\ z_{max}\}$  & \{0.6, 2.0\}  & Min. and max. limits for redshift bins \tabularnewline
 \hline 
-\end{tabular}\protect\protect\caption{\label{tab:GC-specifications} Specifications for the Fisher Matrix
+\end{tabular}\protect\protect
+\caption[Specifications for a Euclid GC survey forecast.]{\label{tab:GC-specifications} Specifications for the Fisher Matrix
 of an Euclid-like galaxy clustering survey.}
 \end{table}
 
@@ -732,7 +712,8 @@ relative error & 14\%  & 0.23\%  & 0.77\%  & 0.28\%  & 1.9\%  & 0.39\%\tabularne
 abs. error  & 0.000305  & 0.00151  & 0.01808  & 0.00249  & 0.00081  & 0.00085\tabularnewline
 relative error & 12\%  & 0.22\%  & 0.75\%  & 0.26\%  & 1.8\%  & 0.38\%\tabularnewline
 \hline 
-\end{tabular}\protect\protect\caption{\label{tab:1-sigmaerrors-nl-GC-1} 1-$\sigma$ fully marginalized
+\end{tabular}\protect\protect
+\caption[1$\sigma$ marginalized errors for Euclid GC in the CDE model.]{\label{tab:1-sigmaerrors-nl-GC-1} 1-$\sigma$ fully marginalized
 errors on the cosmological parameters of the model for a galaxy clustering
 Fisher forecast. Two cases are presented, a hard cutoff of the power
 spectrum at $k_{max}=k_{Ny}/2$, and a hard cut at $k_{Ny}$.}
@@ -743,7 +724,11 @@ spectrum at $k_{max}=k_{Ny}/2$, and a hard cut at $k_{Ny}$.}
 \subsubsection{Variation of the $k_{max}$ integration limit}
 
 \begin{figure}[h]
-\centering{}\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/kmaxvariationGC-sigmav}\protect\protect\caption{\label{fig:kmax-change-lin-nonlin} Change of the 1-$\sigma$ fully
+\centering{}
+\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/kmaxvariationGC-sigmav}
+\protect\protect
+\caption[Effect of non-linear scales on the 1$\sigma$ errors on cosmological parameters.]{\label{fig:kmax-change-lin-nonlin} 
+Change of the 1-$\sigma$ fully
 marginalized error on the set of cosmological parameters $p_{i}$
 for a galaxy clustering Fisher forecast, as a function of the maximum
 mode $k_{max}$ used as a cutoff in the Fisher matrix integration.
@@ -776,7 +761,8 @@ above).
 
 \begin{figure}
 \centering{}\includegraphics[height=0.35\textheight]{Chapters/fitting-funcs/figures/GC-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}\includegraphics[height=0.35\textheight]{Chapters/fitting-funcs/figures/WL-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
-\protect\protect\protect\caption{\label{fig:Contour-scale} Marginalized confidence contour regions
+\caption[Fisher confidence contour regions
+for $\beta^{2}$ and $h$ in CDE using GC and WL surveys.]{\label{fig:Contour-scale} Marginalized confidence contour regions
 1,2,3-$\sigma$ for $\beta^{2}$ and $h$. The plots correspond to
 a comparison between linear (green-dashed lines) and non-linear (red-solid
 lines) scales for GC (left) and WL (right) using the scale cutoff
@@ -812,7 +798,8 @@ $\gamma_{int}$  & 0.22  & Intrinsic alignment\tabularnewline
 $n_{\theta}$  & 30  & Galaxy density per $arcmin^{2}$\tabularnewline
 $\sigma_{pz}$  & 0.05  & Photometric redshift error\tabularnewline
 \hline 
-\end{tabular}\protect\protect\caption{\label{tab:WL-specifications-1} Specifications for the Fisher Matrix
+\end{tabular}
+\caption[Specifications for a Euclid WL Fisher forecast]{\label{tab:WL-specifications-1} Specifications for the Fisher Matrix
 of an Euclid-like weak lensing survey.}
 \end{table}
 
@@ -830,7 +817,8 @@ $\ell_{cut,\, k_{1}}$  & $\{1686,2070,2410,2753,3155,4344\}$  & cutoff in multip
 $\ell_{cut,\, k_{2}}$  & $\{3372,4141,4820,5506,6311,8689\}$  & cutoff in multipole $\ell$ at the center of each bin for $k_{max}=k_{Ny}$\tabularnewline
 $z_{range}$  & $0.5\leq z\leq3$  & Total range in redshift of each bin\tabularnewline
 \hline 
-\end{tabular}\protect\protect\caption{\label{tab:WL-zbins-specs} Redshift bins specifications for an Euclid-like
+\end{tabular}
+\caption[Redshift bin specifications for a Euclid WL Fisher forecast]{\label{tab:WL-zbins-specs} Redshift bins specifications for an Euclid-like
 weak lensing survey using equipopulated redshift bins in the range
 $0\leq z\leq3$ and the corresponding values for the cutoff applied
 in the multipoles $\ell$ at each redshift bin, for two different
@@ -871,7 +859,11 @@ relative errror & 5.0\%  & 1.2\%  & 4.6\%  & 1.1\%  & 7.1\%  & 2.0\%\tabularnewl
 abs. error  & 0.000097  & 0.0068  & 0.058  & 0.0085  & 0.0022  & 0.0032\tabularnewline
 relative error & 3.9\%  & 0.97\%  & 2.4\%  & 0.88\%  & 4.9\%  & 1.4\%\tabularnewline
 \hline 
-\end{tabular}\protect\protect\caption{\label{tab:1-sigmaerrors-nl-WL-full} 1-$\sigma$ fully marginalized
+\end{tabular}
+\protect\protect\caption[1$\sigma$ fully marginalized
+errors for a WL
+Fisher forecast with Euclid in CDE.]{\label{tab:1-sigmaerrors-nl-WL-full} 
+1$\sigma$ fully marginalized
 errors on the cosmological parameters of the model for a weak lensing
 Fisher forecast. Two cases are presented, a redshift-dependent cutoff
 $\ell_{cut,\: k_{Ny}/2}$ and a cutoff $\ell_{cut,\: k_{Ny}}$, corresponding
@@ -883,7 +875,9 @@ in a WL survey does bring a noticeable improvement. }
 
 
 \begin{figure}[h]
-\centering{}\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/ellMaxVariation-Nonlinear-New-SmoothX-Version6-pkCut1-2-WL}\protect\protect\protect\caption{\label{fig:WL-lmax-variation} Variation in the 1-$\sigma$ fully
+\centering{}\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/ellMaxVariation-Nonlinear-New-SmoothX-Version6-pkCut1-2-WL}
+\caption[Effect on the 1$\sigma$ errors for the CDE model as a function of sampled scale in a WL forecast.]{\label{fig:WL-lmax-variation} 
+Variation in the 1-$\sigma$ fully
 marginalized errors for each cosmological parameter $p_{i}$ as a
 function of the maximum multipole used in the weak lensing Fisher
 forecast. Increasing the observed multipole range improves considerably
@@ -955,6 +949,7 @@ the importance of applying non-linear corrections that depend on the
 parameter to be tested.
 
 \begin{table}
+\tiny
 \begin{centering}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -980,8 +975,10 @@ non-linear CDE fitting functions (rel.)  & 3.4\%  & 0.16\%  & 0.7\%  & 0.26\%  &
 \hline 
 \end{tabular}
 \par\end{centering}
-
-\protect\protect\caption{\label{tab:1-sigmaerrors-nl-WL-1-1} 1-$\sigma$ fully marginalized
+\small
+\caption[1$\sigma$ fully marginalized
+errors for the CDE model, using WL, GC and the combined
+Fisher matrix WL+GC, for three different power spectra.]{\label{tab:1-sigmaerrors-nl-WL-1-1} 1-$\sigma$ fully marginalized
 errors on the cosmological parameters for WL, GC and the combined
 Fisher matrix WL+GC, using three different power spectra. \textbf{Linear
 CDE}: Using only information from the linear power spectrum for the
@@ -995,7 +992,7 @@ description of the model in this range of scales. In all these cases
 we are using our reference Fisher forecasts corresponding to the cutoff
 at $k_{Ny}/2$. }
 \end{table}
-
+\normalsize
 
 \begin{figure}
 \begin{centering}
@@ -1018,7 +1015,8 @@ at $k_{Ny}/2$. }
 \includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid13}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid14}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid15} 
 \par\end{centering}
 
-\centering{}\protect\protect\protect\caption{\label{fig:Contour-regions} Marginalized confidence contour regions
+\centering{}
+\caption[Fisher confidence regions for GC and WL in the CDE model.]{\label{fig:Contour-regions} Marginalized confidence contour regions
 (1,2,3-$\sigma$) for all cosmological parameters considered in this
 model. The blue dashed lines correspond to the WL Fisher forecast,
 while the green dashed lines correspond to the GC Fisher forecast
@@ -1031,7 +1029,7 @@ the estimation is dominated by the GC Fisher matrix estimation.}
 
 
 
-\section{Conclusions}
+\section{Conclusions Fitting Functions}
 
 The goal of this paper is to exploit the cosmological information
 contained in the non-linear regime in order to improve parameter estimation
@@ -1097,10 +1095,6 @@ on the dark matter-dark energy coupling is not far from the current
 best limits reached with Solar System observations on a coupling to
 baryons \cite{Agashe:2014kda}, which can be translated in our notation
 as $\beta^{2}\le2\cdot10^{-5}$ at 1-$\sigma$. 
-
-
-
-
 
 
 

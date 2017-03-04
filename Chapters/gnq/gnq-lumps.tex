@@ -371,6 +371,7 @@ in which the right hand side gets a contribution from the coupling.
 
 \begin{table}
 \centering{}%
+\tiny
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
 \textbf{Cosmological parameters}  & \multicolumn{6}{c|}{\textbf{Growing neutrino models}}\tabularnewline
@@ -402,7 +403,7 @@ $\Omega_{\nu0}$  & $2.5\times10^{-2}$  & $1.9\times10^{-2}$  & -  & -  & -  & -\
 \hline 
 $m_{\nu0}$ {[}eV{]}  & 0.038  & 0.078  & -  & -  & -  & -\tabularnewline
 \hline 
-$\left\langle m_{\nu}\right\rangle $$[0.4:0.6]$ {[}eV{]}  & $0.048$  & $0.069$  & $0.1436$  & $0.280$  & $0.401$  & $0.676$\tabularnewline
+$\left\langle m_{\nu}\right\rangle [0.4:0.6]$ {[}eV{]}  & $0.048$  & $0.069$  & $0.1436$  & $0.280$  & $0.401$  & $0.676$\tabularnewline
 \hline 
 $\left\langle m_{\nu}\right\rangle [0.8:1.0]$ {[}eV{]}  & $0.120$  & $0.164$  & -  & -  & -  & -\tabularnewline
 \hline 
@@ -410,7 +411,9 @@ $\langle w_{\nu\phi}\rangle[0.9:1.0]$  & -0.95  & -0.96  & -  & -  & -  & -\tabu
 \hline 
 $a_{\text{final}}$  & 1.0  & 1.0  & 0.84  & 0.70  & 0.65  & 0.67\tabularnewline
 \hline 
-\end{tabular}\protect\protect\protect\caption{\label{tab:simus-params} Table of parameters for the six models considered
+\end{tabular}
+\small
+\caption[Parameters for the GNQ models considered in this work.]{\label{tab:simus-params} Table of parameters for the six models considered
 in this work. The top part refers to the output values computed with
 the linear nuCAMB code. The bottom part refers to values computed
 within the N-body simulation. Quantities denoted with a subscript
@@ -426,7 +429,7 @@ or averages at times beyond $a_{final}$. The input values for nuCAMB
 corresponding to all models can be found in table \ref{tab:CAMB-inipars-1}
 of appendix \ref{sec:Initial-parameters-for-nucamb}.}
 \end{table}
-
+\normalsize
 
 Simulations start at an initial value of $a_{in}=0.02$. Until $a\approx0.30$
 the dark matter particles, the cosmon field and the gravitational
@@ -449,7 +452,8 @@ their phase-space distribution is sampled using effective particles.
 Since their equation of state is non-relativistic, we can approximate
 the phase-space distribution by 
 \begin{equation}
-f_{\nu}(\mathbf{x},\mathbf{v})=\bar{n}_{\nu}f_{FD}(|\mathbf{v}_{\nu}-\mathbf{v_{pec\mathbf{,}\nu}}(\mathbf{x})|)(1+\delta_{v}(\mathbf{x}))\,\,\,,\label{eq:thermal-velocities}
+f_{\nu}(\mathbf{x},\mathbf{v})=\bar{n}_{\nu}f_{FD}(|\mathbf{v}_{\nu}-\mathbf{v_{pec\mathbf{,}\nu}}(\mathbf{x})|)(1+\delta_{v}(\mathbf{x}))\,\,\,,
+\label{eq:thermal-velocities}
 \end{equation}
 where $f_{FD}$ is the Fermi-Dirac distribution (\ref{eq:Fermi-Dirac-dist}).
 The thermal velocities of the neutrinos are the difference between
@@ -509,8 +513,9 @@ equation of state during alternating periods of time.
 
 \begin{figure}[H]
 \includegraphics[width=0.7\textheight]{Chapters/gnq/figures/all_snapshots_v2-eps-converted-to.pdf}
-\protect\protect\protect\caption{\label{fig:Snapshots-of-models-oscill}Snapshots of the number density
-contrast\textbf{ }of neutrinos $\delta n_{\nu}(\vec{x})\equiv n_{\nu}(\vec{x})/\bar{n}_{\nu}-1$
+\caption[Snapshots of the number density
+contrast of neutrinos for two GNQ models: M2 and M4.]{\label{fig:Snapshots-of-models-oscill} Snapshots of the number density
+contrast of neutrinos $\delta n_{\nu}(\vec{x})\equiv n_{\nu}(\vec{x})/\bar{n}_{\nu}-1$
 at different times. \textbf{Left:} Model M2, at scale factors $a=0.45,\,0.7,\,0.75$
 and $0.95$ from top to bottom. The overdensity oscillates between
 values close to 1 (represented as yellow tones) at early times, where
@@ -578,10 +583,12 @@ of equations.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model325-crash0062-1-leg}\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model5-crash065-1-noleg} 
+\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model325-crash0062-1-leg}
+\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model5-crash065-1-noleg} 
 \par\end{centering}
-
-\protect\protect\protect\protect\protect\protect\protect\caption{\label{fig:Snapshots-of-models-crashing}Snapshots of the neutrino
+\caption[Snapshots of the neutrino
+overdensity field for GNQ models M4
+and M6.]{\label{fig:Snapshots-of-models-crashing}Snapshots of the neutrino
 overdensity field $\delta_{\nu}(\vec{x})$ for models M4 (top left)
 and M6 (bottom left) at scale factors of $a=0.64,\,$ and $0.62$,
 respectively. In these models, neutrino lumps cluster into large stable
@@ -670,7 +677,9 @@ those models further, with a considerable simplification with respect
 to a joint linear and non-linear analysis done in \cite{pettorino_neutrino_2010}.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Background-model2-gnq-And-CAMB_OmegaFluidQNu-and-OmegaNu-v1}\protect\caption{\label{fig:bckg-mod2-1}Evolution of $\Omega_{\phi+\nu}$ (blue lines)
+\centering{}\includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Background-model2-gnq-And-CAMB_OmegaFluidQNu-and-OmegaNu-v1}
+\caption[Evolution of $\Omega_{\phi+\nu}$
+and $\Omega_{\nu}$ for Model M2 in GNQ.]{\label{fig:bckg-mod2-1}Evolution of $\Omega_{\phi+\nu}$ (blue lines)
 and $\Omega_{\nu}$ (orange lines) for Model M2, compared between
 the linear output from nuCAMB (dashed lines) and the non-linear calculation
 of the N-body simulation (solid lines). The total cosmon-neutrino
@@ -714,7 +723,9 @@ depart from their initial Fermi-Dirac distributions and reach temperatures
 which are high compared to the photon background.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Background-model2-gnq-And-CAMB_wnu-and-wqnu-v1}\protect\caption{\textbf{\label{fig:backg-wnu-wqnu-mod2}} Equation of state of the
+\centering{}\includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Background-model2-gnq-And-CAMB_wnu-and-wqnu-v1}
+\caption[Equation of state of the
+combined neutrino-cosmon fluid and of the neutrinos in GNQ.]{\label{fig:backg-wnu-wqnu-mod2} Equation of state of the
 combined neutrino-cosmon fluid $w_{\phi+\nu}$ (blue) and equation
 of state of neutrinos $w_{\nu}$ (orange). We compare the linear output
 (dashed lines) to the non-linear one obtained from the N-body simulation
@@ -758,8 +769,8 @@ be seen in table \ref{tab:simus-params}.
 \begin{centering}
 \includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Background-model1model-model2-gnq_mnu-v1} 
 \par\end{centering}
-
-\protect\protect\protect\protect\protect\protect\caption{\textbf{\label{fig:NuMass-mod2}}Neutrino mass $\overline{m}_{\nu}$
+\caption[Neutrino mass $\overline{m}_{\nu}$
+in model M2 and M1 of GNQ.]{\textbf{\label{fig:NuMass-mod2}}Neutrino mass $\overline{m}_{\nu}$
 (average over simulation volume) in model M2 (firebrick red line)
 and model M1 (dodger blue line), as a function of the scale factor
 $a$, for the N-body simulation. The horizontal lines, show the time
@@ -855,10 +866,10 @@ that shifts the peak of the distribution of momenta.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.49\textwidth]{Chapters/gnq/figures/momentum-Histogram-FD-model1-v4}\includegraphics[width=0.49\textwidth]{Chapters/gnq/figures/momentum-Histogram-FD-model2-v4} 
+\includegraphics[width=0.49\textwidth]{Chapters/gnq/figures/momentum-Histogram-FD-model1-v4}
+\includegraphics[width=0.49\textwidth]{Chapters/gnq/figures/momentum-Histogram-FD-model2-v4} 
 \par\end{centering}
-
-\protect\protect\caption{\label{fig:histogram-FermiD-1} Distribution of the momenta of the
+\caption[Histogram of neutrino momenta from simulations against the Fermi-Dirac distribution.]{\label{fig:histogram-FermiD-1} Distribution of the momenta of the
 neutrino particles in the simulation, for two different times, $a=0.75$
 (purple shade) and $a=1.0$ (orange shade), compared against a Fermi-Dirac
 distribution with a temperature given by the mean of the distribution
@@ -902,7 +913,8 @@ from zero, once neutrinos are heated to very high temperatures due
 to the collapsing and dissolving of the neutrino-cosmon lumps.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.7\textwidth]{Chapters/gnq/figures/Phi-GravPotSpec-M2-and-M5-at-006500-Phit_Phinu-new}\protect\caption{\label{fig:gravpot-in-scale} Power spectra of the total gravitational
+\centering{}\includegraphics[width=0.7\textwidth]{Chapters/gnq/figures/Phi-GravPotSpec-M2-and-M5-at-006500-Phit_Phinu-new}
+\caption[Gravitational potential $\Phi$ for models of GNQ.]{\label{fig:gravpot-in-scale} Power spectra of the total gravitational
 potential $\Phi_{t}$ (blue lines) and of the neutrino contribution
 $\Phi_{\nu}$ (orange lines) for model M2 and model M5 at the scale
 factors $a=0.40$ (solid lines) and $a=0.65$ (dashed lines), as a
@@ -941,7 +953,10 @@ at late times the neutrino lump induced potential dominates over the
 cold dark matter gravitational potential. This renders the total potential
 $\Phi_{tot}$ too big to be compatible with present cosmological constraints.
 \begin{figure}
-\centering{}\includegraphics[width=0.7\textwidth]{Chapters/gnq/figures/Phi-GravPotSpec-InTime-M2-and-M5-2scales-Phinu_Phim-new}\protect\caption{\label{fig:gravpot-intime1} Power spectra of the matter gravitational
+\centering{}\includegraphics[width=0.7\textwidth]{Chapters/gnq/figures/Phi-GravPotSpec-InTime-M2-and-M5-2scales-Phinu_Phim-new}
+\caption[Power spectra of the matter gravitational
+potential $\Phi_{m}$ and of the neutrino contribution
+$\Phi_{\nu}$ for GNQ.]{\label{fig:gravpot-intime1} Power spectra of the matter gravitational
 potential $\Phi_{m}$ (blue lines) and of the neutrino contribution
 $\Phi_{\nu}$ (orange lines) at two different scales, $k=0.016$ (solid
 lines) and $k=0.116$ (dashed lines) as a function of scale factor
@@ -973,7 +988,7 @@ is still subdominant.
 
 \begin{figure}
 \centering{}\includegraphics[width=0.65\textwidth]{Chapters/gnq/figures/Lineout-Diagonal--at-a0p75-deltanu_numbnu_Phinu}\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model2-psinu-numbnu-a0p75-cropped}\protect
-\caption{\label{fig:lineout-gravpotnu} 
+\caption[Line plot of the gravitational potential and snapshot for model M2 in GNQ.]{\label{fig:lineout-gravpotnu} 
 \textbf{Left: }Line plot through the
 main diagonal of the simulation box, for model M2 at $a=0.75$. The
 negative of the neutrino contribution to the gravitational potential
@@ -1030,7 +1045,7 @@ the simulated volume.
 
 
 
-\section{Conclusions}
+\section{Conclusions of Dynamics of Neutrino Lumps}
 
 We have investigated the dynamics of neutrino lumps in growing neutrino
 quintessence and how it depends on the mass of neutrinos. As a main
@@ -1091,6 +1106,7 @@ becomes observable.
 generating the models in nuCAMB and in the N-Body simulation}
 
 \begin{table}[H]
+\tiny
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1105,15 +1121,18 @@ input $\hat{r}_{\nu eV}$ factor  & 1.5045  & 1.5045  & 2.3508  & 0.5642  & 1.191
 \hline 
 $V_{i}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$\tabularnewline
 \hline 
-\end{tabular}\protect\protect\protect\caption{\label{tab:CAMB-inipars-1} Table of initial parameters for each model
+\end{tabular}
+\small
+\protect\protect\protect\caption[Table of initial values for nuCAMB used in GNQ simulations.]{\label{tab:CAMB-inipars-1} Table of initial parameters for each model
 computed with nuCAMB. $\tilde{m}_{\nu}$ is the neutrino mass amplitude
 used in the simulations, $\hat{r}_{\nu eV}$ is the neutrino mass
 units conversion factor between the simulations and nuCAMB. $V_{i}$
 is the initial value of the cosmon potential. }
 \end{table}
-
+\normalsize
 
 \begin{table}[H]
+\tiny
 \centering{}%
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -1130,7 +1149,10 @@ $N_{p\nu}$  & 524288  & Number of neutrino particles in the simulation\tabularne
 \hline 
 $\mbox{ngs}_{\mbox{acc}}$  & $1.0\times10^{-5}$  & Numerical accuracy for the NGS solver\tabularnewline
 \hline 
-\end{tabular}\protect\protect\protect\caption{\label{tab:Nbody-inipars-1-1} Table of numerical parameters for each
+\end{tabular}
+\small
+\protect\protect\protect\caption[Table of numerical parameters for each
+N-body simulation run in GNQ.]{\label{tab:Nbody-inipars-1-1} Table of numerical parameters for each
 N-body simulation run. Several tests were performed varying these
 parameters, but the overall behavior for the purposes of this paper
 was the same. We also tested model M2 with grid sizes of 128 and 8
@@ -1139,7 +1161,7 @@ in the dynamics. Only deviations of the order of 10\% in perturbation
 quantities were observed when varying the grid size or the number
 of particles.}
 \end{table}
-
+\normalsize
 
 
 \section{The effective and observed equation of state of dark energy\label{sec:The-effective-W}}
@@ -1217,7 +1239,11 @@ simulation. In the former case, numerical noise in the derivatives
 of $E(z)$ create certain scatter in $w_{DE}(z)$ at late times.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.85\textwidth]{Chapters/gnq/figures/wDEmeasured-nuphi-modelM1}\protect\protect\protect\caption{\label{fig:Wnuphi-Wde-model2} Different $w(z)$ curves in the case
+\centering{}
+\includegraphics[width=0.85\textwidth]{Chapters/gnq/figures/wDEmeasured-nuphi-modelM1}
+\protect\protect\protect\caption[Different $w(z)$ curves in the case
+of model M1 computed with the N-body simulation and compared to linear
+theory in GNQ.]{\label{fig:Wnuphi-Wde-model2} Different $w(z)$ curves in the case
 of model M1 computed with the N-body simulation and compared to linear
 theory. The red dashed lines represent $w_{DE}$ computed from the
 Hubble function which is an output of the linear code nuCAMB. The
