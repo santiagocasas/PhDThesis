@@ -197,6 +197,73 @@ corresponding valuem for the reference $\Lambda$CDM cosmology.}
 
 \section{The CoDECS simulations}
 
+The \noun{\small{}{}CoDECS}{\small{} suite}%
+\footnote{see also the public {\small{}{}{}{}{}{}{}{}{}CoDECS} database
+at www.marcobaldi.it/CoDECS/%
+}{\small{} includes simulated periodic volumes of the universe at different
+scales and with different physical ingredients (as e.g. simulations
+with and without hydrodynamics) in the context of a series of coupled
+DE cosmologies characterised by various choices of the self-interaction
+potential $V(\phi)$ and of the coupling functions $\beta(\phi)$.
+The simulations have been performed with a suitably modified version
+(see \citep{baldi_codecs_2012} for more details on the numerical
+implementation) of the widely-used TreePM N-body code }\noun{\small{}{}GADGET}{\small{}
+\citep{springel_cosmological_2005}. Such modified version includes
+all the relevant effects that characterise coupled DE cosmologies,
+from the modified background evolution to the CDM particle mass variation,
+the ``fifth-force\textquotedbl{} and the velocity-dependent acceleration
+appearing in equation (\ref{linear_cdm}).}{\small \par}
+
+As already stated above, in this work we will consider -- besides
+the reference $\Lambda$CDM simulation -- the subset of \noun{\small{}{}CoDECS}{\small{}
+runs characterised by an exponential potential and by a constant coupling
+function. This consists of three different coupled DE models with
+the same potential slope $\alpha$ and with three values of the coupling
+$\beta=\left\{ 0.05\,,0,1\,,0.15\right\} $. The short names for these
+simulations are respectively EXP001, EXP002 and EXP003. All the models
+have been built in order to have the same cosmological parameters
+at $z=0$ consistent with the WMAP7 results \citep{komatsu_seven-year_2010},
+see Table \ref{tab:ParametersWMAP7}, with the obvious exception of
+the value of the equation of state parameter $w_{0}$, that changes
+from model to model due to the different dynamics of the DE scalar
+field. The present observational constraints on the cosmological parameters
+have only slightly changed with the latest updated release of Planck
+data \citep{Planck:2015xua} with respect to the assumed WMAP7 values,
+and are still good enough for the purposes of this paper, being in
+good agreement with large scale structure observations. For what concerns
+linear perturbations, all cosmologies have been normalised to have
+the same statistics (i.e. the same power spectrum shape and amplitude)
+of density fluctuations at the redshift of the Cosmic Microwave Background
+$z_{{\rm CMB}}\approx1100$. As a consequence of this choice and of
+the different growth associated with the various coupling values,
+all the models will have a different normalisation $\sigma_{8}$ of
+the linear perturbations amplitude at $z=0$. The main features of
+these models are summarised in Table \ref{tab:models}. We refer to
+\citep{baldi_codecs_2012} for further details.}{\small \par}
+
+For the purposes of the present work, we will employ the matter power
+spectra extracted from the CoDECS runs of these cosmologies at different
+redshifts in order to find a fitting formula that captures with high
+accuracy the deviations of the coupled DE nonlinear power spectra
+from the reference $\Lambda$CDM case.
+
+\begin{table}
+\centering{}%
+\begin{tabular}{cc}
+\textbf{Parameter}  & \textbf{Value} \tabularnewline
+\hline 
+$H_{0}$  & $70.3\,\mbox{km}\mbox{s}^{-1}\mbox{Mpc}^{-1}$ \tabularnewline
+$\Omega_{CDM}$  & $0.226$ \tabularnewline
+$\Omega_{DE}$  & $0.729$ \tabularnewline
+$\mathcal{A}_{s}$  & $2.42\times10^{-9}$ \tabularnewline
+$\Omega_{b}$  & $0.0451$ \tabularnewline
+$n_{s}$  & $0.966$ \tabularnewline
+\hline 
+\end{tabular}\protect\protect\caption{ \label{tab:ParametersWMAP7}The set of cosmological parameters used
+in all CoDECS simulations, consistent with the WMAP7 results.}
+\end{table}
+
+
 
 
 
@@ -205,91 +272,345 @@ corresponding valuem for the reference $\Lambda$CDM cosmology.}
 scales}
 
 
+The power spectrum $P(k)$, is defined as the ensemble average of
+the density contrast in Fourier space $\left\langle \delta(k)\delta(k')\right\rangle \equiv(2\pi)^{3}P(k)\delta_{D}(k+k')$.
+When trying to extract this quantity from an N-body simulation, one
+has to take into account several technicalities related to \emph{sampling}
+effects which appear as a consequence of treating a \emph{discrete
+}distribution of particles. For more details related to this problem
+and different solution methods, see \citep{cui_ideal_2008}.
+
+At large scales (or equivalently small $k$) the power spectrum suffers
+from uncertainties due to the finite size of the simulation box, since
+there are only few independent modes to sample the signal from. On
+the other hand, at high $k$, one is limited by the resolution of
+the simulation, since one cannot sample wave modes smaller than the
+typical grid size $L/N$ where $L$ is the length of one side of the
+simulation box and $N$ is the number of particles. This maximum frequency
+is called the Nyquist frequency $k_{Ny}\equiv2\pi N/L$ and modes
+smaller than this \textcolor{black}{cannot be reliably measured} (this
+corresponds to the so-called aliasing effect). For the CoDECS simulations
+used in this work, the Nyquist frequency has the value $k_{Ny}\approx2.2$
+$\mbox{h}/\mbox{Mpc}$ at present time.
+
+The power spectrum computation embedded in \noun{\small{}{}GADGET-3}{\small{}
+that was adopted in the }\noun{\small{}{}CoDECS}{\small{} simulations
+employs the so-called folding method developed by \cite{colombi_accurate_2009}
+-- which is based on \cite{jenkins_galaxy_1999} -- to calculate the
+matter power spectrum for smaller scales than the Nyquist frequency.
+Following this method one ends up with two separate power spectra,
+$P_{top}$ which is calculated using the simulation particle mesh
+(PM) at $k\lesssim k_{Ny}$ and $P_{fold}$ which is the folded power
+valid for $k\gtrsim k_{Ny}$. In order to provide a single sampling
+of the power spectrum across $k_{Ny}$ the {}{}CoDECS} project employed
+a simple interpolation procedure around $k_{Ny}$ by averaging the
+two power spectra in the region of overlap. However, this might introduce
+some spurious features that appear only when considering the ratio
+of two power spectra $P(k)$ at highly non-linear scales. Although
+such features are harmless for most practical purposes, for the aims
+of the present work it is very important to have accurate ratios of
+power spectra, since we want to calculate fitting functions that can
+capture the effect of the dark energy - dark matter coupling compared
+to $\lcdm$ and therefore we need to correct for these spurious effects.
+
+We then developed a \noun{Python} code that finds the optimal interpolation
+and matching between the $P_{top}$ and $P_{fold}$ power spectra.
+By evaluating the first and second derivatives of the ratios and minimizing
+abrupt changes, it finds the optimal number of points to be removed
+from $P_{top}$ due to the aliasing error and the number of points
+to be removed from the $P_{fold}$ due to the low sampling error;
+at the same time it looks for the optimal linear interpolation weights
+between them. Moreover, it cuts off the power spectrum when the shot
+noise error ($P_{shot}=1/N$) reaches 10\% of the estimated power
+spectrum. This method improves considerably the convergence of the
+fitting functions at non-linear scales, allowing us to reach our accuracy
+goal of 1-2\% (see section \ref{sec:Fitting-functions} on fitting
+functions). In figure (\ref{fig:Error-sources}), the uncertainties
+on $P(k)$ are plotted, and the shaded region represents the error
+on the power spectrum due to the finite number of modes available.
+The clear jump present in this shaded region occurs at the scale in
+which the folded and top level power spectra have been matched together,
+which corresponds roughly to $k_{Ny}$.
+
+
+
 
 \section{Fitting functions\label{sec:Fitting-functions}}
 
-
-
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z000}
+\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z055}\\
+\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z100}
+\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z161} 
+\par\end{centering}
+\caption[Ratios to $\lcdm$ of the non-linear matter power spectra in the \noun{CoDECS} simulations]
+{Ratios of the non-linear matter power spectra of the \noun{CoDECS}
+CDE models with an exponential potential, with respect to the \noun{CoDECS}
+$\protect\lcdm$ power spectra, normalized by their respective $\sigma_{8}^{2}$,
+evaluated at four different redshifts and three different coupling
+constants $\beta$. Upper left panel: $z=0$, upper right panel: $z=0.55$,
+lower left panel: $z=1.0$, lower right panel: $z=1.61$. The blue
+line represents the model with strongest coupling \textbf{$\beta=0.15$},
+the yellow line $\beta=0.10$ and the red line the smallest available
+coupling $\beta=0.05$. In order to be able to observe the net effect
+of the $\beta$ coupling at non-linear scales we have divided each
+power spectrum by its respective $\sigma_{8}^{2}$.}
+\label{fig:Ratio-of-CoDECS} 
+\end{figure}
 
 \subsection{The net effect of the DM-DE coupling at non-linear scales}
 
+We now model the net effect of a coupled DE model with an exponential
+potential and a constant coupling on top of a fiducial $\Lambda$CDM
+non-linear power spectrum, by evaluating the ratio of the non-linear
+power spectrum of the coupled DE model, with respect to the one in
+the $\Lambda$CDM model, both extracted from the CoDECS simulations.
+In figure (\ref{fig:Ratio-of-CoDECS}) we show the ratio $R(k;\beta,z)\equiv P_{Exp}(k;\beta,z)/P_{LCDM}(k;\beta,z)$
+as a function of the scale k, for four different redshifts $z=\{0,\,0.55,\,1.0,\,1.61\}$;
+each panel contains the curves corresponding to the three available
+constant couplings in the CoDECS simulations: \textbf{$\beta=\{0.05,\,0.10,\,0.15\}$}.
+Since all coupled DE models have the same amplitude of perturbations
+at recombination, an increasing coupling has the effect of inducing
+a higher linear normalization $\sigma_{8}$ of the power spectrum
+at $z=0$ \citep{baldi_codecs_2012}. Therefore, in order to see the
+net effect of the coupling at non-linear scales, each power spectrum
+ratio has been re-normalized by dividing each model by its respective
+$\sigma_{8}^{2}$, so that at linear scales $k\lesssim0.1\mbox{h}/\mbox{Mpc}$
+all the ratios are unity. The net effect of the fifth force is a ``bump''
+at non-linear scales, whose amplitude increases with higher couplings
+and whose maximum is shifted into higher wavenumbers $k$ for higher
+redshifts. This extra information imprinted into the non-linear power
+spectrum is what we want to use to improve the estimation of parameters
+using future surveys. To achieve this, we will fit these curves which
+are functions of redshift, physical scale and coupling, using the
+minimal number of numerical parameters possible, while keeping the
+accuracy goal at the 1\% level.
 
 
 \subsection{Generating the fitting functions}
+
+The fact that one can observe a clear trend that relates the amplitude
+of the signal to an increase of the coupling, together with a shift
+of the peak towards larger length scales when looking at smaller redshifts,
+is an indication that we should be able to find a relatively simple
+fitting formula describing this behaviour, which will be then a function
+of $z$, $k$ and the coupling constant $\beta$ only.
+
+To perform the fit, we use a least-squares-minimizing technique, using
+the conjugate gradient method \cite{weisstein_least_????}. Taking
+into account the particular form in $k$-space of the ratios $R(k;\beta,z)\equiv P_{EXP}(k;\beta,z)/P_{LCDM}(k;\beta,z)$
+that we need to fit, we use as an Ansatz different sigmoid functions
+to reproduce the particular form of the peak. For each fitting model,
+we keep the same functional form for the $k$-dependence of $R(k;\beta,z)$
+at all redshifts and for all couplings. We tried 7 different sigmoid
+functions as fitting models, but we only show the best two models
+M2 and M7 in table \ref{tab:Fitting-models}. All models contain 5
+coefficients, which are dependent on the coupling $\beta$ and the
+redshift $z$: ($a_{i}=a_{0},\, a_{1},\, c,\, b,\, k_{0}$, with $i=0,...,5$).
+The coefficients $k_{0}$ and $b$ determine qualitatively the form
+of the peak to be fitted, while the others control mostly the shifting
+and the flattening of the peak.
+
+Each coefficient $a_{i}$ is then fitted using a polynomial in $\beta$
+and $z$, up to a maximum of third order in powers of $\beta$ and
+$z$. Polynomials of order 4 and 5 were also examined, but the gain
+in goodness of fit was minimal compared to the increase in the number
+of free parameters. Therefore, third order polynomials were the best
+compromise between complexity and goodness of fit.
+
+The best fitting models were chosen according to their coefficient
+of determination (also known as $\mbox{R}^{2}$-value), which is a
+statistical measure for the goodness-of-fit \textcolor{green}{\cite{weisstein_correlation_????}}.
+It can be simply defined as $R^{2}=1-S_{res}/S_{tot}$, where $S_{res}$
+is the residual sum of squares (the residual between the data points
+and the fitting function) and $S_{tot}$, which is the total sum of
+squares and is proportional to the variance of the data. An $\mbox{R}^{2}$-value
+of 1 corresponds to a perfect fit. The analytical expressions for
+the best models M2 and M7 are shown in table \ref{tab:Fitting-models},
+together with \textcolor{black}{their} $\mbox{R}^{2}$-value. We performed
+the whole Fisher analysis (see section \ref{sec:Fisher-Matrix-method}
+below), for both of the models and the results on the parameter estimation
+are basically the same (less than half of a percent relative difference
+in the estimated final errors).
+
+\begin{table}
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Model Name  & Functional form  & \# of coefficients  & $\mbox{R}^{2}$-value\tabularnewline
+\hline 
+\hline 
+M2  & $f(k)=1+a_{0}+a_{1}\cdot k+c\cdot k\cdot\arctan((k-k_{0})\cdot b)$  & 5  & 0.99996\tabularnewline
+\hline 
+M7  & $f(k)=1+a_{0}+a_{1}\cdot k+c\cdot k\cdot\frac{b\cdot(k-k_{0})}{\sqrt{1+b^{2}\cdot(k-k_{0})^{2}}}$  & 5  & 0.999989\tabularnewline
+\hline 
+\end{tabular}\protect\protect\protect\caption{\label{tab:Fitting-models}Fitting models M2 and M7 with their corresponding
+number of fitting coefficients and their R$^{2}$-value. Each coefficient
+$a_{0}$, $a_{1}$, $c$, \textbf{$b$} and $k_{0}$ is fitted as
+a polynomial in the coupling parameter $\beta$ and the redshift $z$
+(see Appendix \ref{sec:AppendixA} for further details). The R$^{2}$-value
+is a measure of the goodness of fit: a value of 1 corresponds to a
+perfect fit, while 0 means that the model does not fit the data.}
+ 
+\end{table}
 
 
 
 \subsection{Fitting functions and cosmological parameters\label{sub:Fitt-and-nonlinear-cosmo-pars}}
 
-
+In order to use the fitting formulae obtained before to forecast cosmological
+parameters of the model, we need to assume that the shape of the non-linear
+coupled DE signal does not change dramatically if the other cosmological
+parameters, apart from $\beta$ and $\sigma_{8}$, are modified by
+small amounts. This is justified since in the deeply non-linear regime,
+the evolution of perturbations is ruled by mode-mode coupling between
+high $k$ wavevectors (non-linear $k$ modes are not independent of
+each other anymore), which erases most of the information about initial
+conditions and makes the shape of the non-linear power spectrum at
+large $k$ practically independent of cosmological background parameters,
+such as $n_{s}$, $\Omega_{b}$ and $h$. This has been shown to be
+the case when calculating perturbatively non-linear corrections to
+the power spectrum, see for example \citep{crocce_memory_2006,pietroni_coarse-grained_2011},
+but also analyzing the covariance matrix of non-linear power spectra
+using a large suite of N-body simulations as was investigated in \citep{takahashi_non-gaussian_2011}.
+Furthermore, the decoupling of virialized structures in the small
+scale regime from the background dynamics of the universe, is one
+of the cornerstones of the recently developed effective field theory
+of large-scale structure \cite{baumann_cosmological_2012-2} and was
+also shown to be approximately true using a coarse grained cosmological
+perturbation approach \cite{manzotti2014acoarse}. Since $\beta$
+and $\sigma_{8}$ are quantities that affect directly the linear perturbations
+and the virialization dynamics and we are only looking at a particular
+signal at very small scales, they should be the main parameters determining
+the shape of the non-linear ``bump''. An investigation of how robust
+these fitting formulas are, with respect to a change of cosmological
+parameters, would need either more high-resolution N-body simulation
+for coupled DE scenarios or the development of a consistent perturbation
+theory for modified gravity and scalar-tensor theories that reaches
+highly non-linear scales.
 
 
 \section{Non-linear power spectrum and error estimation\label{sec:Errors-sources}}
 
+The accuracy of the fitting functions when compared to the original
+N-body simulation power spectra is shown in figure \ref{fig:Error-contour-plot},
+where the absolute value of the percentage error between fitting function
+and the original power spectra is plotted as a function of redshift
+and scale. In this case we show that for the model M7 the error remains
+well below 1\% for a coupling constant of $\beta=0.05$ and for the
+scales and redshifts we are interested in. For higher couplings the
+error goes up to a maximum of 1.5\%. For the model M2 the same test
+gives similar results, yielding <1\% error in all interesting scales
+and redshifts. We can then expect that when applying these fitting
+functions on top of $\Lambda$CDM power spectra, the intrinsic error
+is less than 1\% and the extra sources of error are all given by the
+N-body simulation spectra and by the estimators of the non-linear
+$\Lambda$CDM power spectrum.
+
+\begin{figure}
+\centering{}\includegraphics[width=0.45\textwidth]{Chapters/fitting-funcs/figures/FinalContourM7beta5}\includegraphics[width=0.45\textwidth]{Chapters/fitting-funcs/figures/FinalContourM2beta5}
+\caption[Error contour plot for two distinct fitting models in CDE.]{\label{fig:Error-contour-plot}Error contour plot for the fitting
+functions of model M7 (left) and M2 (right) applied compared directly
+to the N-body simulations. We show that for the smallest coupling
+constant available in the simulations, $\beta=0.05$, the error remains
+below 1\% for the scales and redshifts we are interested in.}
+\end{figure}
+
+
+\begin{figure}
+\centering{}\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/emulatorHalofitNbodyPkErrors-v7}\protect\protect\caption[Relative error of the fitting
+functions Halofit and CosmicEmulator
+with respect to the CoDECS $\lcdm$ N-body power spectra.]{\label{fig:Error-comp-Halofit-CosmicEmu} Relative error of the fitting
+functions Halofit (green) and CosmicEmulator (orange) (FrankenEmu)
+with respect to the CoDECS $\protect\lcdm$ N-body power spectra at
+two different redshifts (solid lines: $z=0$, dashed lines: $z=1.6$).
+While the relative error with respect to the CosmicEmulator remains
+below the 5\% limit (horizontal red dashed line) for all interesting
+$k$-values, the error compared to Halofit is already bigger than
+10\% for $k \gtrsim 0.5$h/Mpc. Both the error of our simulation with
+respect to Halofit and to the CosmicEmulator increase as a function
+of redshift. The change of trend after the Nyquist frequency (marked
+with the vertical grey line) can be attributed to the use of the folding
+method for the CoDECS nonlinear power spectra.}
+\end{figure}
+
+
+Since the fitting functions shown in the previous section are useful
+when applied on top of a $\Lambda$CDM non-linear power spectrum,
+we need to choose an estimator for the non-linear $\Lambda$CDM $P(k)$.
+Our tests show that \emph{FrankenEmu }\citep{heitmann_coyote_2014}\emph{,}
+an improved version of the original Coyote Cosmic Emulator, performs
+better than the revised version of Halofit by \citep{takahashi_revising_2012},
+which is included in recent versions of CAMB \citep{lewis_efficient_1999}.
+While at $z=0$ both estimators work similarly well with an accuracy
+at the 5\% level in the BAO range, Halofit performs much worse with
+increasing redshift and increasing $k$, as illustrated in figure
+\ref{fig:Error-comp-Halofit-CosmicEmu}. At $z=0$ the Cosmic Emulator
+shows a flat error curve for all scales up to the Nyquist frequency,
+below the error estimated for Halofit. A comparison between power
+spectrum estimators and N-body simulations has been performed also
+in \citep{fosalba_mice_2013}, where they found similar results: Halofit
+and the Cosmic Emulator perform similarly in the BAO range, but the
+errors introduced by Halofit is above the 10\% level at scales of
+around $k\approx1\mbox{Mpc}/h$ and $z \gtrsim 1$. Therefore, we use
+the \emph{FrankenEmu} as the preferred $\Lambda$CDM non-linear power
+spectrum estimator for our forecasting purposes. They claim to be
+accurate at the 1-3\% percent level around the scales of interest
+and they have performed very careful resolution tests using hundreds
+of realizations. 
+
+\begin{figure}
+\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/allNbodyCosmicEmuFit-Errors-v8-Saveas}
+\protect\caption[Sources of errors affecting the power spectrum from a CoDECS simulation.]{\label{fig:Error-sources}Different sources of error affecting the
+nonlinear power spectrum. Each source of error is shown at two different
+redshifts, $z=0$ and $z=1.6$. The sample variance error (red solid
+line and blue solid line, together with their shaded regions) corresponds
+to the error induced by the limited number of available $k$-modes
+when extracting the power spectrum; it has a sharp increase at the
+Nyquist frequency, since there the folded mesh has fewer modes available
+than the top level mesh, see section \ref{sec:Folding-method} for
+more details. The fitting error (green and orange dashed lines) corresponds
+to the intrinsic error of the fitting functions with respect to an
+N-body simulation using the same parameters, calculated in section
+\ref{sec:Fitting-functions}. The emulator error (green and purple
+thick lines) is the error of the Cosmic Emulator compared to a $\protect\lcdm$
+N-body simulation from CoDECS (these two lines correspond to the orange
+lines of figure \ref{fig:Error-comp-Halofit-CosmicEmu}). The relative
+error increases with redshift and scale and reaches more than 15\%
+at the Nyquist frequency for the highest redshift. The vertical grey-dashed
+lines mark the scales $k_{Ny}/2$ and $k_{Ny}$. }
+\end{figure}
+
+
+Another source of error is the sample variance error of the power
+spectrum when extracted from the N-body simulation. This depends on
+the number on the number $n_{mod}$ of independent modes available
+at each wavevector bin in $k$ and its given by \cite{feldman_power_1994}:
+$\sigma_{P}=\sqrt{\frac{2}{n_{mod}}}P(k)$. In figure \ref{fig:Error-sources}
+it can be seen as a blue shaded region marked by a red and blue solid
+line. For large scales this error is considerable, but there one usually
+uses just linear power spectra computed by Boltzmann codes, like CAMB
+or CLASS. At $k=0.1h/\mbox{Mpc}$ the binning error is at the percent
+level and decreases rapidly to negligible values, but then it increases
+again quickly at $k\sim2h/\mbox{Mpc}$ since there the folded mesh
+for the power spectrum has again only few modes to sample from, as
+explained in section \ref{sec:Folding-method}.
+
+The intrinsic error of the fitting function is shown in figure \ref{fig:Error-sources}
+as a dashed green line and it remains well below the 1\% level at
+all the scales of interest.
+
+We include all errors discussed here in our Fisher forecast analysis.
+It turns out that they do not affect considerably the results for
+a survey like Euclid, which will measure such a high number of galaxies,
+that the sampling of the clustering signal will be not affected by
+small sources of noise in the data.
 
 
 
-\section{\label{sec:Fisher-Matrix-method}Fisher Matrix method}
-
-The Fisher matrix formalism (\cite{tegmark_measuring_1998,seo2007improved,seo2005baryonic})
-is one of the most popular tools to forecast the outcome of an experiment,
-because of its speed and its versatility when the likelihood is approximately
-Gaussian (see \cite{sellentin_breaking_2014} for a method on how
-to improve this approximation). Here we apply the Fisher matrix formalism
-to two different probes, galaxy Clustering (GC) and weak lensing (WL),
-which are the ones that a future satellite like Euclid \cite{amendola_cosmology_2012-short}
-will carry on board.
 
 
-\subsection{Galaxy Clustering}
-
-The Fisher matrix for the galaxy power spectrum has the following
-form \citep{seo2007improved, amendola2012testing}:
-
-\begin{equation}
-F_{ij}=\frac{V_{survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{min}}^{k_{max}}\mbox{d}k\, k^{2}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)P_{obs}(k,\mu,z)}{n(z)P_{obs}(k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
-\end{equation}
-
-
-Here $V_{survey}$ is the volume covered by the survey and contained
-in a redshift slice $\Delta z$, $n(z)$ is the galaxy number density
-as a function of redshift, $P_{obs}(k,\mu,z)$ is the observed power
-spectrum as a function of the redshift $z$, the wavenumber $k$ and
-of $\mu\equiv\cos\alpha$, where $\alpha$ is the angle between the
-line of sight and the 3D-wavevector $\vec{k}$.
-
-The derivatives in eq. (\ref{eq:fisher-matrix-gc}) are taken with
-respect to a vector of cosmological parameters, $\theta_{i}=\{\beta^{2},\, h,\,\log\mathcal{A}_{s},\, n_{s},\,\omega_{c},\,\omega_{b},\, b(z)\}$,
-where $b(z)$ is the galaxy bias. When we perform the numerical derivatives
-of $P_{obs}(k,\mu,z)$, we have to take into account that not only
-the power spectrum and the background functions change, when the cosmological
-parameters are modified, but also $\mu$ and $k$ are changed by a
-geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
-Alcock-Paczinsky effect \citep{alcock1979anevolution}.
-
-The observed power spectrum contains all the cosmological information
-about the background and the matter perturbations as well as corrections
-due to redshift-space distortions and observational uncertainties.
-In this work we write it in the following form:
-
-\begin{equation}
-P_{obs}(k,\mu,z)=\frac{D_{A,f}^{2}(z)H(z)}{D_{A}^{2}(z)H_{f}(z)}b^{2}(z)(1+\beta_{d}(z)\mu^{2})^{2}e^{-k^{2}\mu^{2}(\sigma_{r}^{2}+\sigma_{v}^{2})}P(k,z)\label{eq:observed-Pk}
-\end{equation}
-
-
-In the above formula, the subscript $f$ denotes the fiducial value
-of each quantity, $P(k,z)$ is the matter power spectrum, $D_{A}(z)$
-is the angular diameter distance, $H(z)$ the Hubble function and
-$\beta_{d}(z)$ is the redshift space distortion factor, which in
-linear theory is given by $\beta_{d}(z)=f(z)/b(z)$, with $f(z)\equiv d\ln G/d\ln a$
-representing the linear growth rate of matter perturbations. The exponential
-factor represents the damping of the observed power spectrum, due
-to two different effects: $\sigma_{z}$ an error induced by spectroscopic
-redshift measurement errors, which translates into a damping scale
-$\sigma_{r}=\sigma_{z}/H(z)$ and $\sigma_{v}$ which is the dispersion
-of pairwise peculiar velocities which are present at non-linear scales
-and also introduce a damping scale in the mapping between real and
-redshift space.
 
 
 \subsubsection{Including sources of error in the Fisher formalism\label{sub:Including-sources-of}}
@@ -500,58 +821,7 @@ $P(k)$ at the Nyquist frequency (see e.g. \cite{colombi_accurate_2009,Fosalba201
 for similar prescriptions on where to cut the non-linear power spectrum)\textcolor{black}{.}
 
 
-\subsection{Weak Lensing \label{sub:Weak-Lensing}}
 
-For the weak lensing power spectrum the Fisher matrix is just a sum
-over all possible correlations at different redshift bins \citep{tegmark_measuring_1998},
-namely :
-
-\begin{equation}
-F_{\alpha\beta}=f_{sky}\sum_{\ell}^{\ell_{max}}\sum_{i,j,k,m}\frac{(2\ell+1)\Delta\ell}{2}\frac{\partial P_{ij}(\ell)}{\partial\theta_{\alpha}}C_{jk}^{-1}\frac{\partial P_{km}(\ell)}{\partial\theta_{\beta}}C_{mi}^{-1}\label{eq:FisherSum-WL}
-\end{equation}
-With the power spectrum of the shear field given by:
-
-\begin{equation}
-P_{ij}(\ell)=\frac{9}{4}\int_{0}^{\infty}\mbox{d}z\:\frac{W_{i}(z)W_{j}(z)H^{3}(z)\Omega_{m}^{2}(z)}{(1+z)^{4}}P_{m}(\ell/r(z))
-\end{equation}
-where $P_{m}$ is the matter power spectrum discussed above, the indices
-$i,\: j$ stand for each of the $\mathcal{N}$ redshift bins and the
-window functions are given by:
-
-\begin{equation}
-W(z)=\int_{z}^{\infty}\mbox{d}\tilde{z}\left(1-\frac{r(z)}{r(\tilde{z})}\right)n(\tilde{z})
-\end{equation}
-where the normalized galaxy distribution function is:
-
-\begin{equation}
-n(z)=z^{2}\exp\left(-(z/z_{0})^{3/2}\right)\label{eq:ngal dist}
-\end{equation}
-Here the median redshift and $z_{0}$ are related by $z_{med}\approx1.412z_{0}$.
-The corresponding covariance matrix has the following form:
-
-\begin{equation}
-C_{ij}(\ell)=P_{ij}(\ell)+\delta_{ij}\gamma_{int}^{2}n_{i}^{-1}+K_{ij}(\ell)
-\end{equation}
-where $\gamma_{int}$ is the intrinsic galaxy ellipticity and the
-shot noise term contains
-
-\begin{equation}
-n_{i}=3600\left(\frac{180}{\pi}\right)^{2}n_{\theta}/\mathcal{N}
-\end{equation}
-with $n_{\theta}$ the total number of galaxies per arcmin\texttwosuperior{}
-assuming that the redshift bins have been chosen such that each contain
-the same amount of galaxies (equi-populated bins). The matrix $K_{ij}(\ell)$
-is a diagonal ``cutoff'' matrix whose entries increase to very high
-values at the scales where the power spectrum $P(k)$ has to be cut
-to avoid the inclusion of numerical noise errors. Since $K_{ij}(\ell)$
-depends on the multipole $\ell$, which itself depends on $k$ and
-$z$ through: $\ell=k\, r(z)$, each of the entries $K_{ii}$ increase
-with the multipole in a different way. For our purposes we chose a
-very sharp cutoff, such that multipoles containing wavenumbers $k$
-beyond the Nyquist frequency (or half of the Nyquist frequency, for
-our reference case) at the center of the redshift bin $i$, do not
-contribute to the Fisher matrix at all after the corresponding $\ell_{cut}$
-(specified in table \ref{tab:WL-zbins-specs} below).
 
 
 \subsection{Adding non-linear corrections to the power spectrum\label{sub:Adding-non-linear-corrections}}
