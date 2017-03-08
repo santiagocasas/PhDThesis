@@ -810,4 +810,245 @@ can be represented with particles
 \item Extraction of information: The power spectrum and Halo catalogs
 \end{itemize}
 
+
+
+As we have seen in the previous chapters, non-linear dynamics of gravitational
+interactions, are hard to treat analytically. If we want to study
+the growth of perturbations in the full non-linear regime, as well
+as in large scales and at galactic scales, we need to perform numerical
+simulations. Numerical N-body simulations have many advantages, as
+well as some drawbacks related to their specific practical implementation
+and we will try to explain here only some of their most fundamental
+properties. 
+
+%In this work we are using the CoDECS simulations, which are a modification
+%of the parallel Tree-PM N-body code of GADGET-2 (see \citet{baldi_hydrodynamical_2008,baldi_codecs_2011}).
+%In order to understand what this means and what its properties and
+%parameters are, it is necessary to explain some technical issues regarding
+%the computational techniques of current cosmological simulations.
+
+First we will review some general techniques to deal with great numbers
+of particles in gravitational interactions, then we will review some
+of the most important Dark Universe simulations and finally we will
+explain some technicalities regarding the extraction of the power
+spectrum from simulation data. 
+
+
+\section{Computational Techniques}
+
+To perform an exact evolution of the density fluctuations, beyond
+linear perturbations, the density field has to be represented by a
+set of fictitious discrete particles with a certain mass. These particles
+do not represent real galaxies or clusters of galaxies, they just
+sample the underlying density field. For current cosmological simulations,
+depending on the desired resolutions, the particle masses are around
+$m_{p}\approx10^{9}-10^{12}M_{\odot}$. (see \citet{kuhlen_numerical_2012})
+
+The equations of motion for each particle depend on solving for the
+gravitational field due to all the other particles, finding the change
+in particle positions and velocities over some small time step. Then
+particle positions and velocities have to be updated and the gravitational
+potentials have to be recalculated to start a new iteration. For cosmological
+simulations, where we suppose the Universe to be isotropic and homogeneous
+at large scales and described by a smooth FLRW metric, we use the
+fact that at smaller scales the Universe must tend to locally inertial
+frames where Newton's laws are valid. Therefore we can just use Newtonian
+dynamics and the expansion history of the Universe is taken into account
+by using comoving coordinates, where the expansion rate $a(t)$ is
+factored out (see \citet{peacock_cosmological_1999,dehnen_n-body_2011}).
+We then obtain for the comoving velocity $u$ the following equations:
+
+\begin{equation}
+\frac{d}{dt}\vec{u}=-2\frac{\dot{a}}{a}u-\frac{1}{a^{2}}\nabla\Phi
+\end{equation}
+
+
+where $\Phi$ is the Newtonian gravitational potential due to density
+perturbations. If we change the time variable from $t$ to $a$ we
+obtain:
+
+\begin{equation}
+\frac{d}{d\mbox{ln}a}(a^{2}\vec{u})=\frac{a}{H}\vec{g}=\frac{G}{aH}\sum_{i}m_{i}\frac{\vec{x_{i}}-\vec{x}}{\left|\vec{x_{i}}-\vec{x}\right|^{3}}
+\end{equation}
+
+
+We see that in order to get the gravitational acceleration for one
+single particle, we have to sum the contributions from all other particles,
+which leads to the exact solution, but it is computationally prohibitive
+for a large number of particles, since the number of needed computations
+grows as $\mathcal{O}(N^{2})$. 
+
+Since we have only finite resources for computation, we need to calculate
+the particles in a finite box of size $L$ and a finite number of
+particles $N$. In this case the walls of the box would break our
+desired homogeneity and isotropy, therefore we need to introduce periodic
+boundary conditions, such that the cubic box is actually a 3-torus,
+where the walls on opposite sides are identified. Then the gravitational
+potential can be described as (\citet{dehnen_n-body_2011}): 
+\begin{equation}
+\Phi(\mathbf{x},t)=-G\sum_{\mathbf{n}}\int d\mathbf{x}'\,\frac{\rho(\mathbf{x}'+\mathbf{n}L,t)}{\left|\mathbf{x-x}'-\mathbf{n}L\right|}
+\end{equation}
+
+
+where the sum is performed over $\mathbf{n}=(N_{x},\,N_{y},\,N_{z})$
+and accounts for all periodic replica. Usually all the $N_{i}$ are
+the same in all directions. Because of the fact, that performing an
+infinite sum of replicas is in practice not possible, the sum is approximated
+using Ewald's method (see \citet{ewald_berechnung_1921}), which was
+originally developed for periodic crystals in solid state physics
+and was first adapted to this field by \citet{hernquist_application_1991}.
+
+The gravitational Newtonian force has a singularity when two particles
+approach too close to each other, that is why a so-called softening
+term has to be added to the force equation in order to avoid unphysical
+accelerations during close encounters. The force can be modified for
+small distances to something like (see \citet{trenti_gravitational_2008}):
+\begin{equation}
+\vec{F_{i}}=-\sum_{j\neq i}Gm_{i}m_{j}\frac{\vec{x_{i}}-\vec{x_{j}}}{\left(\left|\vec{x_{i}}-\vec{x_{j}}\right|^{2}+\epsilon^{2}\right)^{3/2}}
+\end{equation}
+
+
+where $\epsilon>0$ is the softening or smoothing length, which is
+a typical size below which the gravitational interaction is suppressed.
+In current cosmological N-body simulations, the softening length is
+found to be: $1.0h^{-1}\mbox{kpc}\leq\epsilon\leq150h^{-1}\mbox{kpc}$,
+meaning that most of the simulations cannot resolve halos or subhalos
+of galaxies and can only focus on large scale structure formation.
+The choice of gravitational softening length is still a debate among
+the community, since making it to small increases computational effort
+(due to smaller time steps), but allows for more realistic gravitational
+potentials and on the other hand it introduces spurious two-body relaxation
+effects that can cause artificial fragmentation of structure (see
+\citet{kuhlen_numerical_2012} and references therein).
+
+Many alternatives to direct summation of forces, have been developed
+in the last 20 years, also using hybrid approaches. The most relevant
+ones for our purposes are the following (see reviews by \citet{trenti_gravitational_2008,dehnen_n-body_2011,kuhlen_numerical_2012}):
+\begin{itemize}
+\item \textbf{Particle Mesh PM: }Since the problem is to solve Poisson's
+equation, a faster approach is to use Fourier methods for discretized
+systems, such as the FFT (see \ref{sub:Fourier-Transform-Discr})
+ and solve directly for Poisson's equation in Fourier space: 
+\begin{equation}
+(\nabla\Phi)_{k}=-i\Phi_{k}\mathbf{k}=\frac{-i4\pi Ga^{2}\overline{\rho}}{k^{2}}\delta_{k}\mathbf{k}
+\end{equation}
+Then we can eliminate the matter density in terms of $\Omega_{m}$
+and for a given particle, the equation of motion would be: 
+\begin{equation}
+\frac{d}{d\mbox{ln}a}(a^{2}\mathbf{u})=\sum\mathbf{F}_{k}\mbox{exp}(-i\mathbf{k}\cdot\mathbf{x}),\qquad\mathbf{F}_{k}=-i\mathbf{k}\frac{\Omega_{m}Ha^{2}}{2k^{2}}\delta_{k}
+\end{equation}
+By interpolating the density field $\rho_{k}$ over a finite grid,
+one can solve Poisson's equation and then use the FFT again to calculate
+the forces and velocities on the particles. The complicated part of
+the algorithm is the assignement of the mass of the particles onto
+the grid cells and then interpolating back the evaluated force onto
+the particles, for consistency the same procedure has to be used for
+both these steps. Particles do not interact with each other but only
+through the mean field, which causes that the maximum force resolution
+to be limited to about the size of the mesh. The computational advantage
+of this method is that the number of computations is now of the order
+$\mathcal{O}(N_{g}log(N_{g}))$, for $N_{g}$ the number of grid cells.
+This is the scaling of the FFT method also (see \ref{sub:Fourier-Transform-Discr}).
+\item \textbf{Particle-particle-particle-mesh $\mathbf{P^{3}M}:$ }Since
+PM codes are gravitationally softened below the mesh size and the
+resolution is therefore low, this hybrid method uses a coarse grid
+to calculate forces at larger scales between distant cells and for
+particles in the same or neighbouring cell, a direct sumation between
+particles is performed, increasing the force resolution, but also
+in some way the computational time, if there is a strong clustering
+of particles.
+\item \textbf{Adaptive Mesh Refinement AMR: }The dynamic range of particle-mesh
+codes can be increased by using instead of a static grid, an adaptive
+one, which has more concentrated grid elements in the high density
+regions, where the forces are also more varying and stronger. This
+allows to truncate the error to the desired precision level by refining
+the mesh at specific points. The complicated part of this method is
+to match the solution at the grid interfaces, where they might change
+drastically. Since the force softening can change along a particle's
+orbit, this method can lead to an unphysical violation of energy conservation.
+To accelerate the calculation of an AMR code, one can evolve the particles
+asynchronously, leaving the particles in the coarse grid, while evolving
+with smaller time steps the ones in the finer grid and using the coarser
+grid potential as a boundary condition.
+\item \textbf{Tree Codes: }If close encounters are not important and the
+force contributions from distant particles do not have to be calculated
+at high accuracy, this method is well suited for cosmological simulations.
+The simulation box is split into eight cubic cells, containing a determined
+number of particles, each cubic cell containing fewer than $n_{max}$
+number of particles is split again into eight cubic child cells of
+half their parent's particle size. This results in a tree-like binary
+(oct) hierarchy of cubic nodes, containing the root box (that contains
+all $N$ particles) at his bottom. For each cubic cell, the total
+mass and center of mass is calculated and stored as an information
+on the node. Then at the moment of calculating the force acting on
+a particle at position $\vec{x}$, one just adds the contributions
+from different cells with center of mass $\vec{z_{a}}$, depending
+on some opening angle: $\mbox{sin}(\theta)=\left|\vec{x}-\vec{z}_{a}\right|/w_{a}$,
+where $w_{a}$ is the linear size of the box (this is the easiest
+approximation, for a formal derivation of the tree code, using taylor
+expansions and multipoles, see \citet{dehnen_n-body_2011}). If the
+opening angle is bigger than wanted, one applies the algorithm to
+the daughter cells. In this way one gets the contributions from all
+possible groups of particles. This method offers a computational time
+that scales like the depth of the tree, therefore being of order $\mathcal{O}(N\mbox{ln}(N))$,
+which is similar to the above mentioned methods. For nearby particles,
+a standard particle-particle interaction is calculated. The complicated
+aspect of the tree method is, among others, how to visit each cell
+only once, in a highly parallelizable way. Really efficient methods
+have been developed, using Peano-Hilbert curves, such as in the Gadget-2
+code, which is a Tree-PM code (\citet{springel_cosmological_2005}).
+A drawback of this method is that each interaction is only one-sided,
+meaning that the force of a single particle on the group of particles
+of a distant cell is not calculated and therefore Newton's third law
+is violated. This can lead to fluctuations in the total energy of
+the N-body system, but it has been shows that this spurious effects
+can be kept quite small (see \citet{dehnen_n-body_2011}). In \ref{fig:5.1}
+(top), the binary tree hierarchy of the simulation box can be seen
+and (bottom) a comparison between the computation of the force with
+direct sumation and the tree algorithm. The computational advantage
+of the tree algorithm can be really appreciated in this case.
+\item \textbf{Fast Multipole Methods FMM: }This modern method uses the fact
+that in a standard tree implementation, one does not take advantage
+of the fact that the force caused by distant cells will be the same
+for nearby particles. This method not only expands the distant source
+potentials into multipoles, but also expands the force at the sink
+position, leading to a gain in speed that is quite considerable, leading
+to computational efforts of order $\mathcal{O}(N)$. Since the interaction
+is approximated by cells at both ends of the interaction (each interaction
+is mutual), Newton's third law is respected and no spurious effects
+arise. At nearby distances a particle-particle method is employed
+as usual. The drawback of this method is that its parallelization
+is not so straighforward and has not been developed yet. For more
+references, check \citet{dehnen_n-body_2011}.
+\end{itemize}
+\begin{figure}[h]
+%\parbox[t]{1\columnwidth}{%
+%\noindent \begin{center}
+%\includegraphics[width=0.9\textwidth]{Figures/SpringelOctTree}
+%\par\end{center}%
+%}\vspace{0cm}
+%
+%
+%\parbox[t]{1\columnwidth}{%
+%\noindent \begin{center}
+%\includegraphics[width=0.9\textwidth]{Figures/TreeMethod}
+%\par\end{center}%
+}\caption[\textbf{Top}: Hierarchical structure of a Tree code, the fundamental
+box is divided into always smaller cells. Figure taken from: \citet{springel_cosmological_2005}.
+\textbf{Bottom}:Comparison between force calculation for 100 particles.
+Figure taken from: \citet{dehnen_n-body_2011}.]{\label{fig:5.1}\textbf{Top}: Hierarchical structure of a Tree code,
+the fundamental box is divided into always smaller cells. A Peano-Hilbert
+curve method (space filling curve) is used to visit all cells in parallel.
+Figure taken from: \citet{springel_cosmological_2005}. \textbf{Bottom}:
+Comparison between force calculation for 100 particles. Left: Each
+red curve represents a direct particle-particle interaction. Middle:
+The tree method, with its cells and groups of particles (green lines
+represent particle-cells interactions). Only 7 interactions are needed
+to compute total force. Right: Interactions needed to compute all
+the forces among particles, requiring 902 cell-particle interactions
+and 306 particle-particle interactions, instead of 4950 computations
+in the case of the direct summation. Figure taken from: \citet{dehnen_n-body_2011}.}
+\end{figure}
+
+
 \subsection{Fitting formulae and prescriptions}
