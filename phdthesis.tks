@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TexmakerSession quickmode="3">
-    <document master="true" bookmark1="0" bookmark2="0" bookmark3="0" hasfocus="true" file="/home/santiago/CosmoProjects/PhDThesis/main.tex" line="0"/>
-    <document master="false" bookmark1="0" bookmark2="0" bookmark3="0" hasfocus="false" file="/home/santiago/CosmoProjects/PhDThesis/Chapters/Chapter4.tex" line="42"/>
+    <document bookmark3="0" line="0" bookmark2="0" bookmark1="0" file="/home/santiago/CosmoProjects/PhDThesis/main.tex" master="true" hasfocus="true"/>
 </TexmakerSession>

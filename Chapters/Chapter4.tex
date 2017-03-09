@@ -196,7 +196,7 @@ with which accuracy a certain future experiment is going to be able to constrain
 a model. 
 This is where the Fisher formalism \cite{(cite Fisher, Tegmark, etc.)} enters.
 The Fisher matrix is defined as the expectation value of the \emph{curvature} of the log-likelihood:
-\begin{equation}
+\begin{equation}\label{eq:Fishermatrix-definition}
 F_{ij} = -\left< \frac{\partial^2 \Li(\bm{\theta})}{\partial \theta_i \theta_j} \right>
 \end{equation}
 
@@ -217,7 +217,46 @@ If the curvature is low, then the likelihood is very flat and the experiment is 
 space \footnote{The relation between information matrices and geometry is not only qualitative, it is a 
 formal field of study called Information Geometry \cite{cite Springer book}}.
 
-\subsection{The }
+\subsection{The Fisher matrix for a galaxy power spectrum}
+
+In order to understand better the following sections where we will talk about the 
+Fisher matrix of the galaxy clustering and weak lensing observables, let us specify the Fisher
+matrix defined in Eqn. \ref{eq:Fishermatrix-definition} in a more concrete way.
+In this section we follow closely the argumentations of \cite{cite Dodelson} and \cite{cite Amendola}.
+
+We are interested in finding the distribution of matter in the Universe, and as we have seen before,
+for large sufficient scales, the overdensity of matter at a specific scale $k$ is given by $\delta(k)$.
+For a galaxy survey, covering a volume $V(z+ \Delta z)$ in three-dimensional space and providing
+$m$ Fourier modes $k_i$ in a redshift bin $\Delta z$, 
+we can compute (the full details of the calculation can be found in \cite{cite Dodelson})
+that the data covariance matrix between mode $k_i$ and mode $k_j$ is given by:
+\begin{equation}
+V \langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \frac{\delta_{ij}}{V} \left( P(k_i) + \frac{1}{\bar n} \right)
+\end{equation}
+The data covariance $C_{k_{i} k_{j}}$ is always a sum of the signal covariance and the noise covariance, which 
+in this case is simply given by the Poisson noise of a discrete random distribution, where $\bar n$ is the 
+average number density of galaxies. Again, let us emphasize that we are at relatively large scales, where then
+we can take our data covariance matrix as being diagonal.
+If we now assume that the galaxy distribution is well approximated by a Gaussian distribution (and we 
+know it has to be since we are at linear and homogeneous scales), then we can
+write the likelihood function as:
+\inserteq{L=\frac{1}{(2\pi)^{m/2} \det (C_{k_{i} k_{j}}) } \exp \left[-\frac{1}{2}\sum_{i}^{m} 
+\frac{\delta^2_{k_i}}{C_{k_{i} k_{j}}} \right] }{eq:likelihood-Pofk}
+Then the log-likelihood can be written in the following way
+\beql{eq:loglik-Pk}
+\Li = -\ln L = \frac{m}{2} \ln(2\pi) + \sum_{i}^{m}\ln(C_{k_{i} k_{i}}) + \sum_{i}^{m}\frac{\delta^2_{k_i}}{2 C_{k_{i} k_{i}}}
+\eeqc
+where we have used the matrix identity: $\ln \det C = \mathrm{tr} \ln C$, which in this case is anyway trivial since $C$ is a diagonal matrix.
+Now, using definition \ref{eq:Fishermatrix-definition}, we can evaluate the expectation value of the 
+curvature of the log-likelihood (in model-parameter space $\theta_{\alpha}$):
+\beql{eq:Fisher-fromloglik}
+F_{\alpha \beta} = \sum_{i}^{m} \left[ \pardermix{\ln(C_{k_{i} k_{i}})}{\theta_{\alpha}}{\theta_{\beta}} + 
+\left\langle \delta^2_{k_i} \right\rangle \paralonemix{\theta_{\alpha}}{\theta_{\beta}}\left(\frac{1}{2  C_{k_{i} k_{i}}} \right) \right] 
+\eeqp
+The expectation value operator only affects the data $\delta^2_{k_i}$, because the data covariance matrix $C$ is 
+already itself formed by expectation values. On the other hand, the data $\delta^2_{k_i}$ cannot be affected by
+derivations with respect to the model parameters, because pure measurements should be by definition model independent.
+
 
 \subsubsection{The observed power spectrum}
 
