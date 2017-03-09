@@ -171,10 +171,7 @@ will have to face in the next decade.
 
 
 
-\section{The Fisher Matrix Code \comm{this one is ok but not a full manual}}
-\begin{itemize}
-\item This serves as a manual for the Fisher Tools code.
-\end{itemize}
+
 
 %\subsection{Methodology of Fisher forecasts}
 %\begin{itemize}
@@ -186,12 +183,41 @@ will have to face in the next decade.
 %\item Marginalization
 %\end{itemize}
 
-\section{Fisher Matrix formalism \comm{Please don't rewrite the text we had already in papers: You can cut/paste the fisher formalism from the last paper (including FoM, FoC) and put it here. Don't mix up the text, modify the text we already have as little as possible,}}
+\section{Fisher Matrix formalism}
 %\begin{itemize}
 %\item Approximation of the Gaussian likelihood at the minimum
 %\item Ellipses and confidence contours
 %\item Marginalization and maximation
 %\end{itemize}
+We have seen in the previous section, how the log-likelihood function $\Li$ is a powerful
+tool to estimate the probability distribution of model parameters, given some previously measured data.
+But what if we don't have data avilable yet? For example when we want to know 
+with which accuracy a certain future experiment is going to be able to constrain certain parameters of
+a model. 
+This is where the Fisher formalism \cite{(cite Fisher, Tegmark, etc.)} enters.
+The Fisher matrix is defined as the expectation value of the \emph{curvature} of the log-likelihood:
+\begin{equation}
+F_{ij} = -\left< \frac{\partial^2 \Li(\bm{\theta})}{\partial \theta_i \theta_j} \right>
+\end{equation}
+
+If we assume that the errors on the data measurements are Gaussianly distributed (where then we can write the likelihood as 
+$L = e^{-\chi^2 / 2}$) then we can also think of the Fisher matrix as a Taylor expansion of the log-likelihood around its maximum
+$\hat \theta$, where the $\chi^2$ is a minimum:
+\begin{equation}
+\Li(\theta) = \Li(\hat \theta) + (\theta - \hat \theta)\parder{\Li}{\theta} + 
+\frac{1}{2}(\theta - \hat \theta)^2 \pardersq{\Li}{\theta}
+\end{equation}
+The linear derivative term in the above equation vanishes, since we are expanding around the maximum and we are considering here 
+for simplicity just one parameter $\theta$, but the generalization to more parameters is straightforward.
+The fact that the Fisher matrix is related to the curvature of the log-likelihood around its maximum, tells us that the Fisher matrix 
+is an indication of how fast the likelihood changes around the peak \cite{cite Dodelson...}. 
+If the curvature is high, then the likelihood changes
+fast and the experiment is very constraining, allowing for just small changes of the parameters, before the likelihood becomes too small.
+If the curvature is low, then the likelihood is very flat and the experiment is not very constraining in parameter 
+space \footnote{The relation between information matrices and geometry is not only qualitative, it is a 
+formal field of study called Information Geometry \cite{cite Springer book}}.
+
+\subsection{The }
 
 \subsubsection{The observed power spectrum}
 
@@ -1061,7 +1087,10 @@ have better and faster semianalytic methods applicable to general
 models of dark energy, the estimation of systematic biases of extra
 parameters is an impossible task.
 
-
+\section{The Fisher Matrix Code \comm{this one is ok but not a full manual}}
+\begin{itemize}
+\item This serves as a manual for the Fisher Tools code.
+\end{itemize}
 
 \subsection{Validation of the code within the Euclid collaboration}
 \begin{itemize}
