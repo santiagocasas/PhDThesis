@@ -4,12 +4,163 @@
 
 %----------------------------------------------------------------------------------------
 
-\section{Correlation functions and the power spectrum}
-\begin{itemize}
-\item Gaussian random variables
-\item Statistical isotropy and homogeneity
-\item Correlation functions and power spectrum
-\end{itemize}
+\section{The relation between Gaussianity, linearity and homogeneity}
+
+\subsection{Gaussian random fields}
+
+In cosmology, we are interested in studying obervables which have been the product of a large number of random processes.
+The best examples are the fluctuations of temperature in the CMB $\delta T / T$ or the fluctuations of the matter density in the Universe, 
+usually called $\delta$, which originate from complicated interactions between different matter species, gravity and other fundamental forces.
+Using the Central Limit Theorem \cite{(cite...)}, we can show that the sum of a large number of random variables, that originate from independent random processes, will yield a variable that it is almost exactly Gaussian distributed. The Gaussian probability distribution $p(x)$ for a random variable $x$, with mean $\mu$ and variance $\sigma$ is given by
+\begin{equation}
+p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}}\exp\left( \frac{(x-\mu)^2}{2\sigma^2} \right)
+\end{equation}
+As we sill see, Gaussianly distributed variables will be very important in observations and analysis of cosmological observables.
+In the case of structure formation, $\delta$ is a random field that describes inhomogeneities, however, due to the 
+assumption that it originates from independent random processes in a homogeneous and isotropic universe,
+its statistical properties must be homogeneous and isotropic too \cite{(cite...Peacock, Bjoern, ?)}.
+That means that the probability distribution $p(\delta(\vec{x}))$ must be invariant under translations and rotations of space.
+The expectation value of $\langle \delta^n \rangle$ is formally speaking defined by an ensemble average, meaning that
+we should actually observe this process in many random realizations of the Universe. Since this is not possible,
+in cosmology we postulate the ergodicity principle \cite{(cite Adler...)}, which states that for sufficient large volumes
+the ensemble average is equal to the volume average and therefore, we can write:
+\begin{equation}
+\langle \delta^n \rangle = \frac{1}{V} \int_V \mathrm{d}^3 x \, \delta^n (\vec{x}) p(\delta (\vec{x}))
+\end{equation} 
+The importance of this postulate in practical terms is that we can use our formal statistical tools 
+to compute theoretically the expectation values
+of observables and in the observational side, we just need to match this by observing over large volumes in the sky.
+
+\subsection{The two-point correlation function}
+
+The advantage of working with fluctuation variables in cosmology is that their mean is zero, i.e. $\langle \delta \rangle = 0$
+and that they remain small ($\delta<<1$) for most of their evolution time.
+Therefore what makes sense to study is not its mean, but its variance, $\langle \delta^2 \rangle$, or if 
+we are measuring the fluctuations at two separated points in the universe ($\vec{x}$ and $\vec{y}$),
+then it makes sense to study their two-point correlation function, defined as:
+\begin{equation} \label{eq:correlationfunct}
+\xi(\vec{x} ,\vec{y}) = \langle \delta (\vec{x})  \delta (\vec{y}) \rangle
+\end{equation}
+As we have seen before, $\delta$ is statistically homogeneous and isotropic. Therefore, due to homogeneity, the correlation
+function can only depend on separation $\vec r = \vec{x}_2 - \vec{x}_1 $ and due to invariance under 
+rotations it can only depend on the magnitude of the separation, denoted as $r$.
+In simple words---for the case of large scale structure---, $\xi(r)$ is telling us how probable it is to find
+a galaxy a distance $r$ away from a given galaxy at position $\vec x$.
+We are talking here about ideal measurements for a linear and Gaussian observable, but in the later chapters, when we discuss
+about non-linearities and observational effects (for example redshift space distortions), we will see that the situation is in practice not so simple and 
+the observable $\delta$, will not be specified only by its 
+two-point correlation function and will not be statistically isotropic, leading to different correlation
+functions parallel and perpendicular to the line of sight \cite{(cite some BAO stuff)}.
+
+\subsection{The data covariance matrix}
+
+Let us introduce at this point the \emph{data} covariance matrix, since this is a concept that causes a lot of misunderstanding in the literature,
+when it is confused with the \emph{parameter} covariance matrix, which will be introduced later.
+If we are measuring the fluctuation $\delta$ at three points in space,  $\vec{x}, \vec{y}$ and $\vec{z}$,
+then their joint probability density will still be Gaussian:
+\begin{equation}\label{eq:multivariateGaussian}
+p( \delta (\vec{x}),\delta (\vec{y}),\delta (\vec{z})) = 
+\frac{1}{\sqrt{(2 \pi)^2 \det \mathbf{C}}}\exp\left( -\frac{1}{2} \colvec{3}{\delta(\vec{x})}{\delta(\vec{y})}{\delta(\vec{z})}^T 
+\mathbf{C}^{-1} \colvec{3}{\delta(\vec{x})}{\delta(\vec{y})}{\delta(\vec{z})}
+ \right)
+\end{equation}
+where now instead of a Gaussian dispersion $\sigma$, we have a Gaussian \emph{data} covariance matrix $\mathbf{C}$, given by:
+\begin{equation}\label{eq:dataCovariance-abstract}
+C_ij = 
+\begin{pmatrix}
+\langle \delta^2 (\vec{x}) \rangle 
+                & \langle \delta (\vec{x}) \delta (\vec{y})\rangle 
+                        & \langle \delta (\vec{x})  \delta (\vec{z})\rangle  \\
+\langle \delta (\vec{x})  \delta (\vec{y})\rangle 
+                & \langle \delta^2 (\vec{y}) \rangle 
+                        & \langle \delta (\vec{y})  \delta (\vec{z})\rangle  \\
+\langle \delta (\vec{x})  \delta (\vec{z})\rangle 
+                & \langle \delta (\vec{y}) \delta (\vec{z})\rangle 
+                        & \langle \delta^2 (\vec{z})  \rangle  \\
+\end{pmatrix}
+\end{equation}
+Notice that the covariance matrix is symmetric and positive definite. This is the data covariance matrix for three measurements
+in real space. If you would measure the density fluctuations at 1000 different points in space, the covariance matrix would 
+have 1 million elements. Therefore, it is very important not only for theoretical, but for practical reasons of data analysis, that the covariance matrix is as simple and symmetric as possible.
+
+Luckily, for Gaussian random fields their statistical properties can be defined entirely by the their two-point correlation function,
+where the following recursion relations (obtained by Isserli's or Wick's theorem \cite{(cite Wick or something)}) are valid:
+\begin{align}
+\langle \delta^{2n}\rangle = (2n-1)!!\langle \delta \rangle \, & ,\quad \langle \delta^{2n+1}\rangle =0
+\end{align}
+This is of course expected, 
+since we have defined in Eqn. \ref{eq:multivariateGaussian} the covariance matrix $\mathbf{C}$ as the only statistical quantity needed to specify
+fully the distribution of the multivariate  Gaussian random field.
+
+\subsection{The power spectrum}
+
+Since we want observations of $\delta$ to be independent of each other, we need that the equations governing the spatial 
+distribution of the density fluctuations are linear, otherwise non-linear terms can induce correlations between 
+values at different positions. We can see this more clearly if we work in Fourier space.
+For linear equations, transforming into Fourier space (going from position $\vec x$ to wavevectors $\vec k$) is quite useful, 
+since space derivatives become simply factors of $\vec k$ and the Fourier space function $\delta(\vec k)$
+evolves in time, independently for each $k$-mode, but only if the field is statistically homogeneous.
+
+The Fourier transform of the density field, denoted $\delta(\vec k)$ is defined as:
+\begin{equation}
+\delta(\vec k) = \int \mathrm{d}^3 x \delta(\vec x) \exp(-i \vec{k} \cdot \vec{x})
+\end{equation}
+and its inverse is
+\begin{equation}
+\delta(\vec x) = \int \frac{\mathrm{d}^3 k}{(2\pi^3)} \delta(\vec k) \exp(i \vec{k} \cdot \vec{x}) \quad .
+\end{equation}
+Since now $\delta(\vec k)$ can be complex, we can define the variance between two $k$-modes as:
+\begin{equation}
+\langle \delta (\vec{k}_1)  \delta^{*} (\vec{k}_2) \rangle = 
+\int \mathrm{d}^3 x \, \mathrm{d}^3 y \langle \delta (\vec{x})  \delta (\vec{y}) \rangle \exp(-i \vec{k} \cdot (\vec{x}-\vec{y}) )
+(2\pi)^3 \delta_{D}(\vec{k}_{1}-\vec{k}_{2})  \quad .
+\end{equation}
+Using the definition of the correlation function \ref{eq:correlationfunct} and the fact that the Gaussian random field $\delta$
+is homogeneous we can define the power spectrum $P(\vec k)$ as:
+\begin{equation}\label{eq:powerspectrum}
+P(\vec k) = \int \mathrm{d}^3r \, \xi(\vec r) \exp(-i \vec{k} \cdot \vec{r})
+\end{equation}
+The relation between the expected value of $\langle \delta (\vec{k}_1)  \delta^{*} (\vec{k}_2) \rangle$ and the power spectrum $P(\vec k)$ can be obtained by a similar straightforward calculation, \cite{(cite Luca, Dodelson, ??)} where taking into account
+that the $\delta$ field is real-valued, one can obtain:
+\begin{equation}
+\langle \delta (\vec{k}_1)  \delta (\vec{k}_2) \rangle = (2\pi)^3  P(k) \delta_{D}(\vec{k}_{1}-\vec{k}_{2}) \quad .
+\end{equation}
+The Dirac delta $\delta_D$ in the previous equation, shows us directly what we had expected from a random Gaussian and homogeneous field;
+the Fourier modes $\vec{k}_1$ and $\vec{k}_2$ for the density fluctuations are mutually uncorrelated.
+In this case, the data covariance matrix $\mathbf{C}$, defined in Eqn. \ref{eq:dataCovariance-abstract},
+would be perfectly diagonal in Fourier space, making an analysis of the observations much more tractable.
+
+However, this is only true if the equations governing $\delta$ are linear; otherwise, non-linear terms in real space,
+would introduce convolutions in Fourier space, giving rise to non-vanishing correlations $\langle \delta (\vec{k}_1)  \delta (\vec{k}_2) \rangle$. This will be the subject of study of the non-linear power spectrum, which will be treated with more depth in chapter \ref{chap:nonlinear}.
+
+\subsection{Final remarks on linearity, gaussianity and homogeneity}
+
+We have seen in the previous sections, that the concepts of linearity, Gaussianity and homogeneity
+are strongly related in Cosmology.
+The fact that observables like the matter density fluctuations originate from a large number 
+of independent random processes, leads---thanks to the Central Limit Theorem---to a Gaussian random field.
+Then homogeneity and isotropy of the Universe and linear equations (in space) governing those processes, ensure that the statistical properties of the Gaussian random field
+are also homogeneous and isotropic and that we can use the ergodic theorem to compute ensemble averages.
+The Gaussianity of the field (and its vanishing average value) allows us to describe the field, solely with its two
+point correlation function, which directly connects us to the power spectrum and then to the fact that in Fourier space, 
+pairs of wavemodes are mutually uncorrelated.
+\begin{equation}
+\textrm{Gaussianity}\Leftrightarrow\textrm{Linearity}\Leftrightarrow\textrm{Homogeneity}
+\end{equation}
+
+In contrast, non-linear evolution of the density field, would yield correlations among different $k$-modes, 
+leading to a non-Gaussian probability distribution and the loss of homogeneity (or the appearance of $k$-dependent growth).
+This is exactly what happens at later stages of structure formation, 
+where fluctuations are limited to $-1 < \delta$ in voids, 
+but can grow to very high values $\delta \gg 1$ inside the cosmic web structure.
+This in turn will make the data covariance matrix $\mathbf{C}$ in Fourier space not diagonal anymore and 
+will difficult the analysis of cosmological observations.
+Therefore, the computation
+of these non-linear evolution equations 
+and the analysis of higher order correlations is one of the great challenges that research in cosmology 
+will have to face in the next decade.
+
+\clearpage
 
 \section{Likelihood and the Bayesian approach}
 \begin{itemize}
@@ -20,10 +171,7 @@
 
 
 
-\section{The Fisher Matrix Code}
-\begin{itemize}
-\item This serves as a manual for the Fisher Tools code.
-\end{itemize}
+
 
 %\subsection{Methodology of Fisher forecasts}
 %\begin{itemize}
@@ -41,6 +189,74 @@
 %\item Ellipses and confidence contours
 %\item Marginalization and maximation
 %\end{itemize}
+We have seen in the previous section, how the log-likelihood function $\Li$ is a powerful
+tool to estimate the probability distribution of model parameters, given some previously measured data.
+But what if we don't have data avilable yet? For example when we want to know 
+with which accuracy a certain future experiment is going to be able to constrain certain parameters of
+a model. 
+This is where the Fisher formalism \cite{(cite Fisher, Tegmark, etc.)} enters.
+The Fisher matrix is defined as the expectation value of the \emph{curvature} of the log-likelihood:
+\begin{equation}\label{eq:Fishermatrix-definition}
+F_{ij} = -\left< \frac{\partial^2 \Li(\bm{\theta})}{\partial \theta_i \theta_j} \right>
+\end{equation}
+
+If we assume that the errors on the data measurements are Gaussianly distributed (where then we can write the likelihood as 
+$L = e^{-\chi^2 / 2}$) then we can also think of the Fisher matrix as a Taylor expansion of the log-likelihood around its maximum
+$\hat \theta$, where the $\chi^2$ is a minimum:
+\begin{equation}
+\Li(\theta) = \Li(\hat \theta) + (\theta - \hat \theta)\parder{\Li}{\theta} + 
+\frac{1}{2}(\theta - \hat \theta)^2 \pardersq{\Li}{\theta}
+\end{equation}
+The linear derivative term in the above equation vanishes, since we are expanding around the maximum and we are considering here 
+for simplicity just one parameter $\theta$, but the generalization to more parameters is straightforward.
+The fact that the Fisher matrix is related to the curvature of the log-likelihood around its maximum, tells us that the Fisher matrix 
+is an indication of how fast the likelihood changes around the peak \cite{cite Dodelson...}. 
+If the curvature is high, then the likelihood changes
+fast and the experiment is very constraining, allowing for just small changes of the parameters, before the likelihood becomes too small.
+If the curvature is low, then the likelihood is very flat and the experiment is not very constraining in parameter 
+space \footnote{The relation between information matrices and geometry is not only qualitative, it is a 
+formal field of study called Information Geometry \cite{cite Springer book}}.
+
+\subsection{The Fisher matrix for a galaxy power spectrum}
+
+In order to understand better the following sections where we will talk about the 
+Fisher matrix of the galaxy clustering and weak lensing observables, let us specify the Fisher
+matrix defined in Eqn. \ref{eq:Fishermatrix-definition} in a more concrete way.
+In this section we follow closely the argumentations of \cite{cite Dodelson} and \cite{cite Amendola}.
+
+We are interested in finding the distribution of matter in the Universe, and as we have seen before,
+for large sufficient scales, the overdensity of matter at a specific scale $k$ is given by $\delta(k)$.
+For a galaxy survey, covering a volume $V(z+ \Delta z)$ in three-dimensional space and providing
+$m$ Fourier modes $k_i$ in a redshift bin $\Delta z$, 
+we can compute (the full details of the calculation can be found in \cite{cite Dodelson})
+that the data covariance matrix between mode $k_i$ and mode $k_j$ is given by:
+\begin{equation}
+V \langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \frac{\delta_{ij}}{V} \left( P(k_i) + \frac{1}{\bar n} \right)
+\end{equation}
+The data covariance $C_{k_{i} k_{j}}$ is always a sum of the signal covariance and the noise covariance, which 
+in this case is simply given by the Poisson noise of a discrete random distribution, where $\bar n$ is the 
+average number density of galaxies. Again, let us emphasize that we are at relatively large scales, where then
+we can take our data covariance matrix as being diagonal.
+If we now assume that the galaxy distribution is well approximated by a Gaussian distribution (and we 
+know it has to be since we are at linear and homogeneous scales), then we can
+write the likelihood function as:
+\inserteq{L=\frac{1}{(2\pi)^{m/2} \det (C_{k_{i} k_{j}}) } \exp \left[-\frac{1}{2}\sum_{i}^{m} 
+\frac{\delta^2_{k_i}}{C_{k_{i} k_{j}}} \right] }{eq:likelihood-Pofk}
+Then the log-likelihood can be written in the following way
+\beql{eq:loglik-Pk}
+\Li = -\ln L = \frac{m}{2} \ln(2\pi) + \sum_{i}^{m}\ln(C_{k_{i} k_{i}}) + \sum_{i}^{m}\frac{\delta^2_{k_i}}{2 C_{k_{i} k_{i}}}
+\eeqc
+where we have used the matrix identity: $\ln \det C = \mathrm{tr} \ln C$, which in this case is anyway trivial since $C$ is a diagonal matrix.
+Now, using definition \ref{eq:Fishermatrix-definition}, we can evaluate the expectation value of the 
+curvature of the log-likelihood (in model-parameter space $\theta_{\alpha}$):
+\beql{eq:Fisher-fromloglik}
+F_{\alpha \beta} = \sum_{i}^{m} \left[ \pardermix{\ln(C_{k_{i} k_{i}})}{\theta_{\alpha}}{\theta_{\beta}} + 
+\left\langle \delta^2_{k_i} \right\rangle \paralonemix{\theta_{\alpha}}{\theta_{\beta}}\left(\frac{1}{2  C_{k_{i} k_{i}}} \right) \right] 
+\eeqp
+The expectation value operator only affects the data $\delta^2_{k_i}$, because the data covariance matrix $C$ is 
+already itself formed by expectation values. On the other hand, the data $\delta^2_{k_i}$ cannot be affected by
+derivations with respect to the model parameters, because pure measurements should be by definition model independent.
+
 
 \subsubsection{The observed power spectrum}
 
@@ -910,7 +1126,10 @@ have better and faster semianalytic methods applicable to general
 models of dark energy, the estimation of systematic biases of extra
 parameters is an impossible task.
 
-
+\section{The Fisher Matrix Code \comm{this one is ok but not a full manual}}
+\begin{itemize}
+\item This serves as a manual for the Fisher Tools code.
+\end{itemize}
 
 \subsection{Validation of the code within the Euclid collaboration}
 \begin{itemize}

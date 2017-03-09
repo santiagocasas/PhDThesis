@@ -30,10 +30,34 @@
 
 \global\long\def\pcq#1#2#3{(\mathbf{#1},\mathbf{#2},\mathbf{#3})}
 
+\global\long\def\paralone#1{\frac{\partial}{\partial{#1}}}
+
+\global\long\def\paralonemix#1#2{\frac{\partial}{\partial{#1}\partial{#2}}}
+
+\global\long\def\parder#1#2{\frac{\partial{#1}}{\partial{#2}}}
+
+\global\long\def\pardersq#1#2{\frac{\partial^2{#1}}{\partial{#2}^2}}
+
+\global\long\def\pardermix#1#2#3{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
+
+\def\inserteq#1#2{\begin{equation}{#1}\label{#2}\end{equation}}   
+
 
 \global\long\def\colv#1#2{\begin{pmatrix}#1\\
 #2 
 \end{pmatrix}}
+
+
+%       BEGIN EQUATION MODE
+\newcommand{\beq}{\begin{equation}} 
+%       BEGIN EQUATION MODE WITH LABEL
+\newcommand{\beql}[1]{\begin{equation}\label{#1}}
+%       END EQUATION MODE
+\newcommand{\eeq}{\end{equation}}
+%       END EQUATION MODE WITH A PERIOD
+\newcommand{\eeqp}{\;\;\;.\end{equation}}
+%       END EQUATION MODE WITH A COMMA
+\newcommand{\eeqc}{\;\;\;,\end{equation}}
 
 
 \global\long\def\curH{\mathcal{H}}
@@ -46,6 +70,8 @@
 
 
 \global\long\def\mychi{\mathcal{X}}
+
+\newcommand{\Li}{\mathcal{L}}
 
 
 \global\long\def\comment#1{\textcolor{red}{#1}}
@@ -110,3 +136,20 @@
 
 \def\mnras{MNRAS}
 \newcommand{\noun}[1]{\textsc{#1}}
+
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
