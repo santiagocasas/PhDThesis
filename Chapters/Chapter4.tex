@@ -166,8 +166,49 @@ will have to face in the next decade.
 The subject of Bayesian statistics is a very complex, but very important topic in modern
 statistics, data science and the physical sciences \cite{cite Gregory and others}
 and it is outside of the scope of this work to try to even review its more fundamental properties.
+We will just comment on the simple but very powerful concept of the likelihood function and how the Bayesian
+approach to statistical analysis is best suited in a field like cosmology.
 
-For our purposes, let us just 
+If an experiment yields a vector of random variables $x^i$, 
+we have to
+try to build a theoretical model, which depends on some free parameters $\theta^i$ 
+that can give us the probability distribution $p(x^i | \theta^i)$ to find the variable $x^i$ 
+inside an interval $\Delta x$ for a specific measurement.
+Then what physicists are interested in, is in constraining the model parameters $\theta$ and try to find
+the set of parameters (or the model) that best explains the data.
+
+There are two possibilities of analyzing the results of that experiment, the \emph{frequentist}
+and the \emph{Bayesian} approach.
+
+In the \emph{frequentist} approach, the scientist would repeat many times the experiment and even change
+the settings and the theoretical parameters $\theta$ in the lab, in order to find the distribution
+of $x^i$'s ($p(x^i | \theta^i)$) and from there, infer the distribution of the parameters $\theta$. So this scientist would
+be able to say (as it is usually done in particle physics) that a there is a 97\% probability that her 
+data is distributed according to the model she has found as best fit (where one parameter is for example the Higgs mass).
+
+In the \emph{Bayesian} approach, the reasoning is reversed. The scientist would look for the probability
+of having a certain model (with model parameters) given the data that has already been taken ($p(\theta^i | x^i)$). This is more suitable
+for cosmology, since we cannot repeat many times the same experiment and we cannot change
+the parameters of the Universe.
+
+How do we then "invert" $P(D | T)$ ---the probability of the data given a model--- to obtain $P(T | D)$? The solution is given by 
+Bayes' theorem \cite{Bayes, Dodelson, Luca, many}:
+
+\beql{eq:BayesTheorem}
+P(T | D) = \frac{P(D | T) P(T)}{P(D)}
+\eeqp
+
+$P(T | D)$ is usually called the posterior probability (of having a theory $T$ given the data $D$), 
+$P(T)$ is the prior probability on the theory (which quantifies our previous knowledge and prejudices)
+and $P(D)$ is the evidence (the probability of the data), which for all purposes we can ignore, since it
+represents just a normalization factor.
+Also here, a discussion on the significance and the effects of the prior is out of our scope. \cite{cite Amendola, Dodelson, Gregory, reviews}. However, in our case it will be an efficient way of combining results from previous
+experiments into our predictions for future experiments. The prior can be as simple as the theoretical expectation
+that a parameter cannot be zero (for example the matter density of the Universe) or it can be the entire
+probability distribution of a previous experiment.
+After this point we will roughly call the posterior $P(T | D)$ by its more common name: the likelihood function
+$L(\theta | x)$.
+
 
 For a Gaussian distributed data vector $\bm{x}$ with $n$ components, 
 with mean $\mathbf{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
@@ -180,15 +221,6 @@ L=\frac{1}{(2\pi)^{n/2} \det (\bm{C}) } \exp \left[-\frac{1}{2}
 and we can define the matrix of data points as $\bm{D} = (\bm{x}-\bm{\mu})^T  (\bm{x}-\bm{\mu}) $
 and in full generality the covariance matrix $\bm C$ is just given by the expected value of $\bm D$, namely 
 $\bm C = \bm D$.
-
-\begin{itemize}
-\item Bayes Theorem 
-\item Likelihood
-\item Priors, posteriors and evidence
-\end{itemize}
-
-
-
 
 
 %\subsection{Methodology of Fisher forecasts}
