@@ -163,6 +163,21 @@ will have to face in the next decade.
 \clearpage
 
 \section{Likelihood and the Bayesian approach}
+
+
+
+For a Gaussian distributed data vector $\bm{x}$ with $n$ components, 
+with mean $\mathbf{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
+write a likelihood $L$ as:
+
+\beql{eq:moreGeneral-Gaussian-Likelihood}
+L=\frac{1}{(2\pi)^{n/2} \det (\bm{C}) } \exp \left[-\frac{1}{2} 
+(\bm{x}-\bm{\mu})^T \bm{C}^-1 (\bm{x}-\bm{\mu}) \right]
+\eeq
+and we can define the matrix of data points as $\bm{D} = (\bm{x}-\bm{\mu})^T  (\bm{x}-\bm{\mu}) $
+and in full generality the covariance matrix $\bm C$ is just given by the expected value of $\bm D$, namely 
+$\bm C = \bm D$.
+
 \begin{itemize}
 \item Bayes Theorem 
 \item Likelihood
@@ -230,8 +245,8 @@ For a galaxy survey, covering a volume $V(z+ \Delta z)$ in three-dimensional spa
 $m$ Fourier modes $k_i$ in a redshift bin $\Delta z$, 
 we can compute (the full details of the calculation can be found in \cite{cite Dodelson})
 that the data covariance matrix between mode $k_i$ and mode $k_j$ is given by:
-\begin{equation}
-V \langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \frac{\delta_{ij}}{V} \left( P(k_i) + \frac{1}{\bar n} \right)
+\begin{equation}\label{eq:dataCovariancePk}
+V \langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \frac{\delta_{ij}}{V} \left( P(k_i, z) + \frac{1}{\bar{n}(z+\Delta z)} \right)
 \end{equation}
 The data covariance $C_{k_{i} k_{j}}$ is always a sum of the signal covariance and the noise covariance, which 
 in this case is simply given by the Poisson noise of a discrete random distribution, where $\bar n$ is the 
@@ -256,7 +271,40 @@ F_{\alpha \beta} = \sum_{i}^{m} \left[ \pardermix{\ln(C_{k_{i} k_{i}})}{\theta_{
 The expectation value operator only affects the data $\delta^2_{k_i}$, because the data covariance matrix $C$ is 
 already itself formed by expectation values. On the other hand, the data $\delta^2_{k_i}$ cannot be affected by
 derivations with respect to the model parameters, because pure measurements should be by definition model independent.
+Then substituting $\left\langle \delta^2_{k_i} \right\rangle = C_{k_{i} k_{i}}$
+and doing some algebra, we find:
+\beql{eq:Fisher-fromloglik-second}
+F_{\alpha \beta} = \sum_{i}^{m} \left[-
+ \frac{1}{(C_{k_{i} k_{i}})^2}\parder{C_{k_{i} k_{i}}}{\theta_{\alpha}}\parder{C_{k_{i} k_{i}}}{\theta_{\beta}}
++ \frac{3}{(C_{k_{i} k_{i}})^2}\parder{C_{k_{i} k_{i}}}{\theta_{\alpha}}\parder{C_{k_{i} k_{i}}}{\theta_{\beta}} \right] 
+\eeqp
+Now we can use the data covariance of Eqn. \ref{eq:dataCovariancePk} to write the Fisher matrix in terms of the matter power
+spectrum:
+\beql{eq:Fisher-fromloglik-inPk}
+F_{\alpha \beta} = \frac{1}{2}\sum_{i}^{m} 
+ \parder{\ln P(k_i)}{\theta_{\alpha}}\parder{\ln P(k_i)}{\theta_{\beta}}
+\left(  \frac{\bar{n} P(k_i)}{1+\bar{n} P(k_i)}  \right)^2
+\eeqc
+where we have assumed that the noise does not depend on the cosmological parameters and we have dropped
+the redshift dependence for simplicity. We must remember that for a tomographic redshift survey,
+this Fisher matrix has to be computed at each redshift bin.
 
+Having done this example explicitly we can also write down the more general expression for Gaussian likelihoods, such as the one
+specified in Eqn.\ref{eq:moreGeneral-Gaussian-Likelihood}, in which
+the likelihood contains covariance matrices $\bm C$ which are not diagonal and the average
+of the data measurements $\bm \mu$ is not zero. (see \cite{cite Luca, Dodelson}
+among other works, for more details). In this case the Fisher matrix can be written as:
+
+\beql{eq:Fisher-MatrixForm-GaussianGeneral}
+F_{\alpha \beta} = \frac{1}{2}\mathrm{Tr}\left[\bm{C}^{-1}\bm{C}_{,\alpha}\bm{C}^{-1}\bm{C}_{,\beta}
++ \bm{C}^{-1}\langle \bm{D}_{,\alpha \beta} \rangle  
+\right]
+\eeqp
+This last term, the expected value of the derivatives of the data matrix $\bm D$, is what usually is zero
+in cosmology, since we study quantities which are fluctuations around the mean and their mean is therefore identically
+vanishing.
+In the following sections we will write down the more specific and exact expressions for 
+the Galaxy Clustering and Weak Lensing analysis.
 
 \subsubsection{The observed power spectrum}
 
