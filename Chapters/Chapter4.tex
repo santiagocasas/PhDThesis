@@ -209,19 +209,53 @@ probability distribution of a previous experiment.
 After this point we will roughly call the posterior $P(T | D)$ by its more common name: the likelihood function
 $L(\theta | x)$.
 
+From the likelihood we can obtain some useful quantities:
+\begin{itemize}
+	\item The maximum likelihood estimators $\hat{\theta}_{i}$,
+	which are found by solving \\ $\partial L(\theta_i)/\partial\theta_i = 0$.
+	This would amount to the 'best fit' parameters, but they
+	are in general different tp the frequentist ones, if we have used a prior.
+	\item The confidence regions for the parameters, denoted $R(\alpha)$, for which
+	the normalized likelihood integrated in that region has a specific value:\\ $\int_{R(\alpha)}  L(\theta_i) \mathrm{d}^n \theta = \alpha$.
+	If $\alpha=0.683,0.954,0.997$, this regions are called 1, 2 and 3$\sigma$ regions respectively.
+	\item Marginalization over a parameter. If the likelihood depends on 
+	three parameters $\theta^1, \theta^2, \theta^3$, but we are not interested in $\theta^3$, because it is a nuisance parameter
+	or we have no clear idea how to relate it to the theory, we can marginalize over it by integrating 
+	it out: $L(\theta_1, \theta_2) = \int L(\theta^1, \theta^2, \theta^3) \,\mathrm{d}\theta^3 $
+	
+\end{itemize}
 
+Despite the great usefulness of the likelihood, its evaluation represents a challenge both numerically
+and computationally, since it is a complicated multi-
+dimensional function.
+Evaluating the likelihood for a relatively coarse grid of points in parameter space, becomes unfeasible for 
+more than 7 or 8 parameters. So, techniques like Markov Chain Monte Carlo (MCMC) \cite{cite some basic MCMC literature}
+ have become more and more sophisticated. In this techniques, the basic idea is to explore the parameter
+ space using a random walk, which is itself guided by the steepness or flatness of the likelihood at that point.
+ In this way there are much less evaluations in places where the likelihood is smooth and many evaluations
+ where the likelihood changes very rapidly. Two very well known
+ codes in the cosmological community are \textsc{MontePython} and \textsc{CosmoMC} \cite{cite Cosmomc and Montepython},
+ which are used to evaluate the likelihood of many large and modern experiments like \textit{Planck} \cite{cite Planck}.
+ 
+Therefore many approximations can be made in order to estimate the likelihood or at least 
+to find its maximum. 
 For a Gaussian distributed data vector $\bm{x}$ with $n$ components, 
-with mean $\mathbf{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
-write a likelihood $L$ as:
+with mean $\bm{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
+write the likelihood as $L = \exp(-\chi^2/2)$, which results in: 
 
 \beql{eq:moreGeneral-Gaussian-Likelihood}
 L=\frac{1}{(2\pi)^{n/2} \det (\bm{C}) } \exp \left[-\frac{1}{2} 
-(\bm{x}-\bm{\mu})^T \bm{C}^-1 (\bm{x}-\bm{\mu}) \right]
+(\bm{x}-\bm{\mu})^T \bm{C}^{-1} (\bm{x}-\bm{\mu}) \right]
 \eeq
 and we can define the matrix of data points as $\bm{D} = (\bm{x}-\bm{\mu})^T  (\bm{x}-\bm{\mu}) $
 and in full generality the covariance matrix $\bm C$ is just given by the expected value of $\bm D$, namely 
-$\bm C = \bm D$.
+$\bm C = \langle \bm D \rangle $.
 
+We will see in the next section that a very useful approximation is to say that the likelihood is Gaussian
+not only in the data, but also in the parameters. In this case, a useful quantity will
+be the log-likelihood $\Li \equiv \ln L$, since we can get rid of the exponential function.
+For (approximately) Gaussian distributed parameters, the parameter covariance matrix will be of extremely
+importance to analyze and forecast the results of large future experiments.
 
 %\subsection{Methodology of Fisher forecasts}
 %\begin{itemize}
@@ -252,13 +286,13 @@ F_{ij} = -\left< \frac{\partial^2 \Li(\bm{\theta})}{\partial \theta_i \theta_j} 
 
 If we assume that the errors on the data measurements are Gaussianly distributed (where then we can write the likelihood as 
 $L = e^{-\chi^2 / 2}$) then we can also think of the Fisher matrix as a Taylor expansion of the log-likelihood around its maximum
-$\hat \theta$, where the $\chi^2$ is a minimum:
+$\hat \theta$, or equivalently where the $\chi^2$ is a minimum:
 \begin{equation}
 \Li(\theta) = \Li(\hat \theta) + (\theta - \hat \theta)\parder{\Li}{\theta} + 
 \frac{1}{2}(\theta - \hat \theta)^2 \pardersq{\Li}{\theta}
 \end{equation}
 The linear derivative term in the above equation vanishes, since we are expanding around the maximum and we are considering here 
-for simplicity just one parameter $\theta$, but the generalization to more parameters is straightforward.
+for simplicity just one parameter $\theta$; but the generalization to more parameters is straightforward.
 The fact that the Fisher matrix is related to the curvature of the log-likelihood around its maximum, tells us that the Fisher matrix 
 is an indication of how fast the likelihood changes around the peak \cite{cite Dodelson...}. 
 If the curvature is high, then the likelihood changes
