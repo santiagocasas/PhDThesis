@@ -133,7 +133,7 @@ would be perfectly diagonal in Fourier space, making an analysis of the observat
 However, this is only true if the equations governing $\delta$ are linear; otherwise, non-linear terms in real space,
 would introduce convolutions in Fourier space, giving rise to non-vanishing correlations $\langle \delta (\vec{k}_1)  \delta (\vec{k}_2) \rangle$. This will be the subject of study of the non-linear power spectrum, which will be treated with more depth in chapter \ref{chap:nonlinear}.
 
-\subsection{Final remarks on linearity, gaussianity and homogeneity}
+\subsection{Final remarks on linearity, Gaussianity and homogeneity}
 
 We have seen in the previous sections, that the concepts of linearity, Gaussianity and homogeneity
 are strongly related in Cosmology.
@@ -160,11 +160,14 @@ of these non-linear evolution equations
 and the analysis of higher order correlations is one of the great challenges that research in cosmology 
 will have to face in the next decade.
 
-\clearpage
 
 \section{Likelihood and the Bayesian approach}
 
+The subject of Bayesian statistics is a very complex, but very important topic in modern
+statistics, data science and the physical sciences \cite{cite Gregory and others}
+and it is outside of the scope of this work to try to even review its more fundamental properties.
 
+For our purposes, let us just 
 
 For a Gaussian distributed data vector $\bm{x}$ with $n$ components, 
 with mean $\mathbf{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
@@ -202,7 +205,7 @@ $\bm C = \bm D$.
 %\begin{itemize}
 %\item Approximation of the Gaussian likelihood at the minimum
 %\item Ellipses and confidence contours
-%\item Marginalization and maximation
+%\item Marginalization and maximization
 %\end{itemize}
 We have seen in the previous section, how the log-likelihood function $\Li$ is a powerful
 tool to estimate the probability distribution of model parameters, given some previously measured data.
@@ -317,7 +320,7 @@ known as the Kaiser formula, where $\beta(z)=f(z)/b(z)$ and $f(z)$
 is the growth rate of density perturbations. Terms shown in green
 below. 
 \item The geometrical effect of the change of cosmological parameters (the
-so called Alcock-Paczynski-effect), where $H(z)$ is the hubble function
+so called Alcock-Paczynski effect), where $H(z)$ is the Hubble function
 and $D_{A}(z)$ is the angular diameter distance evaluated at a different
 set of cosmological parameters as $H_{fid}(z)$ and $D_{A}(z)_{fid}$
 which are defined at the fiducial parameter values (the ratio $H_{fid}(z)/H(z)$
@@ -351,14 +354,14 @@ s_{R}=\frac{1}{2\pi^{2}}\int_{k_{min}}^{k_{max}}k^{2}P(k,z=0)W_{R}^{2}(kR)\label
 \end{equation}
 
 
-The window function smoothes $P(k,z)$ over the scale $R$ and has
+The window function smooths $P(k,z)$ over the scale $R$ and has
 the form: $W(x)=3(\sin(x)-x\cos(x))/x^{3}$, where $x$ is a dimensionless
 variable. This term comes from assuming spherical symmetry and performing
 the angle integration of the 3-D power spectrum $P(\vec{k})$. If
 one chooses $R=8\mbox{h}^{-1}\mbox{Mpc}$ and $[k]=\mbox{h}/\mbox{Mpc}$,
 then we recover the usual $s_{R}=\sigma_{8}^{2}$. The normalization
 $\sigma_{8}$ is a quantity defined only in linear theory, which means
-that in eqn. \ref{eq:normalizationPk} either $P(k,z)$ is linear
+that in Eqn. \ref{eq:normalizationPk} either $P(k,z)$ is linear
 or the integration limits are chosen in such a way that only the linear
 normalization is taken into account, so that usually one should take
 $k_{max}\approx0.1$. The normalized power spectrum is simply: 
@@ -381,7 +384,7 @@ and $\sigma_{8}$ is then broken.}
 
 Furthermore if one wishes to express a linear power spectrum $P(k,z)$
 in terms of the primordial power spectrum, the growth $G(z)$ and
-the transfer functions $T(k)$, one can write eqn. \ref{eq:normalizedPk}
+the transfer functions $T(k)$, one can write Eqn. \ref{eq:normalizedPk}
 as: 
 \begin{equation}
 P(k,z)=\frac{\sigma_{8}^{2}}{s_{R}}G^{2}(z)T^{2}(k)k^{ns}\mathcal{A}_{s}
@@ -418,7 +421,7 @@ However this assumes that all functions inside $P_{{\rm obs}}(\bar{z},k,\mu;\the
 can be evaluated at $\theta_{i}^{\pm}$. Since this is not the case
 for the bias $b(z)$, one needs to add a further intermediate variable
 (see section \ref{sec:Marginalization} below on marginalization).
-\item One uses intermediate variables, namely the functions in eqn. \ref{eq:obs-power-basic},
+\item One uses intermediate variables, namely the functions in Eqn. \ref{eq:obs-power-basic},
 which depend on $\theta_{i}$, and with the help of the chain rule
 one can write:
 \begin{align}
@@ -427,14 +430,14 @@ one can write:
  & +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z})}\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z})}\frac{\partial\ln b(\bar{z})}{\partial\theta_{i}}\label{eq:derivatives-of-lnPobs}\\
  & +{\color{red}\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\theta_{i}}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\theta_{i}}}\nonumber 
 \end{align}
-where we have ignored the dependence on the damping terms of eqn.
+where we have ignored the dependence on the damping terms of Eqn.
 \ref{eq:obs-power-basic} for simplicity. The last two terms are non-vanishing
 if one takes the Alcock-Paczynski effect into account for $k$ and
 $\mu$, since they are affected by geometrical terms also (see AP-effect
 section \ref{sub:The-Alcock-Paczynski-Effect} below).
 \end{itemize}
 One then has to calculate the intermediate derivatives of $\ln P_{obs}(z,k,\mu;\theta_{i})$
-with respect to $P_{s}$, $D_{A}$, $H$, $f$ and $b$ using eqn.
+with respect to $P_{s}$, $D_{A}$, $H$, $f$ and $b$ using Eqn.
 \ref{eq:obs-power-basic}. The logarithm of these quantities is used,
 because it simplifies considerably the equations. Notice that the
 growth $G(z)$ is inside the definition of $P(k,z)$ so it is not
@@ -489,7 +492,7 @@ The new ``vector'' of derivatives has the form:
 notice that $\theta_{i}$ is a vector also, so that this vector has
 a number of components equal to: $\dim(\Theta)=\dim(\theta)+4$.
 
-Since the Fisher matrix is a tensor product of a vector od derivatives,
+Since the Fisher matrix is a tensor product of a vector of derivatives,
 we can express it as:
 \begin{equation}
 F_{ij}\approx\frac{\mbox{d}\ln P_{{\rm obs}}}{\mbox{d}\theta_{i}}\frac{\mbox{d}\ln P_{{\rm obs}}}{\mbox{d}\theta_{j}}\approx(\Theta\otimes\Theta)_{ij}\label{eq:FisherTensorProd-1}
@@ -508,14 +511,14 @@ but we will come to that later.
 If one wishes to express the Fisher matrix just in terms of fundamental
 cosmological parameters again, then one needs to perform the variable
 transformation back using a so-called Jacobian. This can be seen more
-clearly if one expresses eqns. \ref{eq:derivatives-of-lnPobs}, \ref{eq: partial-derivs-subeqns}
+clearly if one expresses Eqns. \ref{eq:derivatives-of-lnPobs}, \ref{eq: partial-derivs-subeqns}
 and \ref{eq:derivatives-of-lnPobs-simplified-1} as:
 
 \begin{equation}
 \frac{\mbox{d}\ln P_{obs}(\mathbf{T}(\boldsymbol{\theta}))}{\mbox{d}\boldsymbol{\theta}_{i}}=\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{j}}\frac{\partial\mathbf{T}_{j}}{\partial\boldsymbol{\theta}_{i}}
 \end{equation}
 where $\mathbf{T}_{i}=\{\ln P,\,\ln H,\,\ln D_{A},\,\ln f,\,\ln b\}$
-and $\partial P_{obs}/\partial\mathbf{T}{}_{i}=\zeta$ from eqn. \ref{eq:dPobsDFuncts}.
+and $\partial P_{obs}/\partial\mathbf{T}{}_{i}=\zeta$ from Eqn. \ref{eq:dPobsDFuncts}.
 The Jacobian is then simply: 
 
 \begin{equation}
@@ -528,7 +531,7 @@ The Fisher matrix
 \begin{equation}
 \tilde{F}_{ab}\approx(\zeta\otimes\zeta)_{ab}\approx\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{a}}\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{b}}
 \end{equation}
-formed in the intermediate variables $\boldsymbol{T}$ can be transfomed
+formed in the intermediate variables $\boldsymbol{T}$ can be transformed
 to the usual one $F$ by calculating:
 
 \begin{equation}
@@ -540,15 +543,15 @@ In the praxis however, for calculating the full Fisher matrix, one
 interchanges the first element of $\zeta$ by the first element $\partial\boldsymbol{F}_{1}/\partial\boldsymbol{\theta}_{i}$
 (corresponding to the derivatives of the power spectrum $P(k,z)$)
 since one needs to integrate values in $k$ and $z$. That is why
-one uses the vector $\Theta$ from eqn. \ref{eq:bigThetaVector}.
+one uses the vector $\Theta$ from Eqn. \ref{eq:bigThetaVector}.
 In this case the Jacobian and the $\tilde{F}$ do not look like the
 ones presented above. This is however, mathematically equivalent at
 this point.
 
 
-\subsubsection{The Alcock-Paczynski-Effect\label{sub:The-Alcock-Paczynski-Effect}}
+\subsubsection{The Alcock-Paczynski Effect\label{sub:The-Alcock-Paczynski-Effect}}
 
-The Alcock-Paczynski-effect (AP) reiles on the fact that the scales
+The Alcock-Paczynski effect (AP) relies on the fact that the scales
 $k$ and the direction cosines $\mu$ are changed by geometrical factors
 of distance, when the cosmological parameters are changed. This means
 that $k$ and $\mu$ depend on $H(z)$ and $D_{A}(z)$ and therefore
@@ -567,7 +570,7 @@ R_{AP}(\mu;\theta)=\sqrt{\frac{[D_{A}(z;\theta)H(z;\theta)\mu_{fid}]^{2}-[(D_{A}
 \end{equation}
 
 
-The last two terms of eqn. \ref{eq:derivatives-of-lnPobs} come from
+The last two terms of Eqn. \ref{eq:derivatives-of-lnPobs} come from
 the fact that now $k=k(H(z;\theta),D_{A}(z;\theta))$ and $\mu=k(H(z;\theta),D_{A}(z;\theta))$,
 so that one has to use the chain rule for the derivative of $P_{obs}(k,\mu,z;\theta)$:
 
@@ -603,7 +606,7 @@ and $\ln H$ are:
 
 \label{eq: derivs-of-k-mu-AP}\end{subequations}
 
-The interesting thing about eqns.\ref{eq: derivs-of-k-mu-AP} is that
+The interesting thing about Eqns.\ref{eq: derivs-of-k-mu-AP} is that
 one can see that when evaluating the derivative of $P_{obs}$ w.r.t
 a cosmological parameter, the scales $k$ and the direction cosine
 angles $\mu$ get mixed, giving a very powerful probe of cosmology.
@@ -620,7 +623,7 @@ now more complicated:
 
 However, using the procedure described above, one can see that the
 Fisher matrix will have the same dimensions and that the Jacobian
-will be the same as in eqn. \ref{eq:jacobian}.
+will be the same as in Eqn. \ref{eq:jacobian}.
 
 
 \subsection{Marginalization\label{sec:Marginalization}}
@@ -636,7 +639,7 @@ yet have a model in terms of fundamental cosmological parameters.
 Therefore, these terms will always remain and cannot be expressed
 as a function of cosmological parameters and have to be either fixed
 or marginalized over. In terms of the Fisher matrix $F_{ij}$, the
-marginalization is perfomed easily by removing from the inverse $F_{ij}^{-1}$
+marginalization is performed easily by removing from the inverse $F_{ij}^{-1}$
 all rows and columns corresponding to the index of the quantity to
 marginalize. More about this will be explained later on.
 
@@ -672,7 +675,7 @@ will carry on board.
 In this work we choose to present results on some of the future galaxy redshift surveys, which are planned to be started and analyzed within the next decade.
 Our baseline survey will be the Euclid satellite \cite{amendola_cosmology_2013, laureijs_euclid_2011}. Euclid\footnote{http://www.euclid-ec.org/} is a European Space Agency medium-class mission scheduled for launch in 2020. Its main goal is to explore the expansion history of the Universe and the evolution of large scale cosmic structures by measuring shapes and redshifts of galaxies, covering 15000$\text{deg}^2$ of the sky, up to redshifts of about $z\sim2$. It will be able to measure up to 100 million spectroscopic redshifts which can be used for Galaxy Clustering measurements and 2 billion photometric galaxy images, which can be used for Weak Lensing observations (for more details, see \cite{amendola_cosmology_2013, laureijs_euclid_2011}). We will use in this work the  Euclid Redbook specifications for Galaxy Clustering and Weak Lensing forecasts \cite{laureijs_euclid_2011}, some of which are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications} and the rest can be found in the above cited references.
 
-Another important future survey will be the Square Kilometer Array (SKA)\footnote{https://www.skatelescope.org/}, which is planned to become the world's largest radiotelescope. It will be built in two phases, phase 1 split into SKA1-SUR in Australia and SKA1-MID in South Africa and SKA2 which will be at least 10 times as sensitive. The first stage is due to finish observations around the year 2023 and the second phase is scheduled for 2030 (for more details, see \cite{yahya_cosmological_2015,santos_hi_2015,raccanelli_measuring_2015,bull_measuring_2015}). The first phase SKA1, will be able to measure in an area of 5000$\text{deg}^2$ of the sky and a redshift of up to $z\sim0.8$  an estimated number of about $5\times10^6$ galaxies; SKA2 is expected to cover a much larger fraction of the sky ($\sim$30000$\text{deg}^2$), will yield much deeper redshifts (up to $z\sim2.5$) and is expected to detect about $10^9$ galaxies with spectroscopic redshifts \cite{santos_hi_2015}.
+Another important future survey will be the Square Kilometer Array (SKA)\footnote{https://www.skatelescope.org/}, which is planned to become the world's largest radio-telescope It will be built in two phases, phase 1 split into SKA1-SUR in Australia and SKA1-MID in South Africa and SKA2 which will be at least 10 times as sensitive. The first stage is due to finish observations around the year 2023 and the second phase is scheduled for 2030 (for more details, see \cite{yahya_cosmological_2015,santos_hi_2015,raccanelli_measuring_2015,bull_measuring_2015}). The first phase SKA1, will be able to measure in an area of 5000$\text{deg}^2$ of the sky and a redshift of up to $z\sim0.8$  an estimated number of about $5\times10^6$ galaxies; SKA2 is expected to cover a much larger fraction of the sky ($\sim$30000$\text{deg}^2$), will yield much deeper redshifts (up to $z\sim2.5$) and is expected to detect about $10^9$ galaxies with spectroscopic redshifts \cite{santos_hi_2015}.
 SKA1 and SKA2 will also be capable of performing 
 radio Weak Lensing experiments, which are very promising, since they are expected to be less sensitive to systematic effects in the instruments, related to residual point spread function (PSF) anisotropies \cite{harrison_ska_2016}.
 In this work we will use for our forecasts of SKA1 and SKA2, the specifications computed by \cite{santos_hi_2015} for GC and by \cite{harrison_ska_2016} for WL. The numerical survey parameters are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications}, while the galaxy bias $b(z)$ and the number density of galaxies $n(z)$, can be found in the references mentioned above.
@@ -1192,9 +1195,6 @@ parameters is an impossible task.
 \item Fisher tensors
 \item Variations in parameter space
 \end{itemize}
-
-
-
 
 
 
