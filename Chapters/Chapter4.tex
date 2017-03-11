@@ -375,6 +375,86 @@ vanishing.
 In the following sections we will write down the more specific and exact expressions for 
 the Galaxy Clustering and Weak Lensing analysis.
 
+\section{\label{sec:Fisher-Matrix-forecasts}Fisher Matrix forecasts}
+
+The Fisher matrix formalism, which was mainly developed for cosmological observations by
+\cite{tegmark_measuring_1998} and \cite{seo_baryonic_2005}
+is one of the most popular tools to forecast the outcome of an experiment,
+because of its speed and its versatility when the likelihood is approximately
+Gaussian. 
+The Fisher matrix method is used now ubiquitously in the cosmology literature, 
+with about 200 papers published so far \footnote{According to a full-text search at https://www.arxiv.org}, ranging from CMB observations,
+to Redshift Space Distortions, Supernovae, Lyman-$\alpha$ observations and many more.
+
+We will present in the following sections, the specific formulas for Galaxy Clustering 
+and Weak Lensing, under some simplifying assumptions (Gaussian likelihood,
+diagonal data covariance matrices, no redshift-bin correlations).
+In a paper by \cite{sellentin_breaking_2014} the Gaussian approximation has been 
+dropped and higher order ``Fisher tensors`` are used to approximate the true underlying likelihood \cite{cite Sellentin more}.
+Also recently, there has been some work in extending the simplifying assumptions of 
+diagonal covariance, redshift-bin correlations and $k$-space correlations \cite{bailoni_improving_2016, Durrer, 
+Amendola with Blot}.
+
+In \cite{Khedekar, Majumdar} have also compared directly the Fisher matrix formalism with a direct MCMC approach
+and have encountered considerable differences in the case of CMB experiments,
+especially when departing from the standard cosmological model.
+
+%Here we apply the Fisher matrix formalism to two different
+%probes, Galaxy Clustering (GC) and Weak Lensing (WL), which are the
+%main cosmological probes for the future Euclid satellite \cite{mukherjee_planck_2008}.
+%The background and perturbations quantities we
+%use in the following equations are computed with a version of
+%\texttt{MGCAMB} \cite{zhao_searching_2009,hojjati_testing_2011}
+%modified in order to account for the binning and the parameterizations
+%described in Section \ref{sec:Parameterizing-Modified-Gravity}.
+
+\subsection{Fisher matrix for Galaxy Clustering\label{sub:Fisher-Galaxy-Clustering}}
+
+
+We can then write the
+Fisher matrix for the galaxy power spectrum in the following
+form \citep{seo_improved_2007, amendola_testing_2012}: 
+\begin{equation}
+F_{ij}=\frac{V_{\rm survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{\rm min}}^{k_{\rm max}}\mbox{d}k\,k^{2}\frac{\partial\ln
+	\Pobs (k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln
+	\Pobs (k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)\Pobs (k,\mu,z)}{n(z)\Pobs (k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
+\end{equation}
+Here $V_{\rm survey}$
+is the volume covered by the survey and contained in a redshift slice
+$\Delta z$ and $n(z)$ is the galaxy number density as a function of
+redshift.
+We will consider the smallest wavenumber $k_{\rm min}$ to be $k_{\rm min}=0.0079\textrm{h/Mpc}$ , while the maximum wavenumber will be 
+$k_{\rm max}=0.15$h/Mpc for the linear forecasts and $k_{\rm max}=0.5$h/Mpc for the non-linear forecasts.
+In the above formulation of the Galaxy Clustering Fisher matrix, we neglect the correlation among different redshift bins and possible
+redshift bin uncertainties as was explored recently in \cite{bailoni_improving_2016}, we will use for our forecasts the 
+more standard recipe specified in the Euclid Redbook \cite{laureijs_euclid_2011}. 
+
+\subsubsection{Galaxy Clustering (FF)}
+
+The Fisher matrix for the galaxy power spectrum has the following
+form \cite[see][]{seo2007improved, amendola2012testing}:
+
+\begin{equation}
+F_{ij}=\frac{V_{survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{min}}^{k_{max}}\mbox{d}k\, k^{2}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)P_{obs}(k,\mu,z)}{n(z)P_{obs}(k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
+\end{equation}
+
+
+Here $V_{survey}$ is the volume covered by the survey and contained
+in a redshift slice $\Delta z$, $n(z)$ is the galaxy number density
+as a function of redshift, $P_{obs}(k,\mu,z)$ is the observed power
+spectrum as a function of the redshift $z$, the wavenumber $k$ and
+of $\mu\equiv\cos\alpha$, where $\alpha$ is the angle between the
+line of sight and the 3D-wavevector $\vec{k}$.
+
+The derivatives in eq. (\ref{eq:fisher-matrix-gc}) are taken with
+respect to a vector of cosmological parameters, $\theta_{i}=\{\beta^{2},\, h,\,\log\mathcal{A}_{s},\, n_{s},\,\omega_{c},\,\omega_{b},\, b(z)\}$,
+where $b(z)$ is the galaxy bias. When we perform the numerical derivatives
+of $P_{obs}(k,\mu,z)$, we have to take into account that not only
+the power spectrum and the background functions change, when the cosmological
+parameters are modified, but also $\mu$ and $k$ are changed by a
+geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
+Alcock-Paczinsky effect \citep{alcock1979anevolution}.
+
 \subsubsection{The observed power spectrum}
 
 The observed power spectrum is built from the theoretical power spectrum
@@ -710,31 +790,7 @@ all rows and columns corresponding to the index of the quantity to
 marginalize. More about this will be explained later on.
 
 
-\section{\label{sec:Fisher-Matrix-method}Fisher Matrix forecasts}
 
-The Fisher matrix formalism
-(\cite{tegmark_measuring_1998,seo_improved_2007,seo_baryonic_2005})
-is one of the most popular tools to forecast the outcome of an experiment,
-because of its speed and its versatility when the likelihood is approximately
-Gaussian. Here we apply the Fisher matrix formalism to two different
-probes, Galaxy Clustering (GC) and Weak Lensing (WL), which are the
-main cosmological probes for the future Euclid satellite \cite{mukherjee_planck_2008}.
-The background and perturbations quantities we
-use in the following equations are computed with a version of
-\texttt{MGCAMB} \cite{zhao_searching_2009,hojjati_testing_2011}
-modified in order to account for the binning and the parameterizations
-described in Section \ref{sec:Parameterizing-Modified-Gravity}.
-
-\subsubsection{\label{sec:Fisher-Matrix-method}Fisher Matrix method (FF)}
-
-The Fisher matrix formalism (\cite{tegmark_measuring_1998,seo2007improved,seo2005baryonic})
-is one of the most popular tools to forecast the outcome of an experiment,
-because of its speed and its versatility when the likelihood is approximately
-Gaussian (see \cite{sellentin_breaking_2014} for a method on how
-to improve this approximation). Here we apply the Fisher matrix formalism
-to two different probes, galaxy Clustering (GC) and weak lensing (WL),
-which are the ones that a future satellite like Euclid \cite{amendola_cosmology_2012-short}
-will carry on board.
 
 \subsection{Future large scale galaxy redshift surveys \label{sub:FutureSurveys}}
 
@@ -759,7 +815,9 @@ In this paper we will use for our forecasts only the specifications for the ELGs
 
 
 
-\subsection{Galaxy Clustering\label{sub:Fisher-Galaxy-Clustering}}
+
+
+\subsection{The observed power spectrum 2}
 
 The distribution of galaxies in space is not perfectly uniform. Instead it follows, up to a bias, the underlying
 matter power spectrum so that the observed power spectrum $\Pobs$ (the Fourier transform of the real-space two point correlation
@@ -793,23 +851,7 @@ of pairwise peculiar velocities which are present at non-linear scales
 and also introduces a damping scale in the mapping between real and
 redshift space. We marginalize over this parameter, similarly to what \cite{bull_extending_2015} and others have done, and we take as fiducial value $\sigma_{v} = 300$km/s, compatible with the estimates by \cite{de_la_torre_modelling_2012}. We also include the Alcock-Paczynski effect \cite{alcock_evolution_1979}, by which the $k$ modes and the angle cosine $\mu$ perpendicular and parallel to the line-of-sight get distorted by geometrical factors related to the Hubble function and the angular diameter distance \cite{ballinger_measuring_1996, feldman_power_1994}. 
 
-We can then write the
-Fisher matrix for the galaxy power spectrum in the following
-form \citep{seo_improved_2007, amendola_testing_2012}: 
-\begin{equation}
-F_{ij}=\frac{V_{\rm survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{\rm min}}^{k_{\rm max}}\mbox{d}k\,k^{2}\frac{\partial\ln
-\Pobs (k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln
-\Pobs (k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)\Pobs (k,\mu,z)}{n(z)\Pobs (k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
-\end{equation}
-Here $V_{\rm survey}$
-is the volume covered by the survey and contained in a redshift slice
-$\Delta z$ and $n(z)$ is the galaxy number density as a function of
-redshift.
-We will consider the smallest wavenumber $k_{\rm min}$ to be $k_{\rm min}=0.0079\textrm{h/Mpc}$ , while the maximum wavenumber will be 
-$k_{\rm max}=0.15$h/Mpc for the linear forecasts and $k_{\rm max}=0.5$h/Mpc for the non-linear forecasts.
-In the above formulation of the Galaxy Clustering Fisher matrix, we neglect the correlation among different redshift bins and possible
-redshift bin uncertainties as was explored recently in \cite{bailoni_improving_2016}, we will use for our forecasts the 
-more standard recipe specified in the Euclid Redbook \cite{laureijs_euclid_2011}. 
+
 
 
 \begin{table}[h]
@@ -834,36 +876,14 @@ galaxy redshift surveys used in this work. The number density of tracers $n(z)$ 
 \end{table}
 
 
-\subsubsection{Galaxy Clustering (FF)}
 
-The Fisher matrix for the galaxy power spectrum has the following
-form \citep{seo2007improved, amendola2012testing}:
-
-\begin{equation}
-F_{ij}=\frac{V_{survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{min}}^{k_{max}}\mbox{d}k\, k^{2}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)P_{obs}(k,\mu,z)}{n(z)P_{obs}(k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
-\end{equation}
-
-
-Here $V_{survey}$ is the volume covered by the survey and contained
-in a redshift slice $\Delta z$, $n(z)$ is the galaxy number density
-as a function of redshift, $P_{obs}(k,\mu,z)$ is the observed power
-spectrum as a function of the redshift $z$, the wavenumber $k$ and
-of $\mu\equiv\cos\alpha$, where $\alpha$ is the angle between the
-line of sight and the 3D-wavevector $\vec{k}$.
-
-The derivatives in eq. (\ref{eq:fisher-matrix-gc}) are taken with
-respect to a vector of cosmological parameters, $\theta_{i}=\{\beta^{2},\, h,\,\log\mathcal{A}_{s},\, n_{s},\,\omega_{c},\,\omega_{b},\, b(z)\}$,
-where $b(z)$ is the galaxy bias. When we perform the numerical derivatives
-of $P_{obs}(k,\mu,z)$, we have to take into account that not only
-the power spectrum and the background functions change, when the cosmological
-parameters are modified, but also $\mu$ and $k$ are changed by a
-geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
-Alcock-Paczinsky effect \citep{alcock1979anevolution}.
 
 The observed power spectrum contains all the cosmological information
 about the background and the matter perturbations as well as corrections
 due to redshift-space distortions and observational uncertainties.
 In this work we write it in the following form:
+
+\subsubsection{Observed Power (FF)}
 
 \begin{equation}
 P_{obs}(k,\mu,z)=\frac{D_{A,f}^{2}(z)H(z)}{D_{A}^{2}(z)H_{f}(z)}b^{2}(z)(1+\beta_{d}(z)\mu^{2})^{2}e^{-k^{2}\mu^{2}(\sigma_{r}^{2}+\sigma_{v}^{2})}P(k,z)\label{eq:observed-Pk}
