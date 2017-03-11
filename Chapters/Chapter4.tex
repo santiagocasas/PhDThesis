@@ -485,7 +485,7 @@ Alcock-Paczynski effect \citep{alcock1979anevolution, ballinger_measuring_1996, 
 In \cref{sub:The-Alcock-Paczynski-Effect} we will detail the corresponding formulas.
 \item The damping due to spectroscopic redshift errors $\sigma_{z}$ and the non-linear pairwise peculiar
 velocity dispersion $\sigma_{v}(z)$, which corresponds to a first order correction
-term to the Kaiser formula. These terms damp the power spectrum at small scales, where due to these redshift
+term to the Kaiser formula and it is also known as the "Fingers of God" effect. These terms damp the power spectrum at small scales, where due to these redshift
 uncertainties the signal cannot be reproduced accurately. These terms are shown in magenta in \cref{eq:obs-power-basic}. 
 \item Extra shot noise due to observational effects which cannot be removed. These can be included
 in general with the term $P_{s}(z)$. It is marked blue in the formula below.
@@ -514,11 +514,22 @@ In \cref{sec:FisherTools-code} we will explain more in detail the equations and 
 used to perform the forecasts in this work.
 
 
-\subsection{Cosmic shear and Weak Lensing \label{sub:Weak-Lensing-Fisher}}
+\subsection{Weak Gravitational Lensing \label{sub:Weak-Lensing-Fisher}}
 
 Light propagating through the universe is deflected by variations in the Weyl potential $\Phi+\Psi$,
-leading to distortions in the images of galaxies. In the regime of small deflections (Weak Lensing) we
-can write the power spectrum of the shear field as
+leading to distortions in the images of galaxies. 
+The main idea behind weak gravitational lensing is to measure the ellipticity of galaxies in a 
+wide field sky survey and correlate the ellipticities to find a statistical effect caused by the
+evolution of the lensing potential in the Universe.
+
+The transformation of a light bundle in the case of small angles and small gravitational potentials
+can be described by a distortion tensor which contains in its diagonal the convergence component and in its
+off-diagonal the shear component (see the comprehensive review by \cite{cite Bartelmann Schneider}).
+It can be shown that for linear theory, the only important component is the convergence field (see \cite{Amendola, Tegmark, Hu, Bartelmann}) 
+and its power spectrum can be calculated once the matter power spectrum and the
+details of the survey are known.
+
+In this regime we can write the power spectrum of the convergence field as
 \begin{equation}
 \label{def_shear}
 C_{ij}(\ell)=\frac{9}{4}\int_{0}^{\infty}\mbox{d}z\:\frac{W_{i}(z)W_{j}(z)H^{3}(z)\Omega_{m}^{2}(z)}{(1+z)^{4}}\left[\Sigma(\ell/r(z),z)\right]P_{m}(\ell/r(z)) \, .
