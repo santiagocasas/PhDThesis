@@ -451,7 +451,7 @@ the smallest scales will lie at about $k_{\rm max}={0.5-1.0}$h/Mpc.
 
  
 
-\subsection{The observed power spectrum \label{sub:observed-powerspectrum}}
+\subsection{The observed galaxy power spectrum \label{sub:observed-powerspectrum}}
 
 The distribution of galaxies in space is not perfectly uniform. Instead it follows, up to a bias, the underlying
 matter power spectrum so that the observed power spectrum $P_{obs}$ 
@@ -464,7 +464,7 @@ $P(k,z)$ (which in turn depends on the fundamental cosmological parameters
 $\theta_{i}$) together by the following contributions which modify its signal:
 
 \begin{enumerate}
-\item The geometrical factor coming from the change of the Baryon Acoustic Peak (BAO) peak marked orange
+\item The geometrical factor coming from the change of the Baryon Acoustic Peak (BAO) peak \\ marked orange
 in \cref{eq:obs-power-basic}. It can be shown \cite{cite some BAO review} that the 
 shift of the BAO peak due to geometrical distortions when considering a different cosmology
 as the reference one is proportional to $H(z)$/$D^2_{A}(z)$.
@@ -514,52 +514,7 @@ In \cref{sec:FisherTools-code} we will explain more in detail the equations and 
 used to perform the forecasts in this work.
 
 
-
-\subsection{Future large scale galaxy redshift surveys \label{sub:FutureSurveys}}
-
-In this work we choose to present results on some of the future galaxy redshift surveys, which are planned to be started and analyzed within the next decade.
-Our baseline survey will be the Euclid satellite \cite{amendola_cosmology_2013, laureijs_euclid_2011}. Euclid\footnote{http://www.euclid-ec.org/} is a European Space Agency medium-class mission scheduled for launch in 2020. Its main goal is to explore the expansion history of the Universe and the evolution of large scale cosmic structures by measuring shapes and redshifts of galaxies, covering 15000$\text{deg}^2$ of the sky, up to redshifts of about $z\sim2$. It will be able to measure up to 100 million spectroscopic redshifts which can be used for Galaxy Clustering measurements and 2 billion photometric galaxy images, which can be used for Weak Lensing observations (for more details, see \cite{amendola_cosmology_2013, laureijs_euclid_2011}). We will use in this work the  Euclid Redbook specifications for Galaxy Clustering and Weak Lensing forecasts \cite{laureijs_euclid_2011}, some of which are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications} and the rest can be found in the above cited references.
-
-Another important future survey will be the Square Kilometer Array (SKA)\footnote{https://www.skatelescope.org/}, which is planned to become the world's largest radio-telescope It will be built in two phases, phase 1 split into SKA1-SUR in Australia and SKA1-MID in South Africa and SKA2 which will be at least 10 times as sensitive. The first stage is due to finish observations around the year 2023 and the second phase is scheduled for 2030 (for more details, see \cite{yahya_cosmological_2015,santos_hi_2015,raccanelli_measuring_2015,bull_measuring_2015}). The first phase SKA1, will be able to measure in an area of 5000$\text{deg}^2$ of the sky and a redshift of up to $z\sim0.8$  an estimated number of about $5\times10^6$ galaxies; SKA2 is expected to cover a much larger fraction of the sky ($\sim$30000$\text{deg}^2$), will yield much deeper redshifts (up to $z\sim2.5$) and is expected to detect about $10^9$ galaxies with spectroscopic redshifts \cite{santos_hi_2015}.
-SKA1 and SKA2 will also be capable of performing 
-radio Weak Lensing experiments, which are very promising, since they are expected to be less sensitive to systematic effects in the instruments, related to residual point spread function (PSF) anisotropies \cite{harrison_ska_2016}.
-In this work we will use for our forecasts of SKA1 and SKA2, the specifications computed by \cite{santos_hi_2015} for GC and by \cite{harrison_ska_2016} for WL. The numerical survey parameters are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications}, while the galaxy bias $b(z)$ and the number density of galaxies $n(z)$, can be found in the references mentioned above.
-
-We will also forecast the results from DESI\footnote{http://desi.lbl.gov/}, a stage IV, ground-based dark energy experiment, that will study large scale structure formation in the Universe through baryon acoustic oscillations (BAO) and redshift space distortions (RSD), using redshifts and positions from galaxies and quasars \cite{desi_collaboration_desi_2016-1,desi_collaboration_desi_2016,levi_desi_2013}.
-It is scheduled to start in 2018 
-and will cover an estimated area in the sky of about 
-14000$\text{deg}^2$. It will measure spectroscopic redshifts for four different classes of objects, luminous red galaxies (LRGs) up to a redshift of $z=1.0$, bright [O II] emission line galaxies (ELGs) up to $z=1.7$, quasars (QSOs) up to $z\sim3.5$ and at low redshifts ($z\sim0.2$) magnitude-limited bright galaxies (BLGs). In total, 
-DESI will be able to measure more than 30 million spectroscopic redshifts.
-In this paper we will use for our forecasts only the specifications for the ELGs, as found in \cite{desi_collaboration_desi_2016-1}, since this observation provides the largest number density of galaxies in the redshift range of our interest. We cite the geometry and redshift binning specifications in Table \ref{tab:GC-specifications}, while the galaxy number density and bias can be found in \cite{desi_collaboration_desi_2016-1}.
-
-
-
-
-\begin{table}[h]
-\centering{}
-\begin{tabular}{|c|cccc|c|}
-\hline 
-\Tstrut \textbf{Parameter}  & \textbf{Euclid}  & \textbf{DESI-ELG}  & \textbf{SKA1-SUR}
-& \textbf{SKA2}  & \textbf{Description}\tabularnewline
-\hline 
-\Tstrut $A_{\rm survey}$  & 15000 $\mbox{deg}^{2}$  & 14000 $\mbox{deg}^{2}$  & 5000
-$\mbox{deg}^{2}$  & 30000 $\mbox{deg}^{2}$  & Survey area in the
-sky\tabularnewline
-$\sigma_{z}$  & 0.001  & 0.001  & 0.0001  & 0.0001  & Spectroscopic redshift
-error\tabularnewline
-$\{z_{\rm min},\ z_{\rm max}\}$  & \{0.65, 2.05\}  & \{0.65, 1.65\}  & \{0.05, 0.85\}
-& \{0.15, 2.05\}  & Min. and max. limits for redshift bins \tabularnewline
-$\Delta z$  & 0.1  & 0.1  & 0.1  & 0.1  & Redshift bin width\tabularnewline
-\hline 
-\end{tabular}\caption[Specifications for future GC surveys.]{\label{tab:GC-specifications} Specifications for
-the spectroscopic
-galaxy redshift surveys used in this work. The number density of tracers $n(z)$ and the galaxy bias $b(z)$, can be found for SKA in \cite{santos_hi_2015} and for DESI in reference \cite{desi_collaboration_desi_2016-1}.}
-\end{table}
-
-
-
-
-\subsection{Weak Lensing \label{sub:Fisher-Weak-Lensing}}
+\subsection{Cosmic shear and Weak Lensing \label{sub:Weak-Lensing-Fisher}}
 
 Light propagating through the universe is deflected by variations in the Weyl potential $\Phi+\Psi$,
 leading to distortions in the images of galaxies. In the regime of small deflections (Weak Lensing) we
@@ -640,58 +595,99 @@ surveys Euclid, SKA1 and SKA2 used in this work. Other needed quantities can be 
 For all WL surveys we use a redshift range between $z=0.5$ and $z=3.0$, using 6 equi-populated redshift bins.}
 \end{table}
 
-\subsubsection{Weak Lensing \label{sub:Weak-Lensing} (FF)}
+%\subsubsection{Weak Lensing \label{sub:Weak-Lensing} (FF)}
+%
+%For the weak lensing power spectrum the Fisher matrix is just a sum
+%over all possible correlations at different redshift bins \citep{tegmark_measuring_1998},
+%namely :
+%
+%
+%
+%\begin{equation}
+%P_{ij}(\ell)=\frac{9}{4}\int_{0}^{\infty}\mbox{d}z\:\frac{W_{i}(z)W_{j}(z)H^{3}(z)\Omega_{m}^{2}(z)}{(1+z)^{4}}P_{m}(\ell/r(z))
+%\end{equation}
+%where $P_{m}$ is the matter power spectrum discussed above, the indices
+%$i,\: j$ stand for each of the $\mathcal{N}$ redshift bins and the
+%window functions are given by:
+%
+%\begin{equation}
+%W(z)=\int_{z}^{\infty}\mbox{d}\tilde{z}\left(1-\frac{r(z)}{r(\tilde{z})}\right)n(\tilde{z})
+%\end{equation}
+%where the normalized galaxy distribution function is:
+%
+%\begin{equation}
+%n(z)=z^{2}\exp\left(-(z/z_{0})^{3/2}\right)\label{eq:ngal dist}
+%\end{equation}
+%Here the median redshift and $z_{0}$ are related by $z_{med}\approx1.412z_{0}$.
+%The corresponding covariance matrix has the following form:
+%
+%\begin{equation}
+%C_{ij}(\ell)=P_{ij}(\ell)+\delta_{ij}\gamma_{int}^{2}n_{i}^{-1}+K_{ij}(\ell)
+%\end{equation}
+%where $\gamma_{int}$ is the intrinsic galaxy ellipticity and the
+%shot noise term contains
+%
+%\begin{equation}
+%n_{i}=3600\left(\frac{180}{\pi}\right)^{2}n_{\theta}/\mathcal{N}
+%\end{equation}
+%with $n_{\theta}$ the total number of galaxies per arcmin\texttwosuperior{}
+%assuming that the redshift bins have been chosen such that each contain
+%the same amount of galaxies (equi-populated bins). The matrix $K_{ij}(\ell)$
+%is a diagonal ``cutoff'' matrix whose entries increase to very high
+%values at the scales where the power spectrum $P(k)$ has to be cut
+%to avoid the inclusion of numerical noise errors. Since $K_{ij}(\ell)$
+%depends on the multipole $\ell$, which itself depends on $k$ and
+%$z$ through: $\ell=k\, r(z)$, each of the entries $K_{ii}$ increase
+%with the multipole in a different way. For our purposes we chose a
+%very sharp cutoff, such that multipoles containing wavenumbers $k$
+%beyond the Nyquist frequency (or half of the Nyquist frequency, for
+%our reference case) at the center of the redshift bin $i$, do not
+%contribute to the Fisher matrix at all after the corresponding $\ell_{cut}$
+%(specified in table \ref{tab:WL-zbins-specs} below).
 
-For the weak lensing power spectrum the Fisher matrix is just a sum
-over all possible correlations at different redshift bins \citep{tegmark_measuring_1998},
-namely :
 
-\begin{equation}
-F_{\alpha\beta}=f_{sky}\sum_{\ell}^{\ell_{max}}\sum_{i,j,k,m}\frac{(2\ell+1)\Delta\ell}{2}\frac{\partial P_{ij}(\ell)}{\partial\theta_{\alpha}}C_{jk}^{-1}\frac{\partial P_{km}(\ell)}{\partial\theta_{\beta}}C_{mi}^{-1}\label{eq:FisherSum-WL}
-\end{equation}
-With the power spectrum of the shear field given by:
 
-\begin{equation}
-P_{ij}(\ell)=\frac{9}{4}\int_{0}^{\infty}\mbox{d}z\:\frac{W_{i}(z)W_{j}(z)H^{3}(z)\Omega_{m}^{2}(z)}{(1+z)^{4}}P_{m}(\ell/r(z))
-\end{equation}
-where $P_{m}$ is the matter power spectrum discussed above, the indices
-$i,\: j$ stand for each of the $\mathcal{N}$ redshift bins and the
-window functions are given by:
 
-\begin{equation}
-W(z)=\int_{z}^{\infty}\mbox{d}\tilde{z}\left(1-\frac{r(z)}{r(\tilde{z})}\right)n(\tilde{z})
-\end{equation}
-where the normalized galaxy distribution function is:
+\subsection{Future large scale galaxy redshift surveys \label{sub:FutureSurveys}}
 
-\begin{equation}
-n(z)=z^{2}\exp\left(-(z/z_{0})^{3/2}\right)\label{eq:ngal dist}
-\end{equation}
-Here the median redshift and $z_{0}$ are related by $z_{med}\approx1.412z_{0}$.
-The corresponding covariance matrix has the following form:
+In this work we choose to present results on some of the future galaxy redshift surveys, which are planned to be started and analyzed within the next decade.
+Our baseline survey will be the Euclid satellite \cite{amendola_cosmology_2013, laureijs_euclid_2011}. Euclid\footnote{http://www.euclid-ec.org/} is a European Space Agency medium-class mission scheduled for launch in 2020. Its main goal is to explore the expansion history of the Universe and the evolution of large scale cosmic structures by measuring shapes and redshifts of galaxies, covering 15000$\text{deg}^2$ of the sky, up to redshifts of about $z\sim2$. It will be able to measure up to 100 million spectroscopic redshifts which can be used for Galaxy Clustering measurements and 2 billion photometric galaxy images, which can be used for Weak Lensing observations (for more details, see \cite{amendola_cosmology_2013, laureijs_euclid_2011}). We will use in this work the  Euclid Redbook specifications for Galaxy Clustering and Weak Lensing forecasts \cite{laureijs_euclid_2011}, some of which are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications} and the rest can be found in the above cited references.
 
-\begin{equation}
-C_{ij}(\ell)=P_{ij}(\ell)+\delta_{ij}\gamma_{int}^{2}n_{i}^{-1}+K_{ij}(\ell)
-\end{equation}
-where $\gamma_{int}$ is the intrinsic galaxy ellipticity and the
-shot noise term contains
+Another important future survey will be the Square Kilometer Array (SKA)\footnote{https://www.skatelescope.org/}, which is planned to become the world's largest radio-telescope It will be built in two phases, phase 1 split into SKA1-SUR in Australia and SKA1-MID in South Africa and SKA2 which will be at least 10 times as sensitive. The first stage is due to finish observations around the year 2023 and the second phase is scheduled for 2030 (for more details, see \cite{yahya_cosmological_2015,santos_hi_2015,raccanelli_measuring_2015,bull_measuring_2015}). The first phase SKA1, will be able to measure in an area of 5000$\text{deg}^2$ of the sky and a redshift of up to $z\sim0.8$  an estimated number of about $5\times10^6$ galaxies; SKA2 is expected to cover a much larger fraction of the sky ($\sim$30000$\text{deg}^2$), will yield much deeper redshifts (up to $z\sim2.5$) and is expected to detect about $10^9$ galaxies with spectroscopic redshifts \cite{santos_hi_2015}.
+SKA1 and SKA2 will also be capable of performing 
+radio Weak Lensing experiments, which are very promising, since they are expected to be less sensitive to systematic effects in the instruments, related to residual point spread function (PSF) anisotropies \cite{harrison_ska_2016}.
+In this work we will use for our forecasts of SKA1 and SKA2, the specifications computed by \cite{santos_hi_2015} for GC and by \cite{harrison_ska_2016} for WL. The numerical survey parameters are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications}, while the galaxy bias $b(z)$ and the number density of galaxies $n(z)$, can be found in the references mentioned above.
 
-\begin{equation}
-n_{i}=3600\left(\frac{180}{\pi}\right)^{2}n_{\theta}/\mathcal{N}
-\end{equation}
-with $n_{\theta}$ the total number of galaxies per arcmin\texttwosuperior{}
-assuming that the redshift bins have been chosen such that each contain
-the same amount of galaxies (equi-populated bins). The matrix $K_{ij}(\ell)$
-is a diagonal ``cutoff'' matrix whose entries increase to very high
-values at the scales where the power spectrum $P(k)$ has to be cut
-to avoid the inclusion of numerical noise errors. Since $K_{ij}(\ell)$
-depends on the multipole $\ell$, which itself depends on $k$ and
-$z$ through: $\ell=k\, r(z)$, each of the entries $K_{ii}$ increase
-with the multipole in a different way. For our purposes we chose a
-very sharp cutoff, such that multipoles containing wavenumbers $k$
-beyond the Nyquist frequency (or half of the Nyquist frequency, for
-our reference case) at the center of the redshift bin $i$, do not
-contribute to the Fisher matrix at all after the corresponding $\ell_{cut}$
-(specified in table \ref{tab:WL-zbins-specs} below).
+We will also forecast the results from DESI\footnote{http://desi.lbl.gov/}, a stage IV, ground-based dark energy experiment, that will study large scale structure formation in the Universe through baryon acoustic oscillations (BAO) and redshift space distortions (RSD), using redshifts and positions from galaxies and quasars \cite{desi_collaboration_desi_2016-1,desi_collaboration_desi_2016,levi_desi_2013}.
+It is scheduled to start in 2018 
+and will cover an estimated area in the sky of about 
+14000$\text{deg}^2$. It will measure spectroscopic redshifts for four different classes of objects, luminous red galaxies (LRGs) up to a redshift of $z=1.0$, bright [O II] emission line galaxies (ELGs) up to $z=1.7$, quasars (QSOs) up to $z\sim3.5$ and at low redshifts ($z\sim0.2$) magnitude-limited bright galaxies (BLGs). In total, 
+DESI will be able to measure more than 30 million spectroscopic redshifts.
+In this paper we will use for our forecasts only the specifications for the ELGs, as found in \cite{desi_collaboration_desi_2016-1}, since this observation provides the largest number density of galaxies in the redshift range of our interest. We cite the geometry and redshift binning specifications in Table \ref{tab:GC-specifications}, while the galaxy number density and bias can be found in \cite{desi_collaboration_desi_2016-1}.
+
+
+
+
+\begin{table}[h]
+	\centering{}
+	\begin{tabular}{|c|cccc|c|}
+		\hline 
+		\Tstrut \textbf{Parameter}  & \textbf{Euclid}  & \textbf{DESI-ELG}  & \textbf{SKA1-SUR}
+		& \textbf{SKA2}  & \textbf{Description}\tabularnewline
+		\hline 
+		\Tstrut $A_{\rm survey}$  & 15000 $\mbox{deg}^{2}$  & 14000 $\mbox{deg}^{2}$  & 5000
+		$\mbox{deg}^{2}$  & 30000 $\mbox{deg}^{2}$  & Survey area in the
+		sky\tabularnewline
+		$\sigma_{z}$  & 0.001  & 0.001  & 0.0001  & 0.0001  & Spectroscopic redshift
+		error\tabularnewline
+		$\{z_{\rm min},\ z_{\rm max}\}$  & \{0.65, 2.05\}  & \{0.65, 1.65\}  & \{0.05, 0.85\}
+		& \{0.15, 2.05\}  & Min. and max. limits for redshift bins \tabularnewline
+		$\Delta z$  & 0.1  & 0.1  & 0.1  & 0.1  & Redshift bin width\tabularnewline
+		\hline 
+	\end{tabular}\caption[Specifications for future GC surveys.]{\label{tab:GC-specifications} Specifications for
+		the spectroscopic
+		galaxy redshift surveys used in this work. The number density of tracers $n(z)$ and the galaxy bias $b(z)$, can be found for SKA in \cite{santos_hi_2015} and for DESI in reference \cite{desi_collaboration_desi_2016-1}.}
+\end{table}
 
 
 
