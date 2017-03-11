@@ -194,10 +194,8 @@ the parameters of the Universe.
 How do we then "invert" $P(D | T)$ ---the probability of the data given a model--- to obtain $P(T | D)$? The solution is given by 
 Bayes' theorem \cite{Bayes, Dodelson, Luca, many}:
 
-\beql{eq:BayesTheorem}
-P(T | D) = \frac{P(D | T) P(T)}{P(D)}
-\eeqp
-
+\beeq$ \label{eq:BayesTheorem}
+P(T | D) = \frac{P(D | T) P(T)}{P(D)}$
 $P(T | D)$ is usually called the posterior probability (of having a theory $T$ given the data $D$), 
 $P(T)$ is the prior probability on the theory (which quantifies our previous knowledge and prejudices)
 and $P(D)$ is the evidence (the probability of the data), which for all purposes we can ignore, since it
@@ -243,10 +241,10 @@ For a Gaussian distributed data vector $\bm{x}$ with $n$ components,
 with mean $\bm{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
 write the likelihood as $L = \exp(-\chi^2/2)$, which results in: 
 
-\beql{eq:moreGeneral-Gaussian-Likelihood}
+\beeq$ \label{eq:moreGeneral-Gaussian-Likelihood}
 L=\frac{1}{(2\pi)^{n/2} \det (\bm{C}) } \exp \left[-\frac{1}{2} 
 (\bm{x}-\bm{\mu})^T \bm{C}^{-1} (\bm{x}-\bm{\mu}) \right]
-\eeq
+$
 and we can define the matrix of data points as $\bm{D} = (\bm{x}-\bm{\mu})^T  (\bm{x}-\bm{\mu}) $
 and in full generality the covariance matrix $\bm C$ is just given by the expected value of $\bm D$, namely 
 $\bm C = \langle \bm D \rangle $.
@@ -314,9 +312,9 @@ For a galaxy survey, covering a volume $V(z+ \Delta z)$ in three-dimensional spa
 $m$ Fourier modes $k_i$ in a redshift bin $\Delta z$, 
 we can compute (the full details of the calculation can be found in \cite{cite Dodelson})
 that the data covariance matrix between mode $k_i$ and mode $k_j$ is given by:
-\begin{equation}\label{eq:dataCovariancePk}
+\beeq$\label{eq:dataCovariancePk}
 V \langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \frac{\delta_{ij}}{V} \left( P(k_i, z) + \frac{1}{\bar{n}(z+\Delta z)} \right)
-\end{equation}
+$
 The data covariance $C_{k_{i} k_{j}}$ is always a sum of the signal covariance and the noise covariance, which 
 in this case is simply given by the Poisson noise of a discrete random distribution, where $\bar n$ is the 
 average number density of galaxies. Again, let us emphasize that we are at relatively large scales, where then
@@ -324,36 +322,37 @@ we can take our data covariance matrix as being diagonal.
 If we now assume that the galaxy distribution is well approximated by a Gaussian distribution (and we 
 know it has to be since we are at linear and homogeneous scales), then we can
 write the likelihood function as:
-\inserteq{L=\frac{1}{(2\pi)^{m/2} \det (C_{k_{i} k_{j}}) } \exp \left[-\frac{1}{2}\sum_{i}^{m} 
-\frac{\delta^2_{k_i}}{C_{k_{i} k_{j}}} \right] }{eq:likelihood-Pofk}
+\beeq$\label{eq:likelihood-Pofk}
+L=\frac{1}{(2\pi)^{m/2} \det (C_{k_{i} k_{j}}) } \exp \left[-\frac{1}{2}\sum_{i}^{m} 
+\frac{\delta^2_{k_i}}{C_{k_{i} k_{j}}} \right] $
 Then the log-likelihood can be written in the following way
-\beql{eq:loglik-Pk}
+\beeq$\label{eq:loglik-Pk}
 \Li = -\ln L = \frac{m}{2} \ln(2\pi) + \sum_{i}^{m}\ln(C_{k_{i} k_{i}}) + \sum_{i}^{m}\frac{\delta^2_{k_i}}{2 C_{k_{i} k_{i}}}
-\eeqc
+$
 where we have used the matrix identity: $\ln \det C = \mathrm{tr} \ln C$, which in this case is anyway trivial since $C$ is a diagonal matrix.
 Now, using definition \ref{eq:Fishermatrix-definition}, we can evaluate the expectation value of the 
 curvature of the log-likelihood (in model-parameter space $\theta_{\alpha}$):
-\beql{eq:Fisher-fromloglik}
+\beeq$\label{eq:Fisher-fromloglik}
 F_{\alpha \beta} = \sum_{i}^{m} \left[ \pardermix{\ln(C_{k_{i} k_{i}})}{\theta_{\alpha}}{\theta_{\beta}} + 
 \left\langle \delta^2_{k_i} \right\rangle \paralonemix{\theta_{\alpha}}{\theta_{\beta}}\left(\frac{1}{2  C_{k_{i} k_{i}}} \right) \right] 
-\eeqp
+$
 The expectation value operator only affects the data $\delta^2_{k_i}$, because the data covariance matrix $C$ is 
 already itself formed by expectation values. On the other hand, the data $\delta^2_{k_i}$ cannot be affected by
 derivations with respect to the model parameters, because pure measurements should be by definition model independent.
 Then substituting $\left\langle \delta^2_{k_i} \right\rangle = C_{k_{i} k_{i}}$
 and doing some algebra, we find:
-\beql{eq:Fisher-fromloglik-second}
+\beeqp$ \label{eq:Fisher-fromloglik-second}
 F_{\alpha \beta} = \sum_{i}^{m} \left[-
  \frac{1}{(C_{k_{i} k_{i}})^2}\parder{C_{k_{i} k_{i}}}{\theta_{\alpha}}\parder{C_{k_{i} k_{i}}}{\theta_{\beta}}
 + \frac{3}{(C_{k_{i} k_{i}})^2}\parder{C_{k_{i} k_{i}}}{\theta_{\alpha}}\parder{C_{k_{i} k_{i}}}{\theta_{\beta}} \right] 
-\eeqp
+$
 Now we can use the data covariance of Eqn. \ref{eq:dataCovariancePk} to write the Fisher matrix in terms of the matter power
 spectrum:
-\beql{eq:Fisher-fromloglik-inPk}
+\beeqc$ \label{eq:Fisher-fromloglik-inPk}
 F_{\alpha \beta} = \frac{1}{2}\sum_{i}^{m} 
  \parder{\ln P(k_i)}{\theta_{\alpha}}\parder{\ln P(k_i)}{\theta_{\beta}}
 \left(  \frac{\bar{n} P(k_i)}{1+\bar{n} P(k_i)}  \right)^2
-\eeqc
+$
 where we have assumed that the noise does not depend on the cosmological parameters and we have dropped
 the redshift dependence for simplicity. We must remember that for a tomographic redshift survey,
 this Fisher matrix has to be computed at each redshift bin.
@@ -364,11 +363,11 @@ the likelihood contains covariance matrices $\bm C$ which are not diagonal and t
 of the data measurements $\bm \mu$ is not zero. (see \cite{cite Luca, Dodelson}
 among other works, for more details). In this case the Fisher matrix can be written as:
 
-\beql{eq:Fisher-MatrixForm-GaussianGeneral}
+\beeq$ \label{eq:Fisher-MatrixForm-GaussianGeneral}
 F_{\alpha \beta} = \frac{1}{2}\mathrm{Tr}\left[\bm{C}^{-1}\bm{C}_{,\alpha}\bm{C}^{-1}\bm{C}_{,\beta}
 + \bm{C}^{-1}\langle \bm{D}_{,\alpha \beta} \rangle  
 \right]
-\eeqp
+$
 This last term, the expected value of the derivatives of the data matrix $\bm D$, is what usually is zero
 in cosmology, since we study quantities which are fluctuations around the mean and their mean is therefore identically
 vanishing.
@@ -395,7 +394,7 @@ Also recently, there has been some work in extending the simplifying assumptions
 diagonal covariance, redshift-bin correlations and $k$-space correlations \cite{bailoni_improving_2016, Durrer, 
 Amendola with Blot}.
 
-In \cite{Khedekar, Majumdar} have also compared directly the Fisher matrix formalism with a direct MCMC approach
+In \cite{Khedekar, Majumdar} the authors also compared directly the Fisher matrix formalism with a direct MCMC approach
 and have encountered considerable differences in the case of CMB experiments,
 especially when departing from the standard cosmological model.
 
@@ -410,52 +409,49 @@ especially when departing from the standard cosmological model.
 
 \subsection{Fisher matrix for Galaxy Clustering\label{sub:Fisher-Galaxy-Clustering}}
 
-
-We can then write the
-Fisher matrix for the galaxy power spectrum in the following
-form \citep{seo_improved_2007, amendola_testing_2012}: 
-\begin{equation}
-F_{ij}=\frac{V_{\rm survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{\rm min}}^{k_{\rm max}}\mbox{d}k\,k^{2}\frac{\partial\ln
+Using the previously found equation \ref{eq:Fisher-fromloglik-inPk} for the
+Fisher matrix of the power spectrum, we can write that expression in a more compact form, where 
+we express the sum over the $k$-modes as an integral and take into account the number of observed modes into
+the volume. We end up with the following formula:
+form \citep{seo_improved_2007, amendola book, dodelson}: 
+\beeqc$\label{eq:fisher-matrix-gc}
+F_{ij}=\frac{1}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{\rm min}}^{k_{\rm max}}\mbox{d}k\,k^{2}\frac{\partial\ln
 	\Pobs (k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln
-	\Pobs (k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)\Pobs (k,\mu,z)}{n(z)\Pobs (k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
-\end{equation}
+	\Pobs (k,\mu,z)}{\partial\theta_{j}}V_{\rm eff}(k,\mu,z)
+$
+where the effective volume $V_{\rm eff}$ is given by
+\beeqp$
+V_{\rm eff} = V_{\rm survey}\left[\frac{n(z)\Pobs (k,\mu,z)}{n(z)\Pobs (k,\mu,z)+1}\right]^{2}
+$
 Here $V_{\rm survey}$
 is the volume covered by the survey and contained in a redshift slice
-$\Delta z$ and $n(z)$ is the galaxy number density as a function of
-redshift.
-We will consider the smallest wavenumber $k_{\rm min}$ to be $k_{\rm min}=0.0079\textrm{h/Mpc}$ , while the maximum wavenumber will be 
-$k_{\rm max}=0.15$h/Mpc for the linear forecasts and $k_{\rm max}=0.5$h/Mpc for the non-linear forecasts.
-In the above formulation of the Galaxy Clustering Fisher matrix, we neglect the correlation among different redshift bins and possible
-redshift bin uncertainties as was explored recently in \cite{bailoni_improving_2016}, we will use for our forecasts the 
-more standard recipe specified in the Euclid Redbook \cite{laureijs_euclid_2011}. 
-
-\subsubsection{Galaxy Clustering (FF)}
-
-The Fisher matrix for the galaxy power spectrum has the following
-form \cite[see][]{seo2007improved, amendola2012testing}:
-
-\begin{equation}
-F_{ij}=\frac{V_{survey}}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{min}}^{k_{max}}\mbox{d}k\, k^{2}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln P_{obs}(k,\mu,z)}{\partial\theta_{j}}\left[\frac{n(z)P_{obs}(k,\mu,z)}{n(z)P_{obs}(k,\mu,z)+1}\right]^{2}\,\,.\label{eq:fisher-matrix-gc}
-\end{equation}
-
-
-Here $V_{survey}$ is the volume covered by the survey and contained
-in a redshift slice $\Delta z$, $n(z)$ is the galaxy number density
-as a function of redshift, $P_{obs}(k,\mu,z)$ is the observed power
-spectrum as a function of the redshift $z$, the wavenumber $k$ and
+$\Delta z$, while $n(z)$ is the galaxy number density as a function of
+redshift. The galaxy number density has to be taken from specifications for each survey, which
+are obtained by direct measurements in the sky and end-to-end simulations \cite{Dida, Guzzo, etc}.
+$P_{obs}(k,\mu,z)$ is the observed galaxy power
+spectrum as a function of redshift $z$, the wavenumber $k$ and
 of $\mu\equiv\cos\alpha$, where $\alpha$ is the angle between the
-line of sight and the 3D-wavevector $\vec{k}$.
+line of sight and the 3D-wavevector $\vec{k}$. 
+The derivatives in \cref{eq:fisher-matrix-gc} are taken with
+respect to a vector of cosmological parameters, $\theta_{i}$ that can contain
+redshift-independent parameters such as $h$ and $\Omega_{m}$ or redshift-dependent
+parameters such as the growth rate function $f(z)$ or the Hubble function $H(z)$.
+The details of the observed power spectrum will be treated in the next \cref{sub:observed-powerspectrum}.
 
-The derivatives in eq. (\ref{eq:fisher-matrix-gc}) are taken with
-respect to a vector of cosmological parameters, $\theta_{i}=\{\beta^{2},\, h,\,\log\mathcal{A}_{s},\, n_{s},\,\omega_{c},\,\omega_{b},\, b(z)\}$,
-where $b(z)$ is the galaxy bias. When we perform the numerical derivatives
-of $P_{obs}(k,\mu,z)$, we have to take into account that not only
-the power spectrum and the background functions change, when the cosmological
-parameters are modified, but also $\mu$ and $k$ are changed by a
-geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
-Alcock-Paczinsky effect \citep{alcock1979anevolution}.
+The minimum and maximum values for the $k$-integral also depend on the survey specifications and
+on how much we can trust and rely on non-linear scales. Throughout this work
+we will use for
+the smallest wavenumber a value of approximately $k_{\rm min}=0.008\textrm{h/Mpc}$, 
+while the maximum wavenumber will depend on the specific application and methods used to study the non-linear regime.
+In general, $k_{\rm max}={0.10-0.15}$h/Mpc for linear forecasts and for non-linear forecasts 
+the smallest scales will lie at about $k_{\rm max}={0.5-1.0}$h/Mpc.
 
-\subsubsection{The observed power spectrum}
+%we will use for our forecasts the 
+%more standard recipe specified in the Euclid Redbook \cite{laureijs_euclid_2011}. 
+
+ 
+
+\subsection{The observed power spectrum \label{sub:observed-powerspectrum}}
 
 The observed power spectrum is built from the theoretical power spectrum
 $P(k,z)$ which depends on a vector of fundamental cosmological parameters
@@ -544,6 +540,13 @@ today: $G(z=0)=1$. The quantity $\sigma_{8}^{2}G^{2}(z)\equiv\sigma_{8}(z)$
 can be defined accordingly and can be used as an independent and time-dependent
 cosmological parameter too. 
 
+
+When we perform the numerical derivatives
+of $P_{obs}(k,\mu,z)$, we have to take into account that not only
+the power spectrum and the background functions change, when the cosmological
+parameters are modified, but also $\mu$ and $k$ are changed by a
+geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
+Alcock-Paczinsky effect \citep{alcock1979anevolution}.
 
 \subsubsection{Derivatives of the observed power spectrum}
 
