@@ -1152,6 +1152,254 @@ Finally, we note that since we are showing errors on $\mu$ and $\eta$, WL seems 
 \end{table}
 \normalsize
 
+\section{Weight matrices coefficients}
+\label{sec:Wmatrices}
+
+Here we explicitly show the coefficient of the $W$ matrices illustrated in Figures
+\ref{fig:Wmat-ZCA-GC}, \ref{fig:Wmat-ZCA-WL}
+and \ref{fig:GC+WL+Planck-corr-Wmat}.
+Tables \ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} contain the coefficient matrices obtained for 
+Galaxy Clustering in the linear and non-linear HS prescription cases respectively, while 
+Tables \ref{tab:Wcoeff-lin-WL} and \ref{tab:Wcoeff-nlHS-WL} contain the coefficients obtained for WL. 
+Finally, Table \ref{tab:Wcoeff-nlHS-WL+GC+Planck} reports the coefficients for the combination of GC, 
+WL and \planck\ priors, in the non-linear HS case.
+
+%\begin{table}[H]
+%	\[
+%	q_i = 
+%	\footnotesize
+%	\left(
+%	\begin{array}{rrrrrrrrrrr}
+%	\color{red} 0.899 & 0.003 & -0.020 & 0.109 & \color{red} 0.315 & 0.250 & 0.097 & 0.021 & -0.083 & -0.022 & -0.007 \\
+%	0.001 & \color{red} 0.695 & \color{red} -0.304 & -0.089 & -0.084 & -0.026 & \color{red} 0.519 & \color{red} -0.362 & -0.082 & -0.033 & 0.001 \\
+%	-0.003 & -0.186 & \color{red} 0.745 & -0.211 & -0.090 & -0.027 & \color{red} -0.285 & \color{red} 0.491 & -0.181 & -0.036 & 0.001 \\
+%	0.022 & -0.065 & \color{red} -0.252 & \color{red} 0.737 & -0.174 & -0.019 & -0.075 & \color{red} -0.320 & \color{red} 0.486 & -0.116 & 0.001 \\
+%	0.148 & -0.142 & -0.250 & \color{red} -0.405 & \color{red} 0.666 & 0.070 & -0.094 & -0.102 & \color{red} -0.268 & \color{red} 0.439 & -0.002 \\
+%	\color{red} 0.654 & -0.246 & \color{red} -0.420 & -0.240 & \color{red} 0.388 & \color{red} 0.290 & 0.098 & 0.086 & -0.159 & 0.003 & -0.008 \\
+%	0.026 & \color{red} 0.494 & \color{red} -0.444 & -0.098 & -0.053 & 0.010 & \color{red} 0.621 & \color{red} -0.375 & -0.129 & -0.055 & -0.000 \\
+%	0.004 & \color{red} -0.265 & \color{red} 0.588 & \color{red} -0.320 & -0.044 & 0.007 & \color{red} -0.288 & \color{red} 0.578 & -0.248 & -0.045 & -0.000 \\
+%	-0.023 & -0.082 & \color{red} -0.295 & \color{red} 0.664 & -0.158 & -0.017 & -0.135 & \color{red} -0.338 & \color{red} 0.545 & -0.102 & 0.001 \\
+%	-0.015 & -0.082 & -0.147 & \color{red} -0.399 & \color{red} 0.651 & 0.001 & -0.146 & -0.155 & \color{red} -0.257 & \color{red} 0.525 & -0.000 \\
+%	\color{red} -0.519 & \color{red} 0.308 & \color{red} 0.510 & \color{red} 0.346 & \color{red} -0.348 & -0.239 & -0.061 & -0.070 & 0.181 & -0.004 & 0.193 \\
+%	\end{array}
+%	\right)
+%	\cdot 
+%    \footnotesize	
+%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
+%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
+%	\end{pmatrix}
+%	\]
+%	\caption{\label{tab:Wcoeff-lin-GC}
+%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook GC forecasted covariance matrix, using linear power spectra.
+%		The entries marked with red are those whose absolute values are larger than $0.25$.}
+%\end{table}
+%\begin{table}[H]
+%	\[
+%	q_i = 
+%	\footnotesize
+%	\left(
+%	\begin{array}{rrrrrrrrrrr}
+%	\color{red} 0.986 & -0.064 & -0.112 & -0.093 & -0.037 & -0.038 & -0.002 & 0.005 & -0.002 & 0.005 & 0.002 \\
+%	-0.021 & \color{red} 0.677 & \color{red} -0.349 & -0.091 & -0.042 & -0.008 & \color{red} 0.516 & \color{red} -0.367 & -0.086 & -0.021 & 0.001 \\
+%	-0.025 & -0.233 & \color{red} 0.731 & -0.194 & -0.051 & -0.011 & \color{red} -0.317 & \color{red} 0.492 & -0.166 & -0.021 & 0.001 \\
+%	-0.030 & -0.088 & \color{red} -0.281 & \color{red} 0.755 & -0.061 & 0.036 & -0.073 & \color{red} -0.331 & \color{red} 0.465 & -0.086 & -0.001 \\
+%	-0.032 & -0.108 & -0.197 & -0.161 & \color{red} 0.820 & 0.238 & -0.023 & -0.092 & -0.240 & \color{red} 0.357 & -0.007 \\
+%	-0.086 & -0.058 & -0.110 & \color{red} 0.252 & \color{red} 0.637 & \color{red} 0.659 & 0.224 & -0.001 & -0.143 & -0.046 & -0.018 \\
+%	-0.001 & \color{red} 0.492 & \color{red} -0.452 & -0.071 & -0.008 & 0.031 & \color{red} 0.617 & \color{red} -0.391 & -0.113 & -0.038 & -0.001 \\
+%	0.001 & \color{red} -0.296 & \color{red} 0.593 & \color{red} -0.275 & -0.029 & -0.000 & \color{red} -0.331 & \color{red} 0.575 & -0.209 & -0.031 & -0.000 \\
+%	-0.001 & -0.115 & \color{red} -0.329 & \color{red} 0.635 & -0.124 & -0.028 & -0.157 & \color{red} -0.344 & \color{red} 0.558 & -0.065 & 0.001 \\
+%	0.008 & -0.092 & -0.136 & \color{red} -0.390 & \color{red} 0.614 & -0.030 & -0.176 & -0.167 & -0.216 & \color{red} 0.581 & 0.001 \\
+%	0.140 & 0.126 & 0.180 & -0.194 & \color{red} -0.645 & \color{red} -0.608 & -0.218 & -0.029 & 0.137 & 0.049 & 0.199 \\
+%	\end{array}
+%	\right)
+%		\cdot 
+%	\footnotesize	
+%    \begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
+%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
+%	\end{pmatrix}
+%	\]
+%	\caption{\label{tab:Wcoeff-nlHS-GC}
+%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook GC forecasted covariance matrix, using the non-linear HS prescription.
+%		The entries marked with red are those whose absolute values are larger than $0.25$.}
+%\end{table}
+%\begin{table}[H]
+%	\[
+%	q_i = 
+%	\footnotesize
+%	\left(
+%	\begin{array}{rrrrrrrrrrr}
+%	\color{red} 0.760 & -0.005 & \color{red} 0.475 & 0.131 & 0.005 & 0.034 & 0.247 & \color{red} 0.329 & 0.095 & 0.004 & -0.000 \\
+%	-0.000 & \color{red} 0.673 & \color{red} -0.592 & -0.055 & 0.013 & 0.008 & \color{red} 0.328 & \color{red} -0.290 & -0.034 & -0.001 & -0.000 \\
+%	0.033 & \color{red} -0.594 & \color{red} 0.674 & 0.013 & -0.003 & -0.000 & \color{red} -0.302 & \color{red} 0.318 & 0.010 & 0.000 & 0.000 \\
+%	0.075 & \color{red} -0.457 & 0.112 & \color{red} 0.754 & 0.002 & 0.004 & \color{red} -0.310 & 0.039 & \color{red} 0.326 & 0.001 & 0.000 \\
+%	0.022 & \color{red} 0.892 & -0.187 & 0.017 & 0.102 & 0.064 & \color{red} 0.326 & -0.208 & -0.064 & -0.000 & 0.000 \\
+%	\color{red} 0.251 & \color{red} 0.859 & -0.030 & 0.048 & 0.098 & 0.090 & \color{red} 0.414 & -0.078 & -0.029 & 0.004 & 0.009 \\
+%	0.034 & \color{red} 0.654 & \color{red} -0.600 & -0.074 & 0.009 & 0.008 & \color{red} 0.356 & \color{red} -0.280 & -0.037 & -0.000 & 0.000 \\
+%	0.047 & \color{red} -0.606 & \color{red} 0.662 & 0.010 & -0.006 & -0.002 & \color{red} -0.293 & \color{red} 0.324 & 0.013 & 0.001 & 0.001 \\
+%	0.108 & \color{red} -0.576 & 0.167 & \color{red} 0.655 & -0.015 & -0.005 & \color{red} -0.311 & 0.105 & \color{red} 0.304 & 0.003 & 0.002 \\
+%	\color{red} 0.256 & \color{red} -0.718 & \color{red} 0.380 & 0.136 & -0.003 & 0.032 & -0.010 & \color{red} 0.448 & 0.197 & 0.111 & 0.061 \\
+%	-0.029 & \color{red} -0.734 & \color{red} 0.253 & 0.068 & 0.000 & 0.166 & 0.084 & \color{red} 0.506 & 0.218 & 0.122 & 0.197 \\
+%	\end{array}
+%	\right)
+%	\cdot 
+%	\footnotesize
+%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
+%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
+%	\end{pmatrix}
+%	\]
+%	\caption{\label{tab:Wcoeff-lin-WL}
+%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook WL forecasted covariance matrix, using linear power spectra.
+%		The entries marked with red are those whose absolute values are larger than $0.25$.}
+%\end{table}
+%\begin{table}[H]
+%	\[
+%	q_i = \left(
+%	\footnotesize
+%	\begin{array}{rrrrrrrrrrr}
+%	\color{red} 0.926 & -0.004 & \color{red} -0.323 & -0.039 & -0.040 & -0.066 & -0.043 & -0.168 & -0.004 & -0.000 & 0.001 \\
+%	-0.000 & \color{red} 0.669 & \color{red} -0.595 & -0.051 & 0.012 & 0.013 & \color{red} 0.332 & \color{red} -0.291 & -0.031 & -0.001 & -0.000 \\
+%	-0.021 & \color{red} -0.552 & \color{red} 0.711 & 0.029 & 0.005 & 0.016 & \color{red} -0.270 & \color{red} 0.339 & 0.014 & 0.001 & 0.000 \\
+%	-0.025 & \color{red} -0.460 & \color{red} 0.288 & \color{red} 0.725 & 0.016 & 0.040 & -0.238 & 0.150 & \color{red} 0.312 & 0.002 & 0.000 \\
+%	-0.159 & \color{red} 0.657 & \color{red} 0.289 & 0.102 & \color{red} 0.476 & 0.156 & \color{red} 0.418 & 0.155 & -0.007 & 0.006 & 0.001 \\
+%	-0.168 & \color{red} 0.455 & \color{red} 0.622 & 0.158 & 0.100 & \color{red} 0.486 & 0.223 & 0.236 & -0.016 & -0.001 & -0.002 \\
+%	-0.006 & \color{red} 0.667 & \color{red} -0.585 & -0.053 & 0.015 & 0.012 & \color{red} 0.366 & \color{red} -0.274 & -0.026 & 0.000 & -0.000 \\
+%	-0.023 & \color{red} -0.560 & \color{red} 0.704 & 0.032 & 0.005 & 0.013 & \color{red} -0.263 & \color{red} 0.345 & 0.017 & 0.001 & 0.000 \\
+%	-0.005 & \color{red} -0.576 & \color{red} 0.277 & \color{red} 0.636 & -0.002 & -0.008 & -0.238 & 0.165 & \color{red} 0.319 & 0.004 & 0.001 \\
+%	-0.026 & \color{red} -0.506 & \color{red} 0.670 & 0.239 & 0.110 & -0.037 & 0.114 & \color{red} 0.359 & 0.209 & 0.169 & 0.096 \\
+%	0.180 & \color{red} -0.799 & 0.053 & 0.033 & 0.069 & -0.140 & -0.055 & 0.044 & 0.134 & \color{red} 0.271 & \color{red} 0.452 \\
+%	\end{array}
+%	\right)
+%	\cdot
+%	\footnotesize 
+%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
+%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
+%	\end{pmatrix}
+%	\]
+%	\caption{\label{tab:Wcoeff-nlHS-WL}
+%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook WL forecasted covariance matrix, using the non-linear HS prescription.
+%		The entries marked with red are those whose absolute values are larger than $0.25$.}
+%\end{table}
+%\begin{table}[H]
+%	\[
+%	q_i = \left(
+%	\footnotesize
+%\begin{array}{rrrrrrrrrrr}
+%\color{red} 0.932 & 0.033 & 0.149 & 0.220 & 0.202 & 0.138 & -0.005 & -0.026 & -0.001 & 0.010 & -0.003 \\
+%0.029 & \color{red} 0.839 & -0.214 & -0.085 & -0.035 & -0.021 & \color{red} 0.476 & -0.119 & -0.021 & 0.002 & -0.000 \\
+%0.138 & -0.222 & \color{red} 0.800 & -0.083 & 0.016 & 0.028 & \color{red} -0.256 & \color{red} 0.452 & -0.118 & -0.011 & -0.002 \\
+%\color{red} 0.284 & -0.123 & -0.115 & \color{red} 0.791 & 0.076 & 0.108 & -0.106 & \color{red} -0.286 & \color{red} 0.387 & -0.067 & -0.010 \\
+%\color{red} 0.506 & -0.097 & 0.043 & 0.148 & \color{red} 0.753 & 0.248 & -0.059 & -0.089 & -0.144 & 0.222 & -0.032 \\
+%\color{red} 0.545 & -0.092 & 0.120 & \color{red} 0.331 & \color{red} 0.390 & \color{red} 0.626 & -0.027 & -0.088 & -0.089 & -0.009 & 0.104 \\
+%-0.006 & \color{red} 0.621 & \color{red} -0.322 & -0.096 & -0.028 & -0.008 & \color{red} 0.656 & \color{red} -0.261 & -0.048 & -0.009 & -0.001 \\
+%-0.032 & -0.166 & \color{red} 0.605 & \color{red} -0.276 & -0.044 & -0.028 & \color{red} -0.277 & \color{red} 0.654 & -0.148 & -0.006 & 0.000 \\
+%-0.003 & -0.049 & \color{red} -0.270 & \color{red} 0.634 & -0.122 & -0.048 & -0.088 & \color{red} -0.252 & \color{red} 0.659 & -0.023 & 0.010 \\
+%0.067 & 0.015 & -0.082 & \color{red} -0.358 & \color{red} 0.614 & -0.017 & -0.055 & -0.034 & -0.074 & \color{red} 0.688 & 0.027 \\
+%-0.072 & -0.002 & -0.060 & -0.179 & \color{red} -0.286 & \color{red} 0.591 & -0.027 & 0.008 & 0.108 & 0.088 & \color{red} 0.713 \\
+%\end{array}
+%	\right)
+%	\cdot 
+%	\footnotesize
+%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
+%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
+%	\end{pmatrix}
+%	\]
+%	\caption{\label{tab:Wcoeff-nlHS-WL+GC+Planck}
+%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook GC+WL case using the non-linear HS prescription and adding a CMB \planck\ prior.
+%	     The entries marked with red are those whose absolute values are larger than $0.25$.}
+%\end{table}
+
+
+
+\section{Other Decorrelation Methods}\label{sec:appdec}
+
+In section \ref{sub:Combined-GC-WL-Planck-Binned} we have worked with a special decorrelation method, ZCA (Zero-phase component analysis, first 
+introduced by \cite{Bell19973327} in the context of image processing), which
+allows us to find a new vector of decorrelated variables $q$ that is as similar as possible to the original
+vector of variables $p$.
+Other decorrelation methods do not share this property,
+so in this section we want to illustrate their difference 
+with respect to ZCA.
+In the next subsections we show for the Principal Component Analysis and Cholesky decomposition methods, 
+a subset of our previous results, namely the Galaxy Clustering non-linear case, 
+using the HS prescription for a Euclid survey with Redbook specifications.
+
+\subsubsection{Principal Component Analysis }
+
+Principal Component Analysis (PCA) \cite{Friedman-PCA} is a well known method, which rotates
+the vector of variables $p$ into a new basis, using the eigenmatrix of the 
+covariance matrix $C$. At the same time, it is the method that maximizes the compression of all components
+of $p$ into the components of $q$ using as measure the cross-covariance
+between $q$ and $p$ (see \cite{kessy_optimal_2015} for more details and references).
+This method is useful for dimensional reduction or data compression, 
+since the information is stored in as few components as possible.
+This is achieved by using the $W$ matrix
+
+\begin{equation}
+W=\Lambda^{-1/2}U^{T}
+\end{equation}
+where $\Lambda$ and $U$ represent the eigensystem of $C$ (defined in Eqn.\ \ref{eq:eigensystemofC}).
+
+Then, it follows that the transformed covariance matrix $\tilde{C}$ is whitened:
+\begin{align}
+\tilde{C} & =\Lambda^{-1/2}U^{T}C\Lambda^{-1/2}U^{T}\\
+& =\Lambda^{-1/2}U^{T}U\Lambda U^{T}\Lambda^{-1/2}U^{T}\\
+& =\mathbb{1}
+\end{align}
+As done previously, we renormalize $W$ in such a way that the sum of the square of the elements of each row sum up to
+unity.
+In Figure \ref{fig:PCA-GCnlhs} we show in the left panel the weight matrix $W$ and in the right panel the 1$\sigma$ errors for the original
+and decorrelated variables. We see that the most constrained $q$ variables are the last components $q_8$-$q_{11}$, where most
+of the information has been compressed into. These 4 variables are complicated linear combinations of $A_s$, $\mu_{1,2,3}$ 
+and $\eta_{1,2,3}$. This is the same we found for ZCA (cf.\ Fig.\ \ref{fig:GCbestconst} and Eqns.\ (\ref{fig:GCbestconst})). However, the interpretation
+in terms of the old variables $p$ is not so simple anymore. We can see from the weight matrix and the 1$\sigma$
+errors, that the most unconstrained parameter is $q_1$, which is basically equivalent to $\eta_5$. This means that this parameter can be
+eliminated from the analysis if one wants to do dimensional reduction.
+\begin{figure}[htbp]
+	\includegraphics[width=0.35\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Weight_Matrix_PCA_SquareNorm--_fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
+	\includegraphics[width=0.45\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Errors_at_par_index_i--_PCA_SquareNorm--fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
+	\caption[PCA decorrelation: Weight matrix and uncorrelated errors.]{\textbf{Left}: weight matrix $W$ for PCA. \textbf{Right}: 1$\sigma$ fully maximized errors on
+		the primary parameters $p$ (blue lines) and the errors on the uncorrelated
+		derived parameters $q$ (orange lines). Notice how all the important information is constrained in as few variables as possible,
+		namely the last elements of $q_i$.
+	}\label{fig:PCA-GCnlhs}
+\end{figure}
+
+
+\subsubsection{Cholesky decomposition}
+
+Cholesky decomposition of the Fisher matrix $F=LL^{T}$, allows us to
+define a decorrelation method that compresses
+all components of $p$ into an upper triangular matrix of components
+of $q$. This is achieved by using the $W$ matrix:
+
+\begin{equation}
+W=L^{T}
+\end{equation}
+Then the covariance matrix will be whitened:
+\begin{align}
+\tilde{C} & =L^{T} (L L^{T})^{-1} L\\
+& =L^{T} (L^{T})^{-1} L^{-1} L\\
+& =\mathbb{1}
+\end{align}
+As done previously, we renormalize $W$ in such a way that the sum of the square of the elements of each row sum up to
+unity.
+In Cholesky decomposition, since we are constructing it via an upper triangular matrix (see left panel of Fig.\ \ref{fig:Chol-GCnlhs}), 
+the new parameter $q_{11}$ will be identical 
+to the parameter $\eta_5$, which is, as we have seen before (section \ref{subsub:ZCA-GC}), the less constrained parameter. This decorrelation method
+is useful if one wants to have an ordering of the variables (see \cite{kessy_optimal_2015} and references therein).
+On the other hand $q_1$ is almost identical to $A_s$, since as we have seen in section \ref{subsub:ZCA-GC},
+it becomes decorrelated from the MG parameters in the non-linear case.
+
+\begin{figure}[htbp]
+	\includegraphics[width=0.35\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Weight_Matrix_Cholesky_SquareNorm--_fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
+	\includegraphics[width=0.45\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Errors_at_par_index_i--_Cholesky_SquareNorm--fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
+	\caption[Cholesky decorrelation: Weight matrix and uncorrelated errors.]{\textbf{Left:} weight matrix $W$ for the Cholesky decorrelation. \textbf{Right:} 1$\sigma$ fully maximized errors on
+		the primary parameters $p$ (blue lines) and the errors on the uncorrelated
+		derived parameters $q$ (orange lines). Notice how in this case, because of the upper triangular construction, the new variables
+		$q_{9,10,11}$ are equivalent to $\eta_{3,4,5}$. The parameter $A_s$ is decorrelated in the non-linear HS case for GC, therefore
+		it is almost equivalent to $q_1$ as was also the case in ZCA (compare with Fig.\ \ref{fig:Wmat-ZCA-GC})
+	}\label{fig:Chol-GCnlhs}
+\end{figure}
 
 
 \section{Modified gravity with simple smooth functions of the scale factor}
@@ -1560,6 +1808,58 @@ for SKA1 the contraints would be at the 8\% level. The marginalized contours for
 \normalsize
 
 
+\subsubsection{Late time parameterization}
+Our main observables are parameterized
+in terms of the primary variables $E_{11}$ and $E_{22}$ from Equation
+\ref{eq:TR-mu-parametrization}; we are however interested in forecasting
+the constraints on the pair of secondary variables $\{\mu$, $\eta\}$
+or on the pair $\{\mu$, $\Sigma$\}.
+
+Therefore we need to transform the variables using a Jacobian
+$J_{ij}=\frac{\partial\theta_{i}}{\partial\tilde{\theta}_{j}}$,
+where $\theta_{i}$ is the set of primary variables and $\tilde{\theta}_{i}$
+is the vector of secondary variables. 
+Eqns. (\ref{eq:SigmaofMuEta},\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization})
+allow us to express the $\tilde{\theta}_{i}$ as a function of the variables $\theta_{i}$ and 
+to obtain the non-vanishing derivatives
+of $\mu$ and $\eta$ w.r.t to all cosmological parameters:
+
+\begin{alignat}{2}
+\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
+\frac{\partial\eta}{\partial\Omega_{c}} & =-E_{22}\\
+\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
+\frac{\partial\eta}{\partial\Omega_{b}} & =-E_{22}\\
+\frac{\partial\mu}{\partial E_{11}} &
+=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\eta}{\partial
+	E_{22}} & =1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} \,\,\, .
+\end{alignat}
+With these derivatives we can construct the inverse of the Jacobian
+$J_{ij}^{-1}=\frac{\partial\tilde{\theta}_{j}}{\partial\theta_{i}}$.
+The Fisher matrix in the secondary variables $\tilde{F}{}_{ij}$ is
+then given by 
+\begin{equation}
+\tilde{F}=J^{T}F\,J
+\end{equation}
+For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
+we obtain the following non-vanishing derivatives
+
+\begin{alignat}{2}
+\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
+\frac{\partial\Sigma}{\partial\Omega_{c}} &
+=-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
+&  &  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
+\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
+\frac{\partial\Sigma}{\partial\Omega_{b}} &
+=-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
+&  &  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
+\frac{\partial\mu}{\partial E_{11}} &
+=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\Sigma}{\partial
+	E_{11}} &
+=\frac{1}{2}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})\\
+&  & \frac{\partial\Sigma}{\partial E_{22}} &
+=\frac{1}{2}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})
+\end{alignat}
+
 \subsubsection{Weak Lensing in the linear and mildly non-linear regime}
 
 Using the Euclid Weak Lensing specifications described in Section
@@ -1649,6 +1949,61 @@ history of the universe.
 An overview of the constraints on Modified Gravity described in this section is shown in Fig.\ref{fig:DE+Planck-ellipses-mu-sig-eta}, with Euclid GC, Euclid WL and Euclid GC+WL combined with \planck\ priors.
 
 
+\subsubsection{Derivatives of the Power Spectrum with respect to $\mu$ and $\eta$}\label{sec:appder}
+
+In this section we investigate the derivatives of the power spectrum with respect to the MG parameters. 
+Using the Jacobians from the previous Appendix \ref{sec:appjac}, we can convert 
+our fundamental derivatives $\partial P(k,z)/\partial E_{ij}$ to derivatives of $\partial P(k,z)/\partial (\mu, \eta)$ evaluated at $z=0$.
+
+
+\begin{figure}[htbp]
+	\centering{}
+	\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGDE-Pk-wrt-mu-4z.pdf}
+	\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGDE-Pk-wrt-eta-4z.pdf}
+	\caption[Derivatives of the power spectrum in the late-time parameterization.]{ Derivatives of the matter power spectrum $P(k,z)$ w.r.t. the MG parameters $\mu$ and $\eta$ in the late-time parametrization.
+	}\label{fig:Pkderivs-latetime}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGTR-Pk-wrt-mu-4z.pdf}
+	\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGTR-Pk-wrt-eta-4z.pdf}
+	\caption[Derivatives of the power spectrum in the early-time parameterization.]
+	{ Derivatives of the matter power spectrum $P(k,z)$ w.r.t. the MG parameters $\mu$ and $\eta$ in the early-time parametrization.
+	}\label{fig:Pkderivs-latetime}
+\end{figure}
+
+We can see from the previous figures that in the early-time parametrization the derivative of the power spectrum
+with respect to $\eta$ has a similar shape as the derivative with respect to $\mu$, making $\eta$ detectable by a Galaxy Clustering survey.
+To explain this, we derive the equation governing the evolution of density fluctuations for a cold dark matter (CDM) species, based on the equations
+implemented on the code MGCAMB presented in \cite{hojjati_testing_2011}, expressed here in the conformal Newtonian gauge.
+In the following, a dot represents derivative with respect to conformal time $\tau$:
+\begin{align}
+\dot \delta &= - (1+w)(\theta - 3 \dot \Phi) - 3 \mathcal{H}(\frac{\delta P}{\delta \rho}-w)\delta\\
+\dot \theta &= - \curH (1-3w)\theta - \frac{\dot w}{1+w} \theta + \frac{\delta P / \delta \rho}{1+w} k^2 \delta - k^2 \sigma + k^2 \Psi
+\end{align}
+For CDM we have $\sigma = w = c^2_s= \delta P / \delta \rho  = 0$,  then:
+\begin{align}
+\dot \delta &= -(\theta - 3 \dot \Phi) \label{eq:deltadot}\\
+\dot \theta &= -\curH \theta + k^2 \Psi \label{eq:thetadot}
+\end{align}
+We have parameterized the solution to $\Psi$ as:
+\begin{equation}\label{eq:Psipoisson}
+k^2 \Psi = -4 \pi G a^2 \mu(\tau) \rho(\tau) \delta(\tau) \quad ,
+\end{equation}
+and since we are also requiring gravitational slip $\eta = \Phi / \Psi$, we then have the Poisson equation for $\Phi$:
+\begin{equation}
+k^2 \Phi = -4 \pi G a^2 \mu(\tau) \eta(\tau) \rho(\tau) \delta(\tau) \label{eq:Phipoisson}
+\end{equation}
+
+Taking the time derivative of (\ref{eq:deltadot}) and using (\ref{eq:thetadot}) and (\ref{eq:deltadot}) to 
+replace $\dot \theta$ and $\theta$, and substituting $\Psi$ from (\ref{eq:Psipoisson}), we obtain:
+\begin{align}
+\ddot{\delta} + \curH \dot{\delta} &= 3\curH \dot{\Phi} + 3\ddot{\Phi} + 4 \pi G a^2 \mu \rho \delta
+\label{eq-delta}
+\end{align}
+
+In general, derivatives of $\Phi$ appearing on the right hand side will depend on both $\mu$ and $\eta$. Their contribution is larger in the early-time parameterization with respect to the late-time one.
 
 
 \subsubsection{Forecasts in Modified Gravity for SKA1, SKA2 and DESI \label{subsub: other-surveys-late-time}}
@@ -1782,6 +2137,28 @@ fully marginalized errors on $\Sigma$ and $\mu$.\textbf{ Lower left:
 $\Sigma$ and $\ln 10^{10} A_s$. Notice that in this parameterization, GC and WL are able to constrain both $\mu$ and
 $\eta$ or $\Sigma$ on their own.}
 \end{figure}
+
+\subsubsection{Early time parameterization}
+
+In the early time case, we have two parameters for each $\mu(a)$
+and $\eta(a)$ function as in Eq.\ (\ref{eq:TR-mu-parametrization}).
+If we are interested in the parameters $\mu$, $\eta$ and $\Sigma$
+today ($a=1$), then the parameters $E_{12}$ and $E_{21}$ are not
+important anymore and we can simply marginalize over them in our Fisher
+matrix. Then the relation between $\mu$ and $\eta$ is very simple
+$\{\mu,\eta\}=1+\{E_{11},\,E_{22}\}$. The corresponding Jacobian
+is simply a $7\times7$ identity matrix and we can apply it to the
+Fisher matrix after we marginalize over the two unimportant parameters.
+
+For the transformation to the pair $\mu$-$\Sigma$ we use the definition
+of $\Sigma$ of Eq.\ (\ref{eq:SigmaofMuEta}) and then find the derivatives
+with respect to $E_{ij}$. We obtain
+
+\begin{align}
+\frac{\partial\Sigma}{\partial E_{11}} & =\frac{1}{2}(2+E_{22})\\
+\frac{\partial\Sigma}{\partial E_{22}} & =\frac{1}{2}(2+E_{11})\quad,
+\end{align}
+while all other derivatives remain the same.
 
 
 
@@ -2063,443 +2440,9 @@ Therefore, the quantitive true constraints given by a survey like Euclid will pr
 
 
 
-\section{Transformation of primary variables in Modified Gravity}\label{sec:appjac}
-
-
-\subsection{Late time parameterization}
-Our main observables are parameterized
-in terms of the primary variables $E_{11}$ and $E_{22}$ from Equation
-\ref{eq:TR-mu-parametrization}; we are however interested in forecasting
-the constraints on the pair of secondary variables $\{\mu$, $\eta\}$
-or on the pair $\{\mu$, $\Sigma$\}.
-
-Therefore we need to transform the variables using a Jacobian
-$J_{ij}=\frac{\partial\theta_{i}}{\partial\tilde{\theta}_{j}}$,
-where $\theta_{i}$ is the set of primary variables and $\tilde{\theta}_{i}$
-is the vector of secondary variables. 
-Eqns. (\ref{eq:SigmaofMuEta},\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization})
-allow us to express the $\tilde{\theta}_{i}$ as a function of the variables $\theta_{i}$ and 
-to obtain the non-vanishing derivatives
-of $\mu$ and $\eta$ w.r.t to all cosmological parameters:
-
-\begin{alignat}{2}
-\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
-\frac{\partial\eta}{\partial\Omega_{c}} & =-E_{22}\\
-\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
-\frac{\partial\eta}{\partial\Omega_{b}} & =-E_{22}\\
-\frac{\partial\mu}{\partial E_{11}} &
-=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\eta}{\partial
-E_{22}} & =1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} \,\,\, .
-\end{alignat}
-With these derivatives we can construct the inverse of the Jacobian
-$J_{ij}^{-1}=\frac{\partial\tilde{\theta}_{j}}{\partial\theta_{i}}$.
-The Fisher matrix in the secondary variables $\tilde{F}{}_{ij}$ is
-then given by 
-\begin{equation}
-\tilde{F}=J^{T}F\,J
-\end{equation}
-For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
-we obtain the following non-vanishing derivatives
-
-\begin{alignat}{2}
-\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
-\frac{\partial\Sigma}{\partial\Omega_{c}} &
-=-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
- &  &  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
-\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
-\frac{\partial\Sigma}{\partial\Omega_{b}} &
-=-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
- &  &  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
-\frac{\partial\mu}{\partial E_{11}} &
-=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\Sigma}{\partial
-E_{11}} &
-=\frac{1}{2}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})\\
- &  & \frac{\partial\Sigma}{\partial E_{22}} &
-=\frac{1}{2}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})
-\end{alignat}
 
 
 
-\subsection{Early time parameterization}
-
-In the early time case, we have two parameters for each $\mu(a)$
-and $\eta(a)$ function as in Eq.\ (\ref{eq:TR-mu-parametrization}).
-If we are interested in the parameters $\mu$, $\eta$ and $\Sigma$
-today ($a=1$), then the parameters $E_{12}$ and $E_{21}$ are not
-important anymore and we can simply marginalize over them in our Fisher
-matrix. Then the relation between $\mu$ and $\eta$ is very simple
-$\{\mu,\eta\}=1+\{E_{11},\,E_{22}\}$. The corresponding Jacobian
-is simply a $7\times7$ identity matrix and we can apply it to the
-Fisher matrix after we marginalize over the two unimportant parameters.
-
-For the transformation to the pair $\mu$-$\Sigma$ we use the definition
-of $\Sigma$ of Eq.\ (\ref{eq:SigmaofMuEta}) and then find the derivatives
-with respect to $E_{ij}$. We obtain
-
-\begin{align}
-\frac{\partial\Sigma}{\partial E_{11}} & =\frac{1}{2}(2+E_{22})\\
-\frac{\partial\Sigma}{\partial E_{22}} & =\frac{1}{2}(2+E_{11})\quad,
-\end{align}
-while all other derivatives remain the same.
-
-\section{Derivatives of the Power Spectrum with respect to $\mu$ and $\eta$}\label{sec:appder}
-
-In this section we investigate the derivatives of the power spectrum with respect to the MG parameters. 
-Using the Jacobians from the previous Appendix \ref{sec:appjac}, we can convert 
-our fundamental derivatives $\partial P(k,z)/\partial E_{ij}$ to derivatives of $\partial P(k,z)/\partial (\mu, \eta)$ evaluated at $z=0$.
-
-
-\begin{figure}[htbp]
-\centering{}
-\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGDE-Pk-wrt-mu-4z.pdf}
-\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGDE-Pk-wrt-eta-4z.pdf}
-\caption[Derivatives of the power spectrum in the late-time parameterization.]{ Derivatives of the matter power spectrum $P(k,z)$ w.r.t. the MG parameters $\mu$ and $\eta$ in the late-time parametrization.
-}\label{fig:Pkderivs-latetime}
-\end{figure}
-
-
-\begin{figure}[htbp]
-\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGTR-Pk-wrt-mu-4z.pdf}
-\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGTR-Pk-wrt-eta-4z.pdf}
-\caption[Derivatives of the power spectrum in the early-time parameterization.]
-{ Derivatives of the matter power spectrum $P(k,z)$ w.r.t. the MG parameters $\mu$ and $\eta$ in the early-time parametrization.
-}\label{fig:Pkderivs-latetime}
-\end{figure}
-
-We can see from the previous figures that in the early-time parametrization the derivative of the power spectrum
-with respect to $\eta$ has a similar shape as the derivative with respect to $\mu$, making $\eta$ detectable by a Galaxy Clustering survey.
-To explain this, we derive the equation governing the evolution of density fluctuations for a cold dark matter (CDM) species, based on the equations
-implemented on the code MGCAMB presented in \cite{hojjati_testing_2011}, expressed here in the conformal Newtonian gauge.
-In the following, a dot represents derivative with respect to conformal time $\tau$:
-\begin{align}
-\dot \delta &= - (1+w)(\theta - 3 \dot \Phi) - 3 \mathcal{H}(\frac{\delta P}{\delta \rho}-w)\delta\\
-\dot \theta &= - \curH (1-3w)\theta - \frac{\dot w}{1+w} \theta + \frac{\delta P / \delta \rho}{1+w} k^2 \delta - k^2 \sigma + k^2 \Psi
-\end{align}
-For CDM we have $\sigma = w = c^2_s= \delta P / \delta \rho  = 0$,  then:
-\begin{align}
-\dot \delta &= -(\theta - 3 \dot \Phi) \label{eq:deltadot}\\
-\dot \theta &= -\curH \theta + k^2 \Psi \label{eq:thetadot}
-\end{align}
-We have parameterized the solution to $\Psi$ as:
-\begin{equation}\label{eq:Psipoisson}
-k^2 \Psi = -4 \pi G a^2 \mu(\tau) \rho(\tau) \delta(\tau) \quad ,
-\end{equation}
-and since we are also requiring gravitational slip $\eta = \Phi / \Psi$, we then have the Poisson equation for $\Phi$:
-\begin{equation}
-k^2 \Phi = -4 \pi G a^2 \mu(\tau) \eta(\tau) \rho(\tau) \delta(\tau) \label{eq:Phipoisson}
-\end{equation}
-
-Taking the time derivative of (\ref{eq:deltadot}) and using (\ref{eq:thetadot}) and (\ref{eq:deltadot}) to 
-replace $\dot \theta$ and $\theta$, and substituting $\Psi$ from (\ref{eq:Psipoisson}), we obtain:
-\begin{align}
-\ddot{\delta} + \curH \dot{\delta} &= 3\curH \dot{\Phi} + 3\ddot{\Phi} + 4 \pi G a^2 \mu \rho \delta
-\label{eq-delta}
-\end{align}
-
-In general, derivatives of $\Phi$ appearing on the right hand side will depend on both $\mu$ and $\eta$. Their contribution is larger in the early-time parameterization with respect to the late-time one.
-
-
-\section{Other Decorrelation Methods}\label{sec:appdec}
-
-In section \ref{sub:Combined-GC-WL-Planck-Binned} we have worked with a special decorrelation method, ZCA (Zero-phase component analysis, first 
-introduced by \cite{Bell19973327} in the context of image processing), which
-allows us to find a new vector of decorrelated variables $q$ that is as similar as possible to the original
-vector of variables $p$.
-Other decorrelation methods do not share this property,
-so in this section we want to illustrate their difference 
-with respect to ZCA.
-In the next subsections we show for the Principal Component Analysis and Cholesky decomposition methods, 
-a subset of our previous results, namely the Galaxy Clustering non-linear case, 
-using the HS prescription for a Euclid survey with Redbook specifications.
-
-\subsubsection{Principal Component Analysis }
-
-Principal Component Analysis (PCA) \cite{Friedman-PCA} is a well known method, which rotates
-the vector of variables $p$ into a new basis, using the eigenmatrix of the 
-covariance matrix $C$. At the same time, it is the method that maximizes the compression of all components
-of $p$ into the components of $q$ using as measure the cross-covariance
-between $q$ and $p$ (see \cite{kessy_optimal_2015} for more details and references).
-This method is useful for dimensional reduction or data compression, 
-since the information is stored in as few components as possible.
-This is achieved by using the $W$ matrix
-
-\begin{equation}
-W=\Lambda^{-1/2}U^{T}
-\end{equation}
-where $\Lambda$ and $U$ represent the eigensystem of $C$ (defined in Eqn.\ \ref{eq:eigensystemofC}).
-
-Then, it follows that the transformed covariance matrix $\tilde{C}$ is whitened:
-\begin{align}
-\tilde{C} & =\Lambda^{-1/2}U^{T}C\Lambda^{-1/2}U^{T}\\
- & =\Lambda^{-1/2}U^{T}U\Lambda U^{T}\Lambda^{-1/2}U^{T}\\
- & =\mathbb{1}
-\end{align}
-As done previously, we renormalize $W$ in such a way that the sum of the square of the elements of each row sum up to
-unity.
-In Figure \ref{fig:PCA-GCnlhs} we show in the left panel the weight matrix $W$ and in the right panel the 1$\sigma$ errors for the original
-and decorrelated variables. We see that the most constrained $q$ variables are the last components $q_8$-$q_{11}$, where most
-of the information has been compressed into. These 4 variables are complicated linear combinations of $A_s$, $\mu_{1,2,3}$ 
-and $\eta_{1,2,3}$. This is the same we found for ZCA (cf.\ Fig.\ \ref{fig:GCbestconst} and Eqns.\ (\ref{fig:GCbestconst})). However, the interpretation
-in terms of the old variables $p$ is not so simple anymore. We can see from the weight matrix and the 1$\sigma$
-errors, that the most unconstrained parameter is $q_1$, which is basically equivalent to $\eta_5$. This means that this parameter can be
-eliminated from the analysis if one wants to do dimensional reduction.
-\begin{figure}[htbp]
-\includegraphics[width=0.35\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Weight_Matrix_PCA_SquareNorm--_fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
-\includegraphics[width=0.45\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Errors_at_par_index_i--_PCA_SquareNorm--fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
-\caption[PCA decorrelation: Weight matrix and uncorrelated errors.]{\textbf{Left}: weight matrix $W$ for PCA. \textbf{Right}: 1$\sigma$ fully maximized errors on
-the primary parameters $p$ (blue lines) and the errors on the uncorrelated
-derived parameters $q$ (orange lines). Notice how all the important information is constrained in as few variables as possible,
-namely the last elements of $q_i$.
-}\label{fig:PCA-GCnlhs}
-\end{figure}
-
-
-\subsubsection{Cholesky decomposition}
-
-Cholesky decomposition of the Fisher matrix $F=LL^{T}$, allows us to
-define a decorrelation method that compresses
-all components of $p$ into an upper triangular matrix of components
-of $q$. This is achieved by using the $W$ matrix:
-
-\begin{equation}
-W=L^{T}
-\end{equation}
-Then the covariance matrix will be whitened:
-\begin{align}
-\tilde{C} & =L^{T} (L L^{T})^{-1} L\\
- & =L^{T} (L^{T})^{-1} L^{-1} L\\
- & =\mathbb{1}
-\end{align}
-As done previously, we renormalize $W$ in such a way that the sum of the square of the elements of each row sum up to
-unity.
-In Cholesky decomposition, since we are constructing it via an upper triangular matrix (see left panel of Fig.\ \ref{fig:Chol-GCnlhs}), 
-the new parameter $q_{11}$ will be identical 
-to the parameter $\eta_5$, which is, as we have seen before (section \ref{subsub:ZCA-GC}), the less constrained parameter. This decorrelation method
-is useful if one wants to have an ordering of the variables (see \cite{kessy_optimal_2015} and references therein).
-On the other hand $q_1$ is almost identical to $A_s$, since as we have seen in section \ref{subsub:ZCA-GC},
-it becomes decorrelated from the MG parameters in the non-linear case.
-
-\begin{figure}[htbp]
-\includegraphics[width=0.35\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Weight_Matrix_Cholesky_SquareNorm--_fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
-\includegraphics[width=0.45\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/Errors_at_par_index_i--_Cholesky_SquareNorm--fiducialMGBin3_Euclid_GC_nonlinearPk__Zhao_.pdf}
-\caption[Cholesky decorrelation: Weight matrix and uncorrelated errors.]{\textbf{Left:} weight matrix $W$ for the Cholesky decorrelation. \textbf{Right:} 1$\sigma$ fully maximized errors on
-the primary parameters $p$ (blue lines) and the errors on the uncorrelated
-derived parameters $q$ (orange lines). Notice how in this case, because of the upper triangular construction, the new variables
-$q_{9,10,11}$ are equivalent to $\eta_{3,4,5}$. The parameter $A_s$ is decorrelated in the non-linear HS case for GC, therefore
-it is almost equivalent to $q_1$ as was also the case in ZCA (compare with Fig.\ \ref{fig:Wmat-ZCA-GC})
-}\label{fig:Chol-GCnlhs}
-\end{figure}
-
-
-\section{Weight matrices coefficients}
-\label{sec:Wmatrices}
-
-Here we explicitly show the coefficient of the $W$ matrices illustrated in Figures
-\ref{fig:Wmat-ZCA-GC}, \ref{fig:Wmat-ZCA-WL}
-and \ref{fig:GC+WL+Planck-corr-Wmat}.
-Tables \ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} contain the coefficient matrices obtained for 
-Galaxy Clustering in the linear and non-linear HS prescription cases respectively, while 
-Tables \ref{tab:Wcoeff-lin-WL} and \ref{tab:Wcoeff-nlHS-WL} contain the coefficients obtained for WL. 
-Finally, Table \ref{tab:Wcoeff-nlHS-WL+GC+Planck} reports the coefficients for the combination of GC, 
-WL and \planck\ priors, in the non-linear HS case.
-
-%\begin{table}[H]
-%	\[
-%	q_i = 
-%	\footnotesize
-%	\left(
-%	\begin{array}{rrrrrrrrrrr}
-%	\color{red} 0.899 & 0.003 & -0.020 & 0.109 & \color{red} 0.315 & 0.250 & 0.097 & 0.021 & -0.083 & -0.022 & -0.007 \\
-%	0.001 & \color{red} 0.695 & \color{red} -0.304 & -0.089 & -0.084 & -0.026 & \color{red} 0.519 & \color{red} -0.362 & -0.082 & -0.033 & 0.001 \\
-%	-0.003 & -0.186 & \color{red} 0.745 & -0.211 & -0.090 & -0.027 & \color{red} -0.285 & \color{red} 0.491 & -0.181 & -0.036 & 0.001 \\
-%	0.022 & -0.065 & \color{red} -0.252 & \color{red} 0.737 & -0.174 & -0.019 & -0.075 & \color{red} -0.320 & \color{red} 0.486 & -0.116 & 0.001 \\
-%	0.148 & -0.142 & -0.250 & \color{red} -0.405 & \color{red} 0.666 & 0.070 & -0.094 & -0.102 & \color{red} -0.268 & \color{red} 0.439 & -0.002 \\
-%	\color{red} 0.654 & -0.246 & \color{red} -0.420 & -0.240 & \color{red} 0.388 & \color{red} 0.290 & 0.098 & 0.086 & -0.159 & 0.003 & -0.008 \\
-%	0.026 & \color{red} 0.494 & \color{red} -0.444 & -0.098 & -0.053 & 0.010 & \color{red} 0.621 & \color{red} -0.375 & -0.129 & -0.055 & -0.000 \\
-%	0.004 & \color{red} -0.265 & \color{red} 0.588 & \color{red} -0.320 & -0.044 & 0.007 & \color{red} -0.288 & \color{red} 0.578 & -0.248 & -0.045 & -0.000 \\
-%	-0.023 & -0.082 & \color{red} -0.295 & \color{red} 0.664 & -0.158 & -0.017 & -0.135 & \color{red} -0.338 & \color{red} 0.545 & -0.102 & 0.001 \\
-%	-0.015 & -0.082 & -0.147 & \color{red} -0.399 & \color{red} 0.651 & 0.001 & -0.146 & -0.155 & \color{red} -0.257 & \color{red} 0.525 & -0.000 \\
-%	\color{red} -0.519 & \color{red} 0.308 & \color{red} 0.510 & \color{red} 0.346 & \color{red} -0.348 & -0.239 & -0.061 & -0.070 & 0.181 & -0.004 & 0.193 \\
-%	\end{array}
-%	\right)
-%	\cdot 
-%    \footnotesize	
-%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
-%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
-%	\end{pmatrix}
-%	\]
-%	\caption{\label{tab:Wcoeff-lin-GC}
-%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook GC forecasted covariance matrix, using linear power spectra.
-%		The entries marked with red are those whose absolute values are larger than $0.25$.}
-%\end{table}
-%\begin{table}[H]
-%	\[
-%	q_i = 
-%	\footnotesize
-%	\left(
-%	\begin{array}{rrrrrrrrrrr}
-%	\color{red} 0.986 & -0.064 & -0.112 & -0.093 & -0.037 & -0.038 & -0.002 & 0.005 & -0.002 & 0.005 & 0.002 \\
-%	-0.021 & \color{red} 0.677 & \color{red} -0.349 & -0.091 & -0.042 & -0.008 & \color{red} 0.516 & \color{red} -0.367 & -0.086 & -0.021 & 0.001 \\
-%	-0.025 & -0.233 & \color{red} 0.731 & -0.194 & -0.051 & -0.011 & \color{red} -0.317 & \color{red} 0.492 & -0.166 & -0.021 & 0.001 \\
-%	-0.030 & -0.088 & \color{red} -0.281 & \color{red} 0.755 & -0.061 & 0.036 & -0.073 & \color{red} -0.331 & \color{red} 0.465 & -0.086 & -0.001 \\
-%	-0.032 & -0.108 & -0.197 & -0.161 & \color{red} 0.820 & 0.238 & -0.023 & -0.092 & -0.240 & \color{red} 0.357 & -0.007 \\
-%	-0.086 & -0.058 & -0.110 & \color{red} 0.252 & \color{red} 0.637 & \color{red} 0.659 & 0.224 & -0.001 & -0.143 & -0.046 & -0.018 \\
-%	-0.001 & \color{red} 0.492 & \color{red} -0.452 & -0.071 & -0.008 & 0.031 & \color{red} 0.617 & \color{red} -0.391 & -0.113 & -0.038 & -0.001 \\
-%	0.001 & \color{red} -0.296 & \color{red} 0.593 & \color{red} -0.275 & -0.029 & -0.000 & \color{red} -0.331 & \color{red} 0.575 & -0.209 & -0.031 & -0.000 \\
-%	-0.001 & -0.115 & \color{red} -0.329 & \color{red} 0.635 & -0.124 & -0.028 & -0.157 & \color{red} -0.344 & \color{red} 0.558 & -0.065 & 0.001 \\
-%	0.008 & -0.092 & -0.136 & \color{red} -0.390 & \color{red} 0.614 & -0.030 & -0.176 & -0.167 & -0.216 & \color{red} 0.581 & 0.001 \\
-%	0.140 & 0.126 & 0.180 & -0.194 & \color{red} -0.645 & \color{red} -0.608 & -0.218 & -0.029 & 0.137 & 0.049 & 0.199 \\
-%	\end{array}
-%	\right)
-%		\cdot 
-%	\footnotesize	
-%    \begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
-%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
-%	\end{pmatrix}
-%	\]
-%	\caption{\label{tab:Wcoeff-nlHS-GC}
-%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook GC forecasted covariance matrix, using the non-linear HS prescription.
-%		The entries marked with red are those whose absolute values are larger than $0.25$.}
-%\end{table}
-%\begin{table}[H]
-%	\[
-%	q_i = 
-%	\footnotesize
-%	\left(
-%	\begin{array}{rrrrrrrrrrr}
-%	\color{red} 0.760 & -0.005 & \color{red} 0.475 & 0.131 & 0.005 & 0.034 & 0.247 & \color{red} 0.329 & 0.095 & 0.004 & -0.000 \\
-%	-0.000 & \color{red} 0.673 & \color{red} -0.592 & -0.055 & 0.013 & 0.008 & \color{red} 0.328 & \color{red} -0.290 & -0.034 & -0.001 & -0.000 \\
-%	0.033 & \color{red} -0.594 & \color{red} 0.674 & 0.013 & -0.003 & -0.000 & \color{red} -0.302 & \color{red} 0.318 & 0.010 & 0.000 & 0.000 \\
-%	0.075 & \color{red} -0.457 & 0.112 & \color{red} 0.754 & 0.002 & 0.004 & \color{red} -0.310 & 0.039 & \color{red} 0.326 & 0.001 & 0.000 \\
-%	0.022 & \color{red} 0.892 & -0.187 & 0.017 & 0.102 & 0.064 & \color{red} 0.326 & -0.208 & -0.064 & -0.000 & 0.000 \\
-%	\color{red} 0.251 & \color{red} 0.859 & -0.030 & 0.048 & 0.098 & 0.090 & \color{red} 0.414 & -0.078 & -0.029 & 0.004 & 0.009 \\
-%	0.034 & \color{red} 0.654 & \color{red} -0.600 & -0.074 & 0.009 & 0.008 & \color{red} 0.356 & \color{red} -0.280 & -0.037 & -0.000 & 0.000 \\
-%	0.047 & \color{red} -0.606 & \color{red} 0.662 & 0.010 & -0.006 & -0.002 & \color{red} -0.293 & \color{red} 0.324 & 0.013 & 0.001 & 0.001 \\
-%	0.108 & \color{red} -0.576 & 0.167 & \color{red} 0.655 & -0.015 & -0.005 & \color{red} -0.311 & 0.105 & \color{red} 0.304 & 0.003 & 0.002 \\
-%	\color{red} 0.256 & \color{red} -0.718 & \color{red} 0.380 & 0.136 & -0.003 & 0.032 & -0.010 & \color{red} 0.448 & 0.197 & 0.111 & 0.061 \\
-%	-0.029 & \color{red} -0.734 & \color{red} 0.253 & 0.068 & 0.000 & 0.166 & 0.084 & \color{red} 0.506 & 0.218 & 0.122 & 0.197 \\
-%	\end{array}
-%	\right)
-%	\cdot 
-%	\footnotesize
-%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
-%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
-%	\end{pmatrix}
-%	\]
-%	\caption{\label{tab:Wcoeff-lin-WL}
-%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook WL forecasted covariance matrix, using linear power spectra.
-%		The entries marked with red are those whose absolute values are larger than $0.25$.}
-%\end{table}
-%\begin{table}[H]
-%	\[
-%	q_i = \left(
-%	\footnotesize
-%	\begin{array}{rrrrrrrrrrr}
-%	\color{red} 0.926 & -0.004 & \color{red} -0.323 & -0.039 & -0.040 & -0.066 & -0.043 & -0.168 & -0.004 & -0.000 & 0.001 \\
-%	-0.000 & \color{red} 0.669 & \color{red} -0.595 & -0.051 & 0.012 & 0.013 & \color{red} 0.332 & \color{red} -0.291 & -0.031 & -0.001 & -0.000 \\
-%	-0.021 & \color{red} -0.552 & \color{red} 0.711 & 0.029 & 0.005 & 0.016 & \color{red} -0.270 & \color{red} 0.339 & 0.014 & 0.001 & 0.000 \\
-%	-0.025 & \color{red} -0.460 & \color{red} 0.288 & \color{red} 0.725 & 0.016 & 0.040 & -0.238 & 0.150 & \color{red} 0.312 & 0.002 & 0.000 \\
-%	-0.159 & \color{red} 0.657 & \color{red} 0.289 & 0.102 & \color{red} 0.476 & 0.156 & \color{red} 0.418 & 0.155 & -0.007 & 0.006 & 0.001 \\
-%	-0.168 & \color{red} 0.455 & \color{red} 0.622 & 0.158 & 0.100 & \color{red} 0.486 & 0.223 & 0.236 & -0.016 & -0.001 & -0.002 \\
-%	-0.006 & \color{red} 0.667 & \color{red} -0.585 & -0.053 & 0.015 & 0.012 & \color{red} 0.366 & \color{red} -0.274 & -0.026 & 0.000 & -0.000 \\
-%	-0.023 & \color{red} -0.560 & \color{red} 0.704 & 0.032 & 0.005 & 0.013 & \color{red} -0.263 & \color{red} 0.345 & 0.017 & 0.001 & 0.000 \\
-%	-0.005 & \color{red} -0.576 & \color{red} 0.277 & \color{red} 0.636 & -0.002 & -0.008 & -0.238 & 0.165 & \color{red} 0.319 & 0.004 & 0.001 \\
-%	-0.026 & \color{red} -0.506 & \color{red} 0.670 & 0.239 & 0.110 & -0.037 & 0.114 & \color{red} 0.359 & 0.209 & 0.169 & 0.096 \\
-%	0.180 & \color{red} -0.799 & 0.053 & 0.033 & 0.069 & -0.140 & -0.055 & 0.044 & 0.134 & \color{red} 0.271 & \color{red} 0.452 \\
-%	\end{array}
-%	\right)
-%	\cdot
-%	\footnotesize 
-%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
-%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
-%	\end{pmatrix}
-%	\]
-%	\caption{\label{tab:Wcoeff-nlHS-WL}
-%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook WL forecasted covariance matrix, using the non-linear HS prescription.
-%		The entries marked with red are those whose absolute values are larger than $0.25$.}
-%\end{table}
-%\begin{table}[H]
-%	\[
-%	q_i = \left(
-%	\footnotesize
-%\begin{array}{rrrrrrrrrrr}
-%\color{red} 0.932 & 0.033 & 0.149 & 0.220 & 0.202 & 0.138 & -0.005 & -0.026 & -0.001 & 0.010 & -0.003 \\
-%0.029 & \color{red} 0.839 & -0.214 & -0.085 & -0.035 & -0.021 & \color{red} 0.476 & -0.119 & -0.021 & 0.002 & -0.000 \\
-%0.138 & -0.222 & \color{red} 0.800 & -0.083 & 0.016 & 0.028 & \color{red} -0.256 & \color{red} 0.452 & -0.118 & -0.011 & -0.002 \\
-%\color{red} 0.284 & -0.123 & -0.115 & \color{red} 0.791 & 0.076 & 0.108 & -0.106 & \color{red} -0.286 & \color{red} 0.387 & -0.067 & -0.010 \\
-%\color{red} 0.506 & -0.097 & 0.043 & 0.148 & \color{red} 0.753 & 0.248 & -0.059 & -0.089 & -0.144 & 0.222 & -0.032 \\
-%\color{red} 0.545 & -0.092 & 0.120 & \color{red} 0.331 & \color{red} 0.390 & \color{red} 0.626 & -0.027 & -0.088 & -0.089 & -0.009 & 0.104 \\
-%-0.006 & \color{red} 0.621 & \color{red} -0.322 & -0.096 & -0.028 & -0.008 & \color{red} 0.656 & \color{red} -0.261 & -0.048 & -0.009 & -0.001 \\
-%-0.032 & -0.166 & \color{red} 0.605 & \color{red} -0.276 & -0.044 & -0.028 & \color{red} -0.277 & \color{red} 0.654 & -0.148 & -0.006 & 0.000 \\
-%-0.003 & -0.049 & \color{red} -0.270 & \color{red} 0.634 & -0.122 & -0.048 & -0.088 & \color{red} -0.252 & \color{red} 0.659 & -0.023 & 0.010 \\
-%0.067 & 0.015 & -0.082 & \color{red} -0.358 & \color{red} 0.614 & -0.017 & -0.055 & -0.034 & -0.074 & \color{red} 0.688 & 0.027 \\
-%-0.072 & -0.002 & -0.060 & -0.179 & \color{red} -0.286 & \color{red} 0.591 & -0.027 & 0.008 & 0.108 & 0.088 & \color{red} 0.713 \\
-%\end{array}
-%	\right)
-%	\cdot 
-%	\footnotesize
-%	\begin{pmatrix} \ln(10^{10}A_s) \\ \mu_{1}  \\ \mu_{2}   \\ \mu_{3}   \\ \mu_{4}   \\ \mu_{5}  
-%	\\ \eta_{1}   \\ \eta_{2}  \\ \eta_{3}   \\\eta_{4}  \\ \eta_{5}
-%	\end{pmatrix}
-%	\]
-%	\caption{\label{tab:Wcoeff-nlHS-WL+GC+Planck}
-%		\normalfont Coefficients of the Matrix $W$ for the Euclid Redbook GC+WL case using the non-linear HS prescription and adding a CMB \planck\ prior.
-%	     The entries marked with red are those whose absolute values are larger than $0.25$.}
-%\end{table}
   
-\section{The Kullback-Leibler divergence \label{sec:KL}}
-
-In Section \ref{sec:covcorr} we exploited the determinant of the covariance matrix $C$ as a Figure of Merit for our forecasts. Here we summarize a possible alternative, the Kullback-Leibler divergence \cite{kullback_information_1951}, also called relative entropy or information gain. It has been used in the field of cosmology for model selection, experiment design and forecasting, see among others \cite{kunz_constraining_2006, raveri_cosmicfish_2016, seehars_information_2014, verde_planck_2013, Zhao2017}.
-The KL-divergence $\mathcal{D}(p_2||p_1)$ measures for a continuous, $d$-dimensional random variable $\theta$, the relative entropy between two probability density functions $p_1(\theta)$ and $p_2(\theta)$ and it is given by
-\begin{equation}
-\mathcal{D}(p_2||p_1) \equiv \int p_2(\theta)\ln\left(\frac{p_2(\theta)}{p_1(\theta)} \right) \mathrm{d}\theta .
-\end{equation}
-Although it is not symmetric in $p_1$ and $p_2$ it can be interpreted as a distance between the two distributions and measures the information gain since it is non-negative ($\mathcal{D}(p_2||p_1)\geq0$), non-degenerate ($\mathcal{D}(p_2||p_1)=0$ if and only if $p_1=p_2$) and it is invariant 
-under re-parametrizations of the distributions as $p_1(\theta)\mathrm{d}\theta = p_1(\tilde{\theta})\mathrm{d}\tilde{\theta}$. In the form given here the information gain is measured in nits as in section \ref{sec:covcorr}, to convert nits to bits it is enough to divide the result by $\ln(2)$.
-
-
-For the special case of $p_1(\theta)$ and $p_2(\theta)$ being multivariate Gaussian distributions, with the same mean values and covariance matrices $\mathcal{A}$ and $\mathcal{B}$ respectively, we obtain
-\begin{equation}
-\mathcal{D}(p_2||p_1) = -\frac{1}{2} \left[\ln\left(\frac{\det(\mathcal{A})}{\det(\mathcal{B})} \right) +\mathrm{Tr}\left[\mathbb{1}-\mathcal{B}^{-1}\mathcal{A}   \right] \right].
-\end{equation}
-
-We then define a Kullback-Leibler matrix $\mathcal{K}$ composed of the KL-divergence measure among our observables, defined as:
-\begin{equation}
-\mathcal{K}_{ij}=\mathcal{D}(p_j||p_i).
-\end{equation}
-where $p_i$ and $p_j$ represent our observables: GC(lin), GC(nl-HS), WL(lin), WL(nl-HS), GC+WL(lin) and GC+WL(nl-HS) in the redshift
-binned parameterization of section \ref{sec:Results:-Redshift-Binned}.
-In this way we can quantitatively see how much information is gained when going from one probe like Galaxy Clustering 
-to another probe like Weak Lensing. 
-In Figure \ref{fig:kl-matrices} we plot in the left panel the KL matrix $\mathcal{K}_{ij}$ when no \planck\ priors are added and 
-in the right panel the KL matrix when \planck\ priors are added to all probes. For visualization purposes, 
-we plot the logarithm of the KL matrix: $\log_{10} \mathcal{K}_{ij}$. Blue (red) colours represent small (large) information gain, while
-black represents no information gain at all, which is by construction the case on the diagonal, $\mathcal{K}_{ii}=0$. The rows of the matrix represent the reference observable of $p_1$ and the columns,
-the new observable $p_2$.
-The information gain when going from a linear WL observable to a non-linear GC observable or to a combined GC+WL (linear and non-linear) 
-observable is considerably high at about $\approx 10^6$-$10^7$. 
-However, when adding a \planck\ prior, this gets reduced by at least 2 orders of magnitude, 
-since the prior is strong and then there is not as much new information gained in the new observables. 
-On the opposite case, we can see that the row corresponding to GC+WL(nl-HS) is mostly blue, 
-meaning that there is little gain of information when going to one of the other observables.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/KL-divergence/KL-Matrix-all-obs-noPlanck-new}
-	\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/KL-divergence/KL-Matrix-all-obs-withPlanck-new}
-	\caption[Kullback-Leibler divergence matrices for Euclid forecasts.]{Kullback-Leibler divergence matrices $\mathcal{K}_{ij}$. This matrix represents graphically
-	the information gain between all possible observables in the redshift
-binned parameterization of section \ref{sec:Results:-Redshift-Binned}. 
-We have plotted here the logarithm of the KL-divergence matrix, for illustrative purposes. 
-Therefore the diagonal is $-\infty$ and it is represented by a black color. 
-\textbf{Left:} KL matrix without \planck\ priors. 
-The maximum gain is about $10^7$ when going from WL(lin) to GC+WL(non-linear) 
-and we can observe that GC+WL does not gain extra information when complemented with the other observables, which is expected.
-\textbf{Right:} In this case we compare the observables, when a \planck\ prior is added beforehand. 
-The overall information gain is now smaller, with a maximum of about $10^6$. 
-The maximum gain comes when comparing WL (linear and non-linear) to GC and GC+WL (non-linear). 
-    }
-	\label{fig:kl-matrices}
-\end{figure}
 
 
