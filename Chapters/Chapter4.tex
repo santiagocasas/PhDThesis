@@ -878,20 +878,18 @@ In the case of galaxy clustering we will compute $F^{\theta\psi}$
 in the following way, using the fact that for $\psi=1$, $C=P_{num}(k,z)+n^{-1}(z)$
 and $P_{\psi}|_{\psi=1}=P_{num}$:
 
-\begin{equation}
-F_{i}^{\theta\psi}\propto\int\mbox{d}k\, k^{2}\left(\frac{n_{eff}(z)P_{num}(k,z)}{n_{eff}(z)P_{num}(k,z)+1}\right)^{2}\left(\frac{1}{P_{num}(k,z)}\right)^{2}\left.\frac{\partial P_{\psi}}{\partial\psi}\right|_{\psi=1}\frac{\partial P_{num}}{\partial\theta_{i}}\label{eq:pseudo-Fisher}
-\end{equation}
+\beeq$ \label{eq:pseudo-Fisher}
+F_{i}^{\theta\psi}\propto\int\mbox{d}k\, k^{2}\left(\frac{n_{eff}(z)P_{num}(k,z)}{n_{eff}(z)P_{num}(k,z)+1}\right)^{2}\left(\frac{1}{P_{num}(k,z)}\right)^{2}\left.\frac{\partial P_{\psi}}{\partial\psi}\right|_{\psi=1}\frac{\partial P_{num}}{\partial\theta_{i}}
+$
 in this step we have assumed that we have no systematic parameters
 affecting the galaxy number density $n(z)$ and therefore, its derivative
 w.r.t $\psi$ vanishes. Also, for notational simplicity we left out the integral over $\mu$ and the complete
 form of the observed power spectrum.
 
-We have then $\partial_{\psi}P_{\psi}=-P_{true}+P_{num}=P_{true}\sigma_{p}(k,z)$
-and we just need to perform eqn. \ref{eq:pseudo-Fisher} with eqn.
-\ref{eq:syst.bias} in order to obtain the systematic biases on the
-cosmological parameters.
-
-
+In \cref{sub:syst-bias-nbodypk} we will show a concrete example of the application of these formulas
+and we will see that in the non-linear regime, where the uncertainty in 
+the theoretical power spectrum is of about 10-20\%, the systematic
+errors can be of the same order or larger than the forecasted statistical errors for a future survey like Euclid.
 
 
 \section{The equations and structure of the \textsc{FisherTools} code \label{sec:FisherTools-code}}

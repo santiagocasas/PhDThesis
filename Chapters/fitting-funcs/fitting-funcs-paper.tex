@@ -661,7 +661,24 @@ parameter are between 8\% and 15\% higher when using the estimated
 uncertainties on the power spectrum.
 
 
-\subsubsection{Systematic bias due to unvertainty in the power spectrum \label{sub:syst-bias-nbodypk}}
+\subsubsection{Systematic bias due to uncertainty in the power spectrum \label{sub:syst-bias-nbodypk}}
+
+
+In \cref{sub:syst-bias-theory} we have detailed the theory on how 
+to calculate the systematic error bias on our cosmological parameters,
+when taking into account theoretical uncertainties on the determination
+of the non-linear power spectrum.
+
+There we have seen in \cref{eq:pseudo-Fisher} that the systematic-bias Fisher matrix 
+is proportional to the derivative of the power spectrum with respect to the systematic parameter $\psi$.
+For our case, we have then:
+\beeq$ \label{eq:pk-wrt-systpar}
+\partial_{\psi}P_{\psi}=-P_{true}+P_{num}=P_{true}\sigma_{p}(k,z)
+$
+and we just need to perform eqn. \ref{eq:pseudo-Fisher} with eqn.
+\ref{eq:syst.bias} in order to obtain the systematic biases on the
+cosmological parameters.
+
 
 In the following table \ref{tab:systbias} we present the results
 on the systematic bias, for a standard $\lcdm$ forecast, for different
