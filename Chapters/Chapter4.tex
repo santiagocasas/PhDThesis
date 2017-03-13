@@ -821,29 +821,31 @@ and for different Galaxy Clustering and Weak Lensing combinations of observables
 This will give an intuitive idea of which observable contains more information gain than the other, 
 compared to a reference observable.
 
+\subsection{Systematic bias on cosmological parameters \label{sub:syst-bias-theory}}
 
+As we have seen in previous sections, our forecasts for future observations
+depend strongly on the knowledge of the theoretical matter power spectrum.
+For linear scales, this can be calculated with great precision, but for non-linear scales, 
+we have to rely on N-body simulations, semi-analytic methods or perturbation theories. Each 
+of these methods only have a certain range of validity and introduce many numerical and theoretical 
+errors into the calculations. We will see more details on this topic in \cref{chap:nonlinear}.
 
-
-\subsection{Systematic bias on cosmological parameters}
-
-In this section we will quantify the effect of the systematic errors
+In this section we will quantify the effect of the systematic errors on our forecasted statistical error estimations
 due to the uncertainties on the non-linear power spectrum. We will
 show how big this systematic bias would be, if we used for our forecasts
-a power spectrum which is not the ``correct'' one.
-%for example one obtained from a single N-body realization. 
-For the following discussion
-on systematic biases, we will use the expressions derived in the Appendix
+a power spectrum which is not the ``correct'' one. 
+% for example one obtained from a single N-body realization.
+The following discussion was introduced in \cite{casas_fitting_2015} in reference to
+forecasts using non-linear power spectra from N-body simulations and is based mostly on 
+the expressions derived in Appendix
 B of \cite{taylor_probing_2007}.
 
 The linear bias on a cosmological parameter $\delta\theta_{i}$ due
 to the bias $\delta\psi_{i}$ in a parameter of the model which we
-assume fixed and cannot be measured is given by: 
-
+assume fixed and cannot be measured is given by: \todo[Comp.]{Add derivation of this equation}
 \begin{equation}
 \delta\theta_{i}=-\left[F^{\theta\theta}\right]_{ik}^{-1}F_{kj}^{\theta\psi}\delta\psi_{j}\label{eq:syst.bias}
 \end{equation}
-
-
 In our case we will have only one systematic parameter $\psi$, which
 controls the difference between the ``true'' power spectrum $P_{true}$
 and and our simulated power spectrum $P_{num}$:
@@ -889,41 +891,8 @@ and we just need to perform eqn. \ref{eq:pseudo-Fisher} with eqn.
 \ref{eq:syst.bias} in order to obtain the systematic biases on the
 cosmological parameters.
 
-In the following table \ref{tab:systbias} we present the results
-on the systematic bias, for a standard $\lcdm$ forecast, for different
-maximum $k$ coverages, up to a maximum $k$ of $1.1$h/Mpc. We will
-regard as a ``true'' power spectrum $P_{true}$, the one obtained
-by the Cosmic (Franken) Emulator \cite{heitmann_coyote_2014}, since
-they have performed a careful analysis of resolution effects using
-a large set of simulations and claim to be accurate for $k<1.0\,\mbox{h/Mpc}$
-at the 1\% percent level compared to state of the art N-body simulations.
-On the other hand, the numerical ``biased'' power spectrum $P_{num}$,
-is the one obtained from the CoDECS $\lcdm$ run, which consists on
-only one realization. We have left out the CDE coupling parameter
-$\beta$, since in that case we do not have any other prediction in
-the non-linear regime to compare with. 
 
 
-
-The results of table \ref{tab:systbias} show how important it is
-to model accurately the non-linear power spectrum in order to make
-forecasts and to analyze the upcoming data of large scale structure
-surveys like Euclid \cite{amendola_cosmology_2012-short}. The systematic
-errors on the cosmological parameters can be bigger than the statistical
-errors (compare to table \ref{tab:1-sigmaerrors-nl-GC-1} and figure
-\ref{fig:kmax-change-lin-nonlin} in the results section below). This
-is the case if, as in our example scenario, we would use a non-linear
-power spectrum that is inaccurate by about 10-15\% in the non-linear
-regime at higher redshifts (which was shown in figure \ref{fig:Error-comp-Halofit-CosmicEmu}).
-Therefore, it is well justified to choose for our Fisher forecasts
-the Cosmic Emulator as the ``true'' $\lcdm$ non-linear power spectrum
-estimator, since this is the most accurate predictor up to date. It
-would still be interesting to know how robust is the signal of the
-coupling parameter $\beta$ with respect to changes in the other parameters
-or in the $\lcdm$ non-linear prediction, but as long as we do not
-have better and faster semianalytic methods applicable to general
-models of dark energy, the estimation of systematic biases of extra
-parameters is an impossible task.
 
 \section{The equations and structure of the \textsc{FisherTools} code \label{sec:FisherTools-code}}
 \begin{itemize}

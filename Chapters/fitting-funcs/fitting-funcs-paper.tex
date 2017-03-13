@@ -661,71 +661,7 @@ parameter are between 8\% and 15\% higher when using the estimated
 uncertainties on the power spectrum.
 
 
-\subsubsection{Systematic bias on cosmological parameters}
-
-In this section we will quantify the effect of the systematic errors
-due to the uncertainties on the non-linear power spectrum. We will
-show how big this systematic bias would be, if we used for our forecasts
-a power spectrum which is not the ``correct'' one, for example one
-obtained from a single N-body realization. For the following discussion
-on systematic biases, we will use the expressions derived in the Appendix
-B of \cite{taylor_probing_2007}.
-
-The linear bias on a cosmological parameter $\delta\theta_{i}$ due
-to the bias $\delta\psi_{i}$ in a parameter of the model which we
-assume fixed and cannot be measured is given by: 
-
-\begin{equation}
-\delta\theta_{i}=-\left[F^{\theta\theta}\right]_{ik}^{-1}F_{kj}^{\theta\psi}\delta\psi_{j}\label{eq:syst.bias}
-\end{equation}
-
-
-In our case we will have only one systematic parameter $\psi$, which
-controls the difference between the ``true'' power spectrum $P_{true}$
-and and our simulated power spectrum $P_{num}$:
-
-\[
-P_{\psi}=\psi P_{num}+(1-\psi)P_{true}
-\]
-$\psi$ can vary continously so that for $\psi=1$ we recover $P_{num}$,
-while for $\psi=0$ we obtain $P_{true}$. We can define 
-the relative difference between $P_{true}$ and $P_{num}$ as:
-\begin{equation}
-\sigma_{p}(k,z)\equiv\frac{P_{num}(k,z)-P_{true}(k,z)}{P_{true}(k,z)}
-\end{equation}
-
-
-The $F^{\theta\theta}$ in eqn.\ref{eq:syst.bias} above is simply
-the usual Fisher matrix: 
-\[
-F^{\theta\theta}=\frac{1}{2}\mbox{tr}\left(C^{-1}\partial_{i}^{\theta}CC^{-1}\partial_{j}^{\theta}C\right)
-\]
-while the pseudo-Fisher matrix between measured and assumed parameters
-$F^{\theta\psi}$ is:
-
-\begin{equation}
-F_{ij}^{\theta\psi}=\frac{1}{2}\mbox{tr}\left(C^{-1}\partial_{i}^{\theta}CC^{-1}\partial_{j}^{\psi}C\right)
-\end{equation}
-which for one systematic parameter only, is just a column vector.
-
-In the case of galaxy Clustering we will compute $F^{\theta\psi}$
-in the following way, using the fact that for $\psi=1$, $C=P_{num}(k,z)+n^{-1}(z)$
-and $P_{\psi}|_{\psi=1}=P_{num}$:
-
-\begin{equation}
-F_{i}^{\theta\psi}\propto\int\mbox{d}k\, k^{2}\left(\frac{n_{eff}(z)P_{num}(k,z)}{n_{eff}(z)P_{num}(k,z)+1}\right)^{2}\left(\frac{1}{P_{num}(k,z)}\right)^{2}\left.\frac{\partial P_{\psi}}{\partial\psi}\right|_{\psi=1}\frac{\partial P_{num}}{\partial\theta_{i}}\label{eq:pseudo-Fisher}
-\end{equation}
-
-
-in this step we have assumed that we have no systematic parameters
-affecting the galaxy number density $n(z)$ and therefore, its derivative
-w.r.t $\psi$ vanishes. Also, for notational simplicity we left out the integral over $\mu$ and the
-form of the observed power spectrum.
-
-We have then $\partial_{\psi}P_{\psi}=-P_{true}+P_{num}=P_{true}\sigma_{p}(k,z)$
-and we just need to perform eqn. \ref{eq:pseudo-Fisher} with eqn.
-\ref{eq:syst.bias} in order to obtain the systematic biases on the
-cosmological parameters.
+\subsubsection{Systematic bias due to unvertainty in the power spectrum \label{sub:syst-bias-nbodypk}}
 
 In the following table \ref{tab:systbias} we present the results
 on the systematic bias, for a standard $\lcdm$ forecast, for different
@@ -819,9 +755,6 @@ at $k_{Ny}/2$ in order to eliminate any possible unknown contribution
 from the numerical high-frequency noise entering the estimation of
 $P(k)$ at the Nyquist frequency (see e.g. \cite{colombi_accurate_2009,Fosalba2013}
 for similar prescriptions on where to cut the non-linear power spectrum)\textcolor{black}{.}
-
-
-
 
 
 \subsection{Adding non-linear corrections to the power spectrum\label{sub:Adding-non-linear-corrections}}
@@ -1369,55 +1302,55 @@ as $\beta^{2}\le2\cdot10^{-5}$ at 1-$\sigma$.
 
 
 
-\section{Parameters of the fitting models M2 and M7\label{sec:AppendixA}}
-
-Model M2 and M7 have each 5 coefficients, which are third order polynomial
-function of $\beta$ and $z$:
-
-\begin{align}
-a_{i}\,(\beta,\, z) & =q_{i1}+q_{i2}\beta+q_{i3}\, z+q_{i4}\beta z\nonumber \\
- & +q_{i5}\beta^{2}+q_{i6}\, z^{2}+q_{i7}\, z^{3}+q_{i8}\,\beta^{3}\label{eq:a-params-funcs}
-\end{align}
-
-
-Since we have 5 coefficients and 8 free parameters for each coefficient,
-we have a total of 40 free parameters. They can be represented in
-a matrix $q_{ij}$ by: $A_{i}=q_{ij}B_{j}$, where the vector $A_{i}=a_{i}(\beta,\, z)$
-is the vector of coefficients and $B_{j}=(1,\,\beta,\, z,\,\beta z,\,\beta^{2},\, z^{2},\,\beta^{3},\, z^{3})$
-the vector of independent variables and the indices are defined in
-the ranges: $i=1,...,5,\; j=1,...,8$. The corresponding matrix $q_{ij}$
-for model M7 is:
-
-\begin{minipage}[t]{1\textwidth}%
-{\small{}{} 
-\begin{equation}
-q_{ij}(M7)=\begin{pmatrix}0.00689754 & -0.200001 & -0.0112943 & 0.157222 & -1.40171 & 0.0129681 & -3.99345 & -0.00629434\\
--0.0706221 & 1.45187 & 0.236402 & -1.26467 & 9.13266 & -0.300832 & 9.81754 & 0.120649\\
-0.069102 & -1.44396 & -0.24268 & 1.26135 & -9.23052 & 0.311995 & -12.1568 & -0.12561\\
-1.19797 & 0.632936 & -1.74767 & 0.920634 & -8.47056 & 1.46434 & 42.7015 & -0.471948\\
-0.684838 & 1.15722 & -2.15405 & 3.93688 & -5.29011 & 3.42683 & -43.9295 & -1.18691
-\end{pmatrix}\label{eq:qijM7}
-\end{equation}
-}%
-\end{minipage}
-
-and the coefficient matrix for model M2 is:
-
-\begin{minipage}[t]{1\textwidth}%
-{\small{}{} 
-\begin{equation}
-q_{ij}(M2)=\begin{pmatrix}0.00301472 & -0.0961879 & -0.00897697 & 0.0389941 & -0.860642 & 0.0131329 & -4.73786 & -0.00552858\\
--0.028584 & 0.615003 & 0.111671 & -0.371008 & 4.94379 & -0.138279 & 20.3258 & 0.0512362\\
-0.0132728 & -0.345125 & -0.0701132 & 0.115389 & -3.11777 & 0.102871 & -16.9949 & -0.0408223\\
-2.91757 & 1.03545 & -5.16595 & 1.69976 & -22.1649 & 4.33453 & 120.513 & -1.35074\\
-0.867566 & 2.92363 & -1.14174 & 3.4356 & -2.96193 & 1.91413 & -113.348 & -0.684269
-\end{pmatrix}\label{eq:qijM2}
-\end{equation}
-}%
-\end{minipage}
-
-Applying a singular value decomposition on both matrices, shows that
-they have a very similar structure, therefore since the sigmoidal
-functions M2 and M7 have a related functional form, the matrices describe
-roughly the same information. 
+%\section{Parameters of the fitting models M2 and M7\label{sec:AppendixA}}
+%
+%Model M2 and M7 have each 5 coefficients, which are third order polynomial
+%function of $\beta$ and $z$:
+%
+%\begin{align}
+%a_{i}\,(\beta,\, z) & =q_{i1}+q_{i2}\beta+q_{i3}\, z+q_{i4}\beta z\nonumber \\
+% & +q_{i5}\beta^{2}+q_{i6}\, z^{2}+q_{i7}\, z^{3}+q_{i8}\,\beta^{3}\label{eq:a-params-funcs}
+%\end{align}
+%
+%
+%Since we have 5 coefficients and 8 free parameters for each coefficient,
+%we have a total of 40 free parameters. They can be represented in
+%a matrix $q_{ij}$ by: $A_{i}=q_{ij}B_{j}$, where the vector $A_{i}=a_{i}(\beta,\, z)$
+%is the vector of coefficients and $B_{j}=(1,\,\beta,\, z,\,\beta z,\,\beta^{2},\, z^{2},\,\beta^{3},\, z^{3})$
+%the vector of independent variables and the indices are defined in
+%the ranges: $i=1,...,5,\; j=1,...,8$. The corresponding matrix $q_{ij}$
+%for model M7 is:
+%
+%\begin{minipage}[t]{1\textwidth}%
+%{\small{}{} 
+%\begin{equation}
+%q_{ij}(M7)=\begin{pmatrix}0.00689754 & -0.200001 & -0.0112943 & 0.157222 & -1.40171 & 0.0129681 & -3.99345 & -0.00629434\\
+%-0.0706221 & 1.45187 & 0.236402 & -1.26467 & 9.13266 & -0.300832 & 9.81754 & 0.120649\\
+%0.069102 & -1.44396 & -0.24268 & 1.26135 & -9.23052 & 0.311995 & -12.1568 & -0.12561\\
+%1.19797 & 0.632936 & -1.74767 & 0.920634 & -8.47056 & 1.46434 & 42.7015 & -0.471948\\
+%0.684838 & 1.15722 & -2.15405 & 3.93688 & -5.29011 & 3.42683 & -43.9295 & -1.18691
+%\end{pmatrix}\label{eq:qijM7}
+%\end{equation}
+%}%
+%\end{minipage}
+%
+%and the coefficient matrix for model M2 is:
+%
+%\begin{minipage}[t]{1\textwidth}%
+%{\small{}{} 
+%\begin{equation}
+%q_{ij}(M2)=\begin{pmatrix}0.00301472 & -0.0961879 & -0.00897697 & 0.0389941 & -0.860642 & 0.0131329 & -4.73786 & -0.00552858\\
+%-0.028584 & 0.615003 & 0.111671 & -0.371008 & 4.94379 & -0.138279 & 20.3258 & 0.0512362\\
+%0.0132728 & -0.345125 & -0.0701132 & 0.115389 & -3.11777 & 0.102871 & -16.9949 & -0.0408223\\
+%2.91757 & 1.03545 & -5.16595 & 1.69976 & -22.1649 & 4.33453 & 120.513 & -1.35074\\
+%0.867566 & 2.92363 & -1.14174 & 3.4356 & -2.96193 & 1.91413 & -113.348 & -0.684269
+%\end{pmatrix}\label{eq:qijM2}
+%\end{equation}
+%}%
+%\end{minipage}
+%
+%Applying a singular value decomposition on both matrices, shows that
+%they have a very similar structure, therefore since the sigmoidal
+%functions M2 and M7 have a related functional form, the matrices describe
+%roughly the same information. 
 
