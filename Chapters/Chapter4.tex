@@ -524,18 +524,20 @@ evolution of the lensing potential in the Universe.
 
 The transformation of a light bundle in the case of small angles and small gravitational potentials
 can be described by a distortion tensor which contains in its diagonal the convergence component and in its
-off-diagonal the shear component (see the comprehensive review by \cite{cite Bartelmann Schneider}).
-It can be shown that for linear theory, the only important component is the convergence field (see \cite{Amendola, Tegmark, Hu, Bartelmann}) 
+off-diagonal elements the shear component (see the comprehensive review by \cite{cite Bartelmann Schneider}).
+It can be shown that for linear theory, the only component observable in cosmology
+is the convergence field (see \cite{Amendola, Tegmark, Hu, Bartelmann}) 
 and its power spectrum can be calculated once the matter power spectrum and the
-details of the survey are known.
+evolution of the structures in the Universe in time are known.
 
 In this regime we can write the power spectrum of the convergence field as
 \begin{equation}
 \label{def_shear}
 C_{ij}(\ell)=\frac{9}{4}\int_{0}^{\infty}\mbox{d}z\:\frac{W_{i}(z)W_{j}(z)H^{3}(z)\Omega_{m}^{2}(z)}{(1+z)^{4}}\left[\Sigma(\ell/r(z),z)\right]P_{m}(\ell/r(z)) \, .
 \end{equation}
-In this expression we used Eqn.\ (\ref{eq:Sigma-def}) to relate the Weyl potential to $\Sigma$ and
-to the matter power spectrum $P_m$ and we use the Limber approximation to write down the conversion $k=\ell/r(z)$, where $r(z)$ is the comoving
+In this expression we are already considered extensions of GR, 
+where we have used Eqn.\ (\ref{eq:Sigma-def}) to relate the Weyl potential to $\Sigma$ and
+to the matter power spectrum $P_m$. Furthermore we use the Limber approximation to write down the conversion $k=\ell/r(z)$, where $r(z)$ is the comoving
 distance given by
 \begin{equation}
 r(z) = c\int_0^z \frac{d\tilde{z}}{H(\tilde{z})} \, .
@@ -545,13 +547,14 @@ redshift bins, such that $C_{ij}$ is a matrix of dimensions $\mathcal{N}_{bin}\t
 \begin{equation}
 W(z)=\int_{z}^{\infty}\mbox{d}\tilde{z}\left(1-\frac{r(z)}{r(\tilde{z})}\right)n(\tilde{z})
 \end{equation}
-where the normalized galaxy distribution function is
-
+where the normalized galaxy distribution function (in the case of a survey like Euclid \ref{tab:WL-specifications}) is
 \begin{equation}
 n(z)\propto z^{2}\exp\left(-(z/z_{0})^{3/2}\right) \, . \label{eq:ngal dist}
 \end{equation}
-
 Here the median redshift $z_{\rm med}$ and $z_{0}$ are related by $z_{\rm med}=\sqrt{2}z_{0}$.
+We integrate this quantity in our redshift range to find the total amount of galaxies and
+create the redshift bins, such that each of them contains the same number of galaxies. These bins
+are then called equi-populated bins.
 The Weak Lensing Fisher matrix is then 
 given by a sum over all possible correlations at different redshift bins
 \citep{tegmark_measuring_1998},
@@ -563,18 +566,18 @@ C_{kl}(\ell)}{\partial\theta_{\beta}}\textrm{Cov}_{li}^{-1} \, . \label{eq:Fishe
 The prefactor $f_{\rm sky}$ is the fraction of the sky covered by the survey. The upper limit of the sum, $\lmax$, is a high-multipole cutoff due to our ignorance of clustering and baryon physics on small
 scales, similar to the role of $k_{\rm max}$ in Galaxy Clustering. In this work we choose $\lmax = 1000$ for the linear forecasts and $\lmax = 5000$ for the
 non-linear forecasts (this cutoff is not necessarily reached at all multipoles $\ell$, as what matters is the minimum scale between $\ell_{\rm max}$ and $k_{\rm max}$, as we discuss below; see also \cite{casas_fitting_2015}).
-In Eqn.\ (\ref{eq:FisherSum-WL}), $\textrm{Cov}_{ij}$ is the corresponding covariance matrix of the shear power spectrum and it has the following form:
+In Eqn.\ (\ref{eq:FisherSum-WL}), $\textrm{Cov}_{ij}$ is the corresponding covariance matrix of the 
+convergence power spectrum, which is the sum of the signal and the noise covariance matrix and it has the following form:
 \begin{equation}
 \textrm{Cov}_{ij}(\ell)=C_{ij}(\ell)+\delta_{ij}\gamma_{\rm int}^{2}n_{i}^{-1}+K_{ij}(\ell)
 \end{equation}
-where $\gamma_{\rm int}$ is the intrinsic galaxy ellipticity, whose value can be seen in Table \ref{tab:WL-specifications} for each survey. The
-shot noise term $n_{i}^{-1}$ is expressed as
+where $\gamma_{\rm int}$ is the intrinsic galaxy ellipticity. In Table \ref{tab:WL-specifications} we cite some typical numbers for different surveys.
+The shot noise term $n_{i}^{-1}$ is expressed as
 \begin{equation}
 n_{i}=3600\left(\frac{180}{\pi}\right)^{2}n_{\theta}/\mathcal{N}_{bin}
 \end{equation}
 with $n_{\theta}$ the total number of galaxies per $\text{arcmin}^2$ and the index $i$ standing for each redshift bin.
-Since the redshift bins have been chosen such that each of them contains
-the same amount of galaxies (equi-populated redshift bins), the shot noise term is equal for each bin.
+Since we have equi-populated redshift bins, the shot noise term is equal for each bin.
 The matrix $K_{ij}(\ell)$
 is a diagonal ``cutoff'' matrix, discussed for the first time in \cite{casas_fitting_2015} whose entries increase to very high
 values at the scale where the power spectrum $P(k)$ has to be cut
@@ -584,27 +587,7 @@ $k$ and $\ell$, a very high $\lmax$ would correspond at low redshifts, to a very
 trust the accuracy of the non-linear power spectrum. Therefore, the sum in Eqn.\ (\ref{eq:FisherSum-WL}) is limited by the minimum scale imposed
 either by $\lmax$ or by $k_{\rm max}$, which is the maximum wavenumber considered in the matter power spectrum $P(k,z)$. As we did for Galaxy Clustering, we use for linear forecasts $k_{\rm max}=0.15$ and for non-linear forecasts $k_{\rm max}=0.5$.
 
-\begin{table}[h]
-\centering{}
-\begin{tabular}{|c|ccc|c|}
-\hline 
-\Tstrut \textbf{Parameter}  & \textbf{Euclid}  & \textbf{SKA1}  & \textbf{SKA2}  &
-\textbf{Description}\tabularnewline
-\hline 
-\Tstrut $f_{\rm sky}$  & 0.364  & 0.121  & 0.75 & Fraction of the sky covered\tabularnewline
-$\sigma_{z}$  & 0.05  & 0.05  & 0.05  & Photometric redshift
-error\tabularnewline
-$n_{\theta}$  & 30  & 10  & 2.7  & Number of galaxies per arcmin\tabularnewline 
-$\gamma_{\rm int}$  & 0.22  & 0.3  & 0.3  & Intrinsic galaxy ellipticity \tabularnewline
-$z_{0}$  & 0.9  & 1.0  & 1.6  & Median redshift over $\sqrt{2}$ \tabularnewline
-$\mathcal{N}_{bin}$ & 12 & 12 & 12 & Total number of tomographic redshift bins
-\tabularnewline
-\hline 
-\end{tabular}\caption[Specifications for future WL surveys.]{\label{tab:WL-specifications} Specifications for
-the Weak Lensing
-surveys Euclid, SKA1 and SKA2 used in this work. Other needed quantities can be found in the references cited in section \ref{sub:FutureSurveys}.
-For all WL surveys we use a redshift range between $z=0.5$ and $z=3.0$, using 6 equi-populated redshift bins.}
-\end{table}
+
 
 %\subsubsection{Weak Lensing \label{sub:Weak-Lensing} (FF)}
 %
@@ -662,9 +645,42 @@ For all WL surveys we use a redshift range between $z=0.5$ and $z=3.0$, using 6 
 \subsection{Future large scale galaxy redshift surveys \label{sub:FutureSurveys}}
 
 In this work we choose to present results on some of the future galaxy redshift surveys, which are planned to be started and analyzed within the next decade.
-Our baseline survey will be the Euclid satellite \cite{amendola_cosmology_2013, laureijs_euclid_2011}. Euclid\footnote{http://www.euclid-ec.org/} is a European Space Agency medium-class mission scheduled for launch in 2020. Its main goal is to explore the expansion history of the Universe and the evolution of large scale cosmic structures by measuring shapes and redshifts of galaxies, covering 15000$\text{deg}^2$ of the sky, up to redshifts of about $z\sim2$. It will be able to measure up to 100 million spectroscopic redshifts which can be used for Galaxy Clustering measurements and 2 billion photometric galaxy images, which can be used for Weak Lensing observations (for more details, see \cite{amendola_cosmology_2013, laureijs_euclid_2011}). We will use in this work the  Euclid Redbook specifications for Galaxy Clustering and Weak Lensing forecasts \cite{laureijs_euclid_2011}, some of which are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications} and the rest can be found in the above cited references.
+Our baseline survey will be the Euclid satellite \cite{amendola_cosmology_2013, laureijs_euclid_2011}. 
 
-Another important future survey will be the Square Kilometer Array (SKA)\footnote{https://www.skatelescope.org/}, which is planned to become the world's largest radio-telescope It will be built in two phases, phase 1 split into SKA1-SUR in Australia and SKA1-MID in South Africa and SKA2 which will be at least 10 times as sensitive. The first stage is due to finish observations around the year 2023 and the second phase is scheduled for 2030 (for more details, see \cite{yahya_cosmological_2015,santos_hi_2015,raccanelli_measuring_2015,bull_measuring_2015}). The first phase SKA1, will be able to measure in an area of 5000$\text{deg}^2$ of the sky and a redshift of up to $z\sim0.8$  an estimated number of about $5\times10^6$ galaxies; SKA2 is expected to cover a much larger fraction of the sky ($\sim$30000$\text{deg}^2$), will yield much deeper redshifts (up to $z\sim2.5$) and is expected to detect about $10^9$ galaxies with spectroscopic redshifts \cite{santos_hi_2015}.
+Euclid\footnote{http://www.euclid-ec.org/} is a European Space Agency medium-class mission scheduled for launch in 2020. 
+Its main goal is to explore the expansion history of the Universe and the evolution of large scale cosmic structures by measuring shapes and redshifts of galaxies, covering 15000$\text{deg}^2$ of the sky, up to redshifts of about $z\sim2$. 
+It will be able to measure up to 100 million spectroscopic redshifts which can be used for Galaxy Clustering measurements and 2 billion photometric galaxy images, which can be used for Weak Lensing observations (for more details, see \cite{amendola_cosmology_2013, laureijs_euclid_2011}). 
+We will use in this work the  Euclid Redbook specifications for Galaxy Clustering and Weak Lensing forecasts \cite{laureijs_euclid_2011}, 
+some of which are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications} and the rest can be found in the above cited references.
+
+\begin{table}[h]
+	\centering{}
+	\begin{tabular}{|c|ccc|c|}
+		\hline 
+		\Tstrut \textbf{Parameter}  & \textbf{Euclid}  & \textbf{SKA1}  & \textbf{SKA2}  &
+		\textbf{Description}\tabularnewline
+		\hline 
+		\Tstrut $f_{\rm sky}$  & 0.364  & 0.121  & 0.75 & Fraction of the sky covered\tabularnewline
+		$\sigma_{z}$  & 0.05  & 0.05  & 0.05  & Photometric redshift
+		error\tabularnewline
+		$n_{\theta}$  & 30  & 10  & 2.7  & Number of galaxies per arcmin\tabularnewline 
+		$\gamma_{\rm int}$  & 0.22  & 0.3  & 0.3  & Intrinsic galaxy ellipticity \tabularnewline
+		$z_{0}$  & 0.9  & 1.0  & 1.6  & Median redshift over $\sqrt{2}$ \tabularnewline
+		$\mathcal{N}_{bin}$ & 12 & 12 & 12 & Total number of tomographic redshift bins
+		\tabularnewline
+		\hline 
+	\end{tabular}\caption[Specifications for future WL surveys.]{\label{tab:WL-specifications} Specifications for
+		the Weak Lensing
+		surveys Euclid, SKA1 and SKA2 used in this work. Other needed quantities can be found in the references cited in section \ref{sub:FutureSurveys}.
+		For all WL surveys we use a redshift range between $z=0.5$ and $z=3.0$, using 6 equi-populated redshift bins.}
+\end{table}
+
+Another important future survey will be the Square Kilometer Array (SKA)\footnote{https://www.skatelescope.org/}, 
+which is planned to become the world's largest radio-telescope. 
+It will be built in two phases, phase 1 split into SKA1-SUR in Australia and SKA1-MID in South Africa and SKA2 which will be at least 10 times as sensitive. 
+The first stage is due to finish observations around the year 2023 and the second phase is scheduled for 2030 
+(for more details, see \cite{yahya_cosmological_2015,santos_hi_2015,raccanelli_measuring_2015,bull_measuring_2015}). 
+The first phase SKA1, will be able to measure in an area of 5000$\text{deg}^2$ of the sky and a redshift of up to $z\sim0.8$  an estimated number of about $5\times10^6$ galaxies; SKA2 is expected to cover a much larger fraction of the sky ($\sim$30000$\text{deg}^2$), will yield much deeper redshifts (up to $z\sim2.5$) and is expected to detect about $10^9$ galaxies with spectroscopic redshifts \cite{santos_hi_2015}.
 SKA1 and SKA2 will also be capable of performing 
 radio Weak Lensing experiments, which are very promising, since they are expected to be less sensitive to systematic effects in the instruments, related to residual point spread function (PSF) anisotropies \cite{harrison_ska_2016}.
 In this work we will use for our forecasts of SKA1 and SKA2, the specifications computed by \cite{santos_hi_2015} for GC and by \cite{harrison_ska_2016} for WL. The numerical survey parameters are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications}, while the galaxy bias $b(z)$ and the number density of galaxies $n(z)$, can be found in the references mentioned above.
@@ -687,13 +703,12 @@ In this paper we will use for our forecasts only the specifications for the ELGs
 		& \textbf{SKA2}  & \textbf{Description}\tabularnewline
 		\hline 
 		\Tstrut $A_{\rm survey}$  & 15000 $\mbox{deg}^{2}$  & 14000 $\mbox{deg}^{2}$  & 5000
-		$\mbox{deg}^{2}$  & 30000 $\mbox{deg}^{2}$  & Survey area in the
-		sky\tabularnewline
-		$\sigma_{z}$  & 0.001  & 0.001  & 0.0001  & 0.0001  & Spectroscopic redshift
+		$\mbox{deg}^{2}$  & 30000 $\mbox{deg}^{2}$  & Survey area\tabularnewline
+		$\sigma_{z}$  & 0.001  & 0.001  & 0.0001  & 0.0001  & Spectroscopic
 		error\tabularnewline
-		$\{z_{\rm min},\ z_{\rm max}\}$  & \{0.65, 2.05\}  & \{0.65, 1.65\}  & \{0.05, 0.85\}
-		& \{0.15, 2.05\}  & Min. and max. limits for redshift bins \tabularnewline
-		$\Delta z$  & 0.1  & 0.1  & 0.1  & 0.1  & Redshift bin width\tabularnewline
+		$z_{\rm min,max}$  & \{0.65, 2.05\}  & \{0.65, 1.65\}  & \{0.05, 0.85\}
+		& \{0.15, 2.05\}  & Min. and max. $z$ \tabularnewline
+		$\Delta z$  & 0.1  & 0.1  & 0.1  & 0.1  & $\Delta z$ in bin\tabularnewline
 		\hline 
 	\end{tabular}\caption[Specifications for future GC surveys.]{\label{tab:GC-specifications} Specifications for
 		the spectroscopic
@@ -702,51 +717,62 @@ In this paper we will use for our forecasts only the specifications for the ELGs
 
 
 
+
+
+
 \subsection{Covariance and correlation matrix and the Figure of Merit\label{sec:covcorr}}
 
-The covariance matrix is defined for a \emph{d-dimensional }vector
-$p$ of random variables as
+Previously we have defined the data covariance matrix in \cref{eq:dataCovariance-abstract}, now let us define in more generality the
+parameter covariance matrix for a \emph{d-dimensional }vector
+$p$ of model parameters as
 \begin{equation}
 \mathbf{C}=\langle \Delta p \Delta p^{T} \rangle\label{eq:covariance_def}
 \end{equation}
-with $\Delta p = p - \langle p \rangle$ and the angular brackets $\langle \, \rangle$ representing an expectation value. 
+with $\Delta p = p - \langle p \rangle$ and the angular brackets $\langle \, \rangle$ representing an expectation value.
+For our Fisher matrix analysis we will assume that $\langle p \rangle$ is the value of the parameter $p$ that maximizes the likelihood.
 The matrix $\mathbf{C}$, with all its off-diagonal elements set to zero, is called the variance matrix $V$ and contains the
 square of the errors $\sigma_{i}$ for each parameter
 $p_{i}$
 \begin{equation}
 \mathbf{V} \equiv diag(\sigma_{1}^{2},...,\sigma_{d}^{2})\,\,\,.
 \end{equation}
-The Fisher matrix $\mathbf{F}$ is the inverse of the covariance matrix
+The Fisher matrix $\mathbf{F}$ is the inverse of the parameter covariance matrix
 \begin{equation}
 \mathbf F= \mathbf C^{-1}\,\,\,.
 \end{equation}
-The correlation matrix $\mathbf P$ is obtained from the covariance matrix
+The covariance matrix tells us not only the errors on each of the parameters $p_i$,
+but also how the errors are correlated among each other. This is more clearly seen by defining
+the correlation matrix $\mathbf P$, which is obtained from the covariance matrix
 $\mathbf C$, in the following way
 \begin{equation}
 P_{ij}=\frac{C_{ij}}{\sqrt{C_{ii}C_{jj}}} \, . \label{eq:correlation_def}
 \end{equation}
 If the covariance matrix is non-diagonal, then there are correlations
 among some elements of $p$. We can observe this also by plotting
-the marginalized error ellipsoidal contours. The orientation of the ellipses can
+the ellipsoidal contours corresponding to the confidence regions. The orientation of the ellipses can
 tell us if two variables $p_{i}$ and $p_{j}$ are correlated ($P_{ij}>0$),
 corresponding to ellipses with 45 degree orientation to the right of the vertical
 line or if they are anti-correlated ($P_{ij}<0$), corresponding to ellipses oriented 45
 degrees to the left of the vertical line.
 
 To summarize the information contained in the Fisher/covariance matrices we can
-define a Figure of Merit (FoM). Here we choose the logarithm of the determinant, while another possibility would
-be the Kullback-Leibler divergence, which is a measure of the information entropy gain, see Appendix \ref{sec:KL}.
-
+define a Figure of Merit (FoM).
+%Here we choose the logarithm of the determinant, while another possibility would
+%be the Kullback-Leibler divergence, which is a measure of the information entropy gain, see Appendix \ref{sec:KL}.
 The square-root $\sqrt{\det(\mathbf{C})}$ of the determinant of the covariance matrix is proportional to the volume of the error
 ellipsoid. We can see this if we rotate our coordinate system so that the 
 covariance matrix is diagonal, $\mathbf C = {\rm diag}(\sigma_1^2, \sigma_2^2, \ldots \sigma_{d}^{2})$, then $\det(\mathbf C) = \prod_i \sigma_i^2$ and $(1/2)\ln(\det(\mathbf C)) = \ln \prod_i\sigma_i$ would indeed represent the logarithm of an error volume. Thus, the smaller the determinant (and therefore also $\ln(\det(\mathbf{C}))$), the smaller is the ellipse and the stronger are the constraints on the parameters. We define
 \begin{equation}\label{eq:FoM}
 \mathrm{FoM} = -\frac{1}{2} \ln(\det(\mathbf{C})) \, ,
 \end{equation}
-with a negative sign in front such that stronger constraints lead to a higher Figure of Merit. In the following, the value of the FoM reported in all tables will be obtained including only the dark energy parameters (i.e.\ the $(\mu_i,\eta_i)$ sub-block for the binned case and the $(\mu,\eta)$ sub-block in the smooth functions case), after marginalizing over
-all other parameters. 
+with a negative sign in front such that stronger constraints lead to a higher Figure of Merit. 
+%In the following, the value of the FoM reported in all tables will be obtained including only the dark energy parameters (i.e.\ the $(\mu_i,\eta_i)$ sub-block for the binned case and the $(\mu,\eta)$ sub-block in the smooth functions case), after marginalizing over all other parameters. 
 The FoM allows us to compare not only the constraining power of different probes but also of the different experiments. 
-As the absolute value depends on the details of the setup, we define the relative figure of merit between probe $a$ and probe $b$: $\mathrm{FoM}_{a,b} = -1/2 \ln(\det(\mathbf{C_a})/\det(\mathbf{C_b})) = \mathrm{FoM}_{a}-\mathrm{FoM}_{b}$ and we fix our reference case (probe $b$), for each parametrization, to the Galaxy Clustering observation using linear power spectra with the Euclid survey (labeled as `Euclid Redbook GC-lin' in all figures and tables). The FoM has units of `nits', since we are using the natural logarithm. These are similar to `bits', but `nits' are counted in base $e$ instead of base 2.
+As the absolute value depends on the details of the setup, 
+we can define the relative figure of merit between probe $a$ and probe $b$: $\mathrm{FoM}_{a,b} = -1/2 \ln(\det(\mathbf{C_a})/\det(\mathbf{C_b})) = \mathrm{FoM}_{a}-\mathrm{FoM}_{b}$.
+%and we fix our reference case (probe $b$), for each parametrization, to the Galaxy Clustering observation using linear power spectra with the Euclid survey (labeled as `Euclid Redbook GC-lin' in all figures and tables). 
+The FoM has units of `nits', since we are using the natural logarithm. 
+These are similar to `bits', but `nits' are counted in base $e$ instead of base 2.
 
 An analogous construction allows us to study quantitatively the strength of the correlations encoded by the correlation matrix $\mathbf P$.
 We define the `Figure of Correlation' (FoC) as:
@@ -756,135 +782,56 @@ We define the `Figure of Correlation' (FoC) as:
 If the parameters are independent, i.e.\ fully decorrelated, then $\mathbf{P}$ is just the unit matrix and $\ln(\det(\mathbf{P}))=0$. 
 Off-diagonal correlations will decrease the logarithm of the determinant, therefore making the FoC larger. 
 From a geometrical point of view, the determinant expresses a volume spanned by the vector of (normalized) variables. 
-If these variables are independent, the volume would be maximal and equal to one, while if they are strongly linearly dependent, the volume would be squeezed 
+If these variables are independent, 
+the volume would be maximal and equal to one, while if they are strongly linearly dependent, the volume would be squeezed 
 and in the limit where all variables are effectively the same, the volume would be reduced to zero. 
 Hence, a more positive FoC indicates a stronger correlation of the parameters.
 
-\subsection{The Kullback-Leibler divergence \label{sec:KL}}
+\subsection{The Kullback-Leibler divergence \label{sub:KL-def}}
 
-In Section \ref{sec:covcorr} we exploited the determinant of the covariance matrix $C$ as a Figure of Merit for our forecasts. Here we summarize a possible alternative, the Kullback-Leibler divergence \cite{kullback_information_1951}, also called relative entropy or information gain. It has been used in the field of cosmology for model selection, experiment design and forecasting, see among others \cite{kunz_constraining_2006, raveri_cosmicfish_2016, seehars_information_2014, verde_planck_2013, Zhao2017}.
+In the previous \cref{sec:covcorr} we exploited the determinant of the covariance matrix $C$ as a Figure of Merit for our forecasts.
+Here we summarize a possible alternative to measure the constraining power of a specific forecast, 
+namely the Kullback-Leibler divergence \cite{kullback_information_1951}, also called relative entropy or information gain. 
+It has been used in the field of cosmology for model selection, experiment design and forecasting, see among others \cite{kunz_constraining_2006, raveri_cosmicfish_2016, seehars_information_2014, verde_planck_2013, Zhao2017}.
 The KL-divergence $\mathcal{D}(p_2||p_1)$ measures for a continuous, $d$-dimensional random variable $\theta$, the relative entropy between two probability density functions $p_1(\theta)$ and $p_2(\theta)$ and it is given by
 \begin{equation}
 \mathcal{D}(p_2||p_1) \equiv \int p_2(\theta)\ln\left(\frac{p_2(\theta)}{p_1(\theta)} \right) \mathrm{d}\theta .
 \end{equation}
 Although it is not symmetric in $p_1$ and $p_2$ it can be interpreted as a distance between the two distributions and measures the information gain since it is non-negative ($\mathcal{D}(p_2||p_1)\geq0$), non-degenerate ($\mathcal{D}(p_2||p_1)=0$ if and only if $p_1=p_2$) and it is invariant 
-under re-parametrizations of the distributions as $p_1(\theta)\mathrm{d}\theta = p_1(\tilde{\theta})\mathrm{d}\tilde{\theta}$. In the form given here the information gain is measured in nits as in section \ref{sec:covcorr}, to convert nits to bits it is enough to divide the result by $\ln(2)$.
+under re-parameterizations of the distributions as $p_1(\theta)\mathrm{d}\theta = p_1(\tilde{\theta})\mathrm{d}\tilde{\theta}$. 
+In the form given here the information gain is measured in nits as in section \ref{sec:covcorr}, 
+to convert nits to bits it is enough to divide the result by $\ln(2)$.
 
-
-For the special case of $p_1(\theta)$ and $p_2(\theta)$ being multivariate Gaussian distributions, with the same mean values and covariance matrices $\mathcal{A}$ and $\mathcal{B}$ respectively, we obtain
-\begin{equation}
+For the special case of $p_1(\theta)$ and $p_2(\theta)$ being multivariate Gaussian distributions,
+with the same mean values and covariance matrices $\mathcal{A}$ and $\mathcal{B}$ respectively, we obtain
+\begin{equation}\label{eq:KL-Gaussian}
 \mathcal{D}(p_2||p_1) = -\frac{1}{2} \left[\ln\left(\frac{\det(\mathcal{A})}{\det(\mathcal{B})} \right) +\mathrm{Tr}\left[\mathbb{1}-\mathcal{B}^{-1}\mathcal{A}   \right] \right].
 \end{equation}
-
-We then define a Kullback-Leibler matrix $\mathcal{K}$ composed of the KL-divergence measure among our observables, defined as:
-\begin{equation}
+We can then define a Kullback-Leibler matrix $\mathcal{K}$, introduced in (\cite{casas_mg_forec} appendix F) composed of the KL-divergence measure among our observables, defined as:
+\begin{equation}\label{eq:KL-Matrix}
 \mathcal{K}_{ij}=\mathcal{D}(p_j||p_i).
 \end{equation}
-where $p_i$ and $p_j$ represent our observables: GC(lin), GC(nl-HS), WL(lin), WL(nl-HS), GC+WL(lin) and GC+WL(nl-HS) in the redshift
-binned parameterization of section \ref{sec:Results:-Redshift-Binned}.
-In this way we can quantitatively see how much information is gained when going from one probe like Galaxy Clustering 
-to another probe like Weak Lensing. 
-In Figure \ref{fig:kl-matrices} we plot in the left panel the KL matrix $\mathcal{K}_{ij}$ when no \planck\ priors are added and 
-in the right panel the KL matrix when \planck\ priors are added to all probes. For visualization purposes, 
-we plot the logarithm of the KL matrix: $\log_{10} \mathcal{K}_{ij}$. Blue (red) colours represent small (large) information gain, while
-black represents no information gain at all, which is by construction the case on the diagonal, $\mathcal{K}_{ii}=0$. The rows of the matrix represent the reference observable of $p_1$ and the columns,
-the new observable $p_2$.
-The information gain when going from a linear WL observable to a non-linear GC observable or to a combined GC+WL (linear and non-linear) 
-observable is considerably high at about $\approx 10^6$-$10^7$. 
-However, when adding a \planck\ prior, this gets reduced by at least 2 orders of magnitude, 
-since the prior is strong and then there is not as much new information gained in the new observables. 
-On the opposite case, we can see that the row corresponding to GC+WL(nl-HS) is mostly blue, 
-meaning that there is little gain of information when going to one of the other observables.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/KL-divergence/KL-Matrix-all-obs-noPlanck-new}
-	\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/KL-divergence/KL-Matrix-all-obs-withPlanck-new}
-	\caption[Kullback-Leibler divergence matrices for Euclid forecasts.]{Kullback-Leibler divergence matrices $\mathcal{K}_{ij}$. This matrix represents graphically
-		the information gain between all possible observables in the redshift
-		binned parameterization of section \ref{sec:Results:-Redshift-Binned}. 
-		We have plotted here the logarithm of the KL-divergence matrix, for illustrative purposes. 
-		Therefore the diagonal is $-\infty$ and it is represented by a black color. 
-		\textbf{Left:} KL matrix without \planck\ priors. 
-		The maximum gain is about $10^7$ when going from WL(lin) to GC+WL(non-linear) 
-		and we can observe that GC+WL does not gain extra information when complemented with the other observables, which is expected.
-		\textbf{Right:} In this case we compare the observables, when a \planck\ prior is added beforehand. 
-		The overall information gain is now smaller, with a maximum of about $10^6$. 
-		The maximum gain comes when comparing WL (linear and non-linear) to GC and GC+WL (non-linear). 
-	}
-	\label{fig:kl-matrices}
-\end{figure}
+where $p_i$ and $p_j$ represent our observables.
+By looking at the rows of this matrix (one row for each observable) and plotting them
+in a corresponding matrix plot, one can see graphically which combination
+of observables yield more information gain.
+In \cref{sub:KL-matrices-MGBin} we will show the visual representation
+of the KL-matrix for an explicit parameterization of modified gravity
+and for different Galaxy Clustering and Weak Lensing combinations of observables.
+This will give an intuitive idea of which observable contains more information gain than the other, 
+compared to a reference observable.
 
 
 
-\subsection{CMB \planck\ priors}
-\label{sub:Fisher-Planck}
-Alongside the information brought by LSS probes,
-we also include CMB priors on the parameterizations considered. In
-order to obtain these, we analyze the binned and parameterized approaches
-described in Section \ref{sec:Parameterizing-Modified-Gravity} with
-the {\it Planck}+BSH combination of CMB and background (BAO+SN-Ia+$H_{0}$)
-datasets discussed in the \planck\ Dark Energy and Modified Gravity paper
-\cite{planck_collaboration_planck_2016}.
-We use a Markov Chain Monte Carlo (MCMC) approach, using the publicly
-available code \texttt{COSMOMC} \cite{lewis_cosmological_2002,lewis_efficient_2013},
-interfaced with our modified version of \texttt{MGCAMB}. The MCMC
-chains sample the parameter vector $\Theta$ which contains the standard
-cosmological parameters
-$\{\omega_{b}\equiv\Omega_{b}h^{2},\,\omega_{c}\equiv\Omega_{c}h^{2},\,\theta_{\rm MC},\,\tau,n_{s},\ln{10^{10}A_{s}}\}$
-to which we add the $E_{ij}$ parameters when we parameterize the time
-evolution of $\mu$ and $\eta$ with continuous functions of the scale factor, 
-and the $\mu_{i},\ \eta_{i}$ parameters in the binned
-case. On top of these, also the 17 nuisance parameters of the \planck\
-analysis are included. From the MCMC analysis of the \planck\ likelihood
-we obtain a covariance matrix in terms of the parameters $\Theta$.
-We marginalize over the nuisance parameters and over the optical
-depth $\tau$ since this parameter does not enter into
-the physics of large scale structure formation.
-
-$\theta$ is usually the ratio of sound horizon
-to the angular diameter distance at the time of decoupling. Since
-calculating the decoupling time $z_{\rm CMB}$ is relatively time consuming,
-as it involves the minimization of the optical transfer function,
-\texttt{COSMOMC} uses instead an approximate quantity $\theta_{\rm MC}$
-based on the following fitting formula from \cite{hu_small_1996}
-\begin{align}
-z_{\rm CMB} & =1048\times(1+0.00124\omega_{b}^{-0.738})\nonumber \\
- &
-\times\left(1+0.0783\omega_{b}^{-0.238}/(1+39.5\omega_{b}^{0.763})\right.\nonumber
-\\
- & \times\left.(\omega_{d}+\omega_{b})^{0.560/(1+21.1\omega_{b}^{1.81})}\right)
-\end{align}
-where $\omega_{d}\equiv(\Omega_{c}+\Omega_{\nu})h^{2}$.
-The sound horizon is defined as 
-\begin{equation}
-r_{s}(z_{\rm CMB})=cH_{0}^{-1}\int_{z_{\rm CMB}}^{\infty}\mbox{d}z\frac{c_{s}}{E(z)}
-\end{equation}
-where the sound speed is $c_{s}=1/\sqrt{3(1+\overline{R}_{b}a)}$with
-the baryon-radiation ratio being $\overline{R}_{b}a=3\rho_{b}/4\rho_{\gamma}$.
-$\overline{R}_{b}=31500\Omega_{b}h^{2}(T_{\rm CMB}/2.7\mbox{K})^{-4}$.
-However, \texttt{CAMB }approximates it as
-$\overline{R}_{b}a=30000a\Omega_{b}h^{2}$.
-
-Therefore we first marginalize the covariance matrix over the nuisance
-parameters and the parameter $\tau$, which cannot be constrained
-by LSS observations. Then, we invert the resulting matrix, to obtain a \planck\
-prior Fisher matrix and then use a Jacobian to convert between the
-MCMC parameter basis $\Theta_{i}$ and the GC-WL parameter basis $\theta_{i}$.
-We use the formulas above for the sound horizon $r_{s}$ and the angular
-diameter distance $d_{A}$ to calculate the derivatives of $\theta_{\rm MC}$
-with respect to the parameters of interest. Our Jacobian is then simply (see Appendix \ref{sec:appjac} for details)
-\begin{equation}
-J_{ij}=\frac{\partial\Theta_{i}}{\partial\theta_{j}} \, .
-\end{equation}
 
 \subsection{Systematic bias on cosmological parameters}
 
 In this section we will quantify the effect of the systematic errors
 due to the uncertainties on the non-linear power spectrum. We will
 show how big this systematic bias would be, if we used for our forecasts
-a power spectrum which is not the ``correct'' one, for example one
-obtained from a single N-body realization. For the following discussion
+a power spectrum which is not the ``correct'' one.
+%for example one obtained from a single N-body realization. 
+For the following discussion
 on systematic biases, we will use the expressions derived in the Appendix
 B of \cite{taylor_probing_2007}.
 
@@ -904,7 +851,7 @@ and and our simulated power spectrum $P_{num}$:
 \[
 P_{\psi}=\psi P_{num}+(1-\psi)P_{true}
 \]
-$\psi$ can vary continously so that for $\psi=1$ we recover $P_{num}$,
+$\psi$ can vary continuously so that for $\psi=1$ we recover $P_{num}$,
 while for $\psi=0$ we obtain $P_{true}$. We can define 
 the relative difference between $P_{true}$ and $P_{num}$ as:
 \begin{equation}
@@ -925,18 +872,16 @@ F_{ij}^{\theta\psi}=\frac{1}{2}\mbox{tr}\left(C^{-1}\partial_{i}^{\theta}CC^{-1}
 \end{equation}
 which for one systematic parameter only, is just a column vector.
 
-In the case of galaxy Clustering we will compute $F^{\theta\psi}$
+In the case of galaxy clustering we will compute $F^{\theta\psi}$
 in the following way, using the fact that for $\psi=1$, $C=P_{num}(k,z)+n^{-1}(z)$
 and $P_{\psi}|_{\psi=1}=P_{num}$:
 
 \begin{equation}
 F_{i}^{\theta\psi}\propto\int\mbox{d}k\, k^{2}\left(\frac{n_{eff}(z)P_{num}(k,z)}{n_{eff}(z)P_{num}(k,z)+1}\right)^{2}\left(\frac{1}{P_{num}(k,z)}\right)^{2}\left.\frac{\partial P_{\psi}}{\partial\psi}\right|_{\psi=1}\frac{\partial P_{num}}{\partial\theta_{i}}\label{eq:pseudo-Fisher}
 \end{equation}
-
-
 in this step we have assumed that we have no systematic parameters
 affecting the galaxy number density $n(z)$ and therefore, its derivative
-w.r.t $\psi$ vanishes. Also, for notational simplicity we left out the integral over $\mu$ and the
+w.r.t $\psi$ vanishes. Also, for notational simplicity we left out the integral over $\mu$ and the complete
 form of the observed power spectrum.
 
 We have then $\partial_{\psi}P_{\psi}=-P_{true}+P_{num}=P_{true}\sigma_{p}(k,z)$

@@ -553,7 +553,66 @@ and references therein. The grey dashed line marks the constant value of 1.}
 \end{figure}
 
 
+\subsection{CMB \planck\ priors}
+\label{sub:Fisher-Planck}
+Alongside the information brought by LSS probes,
+we also include CMB priors on the parameterizations considered. In
+order to obtain these, we analyze the binned and parameterized approaches
+described in Section \ref{sec:Parameterizing-Modified-Gravity} with
+the {\it Planck}+BSH combination of CMB and background (BAO+SN-Ia+$H_{0}$)
+datasets discussed in the \planck\ Dark Energy and Modified Gravity paper
+\cite{planck_collaboration_planck_2016}.
+We use a Markov Chain Monte Carlo (MCMC) approach, using the publicly
+available code \texttt{COSMOMC} \cite{lewis_cosmological_2002,lewis_efficient_2013},
+interfaced with our modified version of \texttt{MGCAMB}. The MCMC
+chains sample the parameter vector $\Theta$ which contains the standard
+cosmological parameters
+$\{\omega_{b}\equiv\Omega_{b}h^{2},\,\omega_{c}\equiv\Omega_{c}h^{2},\,\theta_{\rm MC},\,\tau,n_{s},\ln{10^{10}A_{s}}\}$
+to which we add the $E_{ij}$ parameters when we parameterize the time
+evolution of $\mu$ and $\eta$ with continuous functions of the scale factor, 
+and the $\mu_{i},\ \eta_{i}$ parameters in the binned
+case. On top of these, also the 17 nuisance parameters of the \planck\
+analysis are included. From the MCMC analysis of the \planck\ likelihood
+we obtain a covariance matrix in terms of the parameters $\Theta$.
+We marginalize over the nuisance parameters and over the optical
+depth $\tau$ since this parameter does not enter into
+the physics of large scale structure formation.
 
+$\theta$ is usually the ratio of sound horizon
+to the angular diameter distance at the time of decoupling. Since
+calculating the decoupling time $z_{\rm CMB}$ is relatively time consuming,
+as it involves the minimization of the optical transfer function,
+\texttt{COSMOMC} uses instead an approximate quantity $\theta_{\rm MC}$
+based on the following fitting formula from \cite{hu_small_1996}
+\begin{align}
+z_{\rm CMB} & =1048\times(1+0.00124\omega_{b}^{-0.738})\nonumber \\
+&
+\times\left(1+0.0783\omega_{b}^{-0.238}/(1+39.5\omega_{b}^{0.763})\right.\nonumber
+\\
+& \times\left.(\omega_{d}+\omega_{b})^{0.560/(1+21.1\omega_{b}^{1.81})}\right)
+\end{align}
+where $\omega_{d}\equiv(\Omega_{c}+\Omega_{\nu})h^{2}$.
+The sound horizon is defined as 
+\begin{equation}
+r_{s}(z_{\rm CMB})=cH_{0}^{-1}\int_{z_{\rm CMB}}^{\infty}\mbox{d}z\frac{c_{s}}{E(z)}
+\end{equation}
+where the sound speed is $c_{s}=1/\sqrt{3(1+\overline{R}_{b}a)}$with
+the baryon-radiation ratio being $\overline{R}_{b}a=3\rho_{b}/4\rho_{\gamma}$.
+$\overline{R}_{b}=31500\Omega_{b}h^{2}(T_{\rm CMB}/2.7\mbox{K})^{-4}$.
+However, \texttt{CAMB }approximates it as
+$\overline{R}_{b}a=30000a\Omega_{b}h^{2}$.
+
+Therefore we first marginalize the covariance matrix over the nuisance
+parameters and the parameter $\tau$, which cannot be constrained
+by LSS observations. Then, we invert the resulting matrix, to obtain a \planck\
+prior Fisher matrix and then use a Jacobian to convert between the
+MCMC parameter basis $\Theta_{i}$ and the GC-WL parameter basis $\theta_{i}$.
+We use the formulas above for the sound horizon $r_{s}$ and the angular
+diameter distance $d_{A}$ to calculate the derivatives of $\theta_{\rm MC}$
+with respect to the parameters of interest. Our Jacobian is then simply (see Appendix \ref{sec:appjac} for details)
+\begin{equation}
+J_{ij}=\frac{\partial\Theta_{i}}{\partial\theta_{j}} \, .
+\end{equation}
 
 \section{\label{sec:Results:-Redshift-Binned}Results: Euclid forecasts for redshift binned parameters}
 In this section we analyze the Modified Gravity functions $\mu(a)$ and $\eta(a)$,
@@ -1400,6 +1459,51 @@ it becomes decorrelated from the MG parameters in the non-linear case.
 		it is almost equivalent to $q_1$ as was also the case in ZCA (compare with Fig.\ \ref{fig:Wmat-ZCA-GC})
 	}\label{fig:Chol-GCnlhs}
 \end{figure}
+
+
+\subsection{Kullback-Leibler divergence measure \label{sub:KL-matrices-MGBin}}
+
+In \cref{sub:KL-def} we introduced the Kullback-Leibler divergence (see \cref{eq:KL-Gaussian}) as another way of measuring 
+the constraining power of a survey and we defined the Kullback-Leibler matrices (\cref{eq:KL-Matrix}) (first introduced in \cite{casas-MGforec}) as a way
+of visualizing the information gain between different probes.
+Here we will visualize the KL-matrix for the probes: GC(lin), GC(nl-HS), WL(lin), WL(nl-HS), GC+WL(lin) and GC+WL(nl-HS) in the redshift
+binned parameterization of section \ref{sec:Results:-Redshift-Binned}.
+In this way we can quantitatively see how much information is gained when going from one probe like Galaxy Clustering 
+to another probe like Weak Lensing. 
+In Figure \ref{fig:kl-matrices} we plot in the left panel the KL matrix $\mathcal{K}_{ij}$ when no \planck\ priors are added and 
+in the right panel the KL matrix when \planck\ priors are added to all probes. 
+For visualization purposes, 
+we plot the logarithm of the KL matrix: $\log_{10} \mathcal{K}_{ij}$. 
+Blue (red) colours represent small (large) information gain, while
+black represents no information gain at all, which is by construction the case on the diagonal, $\mathcal{K}_{ii}=0$. 
+The rows of the matrix represent the reference observable of $p_1$ and the columns,
+the new observable $p_2$.
+The information gain when going from a linear WL observable to a non-linear GC observable or to a combined GC+WL (linear and non-linear) 
+observable is considerably high at about $\approx 10^6$-$10^7$. 
+However, when adding a \planck\ prior, this gets reduced by at least 2 orders of magnitude, 
+since the prior is strong and then there is not as much new information gained in the new observables. 
+On the opposite case, we can see that the row corresponding to GC+WL(nl-HS) is mostly blue, 
+meaning that there is little gain of information when going to one of the other observables.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/KL-divergence/KL-Matrix-all-obs-noPlanck-new}
+	\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/KL-divergence/KL-Matrix-all-obs-withPlanck-new}
+	\caption[Kullback-Leibler divergence matrices for Euclid forecasts.]{Kullback-Leibler divergence matrices $\mathcal{K}_{ij}$. This matrix represents graphically
+		the information gain between all possible observables in the redshift
+		binned parameterization of section \ref{sec:Results:-Redshift-Binned}. 
+		We have plotted here the logarithm of the KL-divergence matrix, for illustrative purposes. 
+		Therefore the diagonal is $-\infty$ and it is represented by a black color. 
+		\textbf{Left:} KL matrix without \planck\ priors. 
+		The maximum gain is about $10^7$ when going from WL(lin) to GC+WL(non-linear) 
+		and we can observe that GC+WL does not gain extra information when complemented with the other observables, which is expected.
+		\textbf{Right:} In this case we compare the observables, when a \planck\ prior is added beforehand. 
+		The overall information gain is now smaller, with a maximum of about $10^6$. 
+		The maximum gain comes when comparing WL (linear and non-linear) to GC and GC+WL (non-linear). 
+	}
+	\label{fig:kl-matrices}
+\end{figure}
+
 
 
 \section{Modified gravity with simple smooth functions of the scale factor}
