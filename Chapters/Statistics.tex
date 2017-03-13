@@ -893,9 +893,36 @@ errors can be of the same order or larger than the forecasted statistical errors
 
 
 \section{The equations and structure of the \textsc{FisherTools} code \label{sec:FisherTools-code}}
-\begin{itemize}
-\item This serves as a manual for the Fisher Tools code.
-\end{itemize}
+
+In this section we will explain a bit more in detail the 
+implementation of the  \fito code, which has been used in the projects and papers
+explained throughout this work.
+This code was created by the author and consists on a set of packages for the \texttt{Mathematica Wolfram}
+language.
+
+\subsection{The structure of \fito \label{sub:fishertools}}
+
+The code contains of 4 basic modules:
+\begin{enumerate}
+	\item CosmologyTools: A package defining many background quantities in cosmology, such as the Hubble function
+	$H(z)$, distances, volumes, density fractions $\Omega(z)$, the growth and growth rate functions $D_{+}$ and $f(z)$,
+	conversions between different units and time conventions (scale factor, redshift, e-fold time, conformal time) and functions
+	related to observational effects, like RSD and the AP effect (see \cref{sub:observed-powerspectrum}), among others.
+	This package also interacts with the package \textsc{Cosmomathica} (see \cref{sub:cosmomathica} below), which 
+	serves as an interface and a wrapper to many other useful codes in the community,
+	especially Boltzmann codes.
+	\item FisherTools: A package containing all functions needed to perform and analyze a Fisher forecast. Many of them
+	are too technical to be included here and belong to a comprehensive manual, but in the next subsection we will specify some of them.
+	The most important ones are the routines for derivation and integration, together with routines for matrix operations and 
+	visualization.
+	\item WeakLensingTools: Some special functions related to Weak Lensing analysis, like window functions, multipoles,
+	computation of bins and bin correlations.
+	\item UsefulTools: Auxiliary tools used in the code that are not provided by \texttt{Mathematica},
+	such as file exporting and importing, string parsing and matrix operations.
+\end{enumerate}
+
+\subsection{Cosmomathica \label{sub:cosmomathica}}
+
 
 If one wishes to place constraints on the normalization of the power
 spectrum, $\sigma_{8}$, then $P(k,z)$ can be written as:
