@@ -921,84 +921,36 @@ The code contains of 4 basic modules:
 	such as file exporting and importing, string parsing and matrix operations.
 \end{enumerate}
 
-\subsection{Cosmomathica \label{sub:cosmomathica}}
+\subsection{The interface \textsc{Cosmomathica} \label{sub:cosmomathica}}
+
+The \textsc{Cosmomathica} code was created originally by Dr. Adrian Vollmer and used 
+for several projects in the field of Fisher matrix forecasts and perturbation theory \cite{papers by Adrian}.
+It is now maintained by the author of this work and it can be found 
+and copied from its repository under the URL: \url{https://github.com/santiagocasas/cosmomathica}.
+
+Its main function is to interface many codes and routines used in the cosmology community to a simple \texttt{Mathematica} notebook
+or package.
+The supported codes are the Boltzmann codes: \texttt{CAMB} \cite{lewis_efficient_2000} and \texttt{CLASS} \cite{lesgourges}.
+The fitting functions from Eisenstein \& Hu \cite{cite Eisenstein}, \texttt{Halofit} \cite{smith} and the \texttt{Cosmic Emulator}
+\cite{heitmann_coyote_2010, heitmann_coyote_2014}; and a code that calculates higher order perturbation theory for large scale structure, 
+called \texttt{COPTER} \cite{find citation}.
+
+This interface (which uses the \texttt{MathLink} technology from the \texttt{Wolfram} language) allows a very efficient and fast communication
+between the notebooks, the packages and the codes. Therefore, there is no need to create large quantities of files that have to be read
+and written in order to deal with cosmological quantities like the power spectrum or the transfer functions.
 
 
-If one wishes to place constraints on the normalization of the power
-spectrum, $\sigma_{8}$, then $P(k,z)$ can be written as:
-
-\begin{equation}
-P(k,z)=\sigma_{8}^{2}\tilde{P}(k,z)\label{eq:normalizedPk}
-\end{equation}
-where $\tilde{P}(k,z)$ is the normalized power spectrum. The normalization
-$s_{R}$of the power spectrum (which is equivalent to the variance
-smoothed over a scale $R$) is given by:
-\begin{equation}
-s_{R}=\frac{1}{2\pi^{2}}\int_{k_{min}}^{k_{max}}k^{2}P(k,z=0)W_{R}^{2}(kR)\label{eq:normalizationPk}
-\end{equation}
+\subsection{Derivatives of the observed power spectrum}
 
 
-The window function smooths $P(k,z)$ over the scale $R$ and has
-the form: $W(x)=3(\sin(x)-x\cos(x))/x^{3}$, where $x$ is a dimensionless
-variable. This term comes from assuming spherical symmetry and performing
-the angle integration of the 3-D power spectrum $P(\vec{k})$. If
-one chooses $R=8\mbox{h}^{-1}\mbox{Mpc}$ and $[k]=\mbox{h}/\mbox{Mpc}$,
-then we recover the usual $s_{R}=\sigma_{8}^{2}$. The normalization
-$\sigma_{8}$ is a quantity defined only in linear theory, which means
-that in Eqn. \ref{eq:normalizationPk} either $P(k,z)$ is linear
-or the integration limits are chosen in such a way that only the linear
-normalization is taken into account, so that usually one should take
-$k_{max}\approx0.1$. The normalized power spectrum is simply: 
-\begin{equation}
-\tilde{P}(k,z)=\frac{1}{s_{R}}P(k,z)
-\end{equation}
-
-
-Due to the of the fact that $\sigma_{8}$ is a linear quantity, we
-can use it as an independent cosmological parameter, because we can
-rescale it arbitrarily before it is compared with observations. It
-is then completely degenerate with the initial primordial amplitude
-of the power spectrum, $\mathcal{A}_{s}$, and one can replace one
-parameter by the other, fixing just one of both.\footnote{One has to emphasize that this can only be done for linear power spectra,
-	because if one takes nonlinear density fluctuations into account for
-	calculating a non-linear $P(k,z)$, a different primordial amplitude
-	of fluctuations has a non-linear effect at small scales in the so
-	called ``non-linear bump''. The degeneracy between $\mathcal{A}_{s}$
-	and $\sigma_{8}$ is then broken.}
-
-Furthermore if one wishes to express a linear power spectrum $P(k,z)$
-in terms of the primordial power spectrum, the growth $G(z)$ and
-the transfer functions $T(k)$, one can write Eqn. \ref{eq:normalizedPk}
-as: 
-\begin{equation}
-P(k,z)=\frac{\sigma_{8}^{2}}{s_{R}}G^{2}(z)T^{2}(k)k^{ns}\mathcal{A}_{s}
-\end{equation}
-being careful to take either $\sigma_{8}$ or $\mathcal{A}_{s}$ as
-a primordial parameter and not both. In the case in which $\mathcal{A}_{s}$
-is the cosmological parameter, the ratio $\frac{\sigma_{8}^{2}}{s_{R}}$
-should be 1. The growth function $G(z)$ depends on the cosmological
-parameters $\theta_{i}$ and is defined to be normalized to unity
-today: $G(z=0)=1$. The quantity $\sigma_{8}^{2}G^{2}(z)\equiv\sigma_{8}(z)$
-can be defined accordingly and can be used as an independent and time-dependent
-cosmological parameter too. 
-
-
-When we perform the numerical derivatives
-of $P_{obs}(k,\mu,z)$, we have to take into account that not only
-the power spectrum and the background functions change, when the cosmological
-parameters are modified, but also $\mu$ and $k$ are changed by a
-geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
-Alcock-Paczinsky effect \citep{alcock1979anevolution}.
-
-\subsubsection{Derivatives of the observed power spectrum}
 
 For the calculation of the Fisher matrix, one needs to take derivatives
 of the logarithm of the observed power spectrum $P_{obs}(k,z,\mu)$
 at the central value $\bar{z}$ of each redshift bin. (see equation
 for the Fisher matrix). There are two options here in terms of the
 practical and numerical approach: 
-\begin{itemize}
-	\item One calculates numerically: 
+
+	One calculates numerically: 
 	\begin{equation}
 	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid}=\frac{P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}^{+}\right)-P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}^{-}\right)}{2\varepsilon\theta_{i}^{fid}\times P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}^{fid}\right)}
 	\end{equation}
@@ -1012,21 +964,27 @@ practical and numerical approach:
 	can be evaluated at $\theta_{i}^{\pm}$. Since this is not the case
 	for the bias $b(z)$, one needs to add a further intermediate variable
 	(see section \ref{sec:Marginalization} below on marginalization).
-	\item One uses intermediate variables, namely the functions in Eqn. \ref{eq:obs-power-basic},
+	
+	
+	One uses intermediate variables, namely the functions in Eqn. \ref{eq:obs-power-basic},
 	which depend on $\theta_{i}$, and with the help of the chain rule
 	one can write:
-	\begin{align}
-	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid} & =\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P_{s}(\bar{z})}\frac{\partial\ln P_{s}(\bar{z})}{\partial\theta_{i}}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln f(\bar{z})}\frac{\partial\ln f(\bar{z})}{\partial\theta_{i}}\nonumber \\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln H(\bar{z})}\frac{\partial\ln H(\bar{z})}{\partial\theta_{i}}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln D_{A}(\bar{z})}\frac{\partial\ln D_{A}(\bar{z})}{\partial\theta_{i}}\nonumber \\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z})}\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z})}\frac{\partial\ln b(\bar{z})}{\partial\theta_{i}}\label{eq:derivatives-of-lnPobs}\\
-	& +{\color{red}\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\theta_{i}}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\theta_{i}}}\nonumber 
+	\begin{align}\label{eq:derivatives-of-lnPobs} 
+	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid} & =\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P_{s}(\bar{z})}\frac{\partial\ln P_{s}(\bar{z})}{\partial\theta_{i}} \\
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln f(\bar{z})}\frac{\partial\ln f(\bar{z})}{\partial\theta_{i}}\nonumber \\
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln H(\bar{z})}\frac{\partial\ln H(\bar{z})}{\partial\theta_{i}} \nonumber \\ 
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln D_{A}(\bar{z})}\frac{\partial\ln D_{A}(\bar{z})}{\partial\theta_{i}}\nonumber \\
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z})}\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}} \nonumber \\ 
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z})}\frac{\partial\ln b(\bar{z})}{\partial\theta_{i}}\nonumber\\
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\theta_{i}} \nonumber \\
+	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\theta_{i}}\nonumber 
 	\end{align}
 	where we have ignored the dependence on the damping terms of Eqn.
 	\ref{eq:obs-power-basic} for simplicity. The last two terms are non-vanishing
 	if one takes the Alcock-Paczynski effect into account for $k$ and
 	$\mu$, since they are affected by geometrical terms also (see AP-effect
 	section \ref{sub:The-Alcock-Paczynski-Effect} below).
-\end{itemize}
+
 One then has to calculate the intermediate derivatives of $\ln P_{obs}(z,k,\mu;\theta_{i})$
 with respect to $P_{s}$, $D_{A}$, $H$, $f$ and $b$ using Eqn.
 \ref{eq:obs-power-basic}. The logarithm of these quantities is used,
@@ -1095,6 +1053,75 @@ to add together Fisher matrices at different redshift bins, one has
 to take into account that each $D_{A}(\bar{z}_{i})$, $H(\bar{z}_{i})$,
 $f(\bar{z}_{i})$ and $b(\bar{z}_{i})$ is an independent parameter
 but we will come to that later. 
+
+
+\subsection{Equations}
+
+
+If one wishes to place constraints on the normalization of the power
+spectrum, $\sigma_{8}$, then $P(k,z)$ can be written as:
+
+\begin{equation}
+P(k,z)=\sigma_{8}^{2}\tilde{P}(k,z)\label{eq:normalizedPk}
+\end{equation}
+where $\tilde{P}(k,z)$ is the normalized power spectrum. The normalization
+$s_{R}$of the power spectrum (which is equivalent to the variance
+smoothed over a scale $R$) is given by:
+\begin{equation}
+s_{R}=\frac{1}{2\pi^{2}}\int_{k_{min}}^{k_{max}}k^{2}P(k,z=0)W_{R}^{2}(kR)\label{eq:normalizationPk}
+\end{equation}
+
+
+The window function smooths $P(k,z)$ over the scale $R$ and has
+the form: $W(x)=3(\sin(x)-x\cos(x))/x^{3}$, where $x$ is a dimensionless
+variable. This term comes from assuming spherical symmetry and performing
+the angle integration of the 3-D power spectrum $P(\vec{k})$. If
+one chooses $R=8\mbox{h}^{-1}\mbox{Mpc}$ and $[k]=\mbox{h}/\mbox{Mpc}$,
+then we recover the usual $s_{R}=\sigma_{8}^{2}$. The normalization
+$\sigma_{8}$ is a quantity defined only in linear theory, which means
+that in Eqn. \ref{eq:normalizationPk} either $P(k,z)$ is linear
+or the integration limits are chosen in such a way that only the linear
+normalization is taken into account, so that usually one should take
+$k_{max}\approx0.1$. The normalized power spectrum is simply: 
+\begin{equation}
+\tilde{P}(k,z)=\frac{1}{s_{R}}P(k,z)
+\end{equation}
+
+
+Due to the of the fact that $\sigma_{8}$ is a linear quantity, we
+can use it as an independent cosmological parameter, because we can
+rescale it arbitrarily before it is compared with observations. It
+is then completely degenerate with the initial primordial amplitude
+of the power spectrum, $\mathcal{A}_{s}$, and one can replace one
+parameter by the other, fixing just one of both.\footnote{One has to emphasize that this can only be done for linear power spectra,
+	because if one takes nonlinear density fluctuations into account for
+	calculating a non-linear $P(k,z)$, a different primordial amplitude
+	of fluctuations has a non-linear effect at small scales in the so
+	called ``non-linear bump''. The degeneracy between $\mathcal{A}_{s}$
+	and $\sigma_{8}$ is then broken.}
+
+Furthermore if one wishes to express a linear power spectrum $P(k,z)$
+in terms of the primordial power spectrum, the growth $G(z)$ and
+the transfer functions $T(k)$, one can write Eqn. \ref{eq:normalizedPk}
+as: 
+\begin{equation}
+P(k,z)=\frac{\sigma_{8}^{2}}{s_{R}}G^{2}(z)T^{2}(k)k^{ns}\mathcal{A}_{s}
+\end{equation}
+being careful to take either $\sigma_{8}$ or $\mathcal{A}_{s}$ as
+a primordial parameter and not both. In the case in which $\mathcal{A}_{s}$
+is the cosmological parameter, the ratio $\frac{\sigma_{8}^{2}}{s_{R}}$
+should be 1. The growth function $G(z)$ depends on the cosmological
+parameters $\theta_{i}$ and is defined to be normalized to unity
+today: $G(z=0)=1$. The quantity $\sigma_{8}^{2}G^{2}(z)\equiv\sigma_{8}(z)$
+can be defined accordingly and can be used as an independent and time-dependent
+cosmological parameter too. 
+
+When we perform the numerical derivatives
+of $P_{obs}(k,\mu,z)$, we have to take into account that not only
+the power spectrum and the background functions change, when the cosmological
+parameters are modified, but also $\mu$ and $k$ are changed by a
+geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
+Alcock-Paczinsky effect \citep{alcock1979anevolution}.
 
 
 \subsubsection{Projecting back to the fundamental cosmological parameters}
