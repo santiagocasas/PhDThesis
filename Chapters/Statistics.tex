@@ -955,7 +955,7 @@ denote $\theta_i$, where the index $i$ runs from 1 to $N_p$.
 These are parameters of the model which are fixed numbers like $n_s$, or are defined at redshift $z=0$, like $\Omega_m$.
 In this case there are two possible options in terms of code implementation.
 
-\textbf{1.} Calculate numerical derivatives:
+\textbf{1. Full Numerical Derivative method:}
 	\begin{equation}
 	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid}=\frac{P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}^{+}\right)-P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}^{-}\right)}{2\varepsilon\theta_{i}^{fid}\times P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}^{fid}\right)}
 	\end{equation}
@@ -971,7 +971,8 @@ which we cannot relate to the cosmological parameters. Therefore, we need to con
 for each redshift bin, an independent parameter $b_n = b(\bar{z}_n)$. This can be 
 considered a redshift-dependent parameter.
 
-\textbf{2.} Using the chain rule:
+\textbf{2. Chain Rule method:}
+
 The observed power spectrum (\cref{eq:obs-power-basic}) depends on 5 functions of the redshift, which we can 
 call redshift-dependent variables.
 However, just three of them,  $H(z)$, $D_A (z)$ and $f(z)$ depend on the cosmological parameters
@@ -1012,231 +1013,171 @@ where we have assumed the fiducial extra shot noise value to be $P_{s,n} = 0$ at
 Therefore, our set of parameters extends from $\theta_i$ to $\Theta_i = \{ \theta_i, \ln b_{n}, \ln P_{s,n} \}$.
 The Fisher matrix \cref{eq:fisher-matrix-gc} will depend now on all the combinations of the first derivatives of the power spectrum
 with respect to $\Theta$ and will be of the dimensions $(N_p + 2 N_b) \times (N_p + 2 N_b)$, since we have 2 redshift-dependent
-parameters at $N_b$ redshift bins and $N_p$ independent parameters.
+parameters at $N_b$ redshift bins and $N_p$ cosmological redshift-independent parameters.
 
-One then has to calculate the intermediate derivatives of $\ln P_{obs}(z,k,\mu;\theta_{i})$
-with respect to $P_{s}$, $D_{A}$, $H$, $f$ and $b$ using Eqn.
-\ref{eq:obs-power-basic}. The logarithm of these quantities is used,
-because it simplifies considerably the equations. Notice that the
-growth $G(z)$ is inside the definition of $P(k,z)$ so it is not
-needed as an intermediate variable, however it can be also used if
-wanted. It is important to stress here that the derivatives are calculated
-at the \emph{fiducial} value of the parameters, including the fiducial
-values of the cosmological functions. The fiducial value of the shot
-noise is zero, $P_{s}^{fid}(z)=0$. And under this choice the derivatives
-are:
-
-\begin{subequations}
-	
+The intermediate derivatives of $\ln P_{obs}(z,k,\mu;\theta_{i})$
+with respect to $D_{A}(z)$, $H(z)$ and $f(z)$ can be calculated analytically from
+\cref{eq:obs-power-basic}. We use the logarithm of these quantities,
+because it simplifies considerably the formulas. As usual, the derivatives are calculated
+at the \emph{fiducial} value of the cosmological parameters.
+\begin{subequations}	
 	\begin{align}
-	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P_{s}(\bar{z})} & =\frac{1}{P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}\\
+	%\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P_{s}(\bar{z})} & =\frac{1}{P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}\\
 	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln f(\bar{z})} & =\frac{2\beta(\bar{z})\mu^{2}}{1+\beta(\bar{z})\mu^{2}}\\
-	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z})} & =\frac{2}{1+\beta(\bar{z})\mu^{2}}\\
-	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln H(\bar{z})} & =1\\
-	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln D_{A}(\bar{z})} & =-2\\
-	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z})} & =1
+	%\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z})} & =\frac{2}{1+\beta(\bar{z})\mu^{2}}\\
+	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln H(\bar{z})} & =1 + \mathrm{AP}_{\mathrm{H}} \\
+	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln D_{A}(\bar{z})} & =-2 + \mathrm{AP}_{\mathrm{D}} \\
+	\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z})} & = 1
 	\end{align}
-	\label{eq: partial-derivs-subeqns}
-	
+	\label{eq: partial-derivs-subeqns}	
 \end{subequations}
+Here, the $\mathrm{AP}_{\mathrm{H}}$ and $\mathrm{AP}_{\mathrm{D}}$ represent the extra terms appearing from the Alcock-Paczynski 
+effect, where the observed $k$ and $\mu$ are corrected by geometrical terms. These formulas will be specified in \cref{sub:The-Alcock-Paczynski-Effect} below.
 
-If for the moment and for simplicity we neglect the extra shot noise
-contribution $P_{s}$ and the dependence of $k$ and $\mu$ on the
-change of cosmological parameters (see AP-effect section below) we
-get for each derivative of $P_{obs}(k,\mu,z)$with respect to a cosmological
-parameter $\theta_{i}$:
+%If for the moment and for simplicity we neglect the extra shot noise
+%contribution $P_{s}$ and the dependence of $k$ and $\mu$ on the
+%change of cosmological parameters (see AP-effect section below) we
+%get for each derivative of $P_{obs}(k,\mu,z)$with respect to a cosmological
+%parameter $\theta_{i}$:
+%
+%\begin{align}
+%\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid} & =\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}}+\frac{\partial\ln H(\bar{z})}{\partial\theta_{i}}-2\frac{\partial\ln D_{A}(\bar{z})}{\partial\theta_{i}}\nonumber \\
+%& +\frac{2\beta(\bar{z})\mu^{2}}{1+\beta(\bar{z})\mu^{2}}\frac{\partial\ln f(\bar{z})}{\partial\theta_{i}}+\frac{2}{1+\beta(\bar{z})\mu^{2}}\frac{\partial\ln b(\bar{z})}{\partial\theta_{i}}\label{eq:derivatives-of-lnPobs-simplified-1}
+%\end{align}
 
-\begin{align}
-\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid} & =\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}}+\frac{\partial\ln H(\bar{z})}{\partial\theta_{i}}-2\frac{\partial\ln D_{A}(\bar{z})}{\partial\theta_{i}}\nonumber \\
-& +\frac{2\beta(\bar{z})\mu^{2}}{1+\beta(\bar{z})\mu^{2}}\frac{\partial\ln f(\bar{z})}{\partial\theta_{i}}+\frac{2}{1+\beta(\bar{z})\mu^{2}}\frac{\partial\ln b(\bar{z})}{\partial\theta_{i}}\label{eq:derivatives-of-lnPobs-simplified-1}
-\end{align}
+\textbf{3. The BAO method:}
 
-
-We see that by using intermediate variables, the space of parameters
-to be evaluated for the Fisher matrix has been extended by 4 new terms
-(they could be more if $P_{obs}$ depends on further cosmological
-functions): 
-
+The third option would be to consider first the redshift-dependent functions to be independent of the cosmological
+parameters $\theta_i$ and constrain them independently of the cosmological model.
+This is the preferred option for observational cosmologists, since 
+it is more connected to the actual observations and it is more model independent.
+In this method, one simply calculates \cref{eq:derivatives-of-lnPobs} ignoring the derivatives
+of the redshift-dependent functions with respect to $\theta_i$.
+Using these three redshift-dependent variables, together with the other two mentioned previously, $b(z)$
+and $P_s(z)$, the space of parameters grows to
+\beeqc$
+ \Theta_j = \{ \theta_i, \ln b_{n}, \ln P_{s,n}, H_n, D_{A,n}, f_n \}
+$
+where the subscript $n$, corresponds to the function evaluated at $\bar{z}_n$, the center of the redshift bin.
+In this case the Fisher matrix would be much bigger, with
+$(N_p + 5 N_b) \times (N_p + 5 N_b)$ elements,  with $N_b$ the number of redshift bins 
+and $N_p$ the number of redshift-independent parameters.
+If one wishes to project the redshift-dependent parameters into the fundamental cosmological
+parameters, one simply calculates a Jacobian of the "old" variables with respect to the new variables, 
+where the new fundamental cosmological parameters $\tilde{\theta}_i$ can differ from the "old"
+variables and leaves open the opportunity of changing the model parameter basis:
+\beeqp$
+J_{a b} = \parder{\Theta_a}{\tilde{\theta}_b}
+$
+Notice that if $\tilde{\theta}_i = \theta_i$, the first $(N_p) \times (N_p)$ elements 
+of the Jacobian matrix will be a unit matrix. 
+This Jacobian is a non-square matrix since $\Theta_a$ contains $ (N_p + 5 N_b)$ components and
+$\tilde{\theta}_b$ contains just $ (N_p)$ components,
+therefore it cannot be inverted.
+The new Fisher matrix would change accordingly to $\tilde F$ and it would be given by:
 \begin{equation}
-\zeta=\{1,1,-2,\frac{2\beta(\bar{z})\mu^{2}}{1+\beta(\bar{z})\mu^{2}},\frac{2}{1+\beta(\bar{z})\mu^{2}}\}\label{eq:dPobsDFuncts}
+\tilde F = J^{T}\, F \,J
 \end{equation}
 
+This method is called the "BAO" method \cite{seo_improved_2007, seo_improved_2005}, since in BAO observations
+the redshift independent functions $D_{A}(z)$, $H(z)$ and $f(z)$ are the main observables and
+one obtains cosmological parameter constraints from them by first constraining their values 
+and then projecting these constraints onto a cosmological model. 
+However, since the bias (which also enters $\beta(z)$) is degenerate with the
+overall amplitude of the power spectrum as a function of redshift, $\sigma_8 (z)$, observers prefer to define an observed power spectrum
+which depends on $f\sigma_{8}(z)$ and $b \sigma_{8}(z)$, so that instead of \cref{eq:obs-power-basic}, the observed power spectrum would be expressed as
+(ignoring the exponential damping term for simplicity, which remains unaltered anyway):
+\beeqp$\label{eq:obs-power-fs8}
+P_{{\rm obs}}\left(z,k,\mu;\theta\right)=P_{{\rm s}}(z)+\frac{D_{A}^{2}(z)_{ref}H(z)}{D_{A}^{2}(z)H(z)_{ref}}
+\left(b\sigma_{8}(z)+f\sigma_{8}(z)\mu^{2}\right)^{2} \left(\frac{P(k,z)}{\sigma_{8}^{2}(z)}\right)
+%e^{-k^{2}\mu^{2}(\sigma_{z}^{2}/H(z)+\sigma_{v}^{2}(z))}
+$
 
-The new ``vector'' of derivatives has the form:
+\subsubsection{Equations for the power spectrum}
 
-\begin{equation}
-\Theta=\{\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}},1,-2,\frac{2\beta(\bar{z})\mu^{2}}{1+\beta(\bar{z})\mu^{2}},\frac{2}{1+\beta(\bar{z})\mu^{2}}\}\label{eq:bigThetaVector}
-\end{equation}
-notice that $\theta_{i}$ is a vector also, so that this vector has
-a number of components equal to: $\dim(\Theta)=\dim(\theta)+4$.
+Let us review here some of the formulas related to the power spectrum, in the way they are implemented in the \fito 
+code. 
 
-Since the Fisher matrix is a tensor product of a vector of derivatives,
-we can express it as:
-\begin{equation}
-F_{ij}\approx\frac{\mbox{d}\ln P_{{\rm obs}}}{\mbox{d}\theta_{i}}\frac{\mbox{d}\ln P_{{\rm obs}}}{\mbox{d}\theta_{j}}\approx(\Theta\otimes\Theta)_{ij}\label{eq:FisherTensorProd-1}
-\end{equation}
-
-
-However this is only valid at one single redshift bin and if one wants
-to add together Fisher matrices at different redshift bins, one has
-to take into account that each $D_{A}(\bar{z}_{i})$, $H(\bar{z}_{i})$,
-$f(\bar{z}_{i})$ and $b(\bar{z}_{i})$ is an independent parameter
-but we will come to that later. 
-
-
-\subsection{Equations}
-
-
-If one wishes to place constraints on the normalization of the power
-spectrum, $\sigma_{8}$, then $P(k,z)$ can be written as:
-
-\begin{equation}
-P(k,z)=\sigma_{8}^{2}\tilde{P}(k,z)\label{eq:normalizedPk}
-\end{equation}
-where $\tilde{P}(k,z)$ is the normalized power spectrum. The normalization
-$s_{R}$of the power spectrum (which is equivalent to the variance
+The normalization
+$\sigma_{R}$ of the power spectrum at $z=0$ (which is equivalent to the variance
 smoothed over a scale $R$) is given by:
-\begin{equation}
-s_{R}=\frac{1}{2\pi^{2}}\int_{k_{min}}^{k_{max}}k^{2}P(k,z=0)W_{R}^{2}(kR)\label{eq:normalizationPk}
-\end{equation}
-
-
+\beeqp$\label{eq:normalizationPk}
+\sigma_{R}^2=\frac{1}{2\pi^{2}}\int_{k_{min}}^{k_{max}}k^{2}P(k,z=0)W_{R}^{2}(kR)
+$
 The window function smooths $P(k,z)$ over the scale $R$ and has
 the form: $W(x)=3(\sin(x)-x\cos(x))/x^{3}$, where $x$ is a dimensionless
 variable. This term comes from assuming spherical symmetry and performing
 the angle integration of the 3-D power spectrum $P(\vec{k})$. If
 one chooses $R=8\mbox{h}^{-1}\mbox{Mpc}$ and $[k]=\mbox{h}/\mbox{Mpc}$,
-then we recover the usual $s_{R}=\sigma_{8}^{2}$. The normalization
-$\sigma_{8}$ is a quantity defined only in linear theory, which means
-that in Eqn. \ref{eq:normalizationPk} either $P(k,z)$ is linear
-or the integration limits are chosen in such a way that only the linear
-normalization is taken into account, so that usually one should take
-$k_{max}\approx0.1$. The normalized power spectrum is simply: 
-\begin{equation}
-\tilde{P}(k,z)=\frac{1}{s_{R}}P(k,z)
-\end{equation}
+then we recover the usual 
+\beeqp$
+\sigma_{R}^2=\sigma_{8}^{2}
+$
+The quantity
+$\sigma_{8}$ is a quantity defined always at $z=0$ and only in linear theory, which means
+that in \cref{eq:normalizationPk} either $P(k,z=0)$ is the linear one
+or the integration limits are chosen in such a way that only linear
+scales are taken into account, therefore one should take
+$k_{max}\approx0.1$. 
 
-
-Due to the of the fact that $\sigma_{8}$ is a linear quantity, we
-can use it as an independent cosmological parameter, because we can
-rescale it arbitrarily before it is compared with observations. It
-is then completely degenerate with the initial primordial amplitude
-of the power spectrum, $\mathcal{A}_{s}$, and one can replace one
-parameter by the other, fixing just one of both.\footnote{One has to emphasize that this can only be done for linear power spectra,
-	because if one takes nonlinear density fluctuations into account for
-	calculating a non-linear $P(k,z)$, a different primordial amplitude
-	of fluctuations has a non-linear effect at small scales in the so
-	called ``non-linear bump''. The degeneracy between $\mathcal{A}_{s}$
-	and $\sigma_{8}$ is then broken.}
-
-Furthermore if one wishes to express a linear power spectrum $P(k,z)$
-in terms of the primordial power spectrum, the growth $G(z)$ and
-the transfer functions $T(k)$, one can write Eqn. \ref{eq:normalizedPk}
-as: 
-\begin{equation}
-P(k,z)=\frac{\sigma_{8}^{2}}{s_{R}}G^{2}(z)T^{2}(k)k^{ns}\mathcal{A}_{s}
-\end{equation}
-being careful to take either $\sigma_{8}$ or $\mathcal{A}_{s}$ as
-a primordial parameter and not both. In the case in which $\mathcal{A}_{s}$
-is the cosmological parameter, the ratio $\frac{\sigma_{8}^{2}}{s_{R}}$
-should be 1. The growth function $G(z)$ depends on the cosmological
-parameters $\theta_{i}$ and is defined to be normalized to unity
-today: $G(z=0)=1$. The quantity $\sigma_{8}^{2}G^{2}(z)\equiv\sigma_{8}(z)$
-can be defined accordingly and can be used as an independent and time-dependent
-cosmological parameter too. 
-
-When we perform the numerical derivatives
-of $P_{obs}(k,\mu,z)$, we have to take into account that not only
-the power spectrum and the background functions change, when the cosmological
-parameters are modified, but also $\mu$ and $k$ are changed by a
-geometrical factor depending on $H(z)$ and $D_{A}(z)$, due to the
-Alcock-Paczinsky effect \citep{alcock1979anevolution}.
-
-
-\subsubsection{Projecting back to the fundamental cosmological parameters}
-
-If one wishes to express the Fisher matrix just in terms of fundamental
-cosmological parameters again, then one needs to perform the variable
-transformation back using a so-called Jacobian. This can be seen more
-clearly if one expresses Eqns. \ref{eq:derivatives-of-lnPobs}, \ref{eq: partial-derivs-subeqns}
-and \ref{eq:derivatives-of-lnPobs-simplified-1} as:
-
-\begin{equation}
-\frac{\mbox{d}\ln P_{obs}(\mathbf{T}(\boldsymbol{\theta}))}{\mbox{d}\boldsymbol{\theta}_{i}}=\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{j}}\frac{\partial\mathbf{T}_{j}}{\partial\boldsymbol{\theta}_{i}}
-\end{equation}
-where $\mathbf{T}_{i}=\{\ln P,\,\ln H,\,\ln D_{A},\,\ln f,\,\ln b\}$
-and $\partial P_{obs}/\partial\mathbf{T}{}_{i}=\zeta$ from Eqn. \ref{eq:dPobsDFuncts}.
-The Jacobian is then simply: 
-
-\begin{equation}
-J=\frac{\partial\mathbf{T}_{j}}{\partial\boldsymbol{\theta}_{i}}\label{eq:jacobian}
-\end{equation}
-
-
-The Fisher matrix 
-
-\begin{equation}
-\tilde{F}_{ab}\approx(\zeta\otimes\zeta)_{ab}\approx\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{a}}\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{b}}
-\end{equation}
-formed in the intermediate variables $\boldsymbol{T}$ can be transformed
-to the usual one $F$ by calculating:
-
-\begin{equation}
-F_{ab}\approx\frac{\mbox{d}\ln P_{obs}}{\mbox{d}\boldsymbol{\theta}{}_{a}}\frac{\mbox{d}\ln P_{obs}}{\mbox{d}\boldsymbol{\theta}{}_{b}}\approx\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{j}}\frac{\partial\mathbf{T}_{j}}{\partial\boldsymbol{\theta}_{a}}\frac{\partial\ln P_{obs}}{\partial\mathbf{T}{}_{j}}\frac{\partial\mathbf{T}_{j}}{\partial\boldsymbol{\theta}_{b}}=J^{T}\,\tilde{F}\,J
-\end{equation}
-
-
-In the praxis however, for calculating the full Fisher matrix, one
-interchanges the first element of $\zeta$ by the first element $\partial\boldsymbol{F}_{1}/\partial\boldsymbol{\theta}_{i}$
-(corresponding to the derivatives of the power spectrum $P(k,z)$)
-since one needs to integrate values in $k$ and $z$. That is why
-one uses the vector $\Theta$ from Eqn. \ref{eq:bigThetaVector}.
-In this case the Jacobian and the $\tilde{F}$ do not look like the
-ones presented above. This is however, mathematically equivalent at
-this point.
+The linear power spectrum can be obtained either from \texttt{CAMB}, \texttt{CLASS}
+or from the transfer functions of Eisenstein \& Hu. In the latter case,
+we can express the power spectrum $P(k,z)$
+in terms of the primordial amplitude $\mathcal{A}_{s}$, the linear growth $G(z)$ (equivalent to $D_{+}(a)$ in alternative notations) and
+the transfer functions $T(k)$: 
+\beeqp$
+P(k,z)= G^{2}(z)T^{2}(k)k^{n_s}\mathcal{A}_{s}
+$
+Since the parameters $\sigma_{8}^{2}$ and $\mathcal{A}_{s}$ are fully degenerate in linear theory,
+one has to be careful to include only one of them into the set of cosmological parameters.
+The quantity $\sigma_{8}(z) \equiv \sigma_{8}^{2}G^{2}(z)$
+can be defined accordingly and can be used as an independent and redshift-dependent
+cosmological parameter, as it was the case in \cref{eq:obs-power-fs8}. 
+We have to emphasize again that these quantities and expressions are only formally 
+valid in the linear regime and in standard Einstein GR;
+in the deeply non-linear regime or under the effect of modified gravity forces,
+the growth function might acquire some scale-dependence.
 
 
 \subsubsection{The Alcock-Paczynski Effect\label{sub:The-Alcock-Paczynski-Effect}}
 
-The Alcock-Paczynski effect (AP) relies on the fact that the scales
-$k$ and the direction cosines $\mu$ are changed by geometrical factors
+The Alcock-Paczynski effect (AP, see \citep{alcock1979anevolution}) relies on the fact that the scales
+$k$ and the angle cosines $\mu$ are changed by geometrical factors
 of distance, when the cosmological parameters are changed. This means
 that $k$ and $\mu$ depend on $H(z)$ and $D_{A}(z)$ and therefore
 are also indirectly functions of the cosmological parameters $\theta_{i}$.
-The AP formulas relating the fiducial values of $k_{fid}$ and $\mu_{fid}$
+The AP formulas relating the fiducial values of $k_{\rm fid}$ and $\mu_{\rm fid}$
 to their transformed values are:
 
 \begin{align}
-k_{AP} & =R_{AP}(\mu;\theta)k_{fid}\\
-\mu_{AP} & =\frac{H(z;\theta)}{H(z;\theta_{fid})}\frac{\mu_{fid}}{R_{AP}(\mu;\theta)}
+k_{AP} & = R_{AP}(\mu;\theta)k_{\rm fid}\\
+\mu_{AP} & =\frac{H(z;\theta)}{H(z;\theta_{\rm fid})}\frac{\mu_{\rm fid}}{R_{AP}(\mu;\theta)}
 \end{align}
 where the geometrical function $R_{AP}$ is defined as:
-
-\begin{equation}
-R_{AP}(\mu;\theta)=\sqrt{\frac{[D_{A}(z;\theta)H(z;\theta)\mu_{fid}]^{2}-[(D_{A}(z;\theta_{fid})H(z;\theta_{fid})]^{2}(\mu_{fid}-1)}{[D_{A}(z;\theta)H(z;\theta_{fid})]^{2}}}
-\end{equation}
-
-
-The last two terms of Eqn. \ref{eq:derivatives-of-lnPobs} come from
+\beeqp$
+R_{AP}(\mu;\theta)=\sqrt{\frac{[D_{A}(z;\theta)H(z;\theta)\mu_{fid}]^{2}-[(D_{A}(z;\theta_{\rm fid})
+		H(z;\theta_{\rm fid})]^{2}(\mu_{\rm fid}-1)}{[D_{A}(z;\theta)H(z;\theta_{\rm fid})]^{2}}}
+$
+The last two terms of \cref{eq:derivatives-of-lnPobs} come from
 the fact that now $k=k(H(z;\theta),D_{A}(z;\theta))$ and $\mu=k(H(z;\theta),D_{A}(z;\theta))$,
 so that one has to use the chain rule for the derivative of $P_{obs}(k,\mu,z;\theta)$:
-
 \begin{align}
-\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;H(z);\theta_{i}\right)}{\partial\ln H(z)} & =\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln H(z)}\\
-& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\ln H(z)}+\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\ln H(z)}\nonumber 
+\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;H(z);\theta_{i}\right)}{\partial\ln H(z)} 
+& =\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln H(z)}\\
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\ln H(z)} \nonumber \\ 
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\ln H(z)}\nonumber \quad,
 \end{align}
 and similarly for the dependence on $D_{A}(z)$.
 
 Now we can write down explicitly the intermediate derivatives (evaluated
 at the fiducial value as usual):
-
 \begin{equation}
-\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial k}=\frac{\partial\ln P\left(\bar{z},k;\theta_{i}\right)}{\partial k}
+\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial k}=\frac{\partial\ln P\left(\bar{z}_n,k;\theta_{i}\right)}{\partial k}
 \end{equation}
 
 
 \begin{equation}
-\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\mu}=\frac{4\beta(z)\mu}{1+\beta(z)\mu^{2}}
+\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\mu}=\frac{4\beta(z)\mu}{1+\beta(z)\mu^{2}}
 \end{equation}
 and the derivatives of $k$ and $\mu$ with respect to $\ln D_{A}$
 and $\ln H$ are:
@@ -1253,24 +1194,11 @@ and $\ln H$ are:
 	
 	\label{eq: derivs-of-k-mu-AP}\end{subequations}
 
-The interesting thing about Eqns.\ref{eq: derivs-of-k-mu-AP} is that
-one can see that when evaluating the derivative of $P_{obs}$ w.r.t
+The interesting thing about \cref{eq: derivs-of-k-mu-AP} is that
+one can see that when evaluating the derivative of $P_{\rm obs}$ w.r.t
 a cosmological parameter, the scales $k$ and the direction cosine
 angles $\mu$ get mixed, giving a very powerful probe of cosmology.
-Using this, the vectors that form the Fisher matrix (either $\zeta$
-or $\Theta$, depending on the choice) have to be extended in their
-indices corresponding to $\ln D_{A}$ and $\ln H$. So that they are
-now more complicated:
 
-\begin{multline}
-\Theta=\left\{ \frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}},1+\frac{4\beta(z)\mu}{1+\beta(z)\mu^{2}}(-\mu(\mu^{2}-1))+\frac{\partial\ln P\left(\bar{z},k;\theta_{i}\right)}{\partial k}k\mu^{2},\right.\\
-\left.-2+\frac{4\beta(z)\mu}{1+\beta(z)\mu^{2}}(-\mu(\mu^{2}-1))+\frac{\partial\ln P\left(\bar{z},k;\theta_{i}\right)}{\partial k}k(\mu^{2}-1),\frac{2\beta(\bar{z})\mu^{2}}{1+\beta(\bar{z})\mu^{2}},\frac{2}{1+\beta(\bar{z})\mu^{2}}\right\} 
-\end{multline}
-
-
-However, using the procedure described above, one can see that the
-Fisher matrix will have the same dimensions and that the Jacobian
-will be the same as in Eqn. \ref{eq:jacobian}.
 
 
 %\subsection{Marginalization\label{sec:Marginalization}}
