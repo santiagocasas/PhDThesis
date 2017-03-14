@@ -468,17 +468,19 @@ $\theta_{i}$) together by the following contributions which modify its signal:
 in \cref{eq:obs-power-basic}. It can be shown \cite{cite some BAO review} that the 
 shift of the BAO peak due to geometrical distortions when considering a different cosmology
 as the reference one is proportional to $H(z)$/$D^2_{A}(z)$.
-\item The contribution from Redshift Space Distortions (RSD)
-marked green in \cref{eq:obs-power-basic}. This term was derived first in
-\citep{kaiser_clustering_1987} and it is commonly known as the Kaiser formula.
-It represents the distortion caused by peculiar velocities when going from redshift to 
-coordinate space.
 \item The galaxy bias $b(z)$ marked brown in the formula below.
-This term is the most unknown and has to be estimated from observations and simulations
+This term has to be estimated from observations and simulations
 for different types of galaxy populations. In this case, we take into account
 just a linear local bias which means that we assume that the galaxy overdensity $\delta_g$ differs from the 
 underlying matter overdensity by a function which just depends on redshift: $\delta_g = b(z) \delta_m$.
-This assumption breaks at very large and very small scales \cite{cite some bias review}. 
+This assumption breaks at very large and very small scales \cite{cite some bias review}.
+\item The contribution from Redshift Space Distortions (RSD) \\
+marked green in \cref{eq:obs-power-basic}, where $\beta(z) = f(z)/b(z)$, where
+$b(z)$ is the galaxy bias and $f(z)$ the logarithmic growth rate of perturbations $f(z)=\mathrm{d}\ln(D_+)/\mathrm{d}\ln(a)/$.\\
+This term is related to distortions in redshift space caused by peculiar velocity divergences. This term was derived first in
+\citep{kaiser_clustering_1987} and it is commonly known as the Kaiser formula.
+It represents the distortion caused by peculiar velocities when going from redshift to 
+coordinate space.
 \item The geometrical effect of the change of cosmological parameters
 on the determination of the angles $\mu$ and the scale $k$, which is called the
 Alcock-Paczynski effect \citep{alcock1979anevolution, ballinger_measuring_1996, feldman_power_1994} and it is marked red in \cref{eq:obs-power-basic}.
@@ -805,7 +807,7 @@ to convert nits to bits it is enough to divide the result by $\ln(2)$.
 For the special case of $p_1(\theta)$ and $p_2(\theta)$ being multivariate Gaussian distributions,
 with the same mean values and covariance matrices $\mathcal{A}$ and $\mathcal{B}$ respectively, we obtain
 \begin{equation}\label{eq:KL-Gaussian}
-\mathcal{D}(p_2||p_1) = -\frac{1}{2} \left[\ln\left(\frac{\det(\mathcal{A})}{\det(\mathcal{B})} \right) +\mathrm{Tr}\left[\mathbb{1}-\mathcal{B}^{-1}\mathcal{A}   \right] \right].
+\mathcal{D}(p_2||p_1) = -\frac{1}{2} \left[\ln\left(\frac{\det(\mathcal{A})}{\det(\mathcal{B})} \right) +\mathrm{Tr}\left[\mathbbm{1}-\mathcal{B}^{-1}\mathcal{A}   \right] \right].
 \end{equation}
 We can then define a Kullback-Leibler matrix $\mathcal{K}$, introduced in (\cite{casas_mg_forec} appendix F) composed of the KL-divergence measure among our observables, defined as:
 \begin{equation}\label{eq:KL-Matrix}
@@ -942,17 +944,20 @@ and written in order to deal with cosmological quantities like the power spectru
 
 \subsection{Derivatives of the observed power spectrum}
 
+The main calculation done in this code for galaxy clustering is based on \cref{eq:fisher-matrix-gc}, 
+which involves derivatives of the observed power spectrum and an integral over wavevectors $k$ and angles $\mu$.
+For each redshift bin $n$, the derivatives are evaluated at the center of each bin $\bar{z}_n$ and 
+at the fiducial values of the parameters. The total number of redshift bins is $N_b$.
 
+Let us first consider the derivatives of the observed power spectrum (see \cref{eq:obs-power-basic}) 
+with respect to a number $N_p$ of redshift-independent parameters, which we will
+denote $\theta_i$, where the index $i$ runs from 1 to $N_p$.
+These are parameters of the model which are fixed numbers like $n_s$, or are defined at redshift $z=0$, like $\Omega_m$.
+In this case there are two possible options in terms of code implementation.
 
-For the calculation of the Fisher matrix, one needs to take derivatives
-of the logarithm of the observed power spectrum $P_{obs}(k,z,\mu)$
-at the central value $\bar{z}$ of each redshift bin. (see equation
-for the Fisher matrix). There are two options here in terms of the
-practical and numerical approach: 
-
-	One calculates numerically: 
+\textbf{1.} Calculate numerical derivatives:
 	\begin{equation}
-	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid}=\frac{P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}^{+}\right)-P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}^{-}\right)}{2\varepsilon\theta_{i}^{fid}\times P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}^{fid}\right)}
+	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid}=\frac{P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}^{+}\right)-P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}^{-}\right)}{2\varepsilon\theta_{i}^{fid}\times P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}^{fid}\right)}
 	\end{equation}
 	where $\theta_{i}^{+}$, $\theta_{i}^{-}$ represent the parameter
 	$\theta_{i}$ evaluated at $\pm\varepsilon$ around the fiducial value
@@ -960,30 +965,54 @@ practical and numerical approach:
 	\begin{equation}
 	\theta_{i}^{\pm}=\theta_{i}^{fid}(1\pm\varepsilon)
 	\end{equation}
-	However this assumes that all functions inside $P_{{\rm obs}}(\bar{z},k,\mu;\theta_{i})$
-	can be evaluated at $\theta_{i}^{\pm}$. Since this is not the case
-	for the bias $b(z)$, one needs to add a further intermediate variable
-	(see section \ref{sec:Marginalization} below on marginalization).
-	
-	
-	One uses intermediate variables, namely the functions in Eqn. \ref{eq:obs-power-basic},
-	which depend on $\theta_{i}$, and with the help of the chain rule
-	one can write:
-	\begin{align}\label{eq:derivatives-of-lnPobs} 
-	\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z},k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid} & =\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P_{s}(\bar{z})}\frac{\partial\ln P_{s}(\bar{z})}{\partial\theta_{i}} \\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln f(\bar{z})}\frac{\partial\ln f(\bar{z})}{\partial\theta_{i}}\nonumber \\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln H(\bar{z})}\frac{\partial\ln H(\bar{z})}{\partial\theta_{i}} \nonumber \\ 
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln D_{A}(\bar{z})}\frac{\partial\ln D_{A}(\bar{z})}{\partial\theta_{i}}\nonumber \\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z})}\frac{\partial\ln P(k,\bar{z})}{\partial\theta_{i}} \nonumber \\ 
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z})}\frac{\partial\ln b(\bar{z})}{\partial\theta_{i}}\nonumber\\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\theta_{i}} \nonumber \\
-	& +\frac{\partial\ln P_{obs}\left(\bar{z},k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\theta_{i}}\nonumber 
-	\end{align}
-	where we have ignored the dependence on the damping terms of Eqn.
-	\ref{eq:obs-power-basic} for simplicity. The last two terms are non-vanishing
-	if one takes the Alcock-Paczynski effect into account for $k$ and
-	$\mu$, since they are affected by geometrical terms also (see AP-effect
-	section \ref{sub:The-Alcock-Paczynski-Effect} below).
+Almost all functions inside $P_{{\rm obs}}(\bar{z},k,\mu;\theta_{i})$
+can be evaluated at $\theta_{i}^{\pm}$, except for the bias function $b(z)$,
+which we cannot relate to the cosmological parameters. Therefore, we need to consider 
+for each redshift bin, an independent parameter $b_n = b(\bar{z}_n)$. This can be 
+considered a redshift-dependent parameter.
+
+\textbf{2.} Using the chain rule:
+The observed power spectrum (\cref{eq:obs-power-basic}) depends on 5 functions of the redshift, which we can 
+call redshift-dependent variables.
+However, just three of them,  $H(z)$, $D_A (z)$ and $f(z)$ depend on the cosmological parameters
+$\theta_i$.
+Then, with the help of the chain rule one can write:
+\begin{align}\label{eq:derivatives-of-lnPobs} 
+\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\mbox{d}\theta_{i}}\right|_{fid} 
+%& =\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln P_{s}(\bar{z}_n)}\frac{\partial\ln P_{s}(\bar{z}_n)}{\partial\theta_{i}} \\
+& =\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln f(\bar{z}_n)}\frac{\partial\ln f(\bar{z}_n)}{\partial\theta_{i}} \\
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln H(\bar{z}_n)}\frac{\partial\ln H(\bar{z}_n)}{\partial\theta_{i}} \nonumber \\ 
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln D_{A}(\bar{z}_n)}\frac{\partial\ln D_{A}(\bar{z}_n)}{\partial\theta_{i}}\nonumber \\
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln P(k,\bar{z}_n)}\frac{\partial\ln P(k,\bar{z}_n)}{\partial\theta_{i}} \nonumber \\ 
+%& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\ln b(\bar{z}_n)}\frac{\partial\ln b(\bar{z}_n)}{\partial\theta_{i}}\nonumber\\
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial k}\frac{\partial k}{\partial\theta_{i}} \nonumber \\
+& +\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial\mu}\frac{\partial\mu}{\partial\theta_{i}}\nonumber 
+\end{align}
+The last two terms, which consider derivatives of $k$ and $\mu$ with respect to $\theta_i$ are non-vanishing
+if one takes the Alcock-Paczynski effect into account for $k$ and
+$\mu$, since they are affected by geometrical terms, we will detail their expressions in \cref{sub:The-Alcock-Paczynski-Effect} below.
+The redshift dependent functions $b(z)$ and $P_s (z)$ are not known as a function of the fundamental cosmological parameters,
+and their functional form as a function of redshift is also generally unknown. Therefore, the best we can do is to
+discretize them in redshift bins and assign some fiducial values for them. We have to assume that each value at each bin is independent of the other.
+We we will therefore have $2 \times N_b$ unknown parameters in the observed power spectrum, namely $b_n = b(\bar{z}_n)$ and $P_{s,n} = P_{s}(\bar{z}_n)$,
+the values of the bias and the extra shot noise at $\bar{z}_n$.
+In order to simplify the resulting equations, we will use the natural logarithm of these quantities.
+Then, these derivatives are:
+\begin{align}\label{eq:derivatives-of-lnPobs-dPs} 
+\left.\frac{\mbox{d}\ln P_{{\rm obs}}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\mbox{d} P_{s}(\bar{z}_n)}\right|_{fid} 
+& =\frac{\partial\ln P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}{\partial \ln P_{s,n}} \nonumber \\
+& =\frac{1}{P_{obs}\left(\bar{z}_n,k,\mu;\theta_{i}\right)}
+\end{align}
+where we have assumed the fiducial extra shot noise value to be $P_{s,n} = 0$ at all bins, and
+\begin{align}\label{eq:derivatives-of-lnPobs-dbias} 
+\left.\frac{\mbox{d}\ln P_{\mathrm{obs}}\left( \bar{z}_n , k, \mu; \theta_{i} \right) }{ \mbox{d} \ln b(\bar{z}_n) }\right|_{fid} 
+& =\frac{\partial\ln P_{obs}\left( \bar{z}_n,k,\mu; \theta_{i} \right) }{ \partial \ln b_{n} } \nonumber \\
+& =\frac{2}{1+\beta(\bar{z}_n)\mu^{2}}
+\end{align}
+Therefore, our set of parameters extends from $\theta_i$ to $\Theta_i = \{ \theta_i, \ln b_{n}, \ln P_{s,n} \}$.
+The Fisher matrix \cref{eq:fisher-matrix-gc} will depend now on all the combinations of the first derivatives of the power spectrum
+with respect to $\Theta$ and will be of the dimensions $(N_p + 2 N_b) \times (N_p + 2 N_b)$, since we have 2 redshift-dependent
+parameters at $N_b$ redshift bins and $N_p$ independent parameters.
 
 One then has to calculate the intermediate derivatives of $\ln P_{obs}(z,k,\mu;\theta_{i})$
 with respect to $P_{s}$, $D_{A}$, $H$, $f$ and $b$ using Eqn.
