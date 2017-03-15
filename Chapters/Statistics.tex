@@ -87,7 +87,7 @@ where the following recursion relations (obtained by Isserli's or Wick's theorem
 \begin{align}
 \langle \delta^{2n}\rangle = (2n-1)!!\langle \delta \rangle \, & ,\quad \langle \delta^{2n+1}\rangle =0
 \end{align}
-This is of course expected, 
+\comm{Is this at a fixed position in space? Then isn't it just one of the 1 million elements in the matrix? then why is this more convenient?} This is of course expected, 
 since we have defined in Eqn. \ref{eq:multivariateGaussian} the covariance matrix $\mathbf{C}$ as the only statistical quantity needed to specify
 fully the distribution of the multivariate  Gaussian random field.
 
@@ -95,9 +95,9 @@ fully the distribution of the multivariate  Gaussian random field.
 
 Since we want observations of $\delta$ to be independent of each other, we need that the equations governing the spatial 
 distribution of the density fluctuations are linear, otherwise non-linear terms can induce correlations between 
-values at different positions. We can see this more clearly if we work in Fourier space.
+values at different positions \comm{Reformulate: we consider linear perturbations which have the advantage that they can be treated separately for each k; there is no fundamental reason why we 'want' perturbations to be independent, it's just more complicated}. We can see this more clearly if we work in Fourier space.
 For linear equations, transforming into Fourier space (going from position $\vec x$ to wavevectors $\vec k$) is quite useful, 
-since space derivatives become simply factors of $\vec k$ and the Fourier space function $\delta(\vec k)$
+since space derivatives become simply \comm{remove adjectives like 'simply' 'just' 'obviously' 'easy' 'straightforward' and similar} factors of $\vec k$ and the Fourier space function $\delta(\vec k)$
 evolves in time, independently for each $k$-mode, but only if the field is statistically homogeneous.
 
 The Fourier transform of the density field, denoted $\delta(\vec k)$ is defined as:
@@ -126,8 +126,8 @@ that the $\delta$ field is real-valued, one can obtain:
 \end{equation}
 The Dirac delta $\delta_D$ in the previous equation, shows us directly what we had expected from a random Gaussian and homogeneous field;
 the Fourier modes $\vec{k}_1$ and $\vec{k}_2$ for the density fluctuations are mutually uncorrelated.
-In this case, the data covariance matrix $\mathbf{C}$, defined in Eqn. \ref{eq:dataCovariance-abstract},
-would be perfectly diagonal in Fourier space, making an analysis of the observations much more tractable.
+In this case \comm{you mean: at the linear level}, the data covariance matrix $\mathbf{C}$, defined in Eqn. \ref{eq:dataCovariance-abstract},
+would be \comm{would be -> is } perfectly diagonal in Fourier space, making an analysis of the observations much more tractable.
 
 However, this is only true if the equations governing $\delta$ are linear; otherwise, non-linear terms in real space,
 would introduce convolutions in Fourier space, giving rise to non-vanishing correlations $\langle \delta (\vec{k}_1)  \delta (\vec{k}_2) \rangle$. This will be the subject of study of the non-linear power spectrum, which will be treated with more depth in chapter \ref{chap:nonlinear}.
@@ -149,11 +149,11 @@ pairs of wavemodes are mutually uncorrelated.
 
 In contrast, non-linear evolution of the density field, would yield correlations among different $k$-modes, 
 leading to a non-Gaussian probability distribution and the loss of homogeneity (or the appearance of $k$-dependent growth).
-This is exactly what happens at later stages of structure formation, 
+This is what happens at later stages of structure formation, 
 where fluctuations are limited to $-1 < \delta$ in voids, 
 but can grow to very high values $\delta \gg 1$ inside the cosmic web structure.
 This in turn will make the data covariance matrix $\mathbf{C}$ in Fourier space not diagonal anymore and 
-will difficult the analysis of cosmological observations.
+will \revtext{difficult the analysis of cosmological observations.
 Therefore, the computation
 of these non-linear evolution equations 
 and the analysis of higher order correlations is one of the great challenges that research in cosmology 
