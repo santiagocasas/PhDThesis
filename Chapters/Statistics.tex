@@ -1092,7 +1092,7 @@ P_{{\rm obs}}\left(z,k,\mu;\theta\right)=P_{{\rm s}}(z)+\frac{D_{A}^{2}(z)_{ref}
 %e^{-k^{2}\mu^{2}(\sigma_{z}^{2}/H(z)+\sigma_{v}^{2}(z))}
 $
 
-\subsubsection{Equations for the power spectrum}
+\subsection{Equations for the power spectrum}
 
 Let us review here some of the formulas related to the power spectrum, in the way they are implemented in the \fito 
 code. 
@@ -1108,13 +1108,13 @@ the form: $W(x)=3(\sin(x)-x\cos(x))/x^{3}$, where $x$ is a dimensionless
 variable. This term comes from assuming spherical symmetry and performing
 the angle integration of the 3-D power spectrum $P(\vec{k})$. If
 one chooses $R=8\mbox{h}^{-1}\mbox{Mpc}$ and $[k]=\mbox{h}/\mbox{Mpc}$,
-then we recover the usual 
+then we can define the parameter  
 \beeqp$
-\sigma_{R}^2=\sigma_{8}^{2}
+\sigma_{8}^{2} \equiv \sigma_{R}^2 \quad (R=8\textrm{Mpc/h})
 $
 The quantity
-$\sigma_{8}$ is a quantity defined always at $z=0$ and only in linear theory, which means
-that in \cref{eq:normalizationPk} either $P(k,z=0)$ is the linear one
+$\sigma_{8}$ is a parameter defined always at $z=0$ and only in linear theory, which means
+that in \cref{eq:normalizationPk} either $P(k,z=0)$ is the linear power spectrum
 or the integration limits are chosen in such a way that only linear
 scales are taken into account, therefore one should take
 $k_{max}\approx0.1$. 
@@ -1138,7 +1138,7 @@ in the deeply non-linear regime or under the effect of modified gravity forces,
 the growth function might acquire some scale-dependence.
 
 
-\subsubsection{The Alcock-Paczynski Effect\label{sub:The-Alcock-Paczynski-Effect}}
+\subsection{The Alcock-Paczynski Effect\label{sub:The-Alcock-Paczynski-Effect}}
 
 The Alcock-Paczynski effect (AP, see \citep{alcock1979anevolution}) relies on the fact that the scales
 $k$ and the angle cosines $\mu$ are changed by geometrical factors
@@ -1199,25 +1199,20 @@ a cosmological parameter, the scales $k$ and the direction cosine
 angles $\mu$ get mixed, giving a very powerful probe of cosmology.
 
 
+\subsection{Fisher matrix operations}
 
-%\subsection{Marginalization\label{sec:Marginalization}}
-%
-%When using the form of the observed power spectrum presented before,
-%it is not always possible to ``project back'' the matrix $\tilde{F}$
-%into the matrix $F$ which contains only fundamental cosmological
-%parameters. This is the case for the bias or the extra shot noise,
-%since there we do not know how the derivatives $\partial\ln b(z)/\partial\theta_{i}$
-%or $\partial P_{s}(z)/\partial\theta_{i}$ look like, since those
-%are observational and/or phenomenological quantities which do not
-%yet have a model in terms of fundamental cosmological parameters.
-%Therefore, these terms will always remain and cannot be expressed
-%as a function of cosmological parameters and have to be either fixed
-%or marginalized over. In terms of the Fisher matrix $F_{ij}$, the
-%marginalization is performed easily by removing from the inverse $F_{ij}^{-1}$
-%all rows and columns corresponding to the index of the quantity to
-%marginalize. More about this will be explained later on.
+Another important part of the code is the handling of the Fisher matrix itself for post-analysis.
+We are interested in the constraints on the model parameters and therefore we need to calculate
+the covariance matrix $\mathbf{C} = F^{-1}$, whose diagonal contains the square of the fully marginalized 1$\sigma$
+errors of the model parameters and its off-diagonal entries encode the level of correlation among parameters.
 
-
+If we want to maximize over the parameter $\theta_m$, i.e. we want to obtain the errors on all other parameters,
+when $\theta_m$ is fixed, then we just need to remove from the Fisher matrix, the rows and the columns
+corresponding to that parameter $m$:
+\beeq$
+\tilde F = M_{(n-1) \times n}^{T} F_{n \times n} M_{n \times (n-1)} 
+$
+where $M_{n \times (n-1)$ 
 
 % \subsection{Validation of the code within the Euclid collaboration}
 % \begin{itemize}
