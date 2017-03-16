@@ -213,7 +213,9 @@ From the likelihood we can obtain some useful quantities:
 	This would amount to the 'best fit' parameters, but they
 	are in general different tp the frequentist ones, if we have used a prior.
 	\item The confidence regions for the parameters, denoted $R(\alpha)$, for which
-	the normalized likelihood integrated in that region has a specific value:\\ $\int_{R(\alpha)}  L(\theta_i) \mathrm{d}^n \theta = \alpha$.
+	the normalized likelihood integrated in that region has a specific value:\\ 
+	\beeqp$\label{eq:likeli-confidregions}
+	\int_{R(\alpha)}  L(\theta_i) \mathrm{d}^n \theta = \alpha$
 	If $\alpha=0.683,0.954,0.997$, this regions are called 1, 2 and 3$\sigma$ regions respectively.
 	\item Marginalization over a parameter. If the likelihood depends on 
 	three parameters $\theta^1, \theta^2, \theta^3$, but we are not interested in $\theta^3$, because it is a nuisance parameter
@@ -1267,7 +1269,27 @@ J_{a b}^{-1} =  \parder{Y^{a}}{X^{b}}
 $
 
 \textbf{Ellipsoidal confidence contour regions: }
-
+Since we are assuming a Gaussian likelihood at the maximum, the confidence contours for a 2-dimensional slice of the likelihood
+will be ellipsoidal, simply from the fact that the exponent of the two-dimensional Gaussian probability distribution for a set of two parameters $X_i = \{ x_1, x_2 \}$ and a symmetric covariance matrix $C_{i j} \equiv c_{i j} = c_{j i} $ contains the term:
+\beeqp$ \label{eq:bivariate-exponent}
+X_i C^{-1}_{i j} X_j = \left(  \frac{ c_{22} x_1^2}{\det{C}} +  \frac{ c_{11} x_2^2}{\det{C}}  - \frac{ 2 c_{12} x_1 x_2}{\det{C}}   \right)
+$
+Then the ellipse will be oriented along the eigenvectors of $C_{ij}$ with an anlge $\alpha$ with respect to the coordinate axes:
+\beeq$
+\tan ( 2 \alpha )  = \frac{2 c_{12}}{c_{11}^2 - c_{22}^2}
+$
+By integrating a bi-variate Gaussian \cref{eq:moreGeneral-Gaussian-Likelihood} with the exponent \cref{eq:bivariate-exponent} to find
+the confidence regions as in \cref{eq:likeli-confidregions}, we obtain that the 1, 2 and 3$\sigma$ confidence regions
+with major semi-axes $a$ and minor semi-axes $b$ are given by:
+\beeqal$
+1\sigma: & \quad a = 1.51 \sqrt{\lambda_1};\quad b=1.51\sqrt{\lambda_2} \nonumber \\
+2\sigma: & \quad a = 2.49 \sqrt{\lambda_1};\quad b=2.49\sqrt{\lambda_2} \nonumber \\
+3\sigma: & \quad a = 3.44 \sqrt{\lambda_1};\quad b=3.44\sqrt{\lambda_2} \quad , \nonumber
+$
+where $\lambda_1,\; \lambda_2$ are the largest and the smallest eigenvalues, respectively.
+The $2 \times 2$ matrix from where this ellipses can be visualized can be either obtained 
+by marginalizing or maximizing over all the other $(N-2)$ parameters. 
+The \fito code contains these options and many other tools for plotting and visualization.
 
 % \subsection{Validation of the code within the Euclid collaboration}
 % \begin{itemize}
@@ -1276,12 +1298,9 @@ $
 % \item WL: Cases
 % \end{itemize}
 
-\subsection{Extensions of the Fisher matrix approach to higher orders}
-\begin{itemize}
-\item Taylor expansion of the Fisher matrix
-\item Fisher tensors
-\item Variations in parameter space
-\end{itemize}
+\subsection{Extensions of the Fisher matrix approach}
+
+The Fisher matrix a
 
 
 
