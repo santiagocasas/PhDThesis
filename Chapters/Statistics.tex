@@ -1299,7 +1299,89 @@ The \fito code contains these options and many other tools for plotting and visu
 
 \subsection{Extensions of the Fisher matrix approach}
 
-The Fisher matrix a
+The Fisher matrix approach for forecasting the error on the parameters is based on the Gaussian approximation, although the concept
+of the Fisher matrix is more general than that, being defined as simply the curvature (or the Hessian) of the log-likelihood \cref{eq:Fishermatrix-definition}.
+
+In order to go beyond the Gaussian approximation, several approaches have been taken recently in the literature (see \cite{sellentin_breaking_2014}, 
+\cite{cite more sellentin}) and the \textsc{DALI} code \cite{cite more sellentin, link github} has been developed, which allows
+to find confidence contours for the model parameters, when the likelihood departs from an underlying Gaussian form.
+
+In the \fito code some of the terms used in these extensions of the Fisher formalism have been implemented. One of its main applications is to study
+the effect of changing the fiducial value of the parameters on the forecasted errors on these parameters. Recently \cite{bjoern and reischke}
+have studied the same effect, by looking at the corresponding matrix transformations that change under the influence of the fiducial.
+In our approach, which is still a work in progress and will be published soon,
+we take a different route, where we make a Taylor expansion of the Fisher matrix defined in \cref{eq:Fisher-MatrixForm-GaussianGeneral} 
+around the fiducial parameters $p_{\gamma}$ with data mean $\mu$:
+
+\begin{align}
+\frac{\partial F_{\alpha\beta}}{\partial p_{\gamma}}  = & \frac{1}{2}C_{,\alpha\gamma}C^{-1}C_{,\beta}C^{-1}
+-C_{,\alpha}C^{-1}C_{,\beta}C^{-1}C_{,\gamma}C^{-1} \nonumber\\
+& +\frac{1}{2}C_{,\alpha}C^{-1}C_{,\beta\gamma}C^{-1}\\
+& -C^{-1}C_{,\gamma}C^{-1}\mu_{,\alpha}\mu_{,\beta}+C^{-1}(\mu_{,\alpha\gamma}\mu_{,\beta}+\mu_{,\alpha}\mu_{,\beta\gamma})\nonumber 
+\end{align}
+In the case of power spectra, however, both for Galaxy Clustering and Weak Lensing,
+$\mu=0$. In the above equations, a trace over the free indices is
+implied and we use the notation: $x_{,\alpha} \equiv\frac{\partial x}{\partial p_{\alpha}}$.
+
+For galaxy clustering as defined in \cref{eq:Fisher-fromloglik-inPk}, the trace terms in the equation above correspond to
+the following:
+
+\begin{multline}
+F_{\alpha\beta}=\frac{1}{2}\mbox{tr}\left[C_{,\alpha}C^{-1}C_{,\beta}C^{-1}\right]=\frac{1}{2}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{2}\left[\left(P(k,\mu)\right)_{,\alpha}\right.\\
+\left.\left(P(k,\mu)\right)_{,\beta}\right]
+\end{multline}
+
+
+\begin{multline}
+J_{\alpha\beta\gamma}=\mbox{tr}\left[C_{,\alpha}C^{-1}C_{,\beta}C^{-1}C_{,\gamma}C^{-1}\right]=\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{3}\left[\left(P(k,\mu)\right)_{,\alpha}\right.\\
+\left.\left(P(k,\mu)\right)_{,\beta}\left(P(k,\mu)\right)_{,\gamma}\right]
+\end{multline}
+
+
+\begin{multline}
+S_{\alpha\beta\gamma}=\frac{3}{2}\mbox{tr}\left[C_{,\alpha}C^{-1}C_{,\beta\gamma}C^{-1}\right]=\frac{3}{2}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{2}\left[\left(P(k,\mu)\right)_{,\alpha}\right.\\
+\left.\left(P(k,\mu)\right)_{,\beta\gamma}\right]
+\end{multline}
+
+
+\begin{multline}
+Q_{\alpha\beta\gamma\delta}=\frac{3}{2}\mbox{tr}\left[C_{,\alpha\beta}C^{-1}C_{,\gamma\delta}C^{-1}\right]=\frac{3}{2}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{2}\left[\left(P(k,\mu)\right)_{,\alpha\beta}\right.\\
+\left.\left(P(k,\mu)\right)_{,\gamma\delta}\right]
+\end{multline}
+
+
+Where $C=P+n^{-1}$ and $C^{-1}=\frac{n}{Pn+1}$ and we have included
+the derivatives of $n(z)$, which depends on cosmological parameters,
+through the comoving volume that changes in each redshift shell.
+
+If we also include the derivatives of the survey volume $V_{s}$,
+which effectively gives the number of modes available over which the
+trace has to be taken, we end up with an expression (where implicit
+trace is now replaced by implicit integration over k) such as:
+
+\begin{align}
+\frac{\partial F_{\alpha\beta}}{\partial p_{\gamma}} & =\frac{V_{s}}{2}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{2}\left[\left(P(k,\mu)\right)_{,\alpha\gamma}\left(P(k,\mu)\right)_{,\beta}\right]\label{eq:Tensor-Taylor}\\
+& -V_{s}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{3}\left[\left(P(k,\mu)\right)_{,\alpha}\left(P(k,\mu)\right)_{,\beta}\left(P(k,\mu)\right)_{,\gamma}\right]\nonumber \\
+& +\frac{V_{s}}{2}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{2}\left[\left(P(k,\mu)\right)_{,\alpha}\left(P(k,\mu)\right)_{,\beta\gamma}\right]\nonumber \\
+& +\frac{1}{2}\frac{\partial V_{s}}{\partial p_{\gamma}}\left[\frac{n(z)}{n(z)P(k,\mu)+1}\right]^{2}\left[\left(P(k,\mu)\right)_{,\alpha}\left(P(k,\mu)\right)_{,\beta}\right]\nonumber 
+\end{align}
+
+
+In terms of the general Fisher tensors and $\bar{C}=C^{-1}(k,z)$
+this takes a compact form:
+
+\begin{align}\label{eq:tensor-contributions}
+\frac{\partial F_{\alpha\beta}}{\partial p_{\gamma}} & =\frac{V_{s}}{3}\bar{C}^{2}S_{\beta\alpha\gamma}\\
+& -V_{s}\bar{C}^{3}J_{\alpha\beta\gamma}\nonumber \\
+& +\frac{V_{s}}{3}\bar{C}^{2}S_{\alpha\beta\gamma}\nonumber \\
+& +\frac{\partial\ln V_{s}}{\partial p_{\gamma}}\bar{C}^{2}F_{\alpha\beta}\nonumber 
+\end{align}
+
+
+Using \cref{eq:tensor-contributions} we can investigate how the changing of the assumed fiducial 
+cosmology affects the forecasted errors on the parameters, in other words, the errors on the errors by assuming
+a "wrong" fiducial.
+This will be the subject of a future publication.
 
 
 
