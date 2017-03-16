@@ -1206,13 +1206,68 @@ We are interested in the constraints on the model parameters and therefore we ne
 the covariance matrix $\mathbf{C} = F^{-1}$, whose diagonal contains the square of the fully marginalized 1$\sigma$
 errors of the model parameters and its off-diagonal entries encode the level of correlation among parameters.
 
-If we want to maximize over the parameter $\theta_m$, i.e. we want to obtain the errors on all other parameters,
-when $\theta_m$ is fixed, then we just need to remove from the Fisher matrix, the rows and the columns
-corresponding to that parameter $m$:
+\textbf{Maximization: }
+If we have a Fisher matrix corresponding to an $N$ number of parameters, and we want to \textit{maximize} over the parameter $\theta_m$, i.e. we want to obtain the errors on all other parameters,
+when the parameter $\theta_m$ is fixed, then we just need to remove from the Fisher matrix, the rows and the columns
+corresponding to that parameter at position $m$:
 \beeq$
-\tilde F = M_{(n-1) \times n}^{T} F_{n \times n} M_{n \times (n-1)} 
+\tilde F_{(N-1) \times (N-1)} = M_{(N-1) \times N}^{T} F_{N \times N}^{\,} M_{N \times (N-1)}^{\,} 
 $
-where $M_{n \times (n-1)}$ 
+where the matrix $M$ can be defined in terms of the Kronecker delta $\delta_{i,j}$ as:
+\beeqc$ \label{eq:fix-matrix}
+M_{i j} = \delta_{\mho(i) , j}
+$
+where:
+\beeqc$ \label{eq:mho-piecewise}
+\mho(i) \equiv
+\begin{cases} 
+i ,& i < m \\
+N ,& i = m \\
+i-1 ,& i > m 
+\end{cases}
+$
+and the indices run as $i=\{1,\ldots,N\}$ and $j=\{1,\ldots,(N-1)\}$.
+The new Fisher matrix $\tilde F$ will be then 
+of dimensions $(N-1) \times (N-1)$.
+
+\textbf{Marginalization: }
+If we want to \emph{marginalize} over the parameter $m$, then we have to invert the matrix $F$ to obtain the parameter covariance matrix $C=F^{-1}$ and remove from $C$
+the columns and rows corresponding to the index $m$:
+\beeqc$
+\tilde C_{(N-1) \times (N-1)} = M_{(N-1) \times N}^{T} C_{N \times N}^{\,} M_{N \times (N-1)}^{\,} 
+$
+where $M$ is given by \cref{eq:fix-matrix} and \cref{eq:mho-piecewise}.
+The operation of multiplying by matrix $M$ and its transpose can be done more efficiently for a large number of parameters to be removed, 
+by using appropriate functions in the $\texttt{Wolfram Mathematica}$ language.
+
+\textbf{Combination:} 
+If we want to combine the Fisher matrix from an observation (or experiment) $A$
+with another Fisher matrix from experiment $B$, where both $F_A$ and $F_B$ have
+the same fiducial parameters and the same ordering, we just need to add the Fisher matrices together: $F_{A+B} = F_A + F_B$ and from $F_{A+B}$ we can obtain the combined contours and errors.
+
+\textbf{Changing of parameter basis: }
+If our Fisher matrix $F$ was performed in the parameter basis $X^i$ and we want to change to a different parameter basis $Y^i$; for example
+in $\lcdm$ when we want to go from $\{\Omega_{m}, \Omega_{b}, h, \sigma_{8}  \}$ to  $\{\omega_{c}, \omega_{b}, h, \ln(10^10 A_s)  \}$,
+we can use a simple Jacobian operation. This can be done since, as we already mentioned, the Fisher matrix is composed of derivatives 
+of the likelihood, which in turn are in our case first derivatives of the data covariance matrix $\mathbf{C}$:
+\beeq$
+F_{\alpha \beta} \propto \parder{\mathbf{C}}{X^{\alpha}} \parder{\mathbf{C}}{X^{\beta}}
+$
+Therefore we can write the transformed Fisher matrix 
+$\tilde F$ in the new basis as:
+\beeqal$
+\tilde{F}_{\mu \nu} & \propto \parder{X^{\alpha}}{Y^{\mu}} \parder{\mathbf{C}}{X^{\alpha}} \parder{\mathbf{C}}{X^{\beta}} \parder{X^{\beta}}{Y^{\nu}} \nonumber\\
+\tilde{F}_{\mu \nu} & = J^T F J
+$
+with $J_{\alpha \nu} = \partial X^{\alpha}/ \partial Y^{\nu} $.
+In some cases, if the "old" parameter basis $X^i$ cannot be solved in terms of the "new" parameter basis $Y^i$,
+then one can use the identity:
+\beeqp$
+J_{a b}^{-1} =  \parder{Y^{a}}{X^{b}}
+$
+
+\textbf{Ellipsoidal confidence contour regions: }
+
 
 % \subsection{Validation of the code within the Euclid collaboration}
 % \begin{itemize}
