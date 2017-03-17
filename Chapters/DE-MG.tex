@@ -28,7 +28,7 @@ is called the Jordan frame, while the former is usually called the Einstein fram
 
 For theories in which all matter fields are coupled in the same way to the scalar field, both descriptions
 have to be equivalent and we call them universally coupled theories. 
-For theories in which the coupling is specific to a matter field (i.e. neutrinos), the theory can in general be only formulated
+For theories in which the coupling is specific to a matter field (i.e. neutrinos), the theory can in general only be formulated
 in one description. These are the so-called non-universally coupled theories.
 In the following, we will use this classification to discuss the models studied in this work.
 In the first section we will discuss universally coupled theories, which include Quintessence, f(R),
@@ -49,9 +49,49 @@ Universe.
  
 \section{The Einstein and the Jordan frames}
 
-In the `Einstein-frame` the gravitational part of the action looks standard, but the coupled
-particles do not follow the geodesics given by GR, since the e
-but 
+In this section we will review the form of the action and the field equations in the Einstein and Jordan frames, which are going to be needed 
+in the following chapters.
+
+For a scalar-tensor theory in the `Einstein-frame` the action takes the following form:
+\beeqc$\label{eq:einstein-frame-action}
+\mathcal{S} = \int \dx{4}{x} \sqrt{-g} \left[  \frac{1}{2} R - \frac{1}{2} g^{\mu \nu}  \partial_{\mu}\phi \partial_{\nu}\phi 
+- V(\phi)    \right] - \int \dx{4}{x} \mathcal{L}_m (\tilde{g}^{(i)}_{\mu \nu} , \varPsi_m^{(i)} )
+$
+where each matter species $\varPsi_m^{(i)}$ is coupled to a different "effective" metric $\tilde{g}^{(i)}_{\mu \nu}$.
+In the case of universal coupling, all metrics $\tilde{g}^{(i)}$ would be identical.
+The metric $\tilde{g}^{(i)}$ is related to the metric $g$ by a conformal transformation, which takes the form:
+\beeqc$
+\tilde{g}^{(i)} = e^{2 \Upsilon^{(i)}(\phi)} g
+$
+where $\Upsilon(\phi)$ is a function of the scalar field and of the coupling $Q(\phi)$ between the matter species with index $i$ and the field $\phi$.
+
+In the Einstein frame, the gravitational part of the action looks standard, since the Ricci scalar appears without multiplicative factors in the action,
+but the coupled matter species do not follow the geodesics of standard GR, 
+they would feel an extra so-called "fifth-force"
+coming from the coupling to the scalar field.
+In this formulation, the energy-momentum $T^{m}_{\mu \nu}$ of the coupled matter species is not covariantly conserved, but
+the sum of the energy momentum tensor of matter and the scalar field $T^{m+\phi}_{\mu \nu}$ will be indeed conserved.
+We will see two examples of theories formulated in this frame in \cref{sub:CDE} and \cref{sub:GNQ}.
+
+For a scalar-tensor theory in the `Jordan-frame` the action takes the following form:
+\beeqc$\label{eq:einstein-frame-action}
+\mathcal{S} = \int \dx{4}{x} \sqrt{-g} \left[  \frac{1}{2} f(\varphi, R) - \frac{1}{2} h(\varphi) g^{\mu \nu}  \partial_{\mu}\varphi \partial_{\nu}\varphi 
+- U(\varphi)    \right] - \int \dx{4}{x} \mathcal{L}_m (g_{\mu \nu} , \varPsi_m )
+$
+where now all matter species couple to the metric $g$, which is the same metric appearing in the gravitational part of the action.
+However, in this frame, the Ricci scalar is non-minimally coupled to the field $\varphi$ through a function $f(R, \varphi)$ and in general, there can be an extra function $h(\varphi)$ multiplying the kinetic term of the scalar field.
+In this case, matter particles follow the standard geodesics and the energy momentum tensor of the matter species is conserved.
+The type of scalar-tensor theories in which 
+one can transform from the Jordan to the Einstein frame by a conformal transformation
+of the metric, are called conformally-invariant theories. 
+In these theories, the null-geodesics (light curves) behave with the exact same equations in both fields and therefore
+lensing equations are not affected.
+Also in this case, a closed relation between the Jordan-frame $\varphi$ and the 
+Einstein-frame $\phi$ can be found.
+We have to emphasize that physical measurable quantities must be frame-independent by definition,
+since this frame transformation amounts to a coordinate and field redefinition and one of 
+the principles of the GR formalism which we will not abandon is diffeomorphism invariance.
+
 
 \section{Universal coupling to matter}
 
@@ -219,7 +259,7 @@ accomodate non-universal couplings.
 \item Explain why baryons should be uncoupled (Solar system constraints)
 \end{itemize}
 
-\subsection{Coupled Dark Energy}
+\subsection{Coupled Dark Energy \label{sub:CDE}}
 
 The background evolution for the coupled DE scenario model is described
 by the following equations, in which the subscripts $r$, $b$, $c$
@@ -270,7 +310,7 @@ m_{c}(z)=m_{c,0}e^{-\beta(\phi(z)-\phi(0))}\,\,.
 \end{equation}
 
 
-\subsection{Growing Neutrino Quintessence}
+\subsection{Growing Neutrino Quintessence \label{sub:GNQ}}
 
 Growing neutrino quintessence \cite{amendola_growing_2008,wetterich_growing_2007}
 explains the end of a cosmological scaling solution (in which dark
