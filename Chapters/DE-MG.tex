@@ -57,11 +57,11 @@ dark sector interactions.
 \caption[Dark Energy - Modified Gravity Flowchart]{Distinction between Dark Energy and
 Modified Gravity Theories based on the Strong and Weak Equivalence Principles (SEP and WEP), according to \cite{Joyce, Lombrisier}.
 The violation of the SEP, implies the existence of an extra fifth-force among particles, 
-which is mediated by a scalar field. These are the so-called Modified Gravity theories.
+or, equivalently, a modification of the standard Poisson equation. These are the so-called Modified Gravity theories.
 If the scalar degree of freedom is not coupled to matter, then we can talk about a Dark Energy model.
 In the case in which Dark Energy is not dynamical, the theory goes back to GR plus a cosmological constant.
 If the WEP is violated, then not all matter species feel the same gravitational forces and therefore
-there can be either dark sector interactions or neutrino--scalar field interactions.
+there can be either dark sector interactions or neutrino--scalar-field interactions.
 }
 \end{figure}
 
@@ -96,7 +96,7 @@ $
 where generally, each matter species $\varPsi_m^{(i)}$ could be coupled to a different "effective" metric $\tilde{g}^{(i)}_{\mu \nu}$.
 In the case of universal coupling (see \cref{sec:universal-coupling} below), all metrics $\tilde{g}^{(i)}$ would be identical, 
 while in the case of non-universal coupling (see \cref{sec:nonuniversal-coupling} below) some of the metrics $\tilde{g}^{(i)}_{\mu \nu}$ could
-be different from $g{\mu \nu}$.
+be different from $g_{\mu \nu}$.
 The metric $\tilde{g}^{(i)}$ is related to the metric $g$ by a conformal transformation, which takes the general form:
 \beeqc$
 \tilde{g}^{(i)} = \Omega^2(\phi, R) g
@@ -189,8 +189,76 @@ to construct theories of modified gravity; the so-called Effective Field Theory 
 
 \subsection{Quintessence}
 
+The Quintessence model, which takes its name from the Latin word for "fifth element"
+is one of the oldest models of Dark Energy. It was introduced by several authors almost 30 years
+ago \cite{Wetterich_1988, Ratra, references in Lucas, book}, motivated by studying the 
+breaking of scale invariance, which could give rise to a dynamical cosmological constant.
+Its Lagrangian is of the form \cref{eq:jordan-frame-action}, with
+$F(\varphi, R) = R$, $K = 1$ and a potential $U(\varphi)$.
+Since this is a homogeneous field without couplings, we can find its energy density and its pressure 
+straightforwardly from the energy-momentum tensor of a perfect fluid in a FLRW background:
+\begin{align}
+&\rho_{\varphi} = -T^{0 (\varphi)}_0 = \frac{1}{2}\dot\varphi^2 + U(\varphi) \quad 
+&p_{\varphi} = \frac{1}{3} T^{i (\varphi)}_i = \frac{1}{2}\dot\varphi^2 - U(\varphi) \quad ,
+\end{align}
+which yields the equation of state (cf. \cref{eq.1stchap}) as
+\beeqp$
+w_\varphi  = \frac{p_{\varphi}}\rho_{\varphi} = \frac{\dot\varphi^2 - U(\varphi)}{\dot\varphi^2 + U(\varphi)}
+$
+We can see that for obtaining the required behavior of $w\approx -1$ at late times, to fit 
+the observations of the expansion of the Universe, we need that the kinetic term $\dot\varphi^2$
+is much smaller than the potential term $U$.
+From the continuity equation for a perfect fluid or from the variation of the action with respect to $\varphi$,
+we can find the Klein-Gordon equation for this field:
+\beeqp$
+\label{eq:Klein-Gordon-Quintessence}
+\ddot \varphi + 3 H \dot \varphi + U_{,\varphi} = 0
+$
+The dynamics and the phenomenology of this model are entirely determined by the shape of the potential
+and for this there are many possibilities (see \cite[chap. 7]{amendola_dark_2010}, for a comprehensive review).
+The most interesting solutions, which can alleviate the cosmological coincidence problem, are those in which the field
+tracks the evolution of matter at early times ($w_\varphi \approx 1$) and then 
+evolves towards an attractor (effectively independent of initial conditions) 
+at late times which yields cosmic acceleration with $w_\varphi \approx -1+\xi$,
+where $\xi$ is a combination of parameters from the potential and allows
+to distinguish Quintessence from a simple cosmological constant at present time.
+The most studied potentials are the exponential potential $U(\varphi) = U_0\exp(-\lambda \varphi)$ 
+(see \cite{copeland}), where $\lambda$ is a free parameter
+and the inverse power-law potential $U(\varphi) = M^{4+n} \varphi^{-n}$,
+where $M$ is a mass scale of the theory.
 
-
+Due to the so low energy density of dark energy ($\rho_{DE} \approx 10 ^{-120} M_{Pl}$)
+compared to typical energies appearing in particle physics, it is not so easy to construct a 
+viable model of Quintessence which is motivated by a fundamental theory. Nevertheless, there are 
+some succesful approaches like fermion condensates, Pseudo-Nambu-Goldstone models and 
+dilatonic quintessence (see \cite{amendola_dark_2010} and references therein).
+These models have to satisfy that at present times dark energy is the dominating 
+energy density in the Universe and therefore from the Friedmann equation:
+\beeqc$
+U(\varphi_0) \approx H_0^2 M_{Pl}^2
+$
+and if we take an inverse power law potential and take the field units to be at present $\varphi_0 = M_{Pl}$,
+this would yield a mass scale $M$ of the order
+of:
+\beeqc$
+M \approx H_0^{2/(4+n)} M_{Pl}^{(2+n)/(4+n)}
+$
+where, with $H_0 \approx 10^{-42} \mathrm{GeV} $, we get a mass scale of $M \approx 10^{-1} \mathrm{GeV}$
+for $n=2$, which is a scale compatible with Standard Model particles.
+Moreover, to satisfy the requirement of acceleration today, 
+the slow-roll condition (analogous to the one in inflation \cite{infl}) must satisfy 
+$ \frac{M_{Pl} V_{,\varphi \varphi}}{V(\varphi_0)} \lessapprox 1$.
+Defining the mass of the scalar field $m_\varphi$ as the second derivative of the potential with respect to the field,
+$m^2_\varphi \equiv  V_{,\varphi \varphi} $, yields a condition for the scalar field mass:
+\beeqp$
+m_\varphi \lessapprox H_0 \approx 10^{-33} \mathrm{eV}
+$
+So in order to be compatible with observations, 
+the scalar field mass must be extremely small.
+This causes a problem for all Quintessence models,
+since this small mass is not stable under radiative corrections
+and its potential can be disrupted under quantum corrections,
+which would spoil the flatness of the potential at present times.
 
 
 \subsection{Effective Field Theory of Dark Energy \label{sub:EFT-of-DE}}
