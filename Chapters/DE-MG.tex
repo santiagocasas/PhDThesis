@@ -175,7 +175,8 @@ and others only in 2011 in the context of Galileons, whose simplest form (cubic 
 $\mathcal{L} \propto R/2 - (\partial \varphi)^2 - (1/\Lambda_3)\Box \varphi (\partial \varphi)^2$, 
 where $ \Lambda_3 $ is a free scale that can be set in the theory. They are called Galileons, 
 because the equations are invariant under a general Galiliean transformation of the field $\varphi \rightarrow \varphi + b_\mu x^\mu +c$.
-Beyond-Horndeski theories are extensions of Horndeski that have higher order equations of motion, but claim to be stable and free of ghosts,
+Beyond-Horndeski theories are extensions of Horndeski that have higher order equations of motion, when expressed 
+in the Newtonian gauge, but where the propagating scalar degree of freedom still obeys second order differential equations, see
 \cite{cite Langlois, Gleyzes, Zuma}.
 
 For the purposes of this work, we will now detail one of the oldest models of Dark Energy, namely
@@ -187,7 +188,7 @@ effect on structure formation can be parameterized by two functions of
 scale and time and finally we will shortly explain one of the most general approaches
 to construct theories of modified gravity; the so-called Effective Field Theory of Dark Energy (EFToDE).
 
-\subsection{Quintessence}
+\subsection{Quintessence \label{sub:quintessence}}
 
 The Quintessence model, which takes its name from the Latin word for "fifth element"
 is one of the oldest models of Dark Energy. It was introduced by several authors almost 30 years
@@ -303,14 +304,84 @@ For more details on these calculations, see \cite{amendola_dark_2010}, chapter 8
 
 
 \subsection{Effective Field Theory of Dark Energy \label{sub:EFT-of-DE}}
-\comm{delete unless there is any result you have on EFT}
-\begin{itemize}
-\item Another approach to construct a general model for dark energy based
-on the allowed symmetries in the action.
-\item Can be parametrized with the $\alpha$ functions.
-\item Allows in a simple way to create theories beyond Horndeski and to
-accomodate non-universal couplings.
-\end{itemize}
+
+Until now we have treated Dark Energy and Modified Gravity in a rather phenomenological way,
+adding a scalar field with an kinetic term, a coupling and a potential without a clear understanding
+of which terms are allowed or not.
+Recently, there have been substantial efforts by many authors to build an effective field theory 
+of dark energy and modified gravity that encompasses all possible terms that are allowed 
+in the action at second order (see \cite{Gubitosi2013, gleyzes, bloomfield}). Considering only one extra dynamical
+scalar field and under the symmetries of homogeneity and isotropy and respecting the Weak Equivalence Principle,
+this theory can be uniquely formulated. Its action in the Jordan frame (and written in conformal time $\tau$) takes the form:
+\begin{align}\label{eq:EFT-action}
+\begin{split}
+S ={}& \int \dx{4}{x} \sqrt{-g} \left[ \frac{M_{Pl}^2}{2} [1 + \Omega(\tau)] R + \Lambda(\tau) -a^2 c(\tau)\delta g^{00} \right. \\
+     & + \frac{M_{2}^4 (\tau)}{2}(a^2 \delta g^{00})^2 -\bar{M}_{1}^3 (\tau) 2 a^2 \delta K^\mu_\mu \delta g^{00} \\
+     & - \frac{\bar{M}_2^2 (\tau)}{2} (\delta K_\mu^\mu )^2 - \frac{\bar{M}_3^2 (\tau)}{2}\delta K^{\mu}_{\nu}\delta K^{\nu}_{\mu} \\
+     & + a^2 \frac{\hat{M}^2 (\tau)}{2} \delta g^{00} \delta R^{(3)} \\
+     & + m^2_2(\tau) (g^{\mu \nu} + n^\mu n^\nu) \partial_{\mu} (a^2 g^{00})\partial_{\nu} (a^2 g^{00}) \\
+     & \left. + \mathcal{L}_m(g_{\mu \nu}, \varPsi_m) \right] \quad.
+\end{split}
+\end{align}
+To construct this action, the spacetime has been foliated (similarly to the 3+1 ADM decomposition) into a time direction
+and spatial hypersurfaces that coincide with the uniform scalar field hypersurfaces (this is the so-called unitary gauge). 
+The preferred time direction is then (c.f. \cite{gubitosi})
+\beeqc$
+n_\mu \equiv -\frac{\partial_{\mu}\phi}{\sqrt{-(\partial \phi)^2}}
+$
+which induces a spatial metric $h_{\mu \nu} \equiv g^{\mu \nu} + n^\mu n^\nu $, a spatial Ricci scalar $R^{(3)}$
+and defines an extrinsic curvature:
+\beeqp$
+K_{\mu \nu} \equiv h^{\sigma}_{\mu} \nabla_{\sigma} n_\nu
+$
+The rest of the terms in the EFT action \cref{eq:EFT-action} are nine-free functions of time:\\
+$\{\Omega(\tau), \Lambda(\tau), c(\tau), M_{2}^4 (\tau), \bar{M}_{1}^3 (\tau), \bar{M}_2^2 (\tau), \bar{M}_3^2 (\tau),
+ \hat{M}^2 (\tau), m^2_2(\tau)\}$, whose choice specify the theory.
+This theory encompasses all theories of an extra dynamical scalar field, which respect the WEP.
+It includes the Horndeski theory (mentioned above in \cref{sec:universal-coupling}) 
+and also theories which go beyond second order equations of motion (in the Newtonian gauge), also called
+Beyond-Horndeski theories (see \cite{Gleyzes2016, Piazza, Bellini})
+
+Since these theory is so general, we need to choose a parametrization of these nine free functions and 
+we need to take some simplifying assumptions in order to be able to constrain this theory with data.
+Recently, a code capable of calculating the linear Einstein-Boltzmann system of equations for the EFT formalism
+has been made public, the so-called \textsc{EFTCAMB} (\cite{Hu, Raveri, Silvestri}), which is based 
+on the widely used \textsc{CAMB} (\cite{lewis_efficient_2000}) code. 
+This will allow us to calculate our observables which we will 
+use to present our results later on in \cref{sec:EFT-forecasts}.
+
+Furthermore, we will use the assumptions taken in \cite{planck_collaboration_planck_2016} in order to simplify
+the theoretical modeling.
+If we assume a $\lcdm$ background, and choose freely a function
+$\Omega(\tau)$, the functions $\Lambda(\tau) \textrm{ and } c(\tau)$ are then fixed \cite{cite Hu 2014}.
+Furthermore, we will impose $ m^2_2(\tau) = 0$ and $ \bar{M}_2^2 (\tau) = - \bar{M}_3^2 (\tau)$,
+which eliminates models which contain third-order spatial derivatives.
+Now we just have 5 free functions of time and a function specifying the background cosmology $H(\tau)$.
+These free functions of time can be mapped to the Bellini-Sawicki $\alpha_i (\tau)$ 
+functions (see \cite{bellini-sawicki}),
+which fully specify the evolution of Horndeski models, by the following relations:
+\beeqal$
+\begin{split}
+M_{*}^2 (\tau) & = M_{Pl}\Omega(\tau) + \bar{M}_2^2 (\tau) \\
+M_{*}^2 (\tau) H(\tau) \alpha_M (\tau)   & = M_{Pl}\dot{\Omega}(\tau) + \dot{\bar{M}}_2^2 (\tau) \\
+M_{*}^2 (\tau) H^2(\tau) \alpha_K (\tau)   & = 2 c (\tau) + M_2^4 (\tau) \\
+M_{*}^2 (\tau) H(\tau) \alpha_B (\tau)   & = M_{Pl}\dot{\Omega}(\tau) - \bar{M}_{1}^3 (\tau)\\
+M_{*}^2 (\tau) \alpha_T (\tau)   & = - \bar{M}_2^2 (\tau) \\
+M_{*}^2 (\tau) \alpha_H (\tau)   & = 2 \hat{M}^2 - \bar{M}_2^2 (\tau)
+\end{split}
+$ 
+Here, the bare reduced Planck mass is $M_{Pl}$ and the effective Planck mass is $ M_{*}^2 $.
+These $alpha_i$ functions are much easier to interpret physically than the EFT functions (see \cite{bellini, sawicki}).
+For instance, $\alpha_M$ (\emph{mass run rate}) is the rate of change of the effective Planck mass, 
+produces anisotropic stress; $\alpha_K$ (\emph{kineticity}) is present in Quintessence (\cref{sub:quintessence}) models, 
+but also in models where the scalar field has a non-zero sound speed, like k-essence models;
+$\alpha_B$ (\emph{braiding}) causes dark energy to cluster and $\alpha_T$ is the \emph{tensor speed excess}, which gives the deviation
+of the speed of gravitational waves from that of light.
+Finally $\alpha_H$ is a term indicating physics that lies beyond the Horndeski models. 
+For our results in \cref{sec:EFT-forecasts}, we will further reduce these theory to a simpler case, which can be compared easier with Large-Scale-Structure
+observations.
+
+
 
 \section{Non-universal coupling \label{sec:nonuniversal-coupling}}
 
