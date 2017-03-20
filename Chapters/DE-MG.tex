@@ -140,7 +140,7 @@ and the potentials $U$ and $V$ are related by $V = U/f^2$.
 Furthermore, in the Einstein frame, due to the conformal transformation affecting the metric in the matter Lagrangian,
 particles will be coupled to the scalar field and will in general feel an extra "fifth-force", with the coupling strength
 defined by:
-\beeqp$
+\beeqp$\label{eq:definition-of-coupling-Q}
 Q(\phi) \equiv -\frac{1}{2}\frac{\partial \ln f}{\partial \phi}
 $
 In \cref{sub:CDE} we will see an example of a constant coupling and in \cref{sub:GNQ} we will see an example of a field-dependent coupling, 
@@ -257,8 +257,49 @@ So in order to be compatible with observations,
 the scalar field mass must be extremely small.
 This causes a problem for all Quintessence models,
 since this small mass is not stable under radiative corrections
-and its potential can be disrupted under quantum corrections,
-which would spoil the flatness of the potential at present times.
+and therefore the flatness of the scalar field potential could
+be disrupted at present times \cite{Kolda, Lyth}.
+
+\subsubsection{Coupled Quintessence}
+
+It is also interesting to observe the effects of a coupling between the 
+scalar Quintessence field and the matter species.
+In \cref{eq:definition-of-coupling-Q} we already saw how from a general
+Scalar-Tensor theory, a coupling between matter species and 
+the field can arise from an action like the one in \cref{eq:jordan-frame-action}.
+However, the fluid equations and the Klein-Gordon equation become more tractable if
+we make a conformal transformation into the Einstein frame, where
+the scalar field Lagrangian will be canonical, but matter will
+be coupled to a metric that contains a function of the field $\phi$.
+In this case, as stated before, the individual energy-momentum tensors will not
+be conserved:
+\beeqal$\label{eq:Tmunu-for-CQ}
+&\nabla_{\mu} T^\mu_{\nu (\phi)} = -Q T_m \nabla_{\nu}\phi \quad & \nabla_{\mu} T^\mu_{\nu (m)} = +Q T_m \nabla_{\nu}\phi \;\;,
+$
+where $Q$ is the coupling function and $T_m$ the trace of the energy-momentum tensor of matter. Through the 
+conformal transformation the field should also be coupled to radiation, since radiation also feels gravity, 
+but since the trace of the energy-momentum tensor of radiation vanishes identically, it does not appear in the 
+conservation equations.
+The conservation equations have to be written down for each matter species, therefore, in general,
+the coupling $Q$ can be different for baryons and for dark matter.
+The coupling to baryons is severely constrained by local gravity experiments (see \cite{Agashe:2014kda})
+and therefore uncoupling the baryons from the theory 
+can yield a theory compatible with observations as we will see below in  \cref{sub:CDE}.
+
+If all matter fields are coupled, then some screening mechanism
+has to be invoked in order to pass the stringent Solar System and local gravity constraints.
+One possibility is the chameleon mechanism \cite{cite refs, in, Lucas book} , which
+is a coupled quintessence field whose effective potential (and therefore its effective mass)
+changes according to the environment it is in.
+These kind of theories can arise from an action like in \cref{eq:jordan-frame-action},
+with $F(\varphi,R) = \exp(-2Q\varphi)R$ and $K(\varphi) =(1-6Q^2)\exp(-2Q\varphi)R$.
+For each distribution of matter, generally spherically symmetric, 
+one has to calculate the profile of the field $\varphi (r)$ as a function of the radius $r$,
+and one can tune the parameters in such a way that the effective coupling $Q_{\rm eff}$
+in a certain region is much smaller than the bare coupling $Q$ appearing in the action,
+so that for star systems and galaxies one can recover back the Newtonian predictions.
+For more details on these calculations, see \cite{amendola_dark_2010}, chapter 8.4.
+
 
 
 \subsection{Effective Field Theory of Dark Energy \label{sub:EFT-of-DE}}
