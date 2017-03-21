@@ -261,7 +261,7 @@ since this small mass is not stable under radiative corrections
 and therefore the flatness of the scalar field potential could
 be disrupted at present times \cite{Kolda, Lyth}.
 
-\subsubsection{Coupled Quintessence}
+\subsubsection{Coupled Quintessence \label{subsub:CQ}}
 
 It is also interesting to observe the effects of a coupling between the 
 scalar Quintessence field and the matter species.
@@ -551,19 +551,66 @@ many more parameters that have to be constrained by observations.
 Furthermore, one does not know a priori how many binned parameters have to be introduced
 and what are the degeneracies among them.
 This will be the subject of study in \cref{chap:lin-nonlin-MG-forecasts}, where we will
-introduce the functions $\mu$ and $\eta$ parameterized in redshift bins and we will study
-how well future observations will be able to measure them.
+introduce the functions $\mu$ and $\eta$ parameterized in redshift bins and we will forecast
+how well future observations will be able to measure those functions.
 
 
 
 \section{Non-universal coupling \label{sec:nonuniversal-coupling}}
 
-\begin{itemize}
-\item Motivate dark energy, the coincidence problem and a dark sector interaction
-\item Explain why baryons should be uncoupled (Solar system constraints)
-\end{itemize}
+In \cref{chapter 1} we have motivated the inclusion of a scalar field as a 
+way of solving the dark energy problem and alleviating the coincidence problem.
+The energy fraction of Dark Energy and that of Dark Matter are of the same
+order of magnitude only for a very short period of time in cosmological time scales and that time is precisely
+now when we are capable of making observations. This introduces the question if this is just a coincidence or 
+if somehow Dark Energy and Dark Matter are connected beyond simple gravitational physics.
+Therefore a natural way of alleviating this "coincidence problem" issue
+is to imagine there is a coupling in the dark sector or some mechanism that connects the onset of non-linear 
+structure formation to the epoch of accelerated expansion of the Universe. As we will see, the coupling to baryons 
+is extremely well constrained by solar system and galactic observations and therefore a coupling to baryons 
+has to be avoided.
+
+In this section we will deal with two non-universally coupled theories which can yield very distinctive 
+effects on the formation and evolution of structures in the Universe.
+In the first model, called (\cref{sub:CDE}) Coupled Dark Energy, there exists an exchange of energy and momentum
+between a quintessence scalar field and the dark matter particles. 
+The second one is also a quintessence model, but this time the masses of neutrinos are 
+coupled to the scalar field. In this model, the DE domination is triggered by the neutrinos becoming non-relativistic
+and their mass is connected to the energy scale attributed to the DE field.
+
+As we have seen before, if the Weak Equivalence principle is violated, then there exists a fifth force acting between test
+particles on top of the gravitational interaction. Generally this will yield modifications in the growth rate of perturbations, 
+the density profiles of structures and the matter power spectrum. Since the effects appear generally the non-linear regime,
+we will have to study them by performing numerically expensive N-body simulations, as we will see in \cref{chap:Fitting-CDE}
+and \cref{chap:GNQ}.
+
 
 \subsection{Coupled Dark Energy \label{sub:CDE}}
+
+In \cref{subsub:CQ} we saw how a coupling between all matter species and a scalar field can be realized in the Jordan frame.
+However, for non-universal couplings it is easier to work in the Einstein frame, in which the Lagrangian takes the form:
+\beeqalsp$\label{eq:CDE-Lagrangian}
+\mathcal{L} = \frac{1}{2} R - \frac{1}{2} g^{\mu \nu}  \partial_{\mu}\phi \partial_{\nu}\phi 
+- V(\phi) - m(\phi) \bar{\psi} \psi + \mathcal{L}_{\rm kin}(\psi) \quad,
+$
+where $\psi$ is the coupled dark matter field, $m$ its mass and $\mathcal{L}_{\rm kin}(\psi)$
+its kinetic term.
+
+The coupling to baryons is severely constrained by observations.
+The ``post-Einstein'' coupling parameter $\bar{\gamma}$
+that measures the local admixture of a scalar field to gravity is
+constrained in Solar System experiments (see e.g. the PDG review \cite{Agashe:2014kda}
+and also \citep{Will_2005,Bertotti_Iess_Tortora_2003}) roughly to
+$|\bar{\gamma}|\le4\cdot10^{-5}$. This parameter enters the modification
+of the effective Newton constant as $G_{eff}=G_{N}(1-\bar{\gamma}/2)$. 
+We will see below, that the effective force coming from a coupling to matter is
+in our notation, $G_{eff}=G_{N}(1+4\beta^{2}/3)$
+and therefore $\beta^{2}=-3\bar{\gamma}/8$. A coupling $\beta_{\rm baryons}^{2}$
+appears then constrained to be smaller than $10^{-5}$ roughly, and
+we assume therefore that is completely negligible. As a consequence,
+baryons follow the usual geodesics of a FLRW cosmology, which allows
+coupled DE to pass the stringent local gravity constraints without
+the need to employ any screening mechanism \citep{2015arXiv150203888H}.
 
 The background evolution for the coupled DE scenario model is described
 by the following equations, in which the subscripts $r$, $b$, $c$
@@ -579,7 +626,7 @@ the dark energy scalar field, respectively:
 \end{eqnarray}
 
 
-We express from now on the scalar field $\phi$ in units of the Planck
+We express the scalar field $\phi$ in units of the Planck
 mass $M_{pl}\equiv1/\sqrt{8\pi G}$, and choose as potential $V(\phi)$
 an exponential $V(\phi)=Ae^{-\alpha\phi}$ \citep{Lucchin_Matarrese_1984,Wetterich_1988}.
 The coupling function $\beta(\phi)$ defines the strength of the interaction
@@ -588,30 +635,46 @@ will restrict our analysis to the simplified case of a constant coupling
 $\beta(\phi)=\beta$, although in general it could be a field-dependent
 quantity \cite{Amendola_2004,Baldi_2011a}.
 
-The current constraints on a coupling to ordinary matter are very
-tight. The ``post-Einstein'' coupling parameter $\bar{\gamma}$
-that measures the local admixture of a spin-0 field to gravity is
-constrained in Solar System experiments (see e.g. the PDG review \cite{Agashe:2014kda}
-and also \citep{Will_2005,Bertotti_Iess_Tortora_2003}) roughly to
-$|\bar{\gamma}|\le4\cdot10^{-5}$ . This parameter enters the modification
-of the effective Newton constant as $G_{eff}=G_{N}(1-\bar{\gamma}/2)$;
-in our notation, this is $G_{eff}=G_{N}(1+4\beta^{2}/3)$ (see below)
-and therefore $\beta^{2}=-3\bar{\gamma}/8$. A coupling $\beta_{baryons}^{2}$
-appears then constrained to be smaller than $10^{-5}$ roughly, and
-we assume therefore that is completely negligible. As a consequence,
-baryons follow the usual geodesics of a FLRW cosmology, which allows
-coupled DE to pass the stringent local gravity constraints without
-the need to employ any screening mechanism \citep{2015arXiv150203888H}.
-
 Due to the exchange of energy between DE and CDM, the energy density
 of the latter will no longer scale as the cosmic volume, and by assuming
 the conservation of the CDM particle number one can derive the time
 evolution of the CDM particle mass by integrating Eq.(\ref{eq:cdm-back-density})
 between the present time ($z=0$) and any other redshift $z$:
-
 \begin{equation}
 m_{c}(z)=m_{c,0}e^{-\beta(\phi(z)-\phi(0))}\,\,.
 \end{equation}
+
+
+At the level of linear perturbations, coupled DE models are characterized
+by a different evolution of the baryonic and CDM density fluctuations,
+as a consequence of the selective interaction between DE and CDM particles
+only. In the sub-horizon limit, for which $aH/k\ll1$, linear perturbations
+in coupled dark energy follow the equations \citep{Amendola_2004,pettorino_baccigalupi_2008}:
+\begin{eqnarray}
+\ddot{\delta}_{c} & = & -2H\left[1-\beta\frac{\dot{\phi}}{H\sqrt{6}}\right]\dot{\delta}_{c}+4\pi G\left[\rho_{b}\delta_{b}+\rho_{c}\delta_{c}\Gamma_{c}\right]\label{linear_cdm}\\
+\ddot{\delta}_{b} & = & -2H\dot{\delta}_{b}+4\pi G\left[\rho_{b}\delta_{b}+\rho_{c}\delta_{c}\right]\label{linear_baryons}
+\end{eqnarray}
+where $\Gamma_{c}\equiv1+\frac{4}{3}\beta^{2}$ represents the effective
+``fifth force'' acting on the CDM particles. The term proportional
+to $\beta\dot{\phi}$ in equation (\ref{linear_cdm}) is a velocity-dependent
+term that modifies the standard cosmological friction; this arises
+as a consequence of momentum conservation for the CDM particles and
+has a considerable effect on structure formation \citep{baldi_etal_2010,baldi_clarifying_2011,Li_Barrow_2011}.
+Since baryons are uncoupled, their perturbations evolve according
+to the standard equation. Nonetheless, baryons will still be indirectly
+affected by the coupling as the source term on the right-hand side
+of equation (\ref{linear_baryons}) includes the CDM density perturbations.
+
+At the level of non-linear perturbations, several methods have been
+devised to predict the small scale effects of coupled DE, from semi-analytical
+methods like spherical collapse \cite{Pace_Waizmann_Bartelmann_2010},
+to time renormalization group \citep{Saracco_etal_2010} to full N-body
+simulations \citep{Maccio_etal_2004,baldi_etal_2010,Li_Barrow_2011,Carlesi_etal_2014a}.
+In \cref{chap:Fitting-CDE}, we will work with the publicly available data of
+the \textsc{CoDECS} simulations \citep{baldi_codecs_2012}
+that represents the largest set of cosmological N-body simulations
+for coupled DE models to date.
+
 
 
 \subsection{Growing Neutrino Quintessence \label{sub:GNQ}}
