@@ -1,4 +1,4 @@
-\chapter{Linear and non-linear Modified Gravity forecasts}
+\chapter{Linear and non-linear Modified Gravity forecasts \label{chap:lin-nonlin-MG-forecasts}}
 
 
 
@@ -31,80 +31,16 @@ regimes. To test the effect of our non-linear prescription, we show in section \
 
 
 
-\section{\label{sec:Parameterizing-Modified-Gravity}Parameterizing Modified
-Gravity}
+%\section{\label{sec:Parameterizing-Modified-Gravity}Parameterizing Modified
+%Gravity}
 
-In linear perturbation theory, scalar, vector and tensor perturbations
-do not mix, which allows us to consider only the scalar perturbations
-in this paper. We work in the conformal Newtonian gauge, with the
-line element given by 
-\begin{equation}
-ds^{2}=-(1+2\Psi)dt^{2}+a^{2}(1-2\Phi)dx^{2}\,\,\,.
-\end{equation}
-Here $\Phi$ and $\Psi$ are two functions of time and scale that coincide
-with the gauge-invariant Bardeen potentials in the Newtonian
-gauge.
-
-In theories with extra degrees of freedom (Dark Energy, DE) or modifications
-of General Relativity (MG) the normal linear perturbation equations
-are no longer valid, so that for a given matter source the values
-of $\Phi$ and $\Psi$ will differ from their usual values. We can
-parameterize this change generally with the help of two new functions
-that encode the modifications. Many different choices are possible
-and have been adopted in the literature, see e.g.\
-\cite{planck_collaboration_planck_2016} for a limited overview. In this paper
-we introduce the two functions through a gravitational slip (leading
-to $\Phi\neq\Psi$ also at linear order and for pure cold dark matter)
-and as a modification of the Poisson equation for $\Psi$, 
-\begin{eqnarray}
--k^{2}\Psi(a,k) & \equiv & 4\pi
-Ga^{2}\mu(a,k)\rho(a)\delta(a,k)\,\,\,;\label{eq: mu_def}\\
-\eta(a,k) & \equiv & \Phi(a,k)/\Psi(a,k)\,\,\,.\label{eq: eta_def}
-\end{eqnarray}
-These expressions define $\mu$ and $\eta$. Here $\rho(a)$ is the average dark matter density and $\delta(a,k)$
-the comoving matter density contrast -- we will neglect relativistic
-particles and radiation as we are only interested in modeling the
-perturbation behaviour at late times. In that situation, $\eta$,
-which is effectively an observable \cite{amendola_observables_2013}, is closely related to
-modifications of GR \cite{saltas_anisotropic_2014,sawicki_non-standard_2016}, while $\mu$ encodes for example deviations in
-gravitational clustering, especially in redshift-space distortions
-as non-relativistic particles are accelerated by the gradient of $\Psi$.
-
-When considering Weak Lensing observations then it is also natural
-to parameterize deviations in the lensing or Weyl potential $\Phi+\Psi$,
-since it is this combination that affects null-geodesics (relativistic particles).
-To this end we introduce a function $\Sigma(t,k)$ so that
-\begin{equation}
--k^{2}(\Phi(a,k)+\Psi(a,k))\equiv8\pi
-Ga^{2}\Sigma(a,k)\rho(a)\delta(a,k)\,\,\,.\label{eq:Sigma-def}
-\end{equation}
-Since metric perturbations are fully specified by two functions of
-time and scale, $\Sigma$ is not independent from $\mu$ and $\eta$,
-and can be obtained from the latter as follows: 
-\begin{equation}
-\Sigma(a,k)=(\mu(a,k)/2)(1+\eta(a,k))\,\,\,.\label{eq:SigmaofMuEta}
-\end{equation}
-
-Throughout this work, we will denote the standard Lambda-Cold-Dark-Matter ($\Lambda$CDM) model,
-defined through the Einstein-Hilbert action with a cosmological constant, simply as GR. For this case
-we have that $\mu=\eta=\Sigma=1$. All other cases in which these functions are not unity will be labeled
-as Modified Gravity (MG) models.
-
-Using effective quantities like $\mu$ and $\eta$ has the advantage
-that they are able to model {\em any} deviations of the perturbation
-behaviour from $\Lambda$CDM expectations, they are relatively close 
-to observations, and they can also be related to other commonly used 
-parameterization \cite{pogosian_how_2010}
-On the other hand, they are not
-easy to map to an action (as opposed to approaches like effective
-field theories that are based on an explicit action) and in addition they
-contain so much freedom that we normally restrict their parameterisation
-to a subset of possible functions.
+ We will consider forecasts for the planned surveys Euclid, SKA1 and SKA2 and a subset of DESI, DESI-ELG, using as priors the
+constraints from recent \planck\ data (see also \cite{Alonso2016, hojjati_cosmological_2012, baker_observational_2015, bull_extending_2015, Gleyzes2016} for previous works that address forecasts in Modified Gravity.
 
 This has however
 the disadvantage of loosing generality and making our constraints
 on $\mu$ and $\eta$ parameterization-dependent. In this
-paper, we prefer to complement specific choices of parameterizations
+work, we prefer to complement specific choices of parameterizations
 adopted in the literature (we will use the choice made in \cite{planck_collaboration_planck_2016}) 
 with a more general approach: we will bin
 the functions $\mu(a)$ and $\eta(a)$ in redshift bins with index
@@ -123,89 +59,10 @@ lensing (WL) surveys and we will show that there are important differences
 between the linear and non-linear cases; including the non-linear regime generally reduces correlations
 among the cosmological parameters. In the remainder of this section we will introduce the parameterizations that we will use.
 
-
-\subsection{Parameterizing gravitational potentials in discrete redshift bins \label{sub:param-z-bins-th}}
-
-As a first approach we neglect scale dependence and bin
-the time evolution of the functions $\mu$ and $\eta$ without specifying
-any parameterized evolution. To this purpose we divide the redshift
-range $0\leq z\leq3$ in 6 redshift bins and we consider the values
-$\mu(z_{i})$ and $\eta(z_{i})$ at the right limiting redshift $z_{i}$
-of each bin as free parameters, thus with the $i$ index spanning the values
-$\{0.5,1.0,1.5,2.0,2.5,3.0\}$. The first bin is assumed to have a constant 
-value, coinciding with the one at $z_1=0.5$, i.e. $\mu(z<0.5)=\mu(z_{1})$ and $\eta(z<0.5)=\eta(z_{1})$.
-The $\mu(z)$ function (and analogously $\eta(z)$) is then reconstructed
-as 
-\begin{equation}\label{eq:MGbin-mu-parametrization}
-\mu(z)=\mu(z_{1})+\sum_{i=1}^{N-1}{\frac{\mu(z_{i+1})-\mu(z_{i})}{2}\left[1+\tanh{\left(s\frac{z-z_{i+1}}{z_{i+1}-z_{i}}\right)}\right]},
-\end{equation}
-where $s=10$ is a smoothing parameter and $N$ is the number of binned
-values. We assume that both $\mu$ and $\eta$ reach the GR limit
-at high redshifts: to realize this, the last $\mu(z_{6})$ and $\eta(z_{6})$
-values assume the standard $\lcdm$ value $\mu=\eta=1$ and both functions
-are kept constant at higher redshifts $z>3$.
-
-Similarly, the derivatives of these functions are obtained by computing
-\begin{equation}
-\mu'({\bar{z}_{j}})=\frac{\mu(z_{i+1})-\mu(z_{i})}{z_{i+1}-z_{i}},
-\end{equation}
-with $\bar{z}_{j}=(z_{i+1}+z_{i})/2$, using the same $\tanh(x)$
-smoothing function: 
-\begin{equation}\label{eq:MGbin-muderiv-parametrization}
-\frac{d\mu(z)}{dz}=\mu'(\bar{z}_{1})+\sum_{j=1}^{N-2}{\frac{\mu'(\bar{z}_{j+1})-\mu'(\bar{z}_{j})}{2}\left[1+\tanh{\left(s\frac{z-\bar{z}_{j+1}}{\bar{z}_{j+1}-\bar{z}_{j}}\right)}\right]}\,\,\,.
-\end{equation}
-In particular we assume $\mu'=\eta'=0$ for $z<0.5$ and for $z>3$.
-We set the first five amplitudes of $\mu_{i}$ and $\eta_{i}$ as
-free parameters, thus the set we consider is:
-$\theta=\{\Omega_{m},\Omega_{b},h,\ln10^{10} A_{s},n_{s},\{\mu_{i}\},\{\eta_{i}\}\}$,
-with $i$ an index going from 1 to 5. We take as fiducial cosmology
-the values shown in Tab. \ref{tab:fiducial-MG-AllCases} columns 5
-and 6. We only modify the evolution of perturbations and assume that
-the background expansion is well described by the standard $\Lambda$CDM
-expansion law for a flat universe with given values of $\Omega_{m}$,
-$\Omega_{b}$ and $h$.
-
-
-\subsection{Parameterizing gravitational potentials with simple smooth functions of the scale factor \label{sub:param-smooth-funct}}
-As an alternative approach, we assume simple specific, time parameterizations for
-the $\mu$ and $\eta$ MG functions, adopting the ones used in the
-\planck\ analysis \cite{planck_collaboration_planck_2016}. 
-We neglect here as well any scale dependence:
-\begin{itemize}
-\item a parameterization in which the time evolution is related to the dark
-energy density fraction, to which we refer as `late-time' parameterization:
-\begin{eqnarray}
-\mu(a,k)\equiv1+E_{{\rm 11}}\Omega_{{\rm
-DE}}(a)\,\,\,,\label{eq:DE-mu-parametrization}\\
-\eta(a,k)\equiv1+E_{{\rm 22}}\Omega_{{\rm
-DE}}(a)\,\,\,;\label{eq:DE-eta-parametrization}
-\end{eqnarray}
-
-\item a parameterization in which the time evolution is the simplest first
-order Taylor expansion of a general function of the scale factor $a$
-(and closely resembles the $w_{0}-w_{a}$ parametrization for the
-equation of state of DE), referred to as `early-time' parameterization, because it
-allows departures from GR also at high redshifts
-\footnote{Notice that our early-time parametrization is called
-`time-related' in \cite{planck_collaboration_planck_2016}.}:
-\begin{eqnarray}
-\mu(a,k)\equiv1+E_{{\rm 11}}+E_{{\rm
-12}}(1-a)\,\,\,,\label{eq:TR-mu-parametrization}\\
-\eta(a,k)\equiv1+E_{{\rm 21}}+E_{{\rm
-22}}(1-a)\,\,\,.\label{eq:TR-eta-parametrization}
-\end{eqnarray}
-
-\end{itemize}
-
-
-The late-time parameterization is forced to behave as GR ($\mu=\eta=1$)
-at high redshift when $\Omega_{{\rm DE}}(a)$ becomes negligible;
-the early time one allows more freedom as the amplitude of the deviations
-from GR do not necessarily reduce to zero at high redshifts. Both parameterizations have been used in \cite{planck_collaboration_planck_2016}. In \cite{bull_extending_2015, Gleyzes2016, Alonso2016} the authors used a similar time parameterization in which the Modified Gravity
+In \cite{bull_extending_2015, Gleyzes2016, Alonso2016} the authors used a similar time parameterization in which the Modified Gravity
 parameters depend on the time evolution of the dark energy fraction. In \cite{bull_extending_2015} an extra parameter accounts for a scale-dependent $\mu$: their treatment keeps $\eta$ (called $\gamma$ in their paper) fixed and equal to 1; it uses linear power spectra up to $k_{\mathrm{max}}(z)$ with $k_{\rm max}(z=0)=0.14$/Mpc $\approx$ 0.2 h/Mpc. 
 In \cite{Gleyzes2016} the authors also use a combination of Galaxy Clustering, Weak Lensing and ISW cross-correlation to constrain
 Modified Gravity in the Effective Field Theory formalism \cite{Gubitosi2013}. In \cite{Bellini2016} and \cite{Alonso2016} a similar parameterization was used to constrain the Horndeski functions \cite{Bellini2014} with present data and future forecasts respectively, in the linear regime.
-
 
 For the late-time parameterization, the set of free parameters we
 consider is: $\theta=\{\Omega_{m},\Omega_{b},h,\ln10^{10}A_{s},n_{s},E_{11},E_{22}\}$,
@@ -300,6 +157,44 @@ In light long-dashed blue lines, the `redshift binned model' (Eqns.\ \ref{eq:MGb
 \end{figure}
 
 
+A second and more model-independent approach
+is to specify the time evolution of the functions $\mu$ and $\eta$ without
+any parameterization. To this purpose we divide the redshift
+range $0\leq z\leq3$ in 6 redshift bins and we consider the values
+$\mu(z_{i})$ and $\eta(z_{i})$ at the right limiting redshift $z_{i}$
+of each bin as free parameters, thus with the $i$ index spanning the values
+$\{0.5,1.0,1.5,2.0,2.5,3.0\}$. The first bin is assumed to have a constant 
+value, coinciding with the one at $z_1=0.5$, i.e. $\mu(z<0.5)=\mu(z_{1})$ and $\eta(z<0.5)=\eta(z_{1})$.
+The $\mu(z)$ function (and analogously $\eta(z)$) is then reconstructed
+as 
+\begin{equation}\label{eq:MGbin-mu-parametrization}
+\mu(z)=\mu(z_{1})+\sum_{i=1}^{N-1}{\frac{\mu(z_{i+1})-\mu(z_{i})}{2}\left[1+\tanh{\left(s\frac{z-z_{i+1}}{z_{i+1}-z_{i}}\right)}\right]},
+\end{equation}
+where $s=10$ is a smoothing parameter and $N$ is the number of binned
+values. We assume that both $\mu$ and $\eta$ reach the GR limit
+at high redshifts: to realize this, the last $\mu(z_{6})$ and $\eta(z_{6})$
+values assume the standard $\lcdm$ value $\mu=\eta=1$ and both functions
+are kept constant at higher redshifts $z>3$.
+
+Similarly, the derivatives of these functions are obtained by computing
+\begin{equation}
+\mu'({\bar{z}_{j}})=\frac{\mu(z_{i+1})-\mu(z_{i})}{z_{i+1}-z_{i}},
+\end{equation}
+with $\bar{z}_{j}=(z_{i+1}+z_{i})/2$, using the same $\tanh(x)$
+smoothing function: 
+\begin{equation}\label{eq:MGbin-muderiv-parametrization}
+\frac{d\mu(z)}{dz}=\mu'(\bar{z}_{1})+\sum_{j=1}^{N-2}{\frac{\mu'(\bar{z}_{j+1})-\mu'(\bar{z}_{j})}{2}\left[1+\tanh{\left(s\frac{z-\bar{z}_{j+1}}{\bar{z}_{j+1}-\bar{z}_{j}}\right)}\right]}\,\,\,.
+\end{equation}
+In particular we assume $\mu'=\eta'=0$ for $z<0.5$ and for $z>3$.
+We set the first five amplitudes of $\mu_{i}$ and $\eta_{i}$ as
+free parameters, thus the set we consider is:
+$\theta=\{\Omega_{m},\Omega_{b},h,\ln10^{10} A_{s},n_{s},\{\mu_{i}\},\{\eta_{i}\}\}$,
+with $i$ an index going from 1 to 5. We take as fiducial cosmology
+the values shown in Tab. \ref{tab:fiducial-MG-AllCases} columns 5
+and 6. We only modify the evolution of perturbations and assume that
+the background expansion is well described by the standard $\Lambda$CDM
+expansion law for a flat universe with given values of $\Omega_{m}$,
+$\Omega_{b}$ and $h$.
 
 
 

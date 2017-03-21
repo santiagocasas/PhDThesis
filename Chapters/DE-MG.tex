@@ -62,7 +62,7 @@ If the scalar degree of freedom is not coupled to matter, then we can talk about
 In the case in which Dark Energy is not dynamical, the theory goes back to GR plus a cosmological constant.
 If the WEP is violated, then not all matter species feel the same gravitational forces and therefore
 there can be either dark sector interactions or neutrino--scalar-field interactions.
-}
+}\label{fig:DE-vs-MG-WEP-SEP}
 \end{figure}
 
 In the first \cref{sec:universal-coupling} we will discuss universally coupled theories, which include ---among many others--- Quintessence, f(R),
@@ -367,7 +367,7 @@ M_{*}^2 (\tau) H(\tau) \alpha_M (\tau)   & = M_{Pl}\dot{\Omega}(\tau) + \dot{\ba
 M_{*}^2 (\tau) H^2(\tau) \alpha_K (\tau)   & = 2 c (\tau) + M_2^4 (\tau) \\
 M_{*}^2 (\tau) H(\tau) \alpha_B (\tau)   & = M_{Pl}\dot{\Omega}(\tau) - \bar{M}_{1}^3 (\tau)\\
 M_{*}^2 (\tau) \alpha_T (\tau)   & = - \bar{M}_2^2 (\tau) \\
-M_{*}^2 (\tau) \alpha_H (\tau)   & = 2 \hat{M}^2 - \bar{M}_2^2 (\tau)
+M_{*}^2 (\tau) \alpha_H (\tau)   & = 2 \hat{M}^2(\tau) - \bar{M}_2^2 (\tau)
 \end{split}
 $ 
 Here, the bare reduced Planck mass is $M_{Pl}$ and the effective Planck mass is $ M_{*}^2 $.
@@ -378,8 +378,181 @@ but also in models where the scalar field has a non-zero sound speed, like k-ess
 $\alpha_B$ (\emph{braiding}) causes dark energy to cluster and $\alpha_T$ is the \emph{tensor speed excess}, which gives the deviation
 of the speed of gravitational waves from that of light.
 Finally $\alpha_H$ is a term indicating physics that lies beyond the Horndeski models. 
-For our results in \cref{sec:EFT-forecasts}, we will further reduce these theory to a simpler case, which can be compared easier with Large-Scale-Structure
-observations.
+For our results in \cref{sec:EFT-forecasts}, we will further reduce these theory to a simpler case, 
+which can be compared easier with Large-Scale-Structure observations.
+
+
+\subsection{Parameterizing Modified Gravity}
+
+In the previous sections we have seen how to construct Dark Energy and Modified Gravity theories 
+which have an extra scalar degree of freedom, besides the Einstein-Hilbert term and the matter and radiation species.
+As we have seen, one can successfully construct the most general theory of this kind, by either imposing
+some conditions on the equations of motion and the stability of the theory (as in Horndeski \cite{horndeski}) or by considering all
+possible terms allowed by symmetries in the second order action (see \cite{creminelli, gubitosi, gleyzes}).
+
+However, for observations, these general theories are not so practical, since there is not enough data to constrain
+all the free functions in the Lagrangian. What we really can observe with Galaxy Clustering and Weak Lensing 
+are the perturbations of matter $\delta_m(z,k)$, its correlation function across scales $P_m(z,k)$ and the
+evolution of matter structures in time, $f(z)$.
+
+In Einstein-GR, these quantities are determined by the gravitational potentials $\Phi$ and $\Psi$, which follow 
+the general relativistic Poisson and stress equations (\cref{chap1,poisson}). 
+In linear perturbation theory, scalar, vector and tensor perturbations
+do not mix, which allows us to consider only the scalar perturbations of the metric. 
+We work in the conformal Newtonian gauge, with the
+line element given by 
+\begin{equation}
+ds^{2}=-(1+2\Psi)dt^{2}+a^{2}(1-2\Phi)dx^{2}\,\,\,.
+\end{equation}
+The potentials $\Phi$ and $\Psi$ are in functions of time and in our notation, they coincide
+with the gauge-invariant Bardeen potentials in the Newtonian gauge.
+
+%In modified gravity, it has been shown that
+%the deviations from Einstein-GR can be fully described by 
+%two generic free functions of time and space \cite{kunz_phenomenological_2012, amendola_observables_2013}.
+%While any two (independent) functions of the gravitational potentials would be suitable, 
+%we consider in this work the most common parameterization (see \cite{planck_collaboration_planck_2016}) given by $\mu(a,k)$ and $\eta(a,k)$: the first modifies the Poisson equation for $\Psi$ while the second is equal to the ratio of the gravitational potentials and is therefore also a direct observable \cite{amendola_observables_2013}.
+
+%In section \ref{sec:Parameterizing-Modified-Gravity} we define $\mu$ and $\eta$ and parameterize them in three different ways. First, in a general manner, we let these functions vary freely in different  redshift bins. Complementarily, we also consider two specific parameterizations of the time evolution proposed in \cite{planck_collaboration_planck_2016}. Here, we also specify the fiducial values of our cosmology for each of the
+%parameterizations considered.
+
+In theories with an extra scalar degree of freedom (see the discussion around \cref{fig:DE-vs-MG-WEP-SEP} for a distinction between Dark Energy and Modified Gravity)
+the standard linear perturbation equations
+are no longer valid, so that for a given matter source the values
+of $\Phi$ and $\Psi$ will differ from their Einstein-GR values (see \cite{kunz_phenomenological_2012, amendola_observables_2013}). We can
+parameterize this change generally with the help of two new functions $\mu(a,k)$ and $\eta(a,k)$
+that encode the modifications. Many different choices are possible
+and have been adopted in the literature, see e.g. \cite{planck_collaboration_planck_2016} for a limited overview. 
+In this paper
+we introduce the two functions through a gravitational slip (leading
+to $\Phi\neq\Psi$ also at linear order and for pure cold dark matter)
+and as a modification of the Poisson equation for $\Psi$, 
+\begin{align}
+-k^{2}\Psi(a,k) & \equiv  4\pi
+Ga^{2}\mu(a,k)\rho(a)\delta(a,k)\,\,\,;\label{eq:mu_def}\\
+\eta(a,k) & \equiv \Phi(a,k)/\Psi(a,k) \quad \label{eq:eta_def}.
+\end{align}
+These expressions define the modified gravity functions
+$\mu$ and $\eta$. Here $\rho(a)$ is the average dark matter density and $\delta(a,k)$
+the comoving matter density contrast -- we will neglect relativistic
+particles and radiation as we are only interested in modeling the
+perturbation behaviour at late times. 
+In this formulation, $\eta$,
+which is effectively an observable \cite{amendola_observables_2013}, is closely related to
+modifications of GR \cite{saltas_anisotropic_2014,sawicki_non-standard_2016}, 
+while $\mu$ encodes for example deviations in
+gravitational clustering, as non-relativistic particles are accelerated by the gradient of $\Psi$.
+
+When considering Weak Lensing observations then it is also natural
+to parameterize deviations in the lensing or Weyl potential $\Phi+\Psi$,
+since it is this combination that affects null-geodesics.
+To this end we introduce a function $\Sigma(a,k)$ so that
+\begin{equation}\label{eq:Sigma-def}
+-k^{2}(\Phi(a,k)+\Psi(a,k))\equiv8\pi
+Ga^{2}\Sigma(a,k)\rho(a)\delta(a,k) \quad .
+\end{equation}
+Since metric perturbations are fully specified by two functions of
+time and scale, $\Sigma$ is not independent from $\mu$ and $\eta$,
+and can be obtained from the latter as follows: 
+\begin{equation}\label{eq:SigmaofMuEta}
+\Sigma(a,k)=(\mu(a,k)/2)(1+\eta(a,k)) \quad.
+\end{equation}
+
+Throughout this work, we will denote the standard Lambda-Cold-Dark-Matter ($\Lambda$CDM) model,
+defined through the Einstein-Hilbert action with a cosmological constant, simply as Einstein-GR, where $\mu=\eta=\Sigma=1$. 
+If only $\mu$ deviates from unity at late times,
+it indicates either Modified Gravity or just a Dark Energy field that clusters.
+If $\eta$ deviates from unity, it is a clear indication for Modified Gravity models, according to our definitions above 
+(see \cite{Joyce, Lombrisier}).
+
+
+Using effective quantities like $\mu$ and $\eta$ has the advantage
+that they are able to model {\em any} deviations of the perturbation
+behaviour from $\Lambda$CDM expectations, they are relatively close 
+to observations, and they can also be related to other commonly used 
+parameterizations \cite{pogosian_how_2010}.
+On the other hand, they are not
+easy to map to an action ---as opposed to approaches like Effective
+Field Theory (EFT, \cref{sub:EFT-of-DE})---  and in addition they
+contain so much freedom that we normally restrict their parameterization
+to a subset of possible functions.
+
+
+\subsubsection{Parameterizing gravitational potentials with simple smooth functions of the scale factor \label{sub:param-smooth-funct}}
+
+The first possibility is to assume simple specific, time parameterizations for
+the $\mu$ and $\eta$ functions, adopting the ones used in the
+\planck\ analysis \cite{planck_collaboration_planck_2016}, where we neglect here any scale dependence:
+\begin{itemize}
+	\item a parameterization in which the time evolution is related to the dark
+	energy density fraction, to which we refer as `late-time' parameterization:
+	\begin{eqnarray}
+	\mu(a,k)\equiv1+E_{{\rm 11}}\Omega_{{\rm
+			DE}}(a)\,\,\,,\label{eq:DE-mu-parametrization}\\
+	\eta(a,k)\equiv1+E_{{\rm 22}}\Omega_{{\rm
+			DE}}(a)\,\,\,;\label{eq:DE-eta-parametrization}
+	\end{eqnarray}
+	
+	\item a parameterization in which the time evolution is the simplest first
+	order Taylor expansion of a general function of the scale factor $a$
+	(and closely resembles the $w_{0}-w_{a}$ parametrization for the
+	equation of state of DE), referred to as `early-time' parameterization, because it
+	allows departures from GR also at high redshifts:
+%	\footnote{Notice that our early-time parametrization is called
+%		`time-related' in \cite{planck_collaboration_planck_2016}.}:
+	\begin{eqnarray}
+	\mu(a,k)\equiv1+E_{{\rm 11}}+E_{{\rm
+			12}}(1-a)\,\,\,,\label{eq:TR-mu-parametrization}\\
+	\eta(a,k)\equiv1+E_{{\rm 21}}+E_{{\rm
+			22}}(1-a)\,\,\,.\label{eq:TR-eta-parametrization}
+	\end{eqnarray}
+	
+\end{itemize}
+The parameters $E_{i j}$ are usually order-unity parameters, which give the amplitude of the modifications
+at present time: $E_{11}$ for $\mu$ and $E_{22}$ for $\eta$ in the late-time parameterization and 
+$E_{11}$ for $\mu$ and $E_{21}$ for $\eta$ in the early-time parameterization, while
+$E_{12}$ and $E_{22}$ measure the slope of the time-evolution function.
+
+
+The late-time parameterization is forced to behave as Einstein-GR ($\mu=\eta=1$)
+at high redshift when $\Omega_{{\rm DE}}(a)$ becomes negligible;
+the early time parameterization allows more freedom as the amplitude of the deviations
+from Einstein-GR do not necessarily reduce to zero at high redshifts. 
+Both parameterizations have been used in \cite{planck_collaboration_planck_2016}
+and in other recent studies of how to constrain Modified Gravity with Galaxy Clustering and Weak Lensing observations, see
+\cite{bull_extending_2015, Gleyzes2016} and \cite{Alonso2016}.
+In \cref{chap:lin-nonlin-MG-forecasts} we will study more in detail both the late-time and the early-time parameterizations and we will
+try to find out how well future observations will be able to measure $\mu$ and $\eta$, using linear and non-linear
+matter perturbations.
+
+
+\subsubsection{Parameterizing gravitational potentials in discrete redshift bins \label{sub:param-z-bins-th}}
+
+A second and more model-independent approach
+is to specify the time evolution of the functions $\mu$ and $\eta$ without
+any parameterization.
+To this purpose we "pixelize" the functions $\mu$ and $\eta$ at $N$ redshift bins $z_i$, with $i=\{1, \ldots N  \}$ 
+and we consider the values
+$\mu(z_{i})$ and $\eta(z_{i})$ at the right limiting redshift $z_{i}$
+of each bin as free parameters.
+The $\mu(z)$ function (and analogously $\eta(z)$) is then reconstructed
+as 
+\begin{equation}\label{eq:MGbin-mu-general-parametrization}
+\mu(z)=\mu(z_{1})+\sum_{i=1}^{N-1}{\frac{\mu(z_{i+1})-\mu(z_{i})}{2}\left[1+\tanh{\left(s\frac{z-z_{i+1}}{z_{i+1}-z_{i}}\right)}\right]},
+\end{equation}
+where $s=10$ is a smoothing parameter and $N$ is the number of binned
+values. We assume that both $\mu$ and $\eta$ reach the Einstein-GR limit
+for a redshift higher than $z_h$: to realize this, the last $\mu(z_{N})$ and $\eta(z_{N})$
+values assume the standard $\lcdm$ value $\mu=\eta=1$ and both functions
+are kept constant at higher redshifts $z> z_h$.
+
+This approach has the advantage of being parameterization-independent, but at the cost of introducing
+many more parameters that have to be constrained by observations.
+Furthermore, one does not know a priori how many binned parameters have to be introduced
+and what are the degeneracies among them.
+This will be the subject of study in \cref{chap:lin-nonlin-MG-forecasts}, where we will
+introduce the functions $\mu$ and $\eta$ parameterized in redshift bins and we will study
+how well future observations will be able to measure them.
 
 
 
