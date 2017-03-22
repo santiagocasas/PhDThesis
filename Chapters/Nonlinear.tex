@@ -10,131 +10,123 @@
 
 
 
-%\subsection{Horndeski Theory}
-%\comm{not Horndeski, unless you have results for it; call it 'parameterizing Modified Gravity' and refer to the paper inside; don't refer to QS limit in this chapter but only in the point where you actually make this assumption}
-%\begin{itemize}
-%	\item Most general single scalar field theory, second order equations of
-%	motion, 4 dimensions, ghost-free
-%	\item 5 Lagrangians which can be parametrized with the $\alpha$ functions
-%	that give more physical insight.
-%	\item Quasistatic limit yields modifications of gravity that depend only
-%	on time and $k^{2}$.
-%\end{itemize}
-%
-%In a homogeneous and isotropic universe, the distance element
-%assumes the form: 
-%\begin{equation}
-%ds^{2}=a(\tau)[-(1+2\Psi)d\tau^{2}+(1-2\Phi)\delta_{ij}dx^{i}dx^{j}]\,,
-%\end{equation}
-%where the conformal time $\tau$ is related to the cosmic time $t$
-%by $d\tau=d t/a(\tau)$ and $\Psi$ and $\Phi$ are the two scalar
-%gauge invariant gravitational potentials, related (modulo sign) to
-%the Bardeen potentials.
-%
-%Horndeski models include (almost) all theories
-%with second order equations of motion in the fields and can be generically
-%described with five functions of time. They include a variety of particular
-%models studied in literature, characterised by a universal coupling
-%to matter fields.
-%
-%The Lagrangian can be written as ...
-%
-%where ... is the matter Lagrangian and ... are arbitrary functions
-%of the scalar field $\phi$, whose canonical kinetic term is $X=-\frac{1}{2}\phi^{;\mu}\phi_{;\mu}$;
-%the latter is also coupled to the Ricci scalar and the Einstein tensor.
-%
-%In the following, we will adopt the conformal Newtonian gauge in the
-%notation of \citep{MaBertschinger}, so that the gauge invariant potentials
-%$\Psi$ and $\Phi$ are also equal to the gravitational potentials
-%in the Newtonian limit. In this formulation, the cold dark matter
-%(CDM, c) perturbation equations for the density contrast $\delta$
-%and the velocity divergence $\theta$ can be written in Fourier space
-%in the usual way: 
-%\begin{align}
-%\dot{\delta}(\tau,\vk k) & =-(\theta(\tau,\vk k)-3\Phi(\tau,\vk k))\,\,,\\
-%\dot{\theta}(\tau,\vk k) & =-H\theta(\tau,\vk k)+k^{2}\Psi(\tau,\vk k)\,\,.
-%\end{align}
-%Derivating the first of the above equations with respect to $\tau$
-%and eliminating $\dot{\theta}$ and $\theta$ using both equations,
-%one obtains the usual second order equation in time for the density
-%contrast: 
-%\begin{equation}
-%\ddot{\delta}(\tau,\vk k)=-(H\dot{\delta}(\tau,\vk k)-3H\dot{\Phi}(\tau,\vk k)+k\text{\texttwosuperior}\Psi(\tau,\vk k)-3\ddot{\Phi}(\tau,\vk k))\,\,.\label{eq:deltadotdot}
-%\end{equation}
-%
-%%For dimensional reasons \comment{VP: what do you mean? dimensional
-%%reasons cannot tell you anything about the amplitude of any quantity}
-%%and since we expect that the potentials vary only strongly \comment{VP:
-%%what does it mean to vary only strongly? only or strongly?} at scales
-%%compared to the horizon $H^{-1}$, we must have that \comment{VP:
-%%do you mean you are assuming it?} $\ddot{\Phi}\sim H\dot{\Phi}\sim H^{2}\Phi$
-%%and besides we also expect $\Psi\sim\Phi$ at least at the linear
-%%level (\comment{VP: not sure how this can be true in MG theories
-%%nor why we need it at all. I would delete. In general only use precise
-%%and motivated statements or don't say it at all.}). If we then divide
-%%Eq. \ref{eq:deltadotdot} by $H^{2}$, the potentials $\Phi$ can
-%%be neglected with respect to the term containing $k^{2}/H^{2}$, since
-%%for subhorizon scales ($k\gtrsim0.01h/\mbox{Mpc})$ it is many orders
-%%of magnitude bigger. Therefore we obtain: \comment{VP: I would completely
-%%delete all this text after eq.(4) and just say: in the Newtonian limit
-%%(or directly quasi-static), for which $k/H\ll1$, Eq. 4 reduces to:}
-%In the following, we will stay within the quasi-static
-%limit, i.e restrict to scales much smaller than the cosmological horizon
-%($k/aH\gg1$) and well inside the Jeans length of the scalar field
-%$c_{s}k\gg1$, so that terms containing $k$ dominate over terms containing
-%time derivatives. In this case, Eq. \ref{eq:deltadotdot} reduces
-%to: 
-%\begin{equation}
-%\ddot{\delta}(\tau,\vk k)+H\dot{\delta}(\tau,\vk k)+k^{2}\Psi(\tau,\vk k)=0\,.\label{eq:growth-rate-Psi}
-%\end{equation}
-%The gravitational potential is then obtained from the Poisson equation,
-%that relates the gravitational potential to matter and relativistic
-%species in the universe, by perturbing the Einstein field equations
-%to first order.
-%
-%In Horndeski theories, in the quasi-static limit, the deviation
-%of the gravitational potentials from General Relativity has a known
-%scale dependence in the Poisson equation, given by \citep{...}: 
-%\begin{equation}
-%\mu(k,a)\equiv-\frac{2k^{2}\Psi}{3\Omega_{m}\delta_{m}}=h_{1}\left(\frac{1+(k/k_{*})^{2}h_{5}}{1+(k/k_{*})^{2}h_{3}}\right)\label{eq:Yfunc}
-%\end{equation}
-%where $h_{1},h_{3},h_{5}$ are functions of time only. A similar expression,
-%with different time dependent coefficients $h_{2},h_{4}$, holds for
-%the gravitational slip $\eta$: 
-%\begin{equation}
-%\eta(k,a)\equiv-\frac{\Phi}{\Psi}=h_{2}\left(\frac{1+(k/k_{*})^{2}h_{4}}{1+(k/k_{*})^{2}h_{5}}\right)\,.\label{eq:etaFunc}
-%\end{equation}
-%In this work we will consider all $h_{i}$ functions as constants,
-%for simplicity, although in general they are all functions of time.
-%%since we are expecting them not to affect so much the evolution of growth with respect to%a fiducial LCDM model. %Once a specific model of the Horndeski class%is chosen, the $h_i$ functions and their time dependence can be calculated%and its approximated constant value during the time of structure growth%can be estimated. The
-%$k_{*}$ is an arbitrary pivot scale, chosen at large scales close
-%to the horizon, in order to fulfil the quasi-static limit.
-%
-%As it can be seen from eqns. \ref{eq:Yfunc} and \ref{eq:etaFunc},
-%the functions $h_{5}$ and $h_{3}$ are degenerate as well as $h_{4}$
-%and $h_{5}$. %Since $h_{5}$ appears in the denominator as well as%in the numerator of both equations, a combination of both such as%$\mu(1+\eta)$ also retains the smae structure. %This is of importance%since such a combination would appear in the modified weak lensing%potential. The
-%$\Lambda\textrm{CDM}$ case is recovered when $\mu=\eta=1$, which
-%implies $h_{5}=h_{4}=h_{3}$ and an amplitude $h_{1}=h_{2}=1$.
-%
-%In the following, we will focus on CDM perturbations and deal only
-%with the function $\mu(k,a)=\mu(k)$ (although perturbations require
-%two functions of time and scale to fully specify the model). In particular,
-%we will test the following cases: 
-%\begin{enumerate}
-%	\item Scale independent $\mu$ with modified amplitude: $h_{5}=h_{3}$ and
-%	$h_{1}>1$ or $h_{1}<1$. 
-%	\item Scale dependent $\mu$ with unity amplitude: $h_{1}=1$ and $h_{5}>h_{3}$
-%	or $h_{5}<h_{3}$. 
-%	\item Scale dependent $\mu$ with modified amplitude: $h_{1}\neq1$ and
-%	$h_{5}>h_{3}\mbox{ or }h_{5}<h_{3}$. 
-%\end{enumerate}
-%
-%
-%In logarithmic space $\mu(k)$ is very close to a step function, as
-%shown in figure \ref{fig:Y(k)-function}, so that we will only use
-%values for the $h_{i}$ in which the difference of the minimum and
-%the maximum is of the order of 15\%, since otherwise we would impose
-%a rather unrealistic structure formation.
+\subsection{Horndeski Theory}
+
+
+In a homogeneous and isotropic universe, the distance element
+assumes the form: 
+\begin{equation}
+ds^{2}=a(\tau)[-(1+2\Psi)d\tau^{2}+(1-2\Phi)\delta_{ij}dx^{i}dx^{j}]\,,
+\end{equation}
+where the conformal time $\tau$ is related to the cosmic time $t$
+by $d\tau=d t/a(\tau)$ and $\Psi$ and $\Phi$ are the two scalar
+gauge invariant gravitational potentials, related (modulo sign) to
+the Bardeen potentials.
+
+Horndeski models include (almost) all theories
+with second order equations of motion in the fields and can be generically
+described with five functions of time. They include a variety of particular
+models studied in literature, characterised by a universal coupling
+to matter fields.
+
+The Lagrangian can be written as ...
+
+where ... is the matter Lagrangian and ... are arbitrary functions
+of the scalar field $\phi$, whose canonical kinetic term is $X=-\frac{1}{2}\phi^{;\mu}\phi_{;\mu}$;
+the latter is also coupled to the Ricci scalar and the Einstein tensor.
+
+In the following, we will adopt the conformal Newtonian gauge in the
+notation of \citep{MaBertschinger}, so that the gauge invariant potentials
+$\Psi$ and $\Phi$ are also equal to the gravitational potentials
+in the Newtonian limit. In this formulation, the cold dark matter
+(CDM, c) perturbation equations for the density contrast $\delta$
+and the velocity divergence $\theta$ can be written in Fourier space
+in the usual way: 
+\begin{align}
+\dot{\delta}(\tau,\vk k) & =-(\theta(\tau,\vk k)-3\Phi(\tau,\vk k))\,\,,\\
+\dot{\theta}(\tau,\vk k) & =-H\theta(\tau,\vk k)+k^{2}\Psi(\tau,\vk k)\,\,.
+\end{align}
+Derivating the first of the above equations with respect to $\tau$
+and eliminating $\dot{\theta}$ and $\theta$ using both equations,
+one obtains the usual second order equation in time for the density
+contrast: 
+\begin{equation}
+\ddot{\delta}(\tau,\vk k)=-(H\dot{\delta}(\tau,\vk k)-3H\dot{\Phi}(\tau,\vk k)+k\text{\texttwosuperior}\Psi(\tau,\vk k)-3\ddot{\Phi}(\tau,\vk k))\,\,.\label{eq:deltadotdot}
+\end{equation}
+
+%For dimensional reasons \comment{VP: what do you mean? dimensional
+%reasons cannot tell you anything about the amplitude of any quantity}
+%and since we expect that the potentials vary only strongly \comment{VP:
+%what does it mean to vary only strongly? only or strongly?} at scales
+%compared to the horizon $H^{-1}$, we must have that \comment{VP:
+%do you mean you are assuming it?} $\ddot{\Phi}\sim H\dot{\Phi}\sim H^{2}\Phi$
+%and besides we also expect $\Psi\sim\Phi$ at least at the linear
+%level (\comment{VP: not sure how this can be true in MG theories
+%nor why we need it at all. I would delete. In general only use precise
+%and motivated statements or don't say it at all.}). If we then divide
+%Eq. \ref{eq:deltadotdot} by $H^{2}$, the potentials $\Phi$ can
+%be neglected with respect to the term containing $k^{2}/H^{2}$, since
+%for subhorizon scales ($k\gtrsim0.01h/\mbox{Mpc})$ it is many orders
+%of magnitude bigger. Therefore we obtain: \comment{VP: I would completely
+%delete all this text after eq.(4) and just say: in the Newtonian limit
+%(or directly quasi-static), for which $k/H\ll1$, Eq. 4 reduces to:}
+In the following, we will stay within the quasi-static
+limit, i.e restrict to scales much smaller than the cosmological horizon
+($k/aH\gg1$) and well inside the Jeans length of the scalar field
+$c_{s}k\gg1$, so that terms containing $k$ dominate over terms containing
+time derivatives. In this case, Eq. \ref{eq:deltadotdot} reduces
+to: 
+\begin{equation}
+\ddot{\delta}(\tau,\vk k)+H\dot{\delta}(\tau,\vk k)+k^{2}\Psi(\tau,\vk k)=0\,.\label{eq:growth-rate-Psi}
+\end{equation}
+The gravitational potential is then obtained from the Poisson equation,
+that relates the gravitational potential to matter and relativistic
+species in the universe, by perturbing the Einstein field equations
+to first order.
+
+In Horndeski theories, in the quasi-static limit, the deviation
+of the gravitational potentials from General Relativity has a known
+scale dependence in the Poisson equation, given by \citep{...}: 
+\begin{equation}
+\mu(k,a)\equiv-\frac{2k^{2}\Psi}{3\Omega_{m}\delta_{m}}=h_{1}\left(\frac{1+(k/k_{*})^{2}h_{5}}{1+(k/k_{*})^{2}h_{3}}\right)\label{eq:Yfunc}
+\end{equation}
+where $h_{1},h_{3},h_{5}$ are functions of time only. A similar expression,
+with different time dependent coefficients $h_{2},h_{4}$, holds for
+the gravitational slip $\eta$: 
+\begin{equation}
+\eta(k,a)\equiv-\frac{\Phi}{\Psi}=h_{2}\left(\frac{1+(k/k_{*})^{2}h_{4}}{1+(k/k_{*})^{2}h_{5}}\right)\,.\label{eq:etaFunc}
+\end{equation}
+In this work we will consider all $h_{i}$ functions as constants,
+for simplicity, although in general they are all functions of time.
+%since we are expecting them not to affect so much the evolution of growth with respect to%a fiducial LCDM model. %Once a specific model of the Horndeski class%is chosen, the $h_i$ functions and their time dependence can be calculated%and its approximated constant value during the time of structure growth%can be estimated. The
+$k_{*}$ is an arbitrary pivot scale, chosen at large scales close
+to the horizon, in order to fulfil the quasi-static limit.
+
+As it can be seen from eqns. \ref{eq:Yfunc} and \ref{eq:etaFunc},
+the functions $h_{5}$ and $h_{3}$ are degenerate as well as $h_{4}$
+and $h_{5}$. %Since $h_{5}$ appears in the denominator as well as%in the numerator of both equations, a combination of both such as%$\mu(1+\eta)$ also retains the smae structure. %This is of importance%since such a combination would appear in the modified weak lensing%potential. The
+$\Lambda\textrm{CDM}$ case is recovered when $\mu=\eta=1$, which
+implies $h_{5}=h_{4}=h_{3}$ and an amplitude $h_{1}=h_{2}=1$.
+
+In the following, we will focus on CDM perturbations and deal only
+with the function $\mu(k,a)=\mu(k)$ (although perturbations require
+two functions of time and scale to fully specify the model). In particular,
+we will test the following cases: 
+\begin{enumerate}
+	\item Scale independent $\mu$ with modified amplitude: $h_{5}=h_{3}$ and
+	$h_{1}>1$ or $h_{1}<1$. 
+	\item Scale dependent $\mu$ with unity amplitude: $h_{1}=1$ and $h_{5}>h_{3}$
+	or $h_{5}<h_{3}$. 
+	\item Scale dependent $\mu$ with modified amplitude: $h_{1}\neq1$ and
+	$h_{5}>h_{3}\mbox{ or }h_{5}<h_{3}$. 
+\end{enumerate}
+
+
+In logarithmic space $\mu(k)$ is very close to a step function, as
+shown in figure \ref{fig:Y(k)-function}, so that we will only use
+values for the $h_{i}$ in which the difference of the minimum and
+the maximum is of the order of 15\%, since otherwise we would impose
+a rather unrealistic structure formation.
 
 
 \section{Standard perturbation theory and higher orders}
