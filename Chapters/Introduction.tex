@@ -16,16 +16,17 @@
 %----------------------------------------------------------------------------------------
 %
 
-Einstein's General Relativity is the theoretical framework used in cosmology to explain the
-composition and the evolution of the Universe.
-The most impressive fact about this 100-year-old theory is that
-when it was formulated, there was no real experimental need for it, besides maybe the
-perihelion of Mercury, and it was more than a decade later, thanks to observations
-by Hubble and Slipher, that physicists and astronomers where convinced that there were objects much farther away from
-our galaxy and that these objects were receding away from us, with velocities proportional
-to their distances. At this point the field of physical cosmology was born and the theoretical basis for it,
-based on General Relativity, was developed by Lema\^{\i}tre, Friedmann, and Einstein himself among other
-notable scientists.
+The theoretical framework to describe gravity and space-time in cosmology is Einstein's General Relativity which is
+one of the cornerstones of modern physics.
+Einstein formulated this theory more than 100 years ago, without the purpose
+of explaining cosmology, but mostly to solve the theoretical challenges posed by his relativistic mechanics under the influence of a gravitational field. Besides maybe the
+perihelion of Mercury there was no experimental need for it. It was more than a decade later, thanks to observations
+by Hubble and Slipher, that physicists where convinced that there were objects much farther away from
+our galaxy and that these objects were receding away from us.
+
+%At this point the field of physical cosmology was born and the theoretical basis for it,
+%based on General Relativity, was developed by Lema\^{\i}tre, Friedmann, and Einstein himself among other
+%notable scientists.
 
 One century later, General Relativity has passed numerous very stringent tests; from laboratory experiments (\cite{cite}) , to
 low orbit tests (\cite{cite}) and solar system tests (\cite{cite}), to pulsar timing tests and the recent
@@ -36,12 +37,11 @@ principles, has proven to be so accurate across several orders of magnitude in s
 To explain the accelerated expansion of the Universe, which was observationally verified almost 20 years ago,
 (\cite{cite, supernova, 1998}), Einstein's General Relativity needs to invoke a cosmological constant, which despite the fact that
 it is allowed by the theory (see Lovelock's theorem below in\cref{sub:Einstein-Hilbert} ),
-possesses many unsatisfactory properties from the classical and quantum point of view. 
+possesses many unsatisfactory properties. 
 We will review this issue in \cref{sub:CC-problem} below.
 
 In order to provide some context for the main results of this dissertation, we will
-provide in the following sections a very brief overview of General Relativity and 
-the standard cosmological model. 
+provide in the following sections a very brief overview of the standard cosmological model. 
 In \cref{sec:GR-framework} we will review the main principles and the mathematical 
 formulation of General Relativity, its field equations and
 its linearized Newtonian limit.
@@ -51,36 +51,34 @@ its evolution and the standard cosmological scenario.
 
 \section{The framework of General Relativity \label{sec:GR-framework}}
 
-\subsection{The equivalence principle and geometry}
+%For Einstein, Special Relativity (SR) was unsatisfactory and didn't represent a complete theory, because it dealt with 
+%intertial frames and under the influence of
+%a gravitational field, objects would be accelerated. Moreover due to the equivalence of mass and energy in SR, 
+%an object with a high kinetic energy in horizontal direction would have to be accelerated differently towards the Earth, than an object
+%with a smaller velocity, therefore violating Newtonian observations, which claim that all test bodies experience
+%the same acceleration in a gravitational field, regardless of its velocity or composition.
+%This observation that the inertial and gravitational masses must be equivalent was of striking significance for Einstein, 
+%which elevated it to a guiding principle in the construction of a relativistic theory of gravity (see \cite{pais, wald, bartelmann}).
 
-For Einstein, Special Relativity (SR) was unsatisfactory and didn't represent a complete theory, because it dealt with 
-intertial frames and under the influence of
-a gravitational field, objects would be accelerated. Moreover due to the equivalence of mass and energy in SR, 
-an object with a high kinetic energy in horizontal direction would have to be accelerated differently towards the Earth, than an object
-with a smaller velocity, therefore violating Newtonian observations, which claim that all test bodies experience
-the same acceleration in a gravitational field, regardless of its velocity or composition.
-This observation that the inertial and gravitational masses must be equivalent was of striking significance for Einstein, 
-which elevated it to a guiding principle in the construction of a relativistic theory of gravity (see \cite{pais, wald, bartelmann}).
+%The really ingenious step was connecting this principle with differential geometry. Then, instead of the rigid 
+%Euclidean picture, space and time would become a dynamical 4-dimensional structure, described by differential manifolds.
+%Gravity would curve this space-time, but in order to maintain the equivalence principle, it is always possible to transform away gravity 
+%and map it to a flat Euclidean space, which is precisely one of the properties of a differentiable manifold.
+%If one studies the consequences of this simple principle, it leads, without the need of formulating a theory, 
+%to concepts like gravitational redshift and gravitational light deflection. 
+%Constructing from there a fully-fledged non-linear theory of gravity took Einstein more than 10 years, with the (maybe indirect) help
+%of very bright mathematicians like Grossmann, Levi-Civita and Hilbert.
 
-The really ingenious step was connecting this principle with differential geometry. Then, instead of the rigid 
-Euclidean picture, space and time would become a dynamical 4-dimensional structure, described by differential manifolds.
-Gravity would curve this space-time, but in order to maintain the equivalence principle, it is always possible to transform away gravity 
-and map it to a flat Euclidean space, which is precisely one of the properties of a differentiable manifold.
-If one studies the consequences of this simple principle, it leads, without the need of formulating a theory, 
-to concepts like gravitational redshift and gravitational light deflection. 
-Constructing from there a fully-fledged non-linear theory of gravity took Einstein more than 10 years, with the (maybe indirect) help
-of very bright mathematicians like Grossmann, Levi-Civita and Hilbert.
-
-In more modern terms, we can say that General Relativity is a theory of 
+Although Einstein based its construction of General Relativity on considerations of the \emph{Equivalence Principle},  we can say, in more modern terms, that General Relativity is a theory of 
 a dynamical tensor field, the metric $g_{\mu \nu}$, which defines the lengths 
 of space-time intervals $ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}$ and which is invariant under diffeomorphisms. 
 All particles and fields couple to the metric $g$ in a universal way.
 This means that the equations of motion and all the physical properties do not depend on the chosen coordinates.
 Diffeomorphism invariance is a very important symmetry that has to be respected if one wishes to construct
 extensions of gravity. 
-However, at the smallest (Planck length) and largest (super-horizon) scales, there are suggestions
-that this symmetry might be broken in order to be able to construct a consistent theory of Quantum Gravity
-(\cite{cite Rovelli}).
+%However, at the smallest (Planck length) and largest (super-horizon) scales, there are suggestions
+%that this symmetry might be broken in order to be able to construct a consistent theory of Quantum Gravity
+%(\cite{cite Rovelli}).
 
 
 
@@ -127,7 +125,7 @@ therefore one recovers all the well-known properties of classical and fluid mech
 %The richness and complexity of this theory is one of the reasons it has to be so successful explaining 
 %star formation, gravitational collapse, black holes, gravitational waves and the evolution of the Universe.
 
-\subsubsection{Lovelock's theorem and the uniqueness of General Relativity}
+%\subsubsection{Lovelock's theorem and the uniqueness of General Relativity}
 
 One might then ask if these field equations are unique, especially if as in our case, 
 we are interested in testing these equations at the very largest scales of the Universe and we might 
@@ -142,17 +140,17 @@ $
 Therefore, to ensure the correct Newtonian limit of the theory (Newtonian Poisson equation), we must set $\alpha \equiv 1$
 and the proportionality constant between the Einstein tensor $G_\munu$  and the energy-momentum tensor
 $T_\munu$ has to be set to $8 \pi G$.
-
-This theorem has to fundamental implications for Cosmology.
-First of all, it states that the Cosmological Constant (CC) has to appear in the classical theory of gravity,
-therefore, if ---as we will see below in \cref{sub:CC-problem})--- we are not satisfied with the CC as an explanation
-of the accelerated expansion of the Universe, we still have to explain why $\Lambda$ disappears from the Einstein's field equations.
-Second, this theorem gives a sort of roadmap to look for modifications of gravity, which can account for the late-time expansion of the Universe.
-One option is to go beyond 4 dimensions (as in DGP models \cite{DGP models}),
-violate the conservation of the energy-momentum tensor with some exotic species or
-add extra degrees of freedom, since with the metric alone we can't construct a more general theory.
-This last option has led to the recent interest in modified gravity theories with a scalar field (see \cite{cite some scalar field}), 
-with vector fields (see \cite{cite}) and with the addition of several metric (tensor) fields (see \cite{cite}). 
+This theorem has fundamental implications for cosmology, which we will comment 
+in the following sections, when needed.
+%First of all, it states that the Cosmological Constant (CC) has to appear in the classical theory of gravity,
+%therefore, if ---as we will see below in \cref{sub:CC-problem})--- we are not satisfied with the CC as an explanation
+%of the accelerated expansion of the Universe, we still have to explain why $\Lambda$ disappears from the Einstein's field equations.
+%Second, this theorem gives a sort of roadmap to look for modifications of gravity, which can account for the late-time expansion of the Universe.
+%One option is to go beyond 4 dimensions (as in DGP models \cite{DGP models}),
+%violate the conservation of the energy-momentum tensor with some exotic species or
+%add extra degrees of freedom, since with the metric alone we can't construct a more general theory.
+%This last option has led to the recent interest in modified gravity theories with a scalar field (see \cite{cite some scalar field}), 
+%with vector fields (see \cite{cite}) and with the addition of several metric (tensor) fields (see \cite{cite}). 
 
 
 %----------------------------------------------------------------------------------------
@@ -180,8 +178,6 @@ Also it is standard convention that "Greek" indices run from 0 to 3, as in \cref
 while "Latin" indices run from 1 to 3 as in equations involving only spatial coordinates, like \cref{eq:FLRW-spatial}.
 
 
-
-
 \subsection{The Friedmann equations \label{sub:Friedmann-eqs}}
 
 The FLRW metric \cref{eq:FLRW-full} due to its scale factor, which is dependent on time, implies immediately that the Universe can expand
@@ -204,7 +200,6 @@ These are the so-called Friedmann equations, which define the evolution of the H
 \beeqp$
 H(t) \equiv \frac{\dot a(t)}{a(t)}
 $
-
 The critical density of the Universe is defined as:
 \beeqc$
 \rho_{cr} = \frac{3 H^2}{8 \pi G}
@@ -218,65 +213,79 @@ so that the first Friedmann equation \cref{eq:Friedmann-1st} (for a flat Univers
 \beeqp$
 \sum_i \Omega_i (t) = 1
 $
-
 Another important quantity for each matter species is its equation of state:
 \beeqc$
 w \equiv \frac{p}{\rho}
 $
-which for species in which the pressure is not-negligible modifies considerably their dominance in the energy budget as a function of time.
+which enters in its cosmological evolution equation.
 
 
-\subsection{The $\Lambda$CDM model \label{sub:LCDM}}
+\subsection{The $\mathbf{\Lambda}$CDM model \label{sub:LCDM}}
 
-As we have seen before, the field of Cosmology is relatively new, with less than 100 years of theoretical development
-and even much less time of real observational progress.
-Up to 1965?, with the discovery of the Cosmic Microwave Background (CMB) radiation by \cite{Penzias and Wilson},
-cosmology was a mere speculative science. Only with the confirmation of the "Hot Big Bang paradigm" by the measurement of the radiation left over
-380,000 years after the Big Bang, is that physicists started to make precise descriptions about the composition and 
-the evolution of the matter species composing the Universe. The first CMB observations clarified that the Universe started
-as a hot plasma of electrons, protons and photons, whose interactions in an expanding space-time matched very well the observed properties
-of the present Universe.
+As we have seen before, the field of cosmology is relatively new, with less than 100 years of theoretical development
+and even much less time of observational progress. 
+However, in the last few decades, with the precise measurements of the Cosmic Microwave Background (CMB) radiation,
+the rapid progress in galaxy surveys and the impressive development of cosmological simulations, an observationally very successful standard model has emerged, the so-called
+$\lcdm$ model.
 
-However, there was always a piece missing in the puzzle, since the observed densities of visible matter in the Universe were too low.
-For many years, there were big discussions about open and closed Universes and about invisible forms of matter.
-Only with the amazing development of galaxy surveys in the 1980's and precise measurements of stars velocities in the Milky Way and other galaxies
-and the development of cosmological N-body simulations in the 1990's, most cosmologists were convinced that there had to be a form of matter in the Universe
-that does not interact with baryons or with electromagnetic fields, but it interacts in a standard way with gravitational fields (\cite{cite;
-recent peebles, Dolag DM review, reviews, books}).
-They called it "Cold Dark Matter" (CDM) because of its apparent vanishing pressure and its preference for clustering into big structures.
-
-However, there were still some inconsistencies between the growth of structures in a pure 'CDM+baryons' model, predicted
-by simulations and the observed structures in the Universe (see \cite{reviews Dolag, peacock}), so that many scientists were claiming for the addition
-of a cosmological constant. However, this claims were not significant until in 1998 the teams led by \cite{Perlmutter and ..} used Supernova Type Ia
-observations to prove that the Universe was experiencing a phase of accelerated expansion. This led to the re-introduction of the Cosmological Constant
-and due to the theoretical problems posed by its so small observed value, to the development of a whole new 
-field of research: Modified Gravity and Dark Energy.
-
-This very rough and quick overview explains the name of the current standard cosmological model: the $\lcdm$ model. 
-In this model, and according to the latest observations (see \cite{planck_collaboration_planck_2016-1})
- almost 70\% of the energy density of the Universe is composed by the Cosmological Constant
+In this model, and according to the latest observations (see \cite{planck_collaboration_planck_2016-1}),
+almost 70\% of the energy density of the Universe is composed by vacuum energy, attributed to the Cosmological Constant
 $\Lambda$, 25\% by Cold Dark Matter and less than 5\% by baryons. The remaining components are photons ---which are basically negligible today, despite the amount of light and radiation in the Universe--- and massive neutrinos,
 whose mass and therefore its contribution to the "cosmic pie" has not been measured precisely enough yet.
+%Up to 1965?, with the discovery of the Cosmic Microwave Background (CMB) radiation by \cite{Penzias and Wilson},
+%cosmology was a mere speculative science. 
+%Only with the confirmation of the "Hot Big Bang paradigm" by the measurement of the radiation left over
+%380,000 years after the Big Bang, is that physicists started to make precise descriptions about the composition and 
+%the evolution of the matter species composing the Universe. The first CMB observations clarified that the Universe started
+%as a hot plasma of electrons, protons and photons, whose interactions in an expanding space-time matched very well the observed properties
+%of the present Universe.
 
-Now we leave open the possibility that the accelerated expansion of the Universe is caused by a "Dark Energy" component, with 
-an unknown equation of state $w_{DE}(z)$, where $w_{DE}(z) = -1$ would correspond to the Cosmological Constant. 
-Then, together with the "standard" matter species and knowing the equation of state for each of them ($w=0$ for CDM and baryons and $w=1/3$ for radiation), we can write down
+%However, there was always a piece missing in the puzzle, since the observed densities of visible matter in the Universe were too low.
+%For many years, there were big discussions about open and closed Universes and about invisible forms of matter.
+%Only with the amazing development of galaxy surveys in the 1980's and precise measurements of stars velocities in the Milky Way and other galaxies
+%and the development of cosmological N-body simulations in the 1990's, most cosmologists were convinced that there had to be a form of matter in the Universe
+%that does not interact with baryons or with electromagnetic fields, but it interacts in a standard way with gravitational fields (\cite{cite;
+%recent peebles, Dolag DM review, reviews, books}).
+%They called it "Cold Dark Matter" (CDM) because of its apparent vanishing pressure and its preference for clustering into big structures.
+%
+%However, there were still some inconsistencies between the growth of structures in a pure 'CDM+baryons' model, predicted
+%by simulations and the observed structures in the Universe (see \cite{reviews Dolag, peacock}), so that many scientists were claiming for the addition
+%of a cosmological constant. However, this claims were not significant until in 1998 the teams led by \cite{Perlmutter and ..} used Supernova Type Ia
+%observations to prove that the Universe was experiencing a phase of accelerated expansion. This led to the re-introduction of the Cosmological Constant
+%and due to the theoretical problems posed by its so small observed value, to the development of a whole new 
+%field of research: Modified Gravity and Dark Energy.
+
+%This very rough and quick overview explains the name of the current standard cosmological model: the $\lcdm$ model. 
+This special mixture of cosmological ingredients in the Universe, leads to a well defined background evolution of the Hubble function $H(z)$. However, as we will see below, the Cosmological Constant is not very satisfactory from the theoretical point of view.
+Therefore if we leave open the possibility that the accelerated expansion of the Universe is caused by a "Dark Energy" component, with 
+an unknown equation of state $w_{DE}(z)$ (where $w_{DE}(z) = -1$ would correspond to the Cosmological Constant), then together with the "standard" matter species (with $w=0$ for CDM and baryons and $w=1/3$ for radiation), we can write down
 the evolution of the Hubble parameter as a function of redshift $z \equiv 1/a - 1 $ :
 \beeqalsp$
 H^2 (z) &= H_0 \left(  \Omega_c (1+z)^3 + \Omega_b (1+z)^3  + \Omega_r (1+z)^4   
 \phantom{\exp \left[ \int_{0}^{z}  \frac{3}{1} \right]} \right. \\
       & \left.  +\Omega_{DE}  \exp \left[ \int_{0}^{z} \dx{}{\tilde z} \frac{3(1+w_{DE}(\tilde z))}{1+\tilde z} \right]     \right)
 $
+where we have left out neutrinos, since their evolution at high and low redshifts is not so straightforward to write, due to their changing from relativistic to non-relativistic particles in the history of the Universe.
+If we assume a constant $w$ and a single matter species, one can analytically solve 
+\crefrange{eq:Friedmann-1st}{eq:Friedmann-2nd} and find that the scale factor behaves 
+as:
+\beeqp$
+a \propto t^{\frac{2}{3(1+w)}}
+$
+Since each species evolves with a different power of the scale factor, there 
+were three different epochs in the evolution of the Universe, the radiation dominated era (RDE) in which $a \propto t^{1/2}$, the matter domination era
+(MDE) in which $a \propto t^{2/3}$ (also called the Einstein-de Sitter Universe) and finally the future dark energy dominated era, also called the de Sitter regime, in which
+the total energy density is constant and therefore $a \propto \exp(H t)$.
+From the Hubble function, one can obtain measurable 
+cosmological distances to astrophysical objects and the
+the age and the size of the observable Universe.
 
-This is the equation that defines the background evolution of the Universe. From the Hubble function, one can obtain measurable 
-cosmological distances,
-the age of the Universe and the size of the observable Universe, also called the horizon.
 
 
 \subsection{Distances}
 
 Since the Universe is expanding and we measure astrophysical objects using mainly electromagnetic radiation (except after 2016 \cite{cite LIGO}, 
-where Gravitational Wave Astronomy was born), it is important to define certain distances that can be measured and which are not always intuitive.
+where Gravitational Wave Astronomy was born), it is important to define certain distances that can be measured in cosmological observations.
 Light follows null-geodesics, so that under an FLRW metric as in \cref{eq:FLRW-full}, 
 light satisfies the equation:
 \beeqc$
