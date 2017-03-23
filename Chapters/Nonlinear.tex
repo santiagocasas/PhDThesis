@@ -10,30 +10,30 @@
 
 
 
-\subsection{Horndeski Theory}
+\subsection{Perturbation equations}
 
 
-In a homogeneous and isotropic universe, the distance element
-assumes the form: 
-\begin{equation}
-ds^{2}=a(\tau)[-(1+2\Psi)d\tau^{2}+(1-2\Phi)\delta_{ij}dx^{i}dx^{j}]\,,
-\end{equation}
-where the conformal time $\tau$ is related to the cosmic time $t$
-by $d\tau=d t/a(\tau)$ and $\Psi$ and $\Phi$ are the two scalar
-gauge invariant gravitational potentials, related (modulo sign) to
-the Bardeen potentials.
-
-Horndeski models include (almost) all theories
-with second order equations of motion in the fields and can be generically
-described with five functions of time. They include a variety of particular
-models studied in literature, characterised by a universal coupling
-to matter fields.
-
-The Lagrangian can be written as ...
-
-where ... is the matter Lagrangian and ... are arbitrary functions
-of the scalar field $\phi$, whose canonical kinetic term is $X=-\frac{1}{2}\phi^{;\mu}\phi_{;\mu}$;
-the latter is also coupled to the Ricci scalar and the Einstein tensor.
+%In a homogeneous and isotropic universe, the distance element
+%assumes the form: 
+%\begin{equation}
+%ds^{2}=a(\tau)[-(1+2\Psi)d\tau^{2}+(1-2\Phi)\delta_{ij}dx^{i}dx^{j}]\,,
+%\end{equation}
+%where the conformal time $\tau$ is related to the cosmic time $t$
+%by $d\tau=d t/a(\tau)$ and $\Psi$ and $\Phi$ are the two scalar
+%gauge invariant gravitational potentials, related (modulo sign) to
+%the Bardeen potentials.
+%
+%Horndeski models include (almost) all theories
+%with second order equations of motion in the fields and can be generically
+%described with five functions of time. They include a variety of particular
+%models studied in literature, characterised by a universal coupling
+%to matter fields.
+%
+%The Lagrangian can be written as ...
+%
+%where ... is the matter Lagrangian and ... are arbitrary functions
+%of the scalar field $\phi$, whose canonical kinetic term is $X=-\frac{1}{2}\phi^{;\mu}\phi_{;\mu}$;
+%the latter is also coupled to the Ricci scalar and the Einstein tensor.
 
 In the following, we will adopt the conformal Newtonian gauge in the
 notation of \citep{MaBertschinger}, so that the gauge invariant potentials
@@ -84,7 +84,7 @@ that relates the gravitational potential to matter and relativistic
 species in the universe, by perturbing the Einstein field equations
 to first order.
 
-In Horndeski theories, in the quasi-static limit, the deviation
+In the quasi-static limit, for general modified gravity theories, the deviation
 of the gravitational potentials from General Relativity has a known
 scale dependence in the Poisson equation, given by \citep{...}: 
 \begin{equation}
@@ -129,14 +129,14 @@ the maximum is of the order of 15\%, since otherwise we would impose
 a rather unrealistic structure formation.
 
 
-\section{Standard perturbation theory and higher orders}
-\begin{itemize}
-\item Vlasov-Poisson system
-\item System of equations in Fourier space
-\item Velocity divergence and vorticity
-\item Stress tensor and higher order hierarchy terms
-\item Field variable doublet and 1-loop expansion
-\end{itemize}
+%\section{Standard perturbation theory and higher orders}
+%\begin{itemize}
+%\item Vlasov-Poisson system
+%\item System of equations in Fourier space
+%\item Velocity divergence and vorticity
+%\item Stress tensor and higher order hierarchy terms
+%\item Field variable doublet and 1-loop expansion
+%\end{itemize}
 
 
 
@@ -920,42 +920,42 @@ Finally we compute the \ref{eq:evolution-eqn-Chi} for each $k$ mode
 in parallel, which using 8 cores on a normal machine, takes about
 15 seconds until redshift $z=0$.
 
-\section{Numerical approaches}
+%\section{Numerical approaches}
+%
+%\subsection{N-body simulations}
+%\begin{itemize}
+%\item The Vlasov-Poisson system can be discretized on a grid and the denisty
+%can be represented with particles
+%\item Particle-Mesh method
+%\item Tree method
+%\item Extraction of information: The power spectrum and Halo catalogs
+%\end{itemize}
+%
+%
+%
+%As we have seen in the previous chapters, non-linear dynamics of gravitational
+%interactions, are hard to treat analytically. If we want to study
+%the growth of perturbations in the full non-linear regime, as well
+%as in large scales and at galactic scales, we need to perform numerical
+%simulations. Numerical N-body simulations have many advantages, as
+%well as some drawbacks related to their specific practical implementation
+%and we will try to explain here only some of their most fundamental
+%properties. 
+%
+%%In this work we are using the CoDECS simulations, which are a modification
+%%of the parallel Tree-PM N-body code of GADGET-2 (see \citet{baldi_hydrodynamical_2008,baldi_codecs_2011}).
+%%In order to understand what this means and what its properties and
+%%parameters are, it is necessary to explain some technical issues regarding
+%%the computational techniques of current cosmological simulations.
+%
+%First we will review some general techniques to deal with great numbers
+%of particles in gravitational interactions, then we will review some
+%of the most important Dark Universe simulations and finally we will
+%explain some technicalities regarding the extraction of the power
+%spectrum from simulation data. 
 
-\subsection{N-body simulations}
-\begin{itemize}
-\item The Vlasov-Poisson system can be discretized on a grid and the denisty
-can be represented with particles
-\item Particle-Mesh method
-\item Tree method
-\item Extraction of information: The power spectrum and Halo catalogs
-\end{itemize}
 
-
-
-As we have seen in the previous chapters, non-linear dynamics of gravitational
-interactions, are hard to treat analytically. If we want to study
-the growth of perturbations in the full non-linear regime, as well
-as in large scales and at galactic scales, we need to perform numerical
-simulations. Numerical N-body simulations have many advantages, as
-well as some drawbacks related to their specific practical implementation
-and we will try to explain here only some of their most fundamental
-properties. 
-
-%In this work we are using the CoDECS simulations, which are a modification
-%of the parallel Tree-PM N-body code of GADGET-2 (see \citet{baldi_hydrodynamical_2008,baldi_codecs_2011}).
-%In order to understand what this means and what its properties and
-%parameters are, it is necessary to explain some technical issues regarding
-%the computational techniques of current cosmological simulations.
-
-First we will review some general techniques to deal with great numbers
-of particles in gravitational interactions, then we will review some
-of the most important Dark Universe simulations and finally we will
-explain some technicalities regarding the extraction of the power
-spectrum from simulation data. 
-
-
-\section{Computational Techniques}
+\section{Other computational techniques: N-body simulations}
 
 To perform an exact evolution of the density fluctuations, beyond
 linear perturbations, the density field has to be represented by a
