@@ -684,7 +684,7 @@ $\Sigma_{ab}$ and the mode-coupling term $\tilde{\Phi}G_{ab}^{AB}$\textbf{
 }accounting for the contributions at the large- and small-k limit
 at 1-loop order.
 
-\texttt{\textcolor{green}{Massimo: Can you check from eqns. 33-36? }}
+%\texttt{\textcolor{green}{Massimo: Can you check from eqns. 33-36? }}
 
 If we transform this equation to $\eta=\ln\frac{a}{a_{in}}$, using
 the variable transformation $\partial\mathcal{X}/\partial\eta=\frac{\d\ln D(a)}{\d\ln a}=f(\eta)$,
@@ -765,8 +765,8 @@ we will show the explicit expressions for these integrals.
 
 \subsection{The 1PI functions in the Horndeski constant $\mu\protect\neq1$ case}
 
-\textcolor{red}{The Horndeski variable is Y for compatibility
-with the code for now, but it can be changed to $\mu$ later on.}
+%\textcolor{red}{The Horndeski variable is Y for compatibility
+%with the code for now, but it can be changed to $\mu$ later on.}
 
 Now we give the general expression for for the 1PI functions $\Sigma_{ab}^{(1)}(k;\mychi,\mychi')$
 and $\Phi_{ab}^{(1)}(k;\mychi,\mychi')$ computed at 1-loop in eRPT.
@@ -889,11 +889,11 @@ about 15-20\%. So that we can be sure that the overall effect will
 be just a perturbation around the LCDM value and should reduce to
 it in the limit $\mu\rightarrow1$.
 
-\textcolor{red}{Issue: }\textcolor{red}{In the LCDM case from
-Massimo's paper, all three }$\tilde{\Phi}G_{ab}^{A}$ \textcolor{red}{functions
-can be written using the same combination of Hypergeometric Functions.
-In this case, this is only possible for }$\tilde{\Phi}G_{11}^{A}$
-\textcolor{red}{and} $\tilde{\Phi}G_{22}^{A}$.
+%\textcolor{red}{Issue: }\textcolor{red}{In the LCDM case from
+%Massimo's paper, all three }$\tilde{\Phi}G_{ab}^{A}$ \textcolor{red}{functions
+%can be written using the same combination of Hypergeometric Functions.
+%In this case, this is only possible for }$\tilde{\Phi}G_{11}^{A}$
+%\textcolor{red}{and} $\tilde{\Phi}G_{22}^{A}$.
 
 
 \subsection{Method of implementation}
@@ -1142,34 +1142,35 @@ as usual. The drawback of this method is that its parallelization
 is not so straighforward and has not been developed yet. For more
 references, check \citet{dehnen_n-body_2011}.
 \end{itemize}
-\begin{figure}[h]
-%\parbox[t]{1\columnwidth}{%
-%\noindent \begin{center}
-%\includegraphics[width=0.9\textwidth]{Figures/SpringelOctTree}
-%\par\end{center}%
-%}\vspace{0cm}
-%
-%
-%\parbox[t]{1\columnwidth}{%
-%\noindent \begin{center}
-%\includegraphics[width=0.9\textwidth]{Figures/TreeMethod}
-%\par\end{center}%
-\caption[\textbf{Top}: Hierarchical structure of a Tree code, the fundamental
-box is divided into always smaller cells. Figure taken from: \citet{springel_cosmological_2005}.
-\textbf{Bottom}:Comparison between force calculation for 100 particles.
-Figure taken from: \citet{dehnen_n-body_2011}.]{\label{fig:5.1}\textbf{Top}: Hierarchical structure of a Tree code,
-the fundamental box is divided into always smaller cells. A Peano-Hilbert
-curve method (space filling curve) is used to visit all cells in parallel.
-Figure taken from: \citet{springel_cosmological_2005}. \textbf{Bottom}:
-Comparison between force calculation for 100 particles. Left: Each
-red curve represents a direct particle-particle interaction. Middle:
-The tree method, with its cells and groups of particles (green lines
-represent particle-cells interactions). Only 7 interactions are needed
-to compute total force. Right: Interactions needed to compute all
-the forces among particles, requiring 902 cell-particle interactions
-and 306 particle-particle interactions, instead of 4950 computations
-in the case of the direct summation. Figure taken from: \citet{dehnen_n-body_2011}.}
-\end{figure}
+
+%\begin{figure}[h]
+%%\parbox[t]{1\columnwidth}{%
+%%\noindent \begin{center}
+%%\includegraphics[width=0.9\textwidth]{Figures/SpringelOctTree}
+%%\par\end{center}%
+%%}\vspace{0cm}
+%%
+%%
+%%\parbox[t]{1\columnwidth}{%
+%%\noindent \begin{center}
+%%\includegraphics[width=0.9\textwidth]{Figures/TreeMethod}
+%%\par\end{center}%
+%\caption[\textbf{Top}: Hierarchical structure of a Tree code, the fundamental
+%box is divided into always smaller cells. Figure taken from: \citet{springel_cosmological_2005}.
+%\textbf{Bottom}:Comparison between force calculation for 100 particles.
+%Figure taken from: \citet{dehnen_n-body_2011}.]{\label{fig:5.1}\textbf{Top}: Hierarchical structure of a Tree code,
+%the fundamental box is divided into always smaller cells. A Peano-Hilbert
+%curve method (space filling curve) is used to visit all cells in parallel.
+%Figure taken from: \citet{springel_cosmological_2005}. \textbf{Bottom}:
+%Comparison between force calculation for 100 particles. Left: Each
+%red curve represents a direct particle-particle interaction. Middle:
+%The tree method, with its cells and groups of particles (green lines
+%represent particle-cells interactions). Only 7 interactions are needed
+%to compute total force. Right: Interactions needed to compute all
+%the forces among particles, requiring 902 cell-particle interactions
+%and 306 particle-particle interactions, instead of 4950 computations
+%in the case of the direct summation. Figure taken from: \citet{dehnen_n-body_2011}.}
+%\end{figure}
 
 
 \subsection{Fitting formulae and prescriptions}
