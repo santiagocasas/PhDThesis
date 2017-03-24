@@ -260,7 +260,7 @@ This special mixture of cosmological ingredients in the Universe, leads to a wel
 Therefore if we leave open the possibility that the accelerated expansion of the Universe is caused by a "Dark Energy" component, with 
 an unknown equation of state $w_{DE}(z)$ (where $w_{DE}(z) = -1$ would correspond to the Cosmological Constant), then together with the "standard" matter species (with $w=0$ for CDM and baryons and $w=1/3$ for radiation), we can write down
 the evolution of the Hubble parameter as a function of redshift $z \equiv 1/a - 1 $ :
-\beeqalsp$
+\beeqalsp$\label{eq:H-of-z-Lcdm}
 H^2 (z) =& H_0 \left(  \Omega_c (1+z)^3 + \Omega_b (1+z)^3  + \Omega_r (1+z)^4   
 \phantom{\exp \left[ \int_{0}^{z}  \frac{3}{1} \right]} \right. \\
       & \left.  +\Omega_{DE}  \exp \left[ \int_{0}^{z} \dx{}{\tilde z} \frac{3(1+w_{DE}(\tilde z))}{1+\tilde z} \right]     \right)
@@ -311,13 +311,17 @@ where we have set the curvature $k$ a priori to zero.
 
 \subsection{The cosmological constant problem \label{sub:CC-problem}}
 
-There are two main problems with the $\lcdm$ model: The first one is $\Lambda$; the second
-one, CDM.
-We will not deal here with the CDM problem, but it is just worth to say, 
-that despite large efforts to find 
-the CDM particle, nothing significant has been found so far.
+%There are two main problems with the $\lcdm$ model: The first one is $\Lambda$; the second
+%one, CDM.
+%We will not deal here with the CDM problem, but it is just worth to say, 
+%that despite large efforts to find 
+%the CDM particle, nothing significant has been found so far.
+After more than two decades of intensive experimental and observational searches,
+physicists are still not clear about what constitutes almost 95\% of the energy budget of
+the Universe. These are the so-called Dark Matter and Dark Energy problems.
 
-On the contrary, the Cosmological Constant (CC) problem is a more profound one, since it 
+\subsubsection*{The fine-tuning problem}
+While a Cosmological Constant can explain very well observations so far, the Cosmological Constant (CC) problem is a more profound one, since it 
 involves a missing understanding of both Quantum Field Theory and General Relativity, as we will see now in more detail.
 From \cref{eq:Friedmann-1st}, we see that under dark energy domination, 
 the CC is of the order of the square of the Hubble parameter today:
@@ -325,31 +329,107 @@ the CC is of the order of the square of the Hubble parameter today:
 \Lambda \approx H_0^2 = (2.1 h \times 10^{-42} \mathrm{GeV})^2
 $
 so that as an energy density $\rho_{\Lambda} = \Lambda / 8\pi G$ we would obtain:
-\beeqc$
+\beeqc$\label{eq:rho-Lambda}
 \rho_{\Lambda} \approx 10^{-47} \mathrm{GeV}^4
 $
-where we have used $1/G = m_{Pl} $ and the Planck mass is equal to $10^{19} \mathrm{GeV}$.
-%If we suppose that this constant comes from the vacuum fluctuations of empty space,
-%which would be the most logical candidate for an energy theory
+where we have used $1/G = m_{Pl} $ and the Planck mass is equal to $m_{Pl} = 10^{19} \mathrm{GeV}$.
+Making a very rough quantum field theory calculation, one can see that if the vacuum energy density comes from the zero point energy of a single field with mass $ m $ and momentum $ k $, with energy
+$E = \sqrt{k^2 + m^2}/2$,
+then one can sum all contributions from all momenta up to a cut-off scale $k_{\rm max}$:
+\beeqc
+ $\langle \rho_{\rm vac} \rangle = \int_{0}^{k_{\rm max}} \frac{4\pi k^2 \dx{}{k}}{(2\pi)^3}\frac{\sqrt{k^2 + m^2}}{2} \approx \frac{k_{\rm max}^4}{16 \pi ^2} 
+$
+where we have used the fact that the integral will be dominated by large modes ($k \gg m$).
+If we take this cut-off scale to be of the order of the Planck mass $m_{Pl}$, which is a scale up to which we believe GR might be still valid, then we find
+\beeqc$\label{eq:rho-vac-rough}
+\langle \rho_{\rm vac} \rangle \simeq 10^{74} \mathrm{GeV}^4
+$
+which is $10^121$ larger than the value found above in \cref{eq:rho-Lambda}.
+This is the famous ``fine-tuning`` problem: If we want to reconcile the measured 
+value of $\Lambda$ with the expected vacuum energy provided by quantum fields, 
+there has to be a cancellation which is exact to 120 orders of magnitude.
 
-\textcolor{red}{\textsc{Section still Incomplete}}
+However, we must stress here again that the result in \cref{eq:rho-vac-rough} 
+is a very rough calculation
+that does not consider the symmetries of the problem and does not respect the equation of state
+of vacuum energy: doing the above rough calculation also for the pressure 
+would yield $\langle p_{\rm vac} \rangle / \langle \rho_{\rm vac} \rangle  = 1/3$, instead of the expected $w=-1$ (see \mcite{Jerome, Martin}).
+Therefore, under a proper regularization scheme, the vacuum energy density is calculated to be 
+$\langle \rho_{\rm vac} \rangle \approxeq 10^{10} \mathrm{GeV}^4$, which is more or less "just"
+50 orders of magnitude larger than $\rho_{\Lambda}$ (see \mcite{Jerome, Martin}).
+Though this cancellation could be realized by different mechanisms, the problem is worse than that;
+the fine-tuning has to be performed at each higher order in quantum field perturbation theory (see the excellent review by \mcite{Jerome, Martin}). One has to find a powerful symmetry that
+"screens" the vacuum energy from gravitating and affecting the Einstein's field equations.
+
+\subsubsection*{The coincidence problem}
+
+Apart from the unsatisfactory discrepancy between the Cosmological Constant and the expected 
+vacuum energy density, the value of $\Omega_{\Lambda}$ today is suspiciously close to the 
+value of $\Omega_m$, for no apparent reason, and this has been the case only very recently in cosmological time scales. The redshift at which both energy densities coincide ($z_{co}$) is:
+\beeqp$
+z_{co} = \left( \frac{\Omega_{\Lambda}}{1-\Omega_{\Lambda}}  \right)^{\frac{1}{3}} -1$
+(see \mcite{Luca, book}).
+Therefore, for a value today of $\Omega_{\Lambda}=0.7$, the coincidence redshift is $z_{co}\approx 0.3$.
+This is indeed a very recent time and depends strongly on the ratio of $\Omega_{\Lambda}/\Omega_{m}$:
+if this ratio was just 10 times smaller or larger, we as observers would not measure accelerated expansion today.
+
+Several models have been proposed so far to deal with this apparent coincidence, for example
+Dark Energy models with tracker and scaling solutions (see \mcite{Luca, book}) in which $\rho_{DE}$ catches the trend of $\rho_{m}$ no matter which initial conditions have been chosen
+or where one constructs an equation of state for DE that changes just very recently in time.
+Other models try to link the onset of acceleration by connecting it with the evolution of non-linear
+structure formation, for example with backreaction effects (\mcite{Buchert}), 
+but these models have not been so successful so far.
+
+In \cref{sub:GNQ} we will see how a coupling of the scalar field to the mass of neutrinos 
+could link the onset of acceleration to the neutrinos becoming non-relativistic and therefore
+it can alleviate the coincidence problem.
+ 
+Other scientists resort to the anthropic principle (\mcite{Luca, book, Weinberg})
+and claim that for us observers to exist in a Universe with galaxies, stars and planets
+and to have evolved sufficiently to develop advanced civilizations, the Cosmological Constant
+can only have certain precise range of values \mcite{Weinberg}. While it is true that these constraints are applicable
+to our case, this explanation is not widely accepted as a "physical" solution of the problem.
 
 
-\subsection{\revtext{Gravitational potentials}}
+\subsection{\revtext{Gravitational potentials} (or Linearized Einstein Equations)}
 
+Since we observe non-homogeneities in the Universe around us, we need to go beyond
+the background description of General Relativity given by the Friedmann equation \ref{eq:H-of-z-Lcdm}.
+Observations of the CMB tell us that the initial fluctuations are small ---of the order of $10^{-5}$---
+and therefore we can split the metric $g_\munu$ in a background part $\bar{g}_\munu$ 
+and a perturbation part $\delta{g}_\munu$.
 
-In linear perturbation theory, scalar, vector and tensor perturbations
-do not mix, which allows us to consider only the scalar perturbations of the metric. 
-We work in the conformal Newtonian gauge, with the
-line element given by 
+Introducing the conformal time $\mathrm{d}\tau = \dx{}{t}/a $ and using the FLRW metric \cref{eq:FLRW-full} as the
+background one, the perturbed metric can be written as:
+\beeqalsp$
+ds^{2} &= a^2(\tau) \left(-(1+2\Psi)d\tau^{2} + (B_{,i} + S_i)d\tau dx^i \right. \\
+       & \left. -  (-2\Phi \delta_{ij} + 2E_{,ij} + F_{i,j} + F_{j,i} + h_{ij}) \right)
+$
+where we have decomposed the metric into 4 scalar functions $\Phi$, $\Psi$,
+$E$ and $B$, two vectors $F_i$ and $S_i$  and a tensor $h_{ij}$ perturbation.
+Moreover the vector perturbations satisfy the constraints $F^i_{,i} =0$ and 
+$S^i_{,i} =0$ (divergence-free) and the tensor perturbation satisfies the traceless
+and transverse constraints $h^i_i = 0$, $h^i_{j,i} = 0$.
+Therefore, counting the total number of degrees of freedom, we end up with 10 independent
+components, which are the same independent components that a (symmetric) metric $g_\munu$ has.
+
+Vector perturbations decay very quickly and therefore are uninteresting in standard cosmology. Tensor
+perturbations describe gravitational waves, and though there is an increased interest in them due
+to gravitational wave detection \mcite{LIGO} and B-mode polarization in the CMB \mcite{Planck, BICEP},
+we will not treat them in this work.
+
+Moreover, it can be shown that under a change of coordinates $x^\mu \rightarrow x^\mu + \xi^\mu$, there is still a gauge freedom that can be fixed and therefore only 6 degrees of freedom are really independent. In the following we will choose the \emph{conformal Newtonian gauge }, which is defined
+by $E_i = B_i = 0$.
+
+Therefore, in linear perturbation theory, only the scalar perturbations of the metric are important for 
+studying structure formation in the Universe. In our chosen Newtonian gauge, we end up with:
 \begin{equation}
-ds^{2}=-(1+2\Psi)dt^{2}+a^{2}(1-2\Phi)dx^{2}\,\,\,.
+ds^{2}=-(1+2\Psi)dt^{2}+a^{2}(1-2\Phi)dx^{2}\,\,\,,
 \end{equation}
-The potentials $\Phi$ and $\Psi$ are in functions of time and in our notation, they coincide
-with the gauge-invariant Bardeen potentials in the Newtonian gauge.
+where the potentials $\Phi$ and $\Psi$ are functions of time and are sometimes called Bardeen potentials.
 
 
-\textcolor{red}{\textsc{Section still Incomplete}}
+\textcolor{red}{\textsc{Section still Incomplete: Needs Poisson and stress equation}}
 %\begin{itemize}
 %	\item Gravitational potentials $\Phi$ and $\Psi$.
 %%	\item Very simple explanation of Gauge choice \comm{probably don't need it}
