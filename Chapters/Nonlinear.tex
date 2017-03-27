@@ -439,13 +439,13 @@ On the r.h.s. of  \cref{eq:field notation}, the second term represents
 all the nonlinearities in real space and therefore non-localities in Fourier space.
 The $\gamma_{abc}$ functions
 in this formalism can be understood as interaction vertices and its
-only non-vanishing components are precisely given by the mode-mode
+non-vanishing components are precisely given by the mode-mode
 coupling functions $\alpha \textrm{ and } \beta$, defined in \cref{eq:alpha-beta-func} : 
 \begin{align}
 \gamma_{121}\pcq kpq & =\frac{1}{2}\delta_{D}\psq kpq\alpha(\vk p,\vk q) & \;\gamma_{121}\pcq kqp=\gamma_{112}\pcq kpq\label{eq:coupling-vertices}\\
 \gamma_{222}\pcq kpq & =\delta_{D}\psq kpq\beta(\vk p,\vk q)\nonumber 
 \end{align}
-In this notation and throughout this work, an \emph{integration over} $\vk p,\vk q$
+In this notation and throughout this chapter, an \emph{integration over} $\vk p,\vk q$
 \emph{is understood} and $\vk k$ is always the ``external'' momentum.
 The integral symbols will be added only if they are needed due to possible confusions
 with the notation.
@@ -488,8 +488,10 @@ there are still intrinsic limitations given by the starting equations
 \ref{eq:continuity}-\ref{eq:poisson}. Apart from neglecting vorticity
 in the later stages of evolution, the initial equations are derived
 in the single-stream-approximation. This means that at a single point
-in space, there can be only one velocity direction. This clearly breaks
-down in the virialization regime and even before during late stages of structure formation. 
+in space, the velocity field can only have one value, therefore no two particles
+can cross their paths. This condition clearly breaks
+down in the virialization regime and even before during late stages of structure formation, when
+shell-crossing happens. 
 Resummation methods
 can be extended and improved by including these other sources of density
 power into the equations in an effective way, see the discussion in
@@ -748,7 +750,7 @@ we get the following transformed $\tilde{\Omega}_{ab}$ matrix:
 %scale dependence of $\mathcal{X}(k)$. This can be seen clearly in
 %plot \ref{fig:Omf2-approx}.
 
-\subsubsection*{Assuming a constant $\mu\protect\neq1$}
+\subsubsection*{First approximation: Assuming a constant $\mu\protect\neq1$}
 
 Assuming a constant $\mu$ different from 1 and the approximation
 that $\Omega_{m}(\mychi)/f_{+}^{2}(\mychi) =1$ at late times (which is exact only for E-dS but turns
@@ -966,11 +968,11 @@ contains the mode-coupling function, which is obtained by integrating the counte
  & \;\; \times u_{e}P^{0}(p)u_{f}\gamma_{bef}(\vk k,-\vk q,\vk p) \quad,
 $
 together with the renormalized propagator
-from Crocce-Scoccimarro (see \cite{crocce_renormalized_2006}) $\bar{G}_{bd}^{L}(k;\eta,s)$.
+from Crocce-Scoccimarro (see \cite{crocce_renormalized_2006}), namely $\bar{G}_{bd}^{L}(k;\eta,s)$.
 This integral can be expressed as:
 \beeqalsp$
-\int\d s\left[\tilde{\Phi}_{ad}(k;\mychi,s)\bar{G}_{bd}^{L}(k;\mychi,s) 
-+\bar{G}_{ad}^{L}(k;\mychi,s)\tilde{\Phi}_{db}(k;\mychi,s)\right] \\
+\int\d s\left[\tilde{\Phi}_{ad}(k;\mychi,s)\bar{G}_{bd}^{L}(k;\mychi,s)  \right.
+& \left. +\bar{G}_{ad}^{L}(k;\mychi,s)\tilde{\Phi}_{db}(k;\mychi,s)\right] \\
 & = \tilde{\Phi}G_{ab}^{A}(k;\mychi)+\tilde{\Phi}G_{ab}^{B}(k;\mychi) \quad,
 $
 where the $B$ terms are (for any indices $a$ and $b$): 
@@ -1035,26 +1037,25 @@ about 15-20\%.
 
 Equation \cref{eq:evolution-eqn-Chi-eta} is the main equation
 we want to solve and it represents a coupled differential equation in time 
-of three components,
-for each external momentum $k$ that we want to compute. This means
-that if we want to compute the power spectrum on a grid with 100 points
-in $k$-space, we need to solve 100 times the differential equation.
-Parallelizing the numerical implementation plays an important role here.
+of three independent components,
+for each external momentum $k$ that we want to compute. Therefore, 
+if we want to calculate the power spectrum on a grid with 100 points
+in $k$-space, we need to solve 100 times a differential equation.
+For this reason, parallelizing the numerical implementation plays an important role.
 
-First, we compute the linear growth function for a specific Horndeski
+In our numerical implementation, we first compute the linear growth function for a specific Horndeski
 model, using \cref{eq:omegamatrix-horn} and the corresponding linear propagator. 
-With this we
+With it we
 obtain the growth rate and the growth factor, which are then used
-to calculate terms in the loop integrals.
-
+to calculate terms in the 1-loop integrals.
 The initial power spectrum at a high redshift ($z \approx 100$)
-is obtained from CAMB (developed in \cite{lewis_efficient_2000})
+is obtained from CAMB (see \cite{lewis_efficient_2000})
 and it is evaluated
 at 100 points in $k$-space. 
 Finally, we compute the \ref{eq:evolution-eqn-Chi} for each $k$ mode
 in  a parallel evaluation in \texttt{Wolfram Mathematica}. 
 The computing time to evaluate the power spectrum up to $z=0$,
-using 8 cores on a personal computer, is of about
+using 4 cores on a personal computer, is of about
 30 seconds.
 
 Now we will show preliminary results for a Horndeski model which we will label as YB1, and
@@ -1074,7 +1075,7 @@ is suppressed at high redshifts $z\gtrsim 1$.}
 	\label{fig:change-Dplus-Y}
 \end{figure}
 For the same model, we can compare how the $f \sigma_{8}$ curve would behave if we include linear or non-linear calculations. This is
-shown in \cref{fig:YB1-fsigma8}, where we are using the data points from \mcite{Macaulay et al. (2013)}.
+shown in \cref{fig:change-fsigma8-Y}, where we are using the data points from \mcite{Macaulay et al. (2013)}.
 The solid red and blue lines, stand for a linear calculation of $f \sigma_{8}$ at $k=0.01 \mathrm{h/Mpc}$ and 
 $k=0.2 \mathrm{h/Mpc}$, respectively. The green line with dots, is a non-linear calculation at  $k=0.01 \mathrm{h/Mpc}$.
 We see that the inclusion of non-linearities can play an important role. This simplified Horndeski model, would be still compatible
@@ -1089,13 +1090,11 @@ with the data points shown in red.
 	are taken from \mcite{Macaulay et al. (2013)}.}
 	\label{fig:change-fsigma8-Y}
 \end{figure}
-
 Finally, we show in \cref{fig:PS-resummed-YB1}, for the same Horndeski model YB1, its non-linear power spectrum vs. the one in $\lcdm$,
 with the same cosmological parameters. As a reference, we also show the input linear power spectrum, extrapolated to $z=0$,
 using linear theory. We can see that the model YB1 (blue line), has a 1\%
 higher power spectrum at scales $k \approx 0.1$, compared to $\lcdm$, increasing up to 5\% at $k \gtrapprox 0.5$.
 As we have seen in previous discussions in this dissertation (see \cref{chap:lin-nonlin-MG-forecasts} and \cref{chap:Fitting-CDE}), this is an effect that can be measured by future galaxy redshift surveys.
-
 \begin{figure}[tbph]
 	\centering
 	\includegraphics[width=0.9\linewidth]{Chapters/resummation-plots/PS-Resummation-YB1-vs-LCDM.pdf}
@@ -1130,10 +1129,8 @@ In recent years there has been substantial progress in this direction, with more
 methods, capable of calculating structure formation in modified gravity theories (see, \mcite{Winther, Baldi, COLA 2016, Li}).
 Moreover, we will also profit from recent Boltzmann codes like \textsc{EFTCAMB} by \cite{hu_eftcamb/eftcosmomc:_2014-1} and 
 \textsc{hi-CLASS} by \cite{zumalacarregui} that can provide a more exact initial power spectrum in the models
-we are studying here.
-
-The results of this chapter so far, will be published in a paper together with Dr. Massimo Pietroni and
-Dr. Valeria Pettorino.
+we are studying here.\footnote{The results of this chapter so far, will be published in a paper together with Dr. Massimo Pietroni and
+Dr. Valeria Pettorino.}
 
 
 
@@ -1188,21 +1185,23 @@ of simulating trillions of particles \mcite{Illustris, Coyote, DEUS}, including 
 gravitational physics, but also star formation, galactic and supernova feedback, magnetic fields and
 many more complicated astrophysical phenomena \mcite{Illustris, Springel}.
 
+\footnote{Parts of the following text have appeared as part of papers by the author 
+	(see attached list of papers)
+and as part of the author's Master thesis, submitted at the University of Heidelberg, 2013.}
 To perform an exact evolution of the density fluctuations, beyond
 linear perturbations, the density field has to be represented by a
 set of fictitious discrete particles with a certain mass. These particles
 do not represent real galaxies or clusters of galaxies, they just
 sample the underlying density field. For current cosmological simulations,
 depending on the desired resolutions, the particle masses are around
-$m_{p}\approx10^{9}-10^{12}M_{\odot}$, see \citet{kuhlen_numerical_2012}.
-\footnote{Parts of the following text have appeared as part of papers by the author (see list of papers)
-and as part of his Master thesis, presented at the University of Heidelberg, 2013.}
+$m_{p}\approx10^{9}-10^{12}M_{\odot}$ ($M_{\odot}$ = 1 solar mass = $1.99 \times 10^{30} \mathrm{kg}$), see \citet{kuhlen_numerical_2012}.
+
 
 The equations of motion for each particle depend on solving for the
 gravitational field due to all the other particles, finding the change
-in particle positions and velocities over some small time step. Then
+in particle positions and velocities over some small time step. Then,
 particle positions and velocities have to be updated and the gravitational
-potentials have to be recalculated to start a new iteration. For cosmological
+potentials have to be recalculated in order to start a new iteration. For cosmological
 simulations, where we suppose the Universe to be isotropic and homogeneous
 at large scales and described by a smooth FLRW metric, we use the
 fact that at smaller scales the Universe must tend to locally inertial
@@ -1210,11 +1209,23 @@ frames where Newton's laws are valid. Therefore we can just use Newtonian
 dynamics and the expansion history of the Universe is taken into account
 by using comoving coordinates, where the expansion rate $a(t)$ is
 factored out (see \citet{peacock_cosmological_1999,dehnen_n-body_2011}).
-We then obtain for the comoving velocity $u$ the following equations:
+As was mentioned in \mcite{Coley, Wiltshire, 2017}, standard cosmological simulations
+can be expressed by:
+\emph{"Friedmann tells space how to curve and Newton tells matter how to move"}.
+However, in the past couple of years, there has been an increasing interest
+in fully general-relativistic codes, either imposing an FLRW metric and treating the equations
+perturbatively (\mcite{gevolution, Adamek, Durrer, Kunz, 2016}) or solving the full non-linear 
+equations, without imposing any background in a numerical-relativity framework (\mcite{Giblin,
+Mertens, Starkman, 2015}).
+
+
+
+Returning to our equations of motion, 
+we obtain for the comoving velocity $u$ the following relation:
 \begin{equation}
-\frac{d}{dt}\vec{u}=-2\frac{\dot{a}}{a}u-\frac{1}{a^{2}}\nabla\Phi
+\frac{d}{dt}\vec{u}=-2\frac{\dot{a}}{a}u-\frac{1}{a^{2}}\nabla\Psi
 \end{equation}
-where $\Phi$ is the Newtonian gravitational potential due to density
+where $\Psi$ is the Newtonian gravitational potential due to density
 perturbations. If we change the time variable from $t$ to $a$ we
 obtain:
 \begin{equation}
@@ -1255,11 +1266,9 @@ small distances to something like (see \citet{trenti_gravitational_2008}):
 where $\epsilon>0$ is the softening or smoothing length, which is
 a typical size below which the gravitational interaction is suppressed.
 In current cosmological N-body simulations, the softening length is
-found to be: $1.0h^{-1}\mbox{kpc}\leq\epsilon\leq150h^{-1}\mbox{kpc}$,
-meaning that most of the simulations cannot resolve halos or subhalos
-of galaxies and can only focus on large scale structure formation.
-The choice of gravitational softening length is still a debate among
-the community, since making it to small increases computational effort
+found to be: $1.0h^{-1}\mbox{kpc}\leq\epsilon\leq150h^{-1}\mbox{kpc}$.
+The choice of gravitational softening length is a difficult one,
+since making it too small increases computational effort
 (due to smaller time steps), but allows for more realistic gravitational
 potentials and on the other hand it introduces spurious two-body relaxation
 effects that can cause artificial fragmentation of structure (see
@@ -1274,7 +1283,7 @@ equation, a faster approach is to use Fourier methods for discretized
 systems, such as the FFT (see \ref{sub:Fourier-Transform-Discr})
  and solve directly for Poisson's equation in Fourier space: 
 \begin{equation}
-(\nabla\Phi)_{k}=-i\Phi_{k}\mathbf{k}=\frac{-i4\pi Ga^{2}\overline{\rho}}{k^{2}}\delta_{k}\mathbf{k}
+(\nabla\Psi)_{k}=-i\Psi_{k}\mathbf{k}=\frac{-i4\pi Ga^{2}\overline{\rho}}{k^{2}}\delta_{k}\mathbf{k}
 \end{equation}
 Then we can eliminate the matter density in terms of $\Omega_{m}$
 and for a given particle, the equation of motion would be: 
@@ -1330,7 +1339,7 @@ from different cells with center of mass $\vec{z_{a}}$, depending
 on some opening angle: $\mbox{sin}(\theta)=\left|\vec{x}-\vec{z}_{a}\right|/w_{a}$,
 where $w_{a}$ is the linear size of the box (this is the easiest
 approximation, for a formal derivation of the tree code, using taylor
-expansions and multipoles, see \citet{dehnen_n-body_2011}). If the
+expansions and multipoles, see \mcite{dehnen_n-body_2011, springel}). If the
 opening angle is bigger than wanted, one applies the algorithm to
 the daughter cells. In this way one gets the contributions from all
 possible groups of particles. This method offers a computational time
@@ -1340,30 +1349,31 @@ a standard particle-particle interaction is calculated. The complicated
 aspect of the tree method is, among others, how to visit each cell
 only once, in a highly parallelizable way. Really efficient methods
 have been developed, using Peano-Hilbert curves, such as in the Gadget-2
-code, which is a Tree-PM code (\citet{springel_cosmological_2005}).
+code, which is a Tree-PM code (see \cite{springel_cosmological_2005}).
 A drawback of this method is that each interaction is only one-sided,
 meaning that the force of a single particle on the group of particles
 of a distant cell is not calculated and therefore Newton's third law
 is violated. This can lead to fluctuations in the total energy of
-the N-body system, but it has been shows that this spurious effects
-can be kept quite small (see \citet{dehnen_n-body_2011}). In \ref{fig:5.1}
-(top), the binary tree hierarchy of the simulation box can be seen
-and (bottom) a comparison between the computation of the force with
-direct sumation and the tree algorithm. The computational advantage
-of the tree algorithm can be really appreciated in this case.
-\item \textbf{Fast Multipole Methods FMM: }This modern method uses the fact
-that in a standard tree implementation, one does not take advantage
-of the fact that the force caused by distant cells will be the same
-for nearby particles. This method not only expands the distant source
-potentials into multipoles, but also expands the force at the sink
-position, leading to a gain in speed that is quite considerable, leading
-to computational efforts of order $\mathcal{O}(N)$. Since the interaction
-is approximated by cells at both ends of the interaction (each interaction
-is mutual), Newton's third law is respected and no spurious effects
-arise. At nearby distances a particle-particle method is employed
-as usual. The drawback of this method is that its parallelization
-is not so straighforward and has not been developed yet. For more
-references, check \citet{dehnen_n-body_2011}.
+the N-body system, but it has been shows that these spurious effects
+can be kept quite small (see \citet{dehnen_n-body_2011}). 
+%In \ref{fig:5.1}
+%(top), the binary tree hierarchy of the simulation box can be seen
+%and (bottom) a comparison between the computation of the force with
+%direct sumation and the tree algorithm. The computational advantage
+%of the tree algorithm can be really appreciated in this case.
+%\item \textbf{Fast Multipole Methods FMM: }This modern method uses the fact
+%that in a standard tree implementation, one does not take advantage
+%of the fact that the force caused by distant cells will be the same
+%for nearby particles. This method not only expands the distant source
+%potentials into multipoles, but also expands the force at the sink
+%position, leading to a gain in speed that is quite considerable, leading
+%to computational efforts of order $\mathcal{O}(N)$. Since the interaction
+%is approximated by cells at both ends of the interaction (each interaction
+%is mutual), Newton's third law is respected and no spurious effects
+%arise. At nearby distances a particle-particle method is employed
+%as usual. The drawback of this method is that its parallelization
+%is not so straighforward and has not been developed yet. For more
+%references, check \citet{dehnen_n-body_2011}.
 \end{itemize}
 
 %\begin{figure}[h]
