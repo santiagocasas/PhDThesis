@@ -173,7 +173,7 @@ of \cref{eq:deltaprimeprime}.
 	\textbf{Left:} growth rate function $f(a)$, calculated by two different methods. In orange, the $\Omega^\gamma$-approximation, with $\gamma=5/9$, while
 	in green the exact analytical solution from \cref{eq:Dplus-Hyper}.
     \textbf{Right:} Ratio of each of the two methods to the numerical solution of \cref{eq:fgrowth-of-N}, same coloring as before. The exact and numerical solution
-agree exactly, while the $\gamma$-approximation is fine at the permille level.}
+agree exactly, while the $\gamma$-approximation is fine at the per mille level.}
 	\label{fig:fgrowthrate-ofa-approx-vs-exacthyper}
 \end{figure}
 
@@ -226,37 +226,52 @@ In the right panel of \cref{fig:fgrowthrate-ofa-approx-vs-exacthyper},
 we plot the ratio between the $\gamma$-approximation and the numerical solution
 of \cref{eq:fgrowth-of-N} in orange solid lines,
 while in dashed green we plot the ratio of the exact solution to the numerical one.
-The latter agrees exactly, while the $\gamma$-approximation is accurate at the permille level.
+The latter agrees exactly, while the $\gamma$-approximation is accurate at the per mille level.
 
 \section{The non-linear fluid equations \label{sec:nonlinear-fluid}}
 
-
-
-For studying large scale structure formation we will treat the Dark
-Matter distribution as a perfect fluid coupled to gravity, described
-by the continuity, Euler and Poisson's equations. This amounts to
-neglecting higher moments of the Vlasov equation, such as the stress
-tensor and velocity dispersion (see \cite{bernardeau_large-scale_2001}).
-This is equivalent to the single stream approximation and is one of
+In order to study large scale structure (LSS) formation we will treat the Dark
+Matter distribution as a perfect fluid of collisionless particles
+coupled to gravity. These particles, with positions $\vk x$, mass
+$m$ and momenta $\vk p$, are described by the Vlasov equation
+in phase-space, with the phase space density $f(\vk x, \vk p, \tau)$
+:
+\beeqp$
+\totder{f}{\tau} = \parder{f}{\tau} + \frac{\vk p}{m a} \nabla f -
+a m \nabla \Psi \cdot \parder{f}{\vk p}
+$
+This equation together with the Poisson equation \cref{eq:Newtonian-Poisson},
+form the Vlasov-Poisson system (see \cite{bernardeau_large-scale_2001}).
+Since we are interested in the evolution in time of the spatial distribution,
+we can take momentum moments of the Vlasov equation. This will yield
+an infinite hierarchy of coupled differential equations, where the zeroth-moment
+of the phase-space distribution ($\rho$) is coupled to the first-moment ($\vk u$),
+the first-moment to the second $\sigma_{ij}$ and so on (see \cite{bernardeau_large-scale_2001}).
+For our purposes we will neglect the anisotropic stress tensor $\sigma_{ij}$,
+which describe velocity dispersion and anisotropic pressure.
+and so on.
+This is the so-called \emph{single stream approximation} and is one of
 the main limitations of Eulerian perturbation theory, since the theory
 breaks down as soon as shell crossing and multi-streaming start being
 important.
 
-In the Einstein frame and in real space, we have the following fluid equations for a
-general modification of gravity (see \cite{pietroni_flowing_2008}):
-
+From the first two momentum-moments of the Vlasov equation, giving rise
+to the continuity and Euler equations, together 
+with the Poisson equation, we can find the fluid equations of the system, 
+where we will add from the start two general terms $\mathcal{A} (\vk x,\tau)$
+and $\mathcal{B} (\vk x,\tau)$ in real space, which account for modifications
+of gravity either in the Einstein or Jordan frames (see \cite{pietroni_flowing_2008}):
 \beeqal$ 
-\dot{\delta}_{c}(\vk x,\tau) & +\nabla\cdot\left[\left(1+\delta_{c}(\vk x,\tau)\right)\vk v (\vk x,\tau)\right]=0\label{eq:continuity}\\
+\dot{\delta}(\vk x,\tau) & +\nabla\cdot\left[\left(1+\delta(\vk x,\tau)\right)\vk v (\vk x,\tau)\right]=0\label{eq:continuity}\\
 \begin{split}
 \dot{\vk v} (\vk x,\tau) & +\curH \left( \vk v (\vk x,\tau) + \left[\mathcal{A} (\vk x,\tau)\vk v (\vk x,\tau)\right] \right) \\
                          & + \left(\vk v (\vk x,\tau) \cdot\nabla\right)\vk v (\vk x,\tau)=-\nabla\Psi (\vk x,\tau)   \label{eq:euler}
 \end{split}\\
-\nabla^{2}\Psi(\vk x,\tau) & =\frac{3}{2}\curH^{2}(\tau)\Omega_{c}(\tau)\left(\delta_{c} (\vk x,\tau)+\left[\mathcal{B}(\vk x,\tau) \delta_{c} (\vk x,\tau)\right]\right)\label{eq:poisson}
+\nabla^{2}\Psi(\vk x,\tau) & =\frac{3}{2}\curH^{2}(\tau)\Omega_{m}(\tau)\left(\delta (\vk x,\tau)+\left[\mathcal{B}(\vk x,\tau) \delta (\vk x,\tau)\right]\right)\label{eq:MG-poisson-fluid}
 $
-Here $\tau$ is the conformal time, and an overdot represents a derivative with respect to $\tau$. The
+Here, as usual in our notation, $\tau$ is the conformal time, and an overdot represents a derivative with respect to $\tau$. The
 symbols $\delta_{c}(\vk x,\tau)$ and $\vk v(\vk x,\tau)$
-are respectively the matter density contrast and the peculiar velocity, 
-$\curH=\d\ln a/\d\tau$ is the conformal Hubble parameter, $\Psi(\vk x,\tau)$
+are respectively the matter density contrast and the peculiar velocity. $\Psi(\vk x,\tau)$ is
 the $00$-gravitational potential and the functions $\mathcal{A}(\vk x,\tau)$
 and $\mathcal{B}(\vk x,\tau)$ are general functions of space and
 time that parameterize different cosmologies, for example when particles' geodesics
@@ -268,57 +283,27 @@ However, in the Jordan
 frame, where Horndeski's theory is formulated, the Euler equation is
 not modified and there is only a space-time dependent modification
 to the Poisson equation, which will be connected to the scale-time dependent
-function $\mu(k,t)$, defined below.
-Within this chapter,  $\Omega_{m}(\tau)$$\equiv$$\Omega_{c}(\tau)$
-is the time function representing the cold dark matter (CDM) density of the Universe.
+function $\mu(k,t)$, defined below and used extensively in the previous \cref{chap:lin-nonlin-MG-forecasts}.
+Within this chapter,  $\Omega_{m}(\tau)$
+is the function representing the cold dark matter (CDM) density of the Universe.
 For simplicity, we will neglect baryonic matter and neutrinos. 
 
-%The last term in the left hand side of eqns. \ref{eq:continuity}
-%and \ref{eq:euler} is what causes the nonliniearities in the evolution
-%of the fluid. This can be seen in Fourier space as a mode-mode coupling
-%or expressed as a nonlocality of the equations. This is the property
-%that describes how a specific Fourier mode is able to depend on another
-%mode at a different wave vector. 
-
-
-
-
-
-%For dimensional reasons \comment{VP: what do you mean? dimensional
-%reasons cannot tell you anything about the amplitude of any quantity}
-%and since we expect that the potentials vary only strongly \comment{VP:
-%what does it mean to vary only strongly? only or strongly?} at scales
-%compared to the horizon $H^{-1}$, we must have that \comment{VP:
-%do you mean you are assuming it?} $\ddot{\Phi}\sim H\dot{\Phi}\sim H^{2}\Phi$
-%and besides we also expect $\Psi\sim\Phi$ at least at the linear
-%level (\comment{VP: not sure how this can be true in MG theories
-%nor why we need it at all. I would delete. In general only use precise
-%and motivated statements or don't say it at all.}). If we then divide
-%Eq. \ref{eq:deltadotdot} by $H^{2}$, the potentials $\Phi$ can
-%be neglected with respect to the term containing $k^{2}/H^{2}$, since
-%for subhorizon scales ($k\gtrsim0.01h/\mbox{Mpc})$ it is many orders
-%of magnitude bigger. Therefore we obtain: \comment{VP: I would completely
-%delete all this text after eq.(4) and just say: in the Newtonian limit
-%(or directly quasi-static), for which $k/H\ll1$, Eq. 4 reduces to:}
 In the following, we will stay within the quasi-static
 limit, i.e restrict to scales much smaller than the cosmological horizon
 ($k/aH\gg1$) and well inside the Jeans length of the scalar field
 $c_{s}k\gg1$, so that terms containing $k$ dominate over terms containing
-time derivatives. In this case, Eq. \ref{eq:deltadotdot} reduces
-to: 
-\begin{equation}
-\ddot{\delta}(\tau,\vk k)+H\dot{\delta}(\tau,\vk k)+k^{2}\Psi(\tau,\vk k)=0\,.\label{eq:growth-rate-Psi}
-\end{equation}
-The gravitational potential is then obtained from the Poisson equation,
-that relates the gravitational potential to matter and relativistic
-species in the universe, by perturbing the Einstein field equations
-to first order.
+time derivatives. So that \cref{eq:deltadotdot-sourced-tau} is the equation
+governing the evolution of matter perturbations.
 
-In the quasi-static limit, for general modified gravity theories, the deviation
-of the gravitational potentials from General Relativity has a known
-scale dependence in the Poisson equation, given by \citep{...}: 
+
+For general modified gravity theories, the deviation
+of the gravitational potentials from General Relativity,
+can be parameterized with two arbitrary functions
+of scale and time: $\mu(k,a)$ and $\eta(k,a)$,
+as was explained in \cref{chap:DE-MG-Overview}, \cref{sub:parameterizing-MG}.
+However, in the quasistatic limit for Horndeski theories, these two functions have a specific form, given by \mcite{amendola, observables, bellini}: 
 \begin{equation}
-\mu(k,a)\equiv-\frac{2k^{2}\Psi}{3\Omega_{m}\delta_{m}}=h_{1}\left(\frac{1+(k/k_{*})^{2}h_{5}}{1+(k/k_{*})^{2}h_{3}}\right)\label{eq:Yfunc}
+\mu(k,a)\equiv-\frac{2k^{2}\Psi}{3\Omega_{m}\delta_{m}}=h_{1}\left(\frac{1+(k/k_{*})^{2}h_{5}}{1+(k/k_{*})^{2}h_{3}}\right)\label{eq:mufunc}
 \end{equation}
 where $h_{1},h_{3},h_{5}$ are functions of time only. A similar expression,
 with different time dependent coefficients $h_{2},h_{4}$, holds for
@@ -326,23 +311,21 @@ the gravitational slip $\eta$:
 \begin{equation}
 \eta(k,a)\equiv-\frac{\Phi}{\Psi}=h_{2}\left(\frac{1+(k/k_{*})^{2}h_{4}}{1+(k/k_{*})^{2}h_{5}}\right)\,.\label{eq:etaFunc}
 \end{equation}
-In this work we will consider all $h_{i}$ functions as constants,
-for simplicity, although in general they are all functions of time.
-%since we are expecting them not to affect so much the evolution of growth with respect to%a fiducial LCDM model. %Once a specific model of the Horndeski class%is chosen, the $h_i$ functions and their time dependence can be calculated%and its approximated constant value during the time of structure growth%can be estimated. The
-$k_{*}$ is an arbitrary pivot scale, chosen at large scales close
-to the horizon, in order to fulfil the quasi-static limit.
-
-As it can be seen from eqns. \ref{eq:Yfunc} and \ref{eq:etaFunc},
+For the remainder of this chapter, we will consider all $h_{i}$ functions as constants in order to simplify our computations and to show the main effects of MG, without specifying
+a model. The scale $k_{*}$ is an arbitrary pivot scale, which can be chosen accordingly.
+As it can be seen from  \cref{eq:Yfunc} and \cref{eq:etaFunc},
 the functions $h_{5}$ and $h_{3}$ are degenerate as well as $h_{4}$
-and $h_{5}$. %Since $h_{5}$ appears in the denominator as well as%in the numerator of both equations, a combination of both such as%$\mu(1+\eta)$ also retains the smae structure. %This is of importance%since such a combination would appear in the modified weak lensing%potential. The
-$\Lambda\textrm{CDM}$ case is recovered when $\mu=\eta=1$, which
+and $h_{5}$. The $\Lambda\textrm{CDM}$ case is recovered when $\mu=\eta=1$, which
 implies $h_{5}=h_{4}=h_{3}$ and an amplitude $h_{1}=h_{2}=1$.
 
-In the following, we will focus on CDM perturbations and deal only
-with the function $\mu(k,a)=\mu(k)$ (although perturbations require
+Since we are in the QS limit, the only MG function entering the perturbation equations
+is $mu(a,k)$. The function $\eta(a,k)$ could enter the equations
+if we would not neglect the derivatives of the gravitational potential $\Phi$, as 
+was shown in \cref{chap:lin-nonlin-MG-forecasts}.
+In the following we will only consider the scale-dependence of $\mu$, therefore $\mu(k,a)=\mu(k)$ (although perturbations require
 two functions of time and scale to fully specify the model). In particular,
 we will test the following cases: 
-\begin{enumerate}
+\begin{enumerate} \label{enum:enumeration-cases}
 	\item Scale independent $\mu$ with modified amplitude: $h_{5}=h_{3}$ and
 	$h_{1}>1$ or $h_{1}<1$. 
 	\item Scale dependent $\mu$ with unity amplitude: $h_{1}=1$ and $h_{5}>h_{3}$
@@ -350,15 +333,26 @@ we will test the following cases:
 	\item Scale dependent $\mu$ with modified amplitude: $h_{1}\neq1$ and
 	$h_{5}>h_{3}\mbox{ or }h_{5}<h_{3}$. 
 \end{enumerate}
+An example of these $\mu(k)$ functions is shown in \cref{fig:Mu(k)function}, where we show the 
+function $\mu(k)$ for three different cases. The solid blue line stands for case 1, in which only the amplitude of
+$\mu$ changes, but there is no scale dependence. The orange dashed line in this figure, stands for case 2, 
+in which the amplitude is unity at large scales and there is a $k$-dependence at smaller scales. 
+Finally, in dot-dashed-green, we show case 3 in which both the amplitude and the scale-dependence deviate from standard GR.
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.75\linewidth]{Chapters/resummation-plots/mu-of-k-plots-3cases.pdf}
+	\caption[MG function $\mu(k)$]{Function $\mu(k)$ for three different cases specified in the text. The solid blue line stands for case 1, in which only the amplitude of
+	$\mu$ changes, but there is no scale dependence. The orange dashed line is case 2, 
+in which the amplitude is unity at large scales and there is a $k$-dependence at smaller scales. In dot-dashed-green, we show case 3 in which both the amplitude and the scale-dependence deviate from standard GR.}
+	\label{fig:Mu(k)function}
+\end{figure}
 
-
-In logarithmic space $\mu(k)$ is very close to a step function, as
-shown in figure \ref{fig:Y(k)-function}, so that we will only use
-values for the $h_{i}$ in which the difference of the minimum and
-the maximum is of the order of 15\%, since otherwise we would impose
-a rather unrealistic structure formation.
-
-
+%
+%In logarithmic space $\mu(k)$ is very close to a step function, as
+%shown in figure \ref{fig:Y(k)-function}, so that we will only use
+%values for the $h_{i}$ in which the difference of the minimum and
+%the maximum is of the order of 15\%, since otherwise we would impose
+%a rather unrealistic structure formation.
 %\section{Standard perturbation theory and higher orders}
 %\begin{itemize}
 %\item Vlasov-Poisson system
@@ -373,35 +367,34 @@ a rather unrealistic structure formation.
 \section{The field notation\label{sec:The-field-notation}}
 
 
-We can express equations \ref{eq:continuity}-\ref{eq:poisson} in a compact
-form introduced by \cite{scoccimarro_new_2000}.
-
-The density is a scalar degree of freedom and the velocity can be
-decomposed such that:
-
+We can express \crefrange{eq:continuity}{eq:MG-poisson-fluid} in a compact
+form, known as the field notation, which was introduced in the literature of
+standard perturbation theory (SPT) and renormalized
+perturbation theory (RPT) (see \cite{bernardeau_large-scale_2001,crocce_renormalized_2005,pietroni_flowing_2008}). 
+To do so, we will transform \crefrange{eq:continuity}{eq:MG-poisson-fluid} into Fourier space.
+In linear theory, this is a straightforward computation,
+since partial derivatives transform into $\partial \rightarrow ik$.
+However, if we take into account the non-linear terms, these become convolutions
+in Fourier space.
+First we decompose the velocity such that:
 \begin{equation}
-\vk v(\vk k)=\vk v_{\theta}(\vk k)+\vk{v{}_{\omega}}(\vk k)
+\vk v(\vk k)=\vk v_{\theta}(\vk k)+\vk{v{}_{\omega}}(\vk k) \quad,
 \end{equation}
 where:
 \begin{align*}
 \vk k\cdot\vk{v_{\omega}}(\vk k) & =0\\
 \vk k\times\vk{v_{\theta}}(\vk k) & =0
 \end{align*}
-
-
 According to linear theory the vorticity component $\vk{v{}_{\omega}}(\vk k)$
 decays with the expansion of the Universe as $a^{-1}$, so if we assume
 non-vortical initial conditions, we can neglect this term and look
 only at the velocity divergence $\theta=i\vk k\cdot\vk v$, which
 is now a scalar function. Inverting this last relation to get: $\vk v=-\frac{i\vk k}{k^{2}}\theta$,
 allows us to perform the Fourier transforms explicitly:
-
 \begin{align*}
 \mathit{FT}\left\{ \nabla\cdot(\delta_{m}\vk v)\right\}  & =+i\vk k\int\d^{3}q\d^{3}p\delta_{D}(\vk p+\vk q-\vk k)\frac{-i\vk p}{p^{2}}\delta_{m}\ppt q\theta\ppt p\\
 & =\int\d^{3}q\d^{3}p\delta_{D}(\vk k-\vk p-\vk q)\underbrace{\frac{\left(\vk p+\vk q\right)\cdot\vk p}{p^{2}}}_{\alpha(\vk p,\vk q)}\delta_{m}\ppt q\theta\ppt p
 \end{align*}
-
-
 \begin{align*}
 \mathit{FT}\left\{ \nabla\cdot\left[\left(\vk v\cdot\nabla\right)\cdot\vk v\right]\right\}  & =i\vk k\cdot\int\d^{3}q\d^{3}p\delta_{D}(\vk q+\vk p-\vk k)\left(\frac{-i\vk q}{q^{2}}\cdot i\vk p\right)\frac{-i\vk p}{p^{2}}\theta\ppt q\theta\ppt p\\
 & =\vk k\cdot\int\d^{3}q\d^{3}p\delta_{D}(\vk k-\vk q-\vk p)\left(\frac{\vk p\cdot\vk q}{p^{2}q^{2}}\right)\vk p\,\theta\ppt q\theta\ppt p\\
@@ -410,84 +403,85 @@ allows us to perform the Fourier transforms explicitly:
 where in the last step we used the symmetry between $\vk p$ and $\vk q$.
 The terms marked with an underbrace, are the ones responsible for
 the mode-mode coupling:
-
 \begin{equation}
 \alpha(\vk q,\vk p)=\frac{(\vk p+\vk q)\cdot\vk q}{q^{2}}=\alpha(-\vk q,-\vk p);\;\beta(\vk q,\vk p)=\frac{(\vk p+\vk q)^{2}\vk p\cdot\vk q}{2p^{2}q^{2}}=\beta(-\vk q,-\vk p)\label{eq:alpha-beta-func}
 \end{equation}
-
-In the perturbation theory literature \cite{bernardeau_large-scale_2001,crocce_renormalized_2005,pietroni_flowing_2008},
-eqns. \ref{eq:continuity}-\ref{eq:poisson} are written in a more
-compact way (also called field notation):
-
+Defining a field doublet $\varphi_a$, with index $a$ as: 
 \begin{equation}
-\partial_{\eta}\varphi_{a}(\vk k,\eta)=-\Omega_{ab}\pkn\varphi_{b}\pkn+e^{\eta}\gamma_{abc}(\vk k,\vk{-p},\vk{-q})\vpa b\ppn p\vpa c\ppn q\label{eq:field notation}
+\vpa a\pkn=e^{-\eta}\colv{\delta_{m}\pkn}{-\theta\pkn/\curH} \quad,\label{eq:field-doublet}
 \end{equation}
-
-
-Where the field doublet is defined as: 
-\begin{equation}
-\vpa a\pkn=e^{-\eta}\colv{\delta_{m}\pkn}{-\theta\pkn/\curH}\label{eq:field-doublet}
+we obtain the Euler, continuity and Poisson equations in a compact form:
+\begin{equation}\label{eq:field notation}
+\partial_{\eta}\varphi_{a}(\vk k,\eta)=-\Omega_{ab}\pkn\varphi_{b}\pkn+e^{\eta}\gamma_{abc}(\vk k,\vk{-p},\vk{-q})\vpa b\ppn p\vpa c\ppn q \quad.
 \end{equation}
+In the above equation we have defined a new time variable which will prove to be very convenient for our calculations:
+\beeqp$ 
+\eta\equiv\ln\frac{a}{a_{in}}
+$
+The r.h.s. of  \cref{eq:field notation} contains two terms, the first one
+corresponds to the ``linear`` evolution of perturbations, where the $\Omega_{ab}$
+matrix encodes the cosmology dependence:
+\begin{equation}\label{eq:general-Omega-Matrix}
+\Omega_{ab}\pkn=\begin{pmatrix}1 & -1\\
+-\frac{3}{2}\Omega_{m}(\eta)(1+\mathcal{B}\pkn) & 2+\frac{\curH'}{\curH}+\mathcal{A}\pkn
+\end{pmatrix} \quad,
+\end{equation}
+where here the functions $\mathcal{B}\pkn$ and $\mathcal{A}\pkn$ are the Fourier space
+transforms of the same functions defined in the Vlasov-Poisson system 
+and encode possible modifications of gravity.
+In Horndeski theories under the QS limit, we can identify:
+\beeqal$
+(1+\mathcal{B}\pkn) = \mu(\eta,k) \\
+\mathcal{A}\pkn = 1 \quad.
+$
 
-
-and we define a new time variable which will prove to be very convenient
-in this notation
-
-\[
-\eta\equiv\log\frac{a}{a_{in}}
-\]
-
-
-On the l.h.s. of eqn. \ref{eq:field notation} the second term represents
-all the nonlinearities and non-localities, if we neglect this term
-we go back to linear perturbation theory. The $\gamma_{abc}$ functions
+On the r.h.s. of  \cref{eq:field notation}, the second term represents
+all the nonlinearities in real space and therefore non-localities in Fourier space.
+The $\gamma_{abc}$ functions
 in this formalism can be understood as interaction vertices and its
 only non-vanishing components are precisely given by the mode-mode
-coupling functions \ref{eq:alpha-beta-func} : 
+coupling functions $\alpha \textrm{ and } \beta$, defined in \cref{eq:alpha-beta-func} : 
 \begin{align}
 \gamma_{121}\pcq kpq & =\frac{1}{2}\delta_{D}\psq kpq\alpha(\vk p,\vk q) & \;\gamma_{121}\pcq kqp=\gamma_{112}\pcq kpq\label{eq:coupling-vertices}\\
 \gamma_{222}\pcq kpq & =\delta_{D}\psq kpq\beta(\vk p,\vk q)\nonumber 
 \end{align}
-in this notation and throughout this work, an integration over $\vk p,\vk q$
-is understood and $\vk k$ is always the ``external'' momentum.
-The integral signs will be added only when there could be a confusion.
+In this notation and throughout this work, an \emph{integration over} $\vk p,\vk q$
+\emph{is understood} and $\vk k$ is always the ``external'' momentum.
+The integral symbols will be added only if they are needed due to possible confusions
+with the notation.
 
-Due to mode-mode coupling, there is a loss of information about the
-initial conditions in the limit of high-k, since density perturbations
-get mixed \cite{crocce_memory_2006}. This has as a consequence that
-highly-nonlinear corrections to the power spectrum become cosmology-independent
-in a rough way.
-
-The information about the cosmological background is contained in:
-\begin{equation}
-\Omega_{ab}\pkn=\begin{pmatrix}1 & -1\\
--\frac{3}{2}\Omega_{m}(\eta)(1+\mathcal{B}\pkn) & 2+\frac{\curH'}{\curH}+\mathcal{A}\pkn
-\end{pmatrix}\label{eq:general-Omega-Matrix}
-\end{equation}
+%\texttt{Due to mode-mode coupling, there is a loss of information about the
+%initial conditions in the limit of high-k, since density perturbations
+%get mixed \cite{crocce_memory_2006}. This has as a consequence that
+%highly-nonlinear corrections to the power spectrum become cosmology-independent
+%in a rough way.}
 
 
-Where we have the usual definitions: $\curH=aH,\; a\mbox{d}\tau=\mbox{d}t,\; a'=\frac{\mathrm{d}a}{\d\ln a}=a,\;\frac{\curH'}{\curH}=\frac{H'}{H}+1,$
-where $':=\frac{\d}{\d\ln a}$ and $N\equiv\ln a$ is what is typically
-called the e-foldings time.
 
-For details on how to go back to the usual fluid equations \ref{eq:continuity}-\ref{eq:poisson}
-in Fourier space starting from the field equation \ref{eq:field notation},
-see Appendix \ref{sec:Appendix-field-equations}.
+%Where we have the usual definitions: $\curH=aH,\; a\mbox{d}\tau=\mbox{d}t,\; a'=\frac{\mathrm{d}a}{\d\ln a}=a,\;\frac{\curH'}{\curH}=\frac{H'}{H}+1,$
+%where $':=\frac{\d}{\d\ln a}$ and $N\equiv\ln a$ is what is typically
+%called the e-foldings time.
+
+%For details on how to go back to the usual fluid equations \ref{eq:continuity}-\ref{eq:poisson}
+%in Fourier space starting from the field equation \ref{eq:field notation},
+%see Appendix \ref{sec:Appendix-field-equations}.
 
 Equation \ref{eq:field notation} is the starting point for all renormalization
-and resummation methods \cite{crocce_renormalized_2005,bernardeau_evolution_2013,bernardeau_constructing_2012,valageas_matter_2013,anselmi_nonlinear_2012,anselmi_next--leading_2010}.
+and resummation methods, like the ones introduced by \cite{crocce_renormalized_2005,bernardeau_evolution_2013,bernardeau_constructing_2012,
+	valageas_matter_2013,anselmi_nonlinear_2012,anselmi_next--leading_2010}.
 The linear part can be easily solved and the function relating the
 initial primordial density perturbations to the final one, is called
-the linear propagator and will be studied in section \ref{sub:linear propagator}.
-The nonlinear part, cannot be solved exactly analytically, nor numerically.
-But a perturbative approach using all tools from Quantum Field Theory
+the linear propagator and will be studied in section \ref{sec:linear propagator}.
+The nonlinear part, cannot be solved analytically, nor with a simple
+numerical integration.
+However, a perturbative approach using tools from Quantum Field Theory
 can be used to regularize its divergences which are caused by the
 fact that the density perturbations (which is at the same time the
 perturbation variable) grows with time and increasing wave vector.
 For this part we will use the resummation technique of \cite{anselmi_nonlinear_2012}
 and this will be explained in detail in section \ref{sec:The-Evolution-Equation}.
 
-Renormalized perturbation theory (RPT) can help in finding the evolution
+Resumming and renormalizing perturbation theory can help in finding the evolution
 of the nonlinear power spectrum at small scales and late times, but
 even if we could calculate exactly its result at all loop orders,
 there are still intrinsic limitations given by the starting equations
@@ -495,126 +489,133 @@ there are still intrinsic limitations given by the starting equations
 in the later stages of evolution, the initial equations are derived
 in the single-stream-approximation. This means that at a single point
 in space, there can be only one velocity direction. This clearly breaks
-down in the virialization regime and even before. The RPT approach
+down in the virialization regime and even before during late stages of structure formation. 
+Resummation methods
 can be extended and improved by including these other sources of density
 power into the equations in an effective way, see the discussion in
 \cite{manzotti_coarse_2014,pietroni_coarse-grained_2011} and recent
 results in the effective field theory of large scale structures \cite{baumann_cosmological_2012,pajer_renormalization_2013,senatore_ir-resummed_2014,carrasco_effective_2012}.
 
+In the following sections, we will show how to solve the linear part of
+the fluid equations for a general time and scale-dependent growth (see \cref{sec:linear propagator})
+and then we will use these results in \cref{sec:The-Evolution-Equation} to solve the evolution equation of the 
+matter power spectrum, which will yield the non-linear evolution
+of the density perturbations.
 
-\section{The propagator \label{sec:linear propagator}}
+
+\section{The linear propagator \label{sec:linear propagator}}
 
 As was explained above, in eqn. \ref{eq:field notation} the non-linearity
 of the Vlasov-Poisson system of equations is fully encoded in the
 vertex $\gamma_{abc}$ which represents the mode-mode coupling. Without
 this term, we recover the linear equation:
-
 \begin{equation}
-\pet\vpa a\pkn=-\Omega_{ab}\pkn\vpa b\pkn\label{eq:2.1}
+\pet\vpa a\pkn=-\Omega_{ab}\pkn\vpa b\pkn \label{eq:linear-field}
 \end{equation}
-which is valid for a fully scale and time dependent $\Omega_{ab}$.
-
-The linear propagator is just the function that connects the initial
+which is valid for a fully scale and time dependent $\Omega_{ab}$. 
+The linear propagator is the function that connects the initial
 density perturbations with the final ones, or in other words solves
-the above equation \cite{crocce_renormalized_2005}. If this equation
-has solutions of the form \cite{pietroni_flowing_2008}:
+the above equation (\ref{eq:linear-field}) (see \mcite{scoccimarro, pietroni}).
+The linear propagator gives the linear
+evolution of the field $\vpa a$:
+\beeqc$ 
+\vpa a\pkn=g_{ab}(\vk k,\eta,\eta')\vpa b\pkn
+$
+and it has to fulfill following properties:
+\begin{align*}
+\pet g_{ab}(\vk k,\eta,\eta') & =-\Omega_{ac}\pkn\cdot g_{cb}(\vk k,\eta,\eta')\\
+\lim_{\eta'\rightarrow\eta}g_{ab}(\vk k,\eta,\eta') & =\mathbbm{1}_{ab}\\
+g_{ab}(\vk k,\eta,\eta')\cdot g_{bc}(\vk k,\eta',\eta'') & =g_{ac}(\vk k,\eta,\eta'')
+\end{align*}
 
-\[
+\subsection{The linear propagator in the general case}
+
+We can show that the linear propagator can be written in general for the scale and time 
+dependent decaying ($-$) and growing ($+$) modes of the growth rate $f_{\pm}(\vk k,\eta)$ as:
+\begin{equation}
+\begin{aligned}g(\vk k,\eta,\eta') & =\Theta(\eta-\eta')\left[e^{-\int_{\eta'}^{\eta}(\Omega_{11}+\Omega_{12}f_{+})\d x}\begin{pmatrix}1 & 0\\
+0 & \frac{f_{+}\pkn}{f_{+}(\vk k,\eta')}
+\end{pmatrix}\mathrm{\mathbf{M}}{}^{+}(\vk k,\eta')\right.\\
+& \left.+\, e^{-\int_{\eta'}^{\eta}(\Omega_{11}+\Omega_{12}f_{-})\d x}\begin{pmatrix}1 & 0\\
+0 & \frac{f_{-}\pkn}{f_{-}(\vk k,\eta')}
+\end{pmatrix}\mathrm{\mathbf{M}}{}^{-}(\vk k,\eta')\right]
+\end{aligned} \quad ,
+\label{eq:general-propagator}
+\end{equation}
+where $\mathbf{M}{^\pm}$ are projection operators which we will specify in the following
+calculation (see \cite{pietroni_flowing_2008} for more details).
+
+If the linear equation \cref{eq:linear-field}
+has solutions of the form :
+\beeqc$
 \vpa{sol}\pkn=\begin{pmatrix}1\\
 f\pkn
 \end{pmatrix}\varphi\pkn
-\]
+$
 then we can find an equation that describes the evolution of the growth
 of perturbations.
-
 For the index $a=1$:
-
 \begin{equation}
 \pet\varphi=-\Omega_{11}\varphi-\Omega_{12}f\varphi=-(\Omega_{11}+\Omega_{12}f)\varphi\label{eq:linear-phi-eqn}
 \end{equation}
-
-
 For the index $a=2$:
-
 \begin{align}
 \pet(f\varphi) & =f\pet\varphi+\varphi\pet f=-\Omega_{21}\varphi-\Omega_{22}f\varphi\nonumber \\
 \Rightarrow\pet f & =\Omega_{12}f^{2}+(\Omega_{11}-\Omega_{22})f-\Omega_{21}\label{eq:f-growth-rate}\\
 \Rightarrow\pet f & =\Omega_{12}(f-\bar{f}_{+})(f-\bar{f}_{-})\label{eq:fgrowth-factorized-eqn}
 \end{align}
-
-
 Equation \ref{eq:f-growth-rate} is what we usually know as the growth
 rate equation for $f=\d\ln D/\d\ln a$, being $D$ the growth factor
 of density perturbations and in this general case it can have a time
-and scale dependent solution.
-
-The zeros of eqn. \ref{eq:fgrowth-factorized-eqn} are given by:
-
+and scale dependent solution. 
+The zeros of \cref{eq:fgrowth-factorized-eqn} are given by:
 \begin{equation}
 \bar{f}_{\pm}\pkn=\frac{(\Omega_{22}-\Omega_{11})\mp\sqrt{(\Omega_{22}-\Omega_{11})^{2}+4\Omega_{21}\Omega_{12}}}{2\Omega_{12}}\label{eq:2.4}
 \end{equation}
-
-
-The solution of eqns. \ref{eq:linear-phi-eqn} and \ref{eq:fgrowth-factorized-eqn}
-is then given by:
-
+With these equations, we can find the solution of \cref{eq:linear-phi-eqn} and \cref{eq:fgrowth-factorized-eqn} as:
 \begin{align*}
 \varphi(\eta) & =e^{-\int_{\eta'}^{\eta}(\Omega_{11}+\Omega_{12}f)\d x}\varphi(\eta')\\
 f(\eta)\varphi(\eta) & =e^{-\int_{\eta'}^{\eta}(\Omega_{21}+\Omega_{22}f)\d x}f(\eta')\varphi(\eta')\\
  & =e^{-\int_{\eta'}^{\eta}(\Omega_{11}+\Omega_{12}f)\d x}\varphi(\eta')f(\eta')\frac{f(\eta)}{f(\eta')}
 \end{align*}
-
-
 One can identify the basis solutions by setting their initial conditions
 as:
-
-\[
+\beeqc$
 f_{\pm}^{in}=\bar{f}_{\pm}(\vk k,\eta_{i})
-\]
+$
 where $\eta_{i}$ is an initial time that can be set at high redshift
-where the Universe is approximately Einstein-deSitter (E-dS) or strongly
+where the Universe is approximately Einstein-de Sitter (E-dS), therefore
 matter dominated.
 
 For E-dS, $\Omega_{m}=1$ we have very simple background quantities:
 $\mathcal{H}'\backslash\mathcal{H}=-1/2-3w_{eff}/2=-1/2$, so that
 the $\Omega_{ab}$ from equation \ref{eq:general-Omega-Matrix} is
 simply:
-
-\[
+\beeqc$ 
 \Omega_{ab}=\begin{pmatrix}1 & -1\\
 -\frac{3}{2} & \frac{3}{2}
 \end{pmatrix}
-\]
-
-
+$
 which gives the following initial conditions for the growing $u$
 and decaying $v$ modes:
-
-\[
-u_{a}=\begin{pmatrix}1\\
+\beeqal$ 
+u_{a} &= \begin{pmatrix}1\\
 f_{+}^{in}
 \end{pmatrix}=\begin{pmatrix}1\\
 1
-\end{pmatrix}
-\]
-
-
-\[
-v_{a}=\begin{pmatrix}1\\
+\end{pmatrix} \\
+v_{a} &= \begin{pmatrix}1\\
 f_{-}^{in}
 \end{pmatrix}=\begin{pmatrix}1\\
 -\frac{3}{2}
 \end{pmatrix}
-\]
-
-
+$
 The growing mode will be the mode of interest that we will use in
 section \ref{sec:The-Evolution-Equation}, when we want to calculate
 the evolution of the power spectrum.
 
 The instantaneous projectors on the two basis solutions are defined
 as:
-
 \begin{align*}
 \mathrm{\mathbf{M}}{}^{+}\pkn\begin{pmatrix}1\\
 f_{+}\pkn
@@ -633,19 +634,14 @@ f_{-}\pkn
 f_{+}\pkn
 \end{pmatrix} & =0
 \end{align*}
-
-
-The growing projector can be written explicitly by subtracting the
+In this case, the growing projector can be written explicitly by subtracting the
 decaying projector from the unity matrix:
-
-\[
+\beeqp$ 
 \mathrm{\mathbf{M}}{}^{+}\pkn=\mathbb{1}-\mathrm{\mathbf{M}}{}^{-}\pkn=\frac{1}{f_{-}-f_{+}}\begin{pmatrix}f_{-} & -1\\
 f_{-}f_{+} & -f_{+}
 \end{pmatrix}
-\]
-
-
-For the Einstein-deSitter case, the projectors do not evolve in time,
+$
+For the Einstein-de Sitter case, the projectors do not evolve in time,
 since $u_{a}$ and $v_{a}$ are constant, and they are given by: 
 \begin{align*}
 \mathrm{\mathbf{M}}{}^{+} & =\frac{1}{5}\begin{pmatrix}3 & 2\\
@@ -655,115 +651,76 @@ since $u_{a}$ and $v_{a}$ are constant, and they are given by:
 -3 & 3
 \end{pmatrix}
 \end{align*}
-
-
-The linear propagator is defined as the operator giving the linear
-evolution of the field $\vpa a$, or in other words, solves eqn.\ref{eq:2.1}
-:
-
-\[
-\vpa a\pkn=g_{ab}(\vk k,\eta,\eta')\vpa b\pkn
-\]
-and it has to fulfill following properties:
-
-\begin{align*}
-\pet g_{ab}(\vk k,\eta,\eta') & =-\Omega_{ac}\pkn\cdot g_{cb}(\vk k,\eta,\eta')\\
-\lim_{\eta'\rightarrow\eta}g_{ab}(\vk k,\eta,\eta') & =\mathbb{1}_{ab}\\
-g_{ab}(\vk k,\eta,\eta')\cdot g_{bc}(\vk k,\eta',\eta'') & =g_{ac}(\vk k,\eta,\eta'')
-\end{align*}
-
-
-Using these properties and the projectors, the propagator can be written
-in general as:
-
-\begin{equation}
-\begin{aligned}g(\vk k,\eta,\eta') & =\Theta(\eta-\eta')\left[e^{-\int_{\eta'}^{\eta}(\Omega_{11}+\Omega_{12}f_{+})\d x}\begin{pmatrix}1 & 0\\
-0 & \frac{f_{+}\pkn}{f_{+}(\vk k,\eta')}
-\end{pmatrix}\mathrm{\mathbf{M}}{}^{+}(\vk k,\eta')\right.\\
- & \left.+\, e^{-\int_{\eta'}^{\eta}(\Omega_{11}+\Omega_{12}f_{-})\d x}\begin{pmatrix}1 & 0\\
-0 & \frac{f_{-}\pkn}{f_{-}(\vk k,\eta')}
-\end{pmatrix}\mathrm{\mathbf{M}}{}^{-}(\vk k,\eta')\right]
-\end{aligned}
-\label{eq:general-propagator}
-\end{equation}
-
-
-In the E-dS case, this would reduce to simply (since there is no $k$-dependence
-in any quantity and the growing mode is constant):
-
-\[
+In the E-dS case, since there is no $k$-dependence
+in any quantity and the growing mode is constant, this would reduce to :
+\beeqp$ 
 g(\eta,\eta')=\Theta(\eta-\eta')\left[\frac{1}{5}\begin{pmatrix}3 & 2\\
 3 & 2
 \end{pmatrix}+\frac{1}{5}\begin{pmatrix}2 & -2\\
 -3 & 3
 \end{pmatrix}e^{-5/2(\eta-\eta')}\right]
-\]
-
-
-Using the same procedure, we will calculate the linear propagator
-for the Horndeski case, in which the growth factor $D$ is now scale
-and time dependent. Then the linear propagator can be used to calculate
-its fully nonlinear renormalized version, which then is a crucial
-ingredient of the evolution equation in section \ref{sec:The-Evolution-Equation}.
+$
 
 
 \subsection{The linear propagator in the Horndeski case}
 
-Using eqn. \ref{eq:Yfunc} as the modification of the Poisson equation
-we can write the general $\Omega_{ab}$ matrix as:
+Using the same procedure as we employed for the general case, we will calculate the linear propagator
+for the Horndeski case, in which the growth factor $D$ is scale
+and time dependent. Then the linear propagator can be used to calculate
+its fully nonlinear renormalized version, which then is a crucial
+ingredient of the evolution equation in section \ref{sec:The-Evolution-Equation}.
 
+Using \cref{eq:mufunc} as the modification of the Poisson equation
+we can write the general $\Omega_{ab}$ matrix as:
 \begin{equation}
 \Omega_{ab}\pkn=\left(\begin{array}{cc}
 1 & -1\\
--\frac{3\mu(k)\Omega_{m}(\eta)}{2} & \frac{\mathcal{H}'}{\mathcal{H}}+2
+-\frac{3}{2} \mu(k)\Omega_{m}(\eta) & \frac{\mathcal{H}'}{\mathcal{H}}+2
 \end{array}\right)
 \end{equation}
-in this case, the initial conditions from eqn.\ref{eq:2.4} are: 
+in this case, the initial conditions from \cref{eq:2.4} are: 
 \begin{equation}
 \begin{aligned}f_{-}^{in} & =-\frac{1}{2}(\Sigma+\omega)\\
 f_{+}^{in} & =\frac{1}{2}(\Sigma-\omega)
 \end{aligned}
 \end{equation}
-where $\omega=1+\frac{\curH'}{\curH}=\frac{1}{2}-\frac{3}{2}w_{eff}$
+where $\omega=1+\frac{\curH'}{\curH}$
 and $\Sigma=\sqrt{6Y\Omega_{m}+\omega^{2}}$ are quite general functions
-of scale and time. Inserting this into eqn.\ref{eq:general-propagator},
+of scale and time. Inserting this into \cref{eq:general-propagator},
 one can find the most general form of the propagator for the Horndeski
-theory. However, this is not so practical, since we would have to
-solve for a scale and time dependent growth rate $f$ and evaluate
-the $\mathcal{H}$ function at each step.
+theory. 
+%However, this is not so practical, since we would have to
+%solve for a scale and time dependent growth rate $f$ and evaluate
+%the $\mathcal{H}$ function at each step.
 
 For models which are close to $\Lambda\textrm{CDM}$, it is more convenient
-to change the time variable from $\eta=\ln\frac{a}{a_{in}}$ to $\mathcal{X}=\ln\frac{D(\tau)}{D(\tau=\tau_{in})}$,
+to change the time variable from $\eta=\ln\frac{a}{a_{in}}$ to $\mychi=\ln\frac{D(\tau)}{D(\tau=\tau_{in})}$,
 where $D(\tau)$ is the growth function usually written as the growing
-solution of the linear density perturbation equation : $\delta_{c}(\tau)=D_{+}(\tau)\delta_{c}^{in}$.
-In our case, however, the time variable $\mychi$ would itself be
-scale dependent, since the growth rate equation in the Horndeski case
-is scale dependent, so that $\mathcal{X}(k)=\ln\frac{D(\tau,k)}{D(\tau=\tau_{in},k)}$.
-Using $\frac{\partial}{\partial\eta}=\frac{\d\ln D}{\d\ln a}\frac{\partial}{\partial\ln D}=f\frac{\partial}{\partial\mathcal{X}}$,
-we can rewrite eqns.\ref{eq:linear-phi-eqn}-\ref{eq:f-growth-rate}
-as (where $':=\frac{\partial}{\partial\mychi}$): 
-\begin{align}
-f(\vk k,\mychi)\delta'_{c}(\vk k,\mychi)+\frac{\theta(\vk k,\mychi)}{\curH}+\frac{\vk k\cdot\vk q}{q^{2}}\delta_{c}(\vk q,\mychi)\frac{\theta(\vk p,\mychi)}{\curH} & =0\label{eq:fg-rate-1}\\
-f(\vk k,\mychi)\frac{\theta(\vk k,\mychi)'}{\curH}+\frac{\theta(\vk k,\mychi)}{\curH}+\frac{1}{2}\frac{\vk k^{2}\vk q\cdot\vk p}{q^{2}p^{2}}\frac{\theta(\vk q,\mychi)}{\curH}\frac{\theta(\vk{p,\mychi})}{\curH} & =-\frac{3}{2}\Omega_{m}(\mychi)\mu(\vk k)\curH^{2}\delta_{c}(\vk k,\mychi)\label{eq:fg-rate-2}
-\end{align}
-
-
-
-The doublet \ref{eq:field-doublet} can now be redefined as: 
+solution of the linear density perturbation equation : $\delta(\tau)=D_{+}(\tau)\delta^{in}$.
+%In our case, however, the time variable $\mychi$ would itself be
+%scale dependent, since the growth rate equation in the Horndeski case
+%is scale dependent, so that $\mathcal{X}(k)=\ln\frac{D(\tau,k)}{D(\tau=\tau_{in},k)}$.
+%Using $\frac{\partial}{\partial\eta}=\frac{\d\ln D}{\d\ln a}\frac{\partial}{\partial\ln D}=f\frac{\partial}{\partial\mathcal{X}}$,
+%we can rewrite eqns.\ref{eq:linear-phi-eqn}-\ref{eq:f-growth-rate}
+%as (where $':=\frac{\partial}{\partial\mychi}$): 
+%\begin{align}
+%f(\vk k,\mychi)\delta'_{c}(\vk k,\mychi)+\frac{\theta(\vk k,\mychi)}{\curH}+\frac{\vk k\cdot\vk q}{q^{2}}\delta_{c}(\vk q,\mychi)\frac{\theta(\vk p,\mychi)}{\curH} & =0\label{eq:fg-rate-1}\\
+%f(\vk k,\mychi)\frac{\theta(\vk k,\mychi)'}{\curH}+\frac{\theta(\vk k,\mychi)}{\curH}+\frac{1}{2}\frac{\vk k^{2}\vk q\cdot\vk p}{q^{2}p^{2}}\frac{\theta(\vk q,\mychi)}{\curH}\frac{\theta(\vk{p,\mychi})}{\curH} & =-\frac{3}{2}\Omega_{m}(\mychi)\mu(\vk k)\curH^{2}\delta_{c}(\vk k,\mychi)\label{eq:fg-rate-2}
+%\end{align}
+The doublet \ref{eq:field-doublet} can be redefined as: 
 \begin{equation}
 \tilde{\varphi}_{a}=\left(\begin{array}{c}
 \tilde{\varphi}_{1}\\
 \tilde{\varphi}_{2}
 \end{array}\right)=\begin{pmatrix}e^{-\mathcal{X}}\delta_{c}\\
 -e^{-\mathcal{X}}\frac{\theta}{\curH f}
-\end{pmatrix}\label{eq:field-redefinition}
+\end{pmatrix} \label{eq:field-redefinition}
 \end{equation}
 
-
-Substituting in the previous equations the values for $\delta_{c},\;\theta$
-and $\delta'_{c}=e^{\mathcal{X}}(\varphi'_{1}+\vpa 1)$, $\theta'=-e^{\mathcal{X}}f(\mathcal{X})\curH\left(\tilde{\varphi}_{2}\left(1+\frac{f'(\mathcal{X})}{f(\mathcal{X})}+\frac{\curH'}{\curH}\right)+\tilde{\varphi}'_{2}\right)$
+Substituting in the previous equations the derivatives
+$\delta'=e^{\mathcal{X}}(\varphi'_{1}+\vpa 1)$, $\theta'=-e^{\mathcal{X}}f(\mathcal{X})\curH\left(\tilde{\varphi}_{2}\left(1+
+\frac{f'(\mathcal{X})}{f(\mathcal{X})}+\frac{\curH'}{\curH}\right)+\tilde{\varphi}'_{2}\right)$
 we get:
-
 \begin{align}
 \tilde{\varphi}_{1}'+\tilde{\varphi}_{1}-\tilde{\varphi}_{2}-\alpha e^{\mychi}\tilde{\varphi}_{1}\tilde{\varphi}_{2} & =0\label{eq:varphi1}\\
 -\tilde{\varphi}'_{2}-\tilde{\varphi}_{2}(1+\frac{f'}{f}+\frac{1}{f}+\frac{\curH'}{\curH})+\beta e^{\mychi}\tilde{\varphi}_{2}\tilde{\varphi}_{2} & =-\frac{3}{2}\Omega_{m}\mu\frac{\tilde{\varphi}_{1}}{f^{2}}\nonumber \\
@@ -775,98 +732,100 @@ where in this case an overdot represents a derivative with respect
 to $\eta=\ln\frac{a}{a_{in}}$, since the $'$-symbol is now reserved
 for the $\mathcal{X}$ time variable.
 
-Comparing eqns. \ref{eq:varphi1}-\ref{eq:varphi2} with \ref{eq:field notation},
-we get the following $\Omega$ matrix: 
-\begin{equation}
-\tilde{\Omega}\pkc=\begin{pmatrix}1 & -1\\
+Comparing \crefrange{eq:varphi1}{eq:varphi2} with \ref{eq:field notation},
+we get the following transformed $\tilde{\Omega}_{ab}$ matrix: 
+\begin{equation}\label{eq:omegamatrix-horn}
+\tilde{\Omega}_{ab} \pkc=\begin{pmatrix}1 & -1\\
 -\frac{3}{2}\frac{\Omega_{m}(\mychi)}{f_{+}^{2}(\mychi)}\mu(k) & \frac{3}{2}\frac{\Omega_{m}(\mychi)}{f_{+}^{2}(\mychi)}\mu(k)
-\end{pmatrix}\label{eq:omegamatrix-horn}
+\end{pmatrix}
 \end{equation}
 
+%It is of great importance to note that in the Horndeski case, the
+%quantity $\frac{\Omega_{m}(\mychi)}{f_{+}^{2}(\mychi)}$ cannot be
+%approximated to $1$ as it is done in LCDM for all times, since in
+%this case it can have a much greater or lower value during structure
+%formation, but more importantly it is scale-dependent through the
+%scale dependence of $\mathcal{X}(k)$. This can be seen clearly in
+%plot \ref{fig:Omf2-approx}.
 
-It is of great importance to note that in the Horndeski case, the
-quantity $\frac{\Omega_{m}(\mychi)}{f_{+}^{2}(\mychi)}$ cannot be
-approximated to $1$ as it is done in LCDM for all times, since in
-this case it can have a much greater or lower value during structure
-formation, but more importantly it is scale-dependent through the
-scale dependence of $\mathcal{X}(k)$. This can be seen clearly in
-plot \ref{fig:Omf2-approx}.
-
-
-\subsubsection*{Assuming a constant $\mu\protect\neq1$ for the 1-loop quantities}
+\subsubsection*{Assuming a constant $\mu\protect\neq1$}
 
 Assuming a constant $\mu$ different from 1 and the approximation
-that $\frac{\Omega_{m}(\mychi)}{f_{+}^{2}(\mychi)}=1$ throughout
-the history of the Universe (which is valid only for E-dS but turns
-out to be a good approximation (much more accurately than 1\%) for
-the nonlinear $\Lambda\textrm{CDM}$ power spectrum), we can follow
-the steps given above in section \ref{sub:linear propagator} and
+that $\Omega_{m}(\mychi)/f_{+}^{2}(\mychi) =1$ at late times (which is exact only for E-dS but turns
+out to be a very good approximation (much more accurately than 1\%) for
+the $\Lambda\textrm{CDM}$ evolution), we can follow
+the steps given above in \cref{sec:linear propagator} and
 obtain the initial growing and decaying modes:
-
-\[
+\beeqc$
 u_{a}=\begin{pmatrix}1\\
 1
 \end{pmatrix}
-\]
-
-
-\[
-v_{a}=\frac{-2}{3Y}\begin{pmatrix}1\\
--\frac{3Y}{2}
+$
+\beeqp$ 
+v_{a}=\frac{-2}{3\mu}\begin{pmatrix}1\\
+-\frac{3\mu}{2}
 \end{pmatrix}
-\]
-and with this the projectors:
-
+$
+Using these modes, we can find the projectors:
 \begin{align*}
-\mathrm{\mathbf{M}}{}^{+} & =\frac{1}{2+3Y}\begin{pmatrix}3Y & 2\\
-3Y & 2
+\mathrm{\mathbf{M}}{}^{+} & =\frac{1}{2+3\mu}\begin{pmatrix}3\mu & 2\\
+3\mu & 2
 \end{pmatrix}\\
-\mathbf{\mathrm{\mathbf{M}}}^{-} & =\frac{1}{2+3Y}\begin{pmatrix}2 & -2\\
--3Y & 3Y
+\mathbf{\mathrm{\mathbf{M}}}^{-} & =\frac{1}{2+3\mu}\begin{pmatrix}2 & -2\\
+-3\mu & 3\mu
 \end{pmatrix}
 \end{align*}
-
-
-The propagator would then look like:
-
-\begin{equation}
-g(\mychi,\mychi')=\Theta(\mychi-\mychi')\left[\frac{1}{2+3Y}\begin{pmatrix}3Y & 2\\
-3Y & 2
-\end{pmatrix}+\frac{1}{2+3Y}\begin{pmatrix}2 & -2\\
--3Y & 3Y
-\end{pmatrix}e^{-\frac{(2+3Y)}{2}(\mychi-\mychi')}\right]\label{eq:ghorn}
-\end{equation}
-
-
-For the rest of this work, eqn. \ref{eq:ghorn} will be the linear
-propagator we will use, even if we are treating more general cases
+The linear propagator would then have the following form:
+\beeqalsp$
+g(\mychi,\mychi')& = \Theta(\mychi-\mychi')\left[\frac{1}{2+3\mu}
+\begin{pmatrix}
+3\mu & 2\\
+3\mu & 2
+\end{pmatrix} \right. \\ 
+& + \left. \frac{1}{2+3\mu}
+\begin{pmatrix}
+2 & -2\\
+-3\mu & 3\mu
+\end{pmatrix}
+e^{-\frac{(2+3\mu)}{2}(\mychi-\mychi')}\right]\label{eq:ghorn}
+$
+As a first approximation, we will use \cref{eq:ghorn} as the linear
+propagator, even if we are treating more general cases
 where $\mu(k)$ is an arbitrary function and $\Omega_{m}/f^{2}\neq1$.
 This approximation can be justified better in the next section, when
-we will see that $g$ only enters in the evolution equation of the
-power spectrum inside the integral of the self-energy and mode-coupling
-1-loop quantities, which should contribute only sub-dominantly in
-the final power spectrum.
+we will see that $g(\mychi,\mychi')$ only enters in the evolution equation of the
+power spectrum inside the 1-loop quantities, 
+which should contribute only sub-dominantly to the final power spectrum.
 
 
 \section{The Evolution Equation for the Power Spectrum \label{sec:The-Evolution-Equation}}
 
-We are interested in solving the general scale and time dependent
-evolution equation from the resummation method presented in \cite{anselmi_nonlinear_2012}
-(eqn. 53):
-
-\begin{align}
-\partial_{\mathcal{X}}\tilde{P}_{ab}(k;\mathcal{X}) & =-\tilde{\Omega}_{ac}\pkdc\tilde{P}_{cb}\pkdc-\tilde{\Omega}_{bc}\pkdc\tilde{P}_{ac}\pkdc\label{eq:evolution-eqn-Chi}\\
- & +H_{\mathbf{a}}(k;\mathcal{X},\mathcal{X}_{in})\tilde{P}_{\mathbf{a}b}\pkdc+H_{\mathbf{b}}(k;\mathcal{X},\mathcal{X}_{in})\tilde{P}_{a\mathbf{b}}\pkdc\nonumber \\
- & +\int\d s\left[\tilde{\Phi}_{ad}(k;\mathcal{X},s)G_{bd}^{eik}(k;\mathcal{X},s)+G_{ad}^{eik}(k;\mathcal{X},s)\tilde{\Phi}_{db}(k;\mathcal{X},s)\right]\nonumber 
-\end{align}
-where $\mathcal{X}=\ln(D(a)/D(a_{in}))$ (notice that in ref. \cite{anselmi_nonlinear_2012},
-$\eta$ is the time variable and represents the growth factor). The
+In this section we are interested in computing the non-linear matter power spectrum,
+which is defined as the two-point correlation function of the density-velocity doublet \cref{eq:field-doublet}:
+\beeqc$
+(2\pi)^3 \delta^{(D)}(\vk k + \vk k') P_{ab}(k; \eta, \eta') \equiv \langle \varphi_{a}\pkn \varphi_{a}(\vk k',\eta')  \rangle 
+$
+where $\delta^{(D)}$ is the Dirac delta and the power spectrum is a symmetric matrix, containing
+in the $(1,1)$-component, the correlation between density fluctuations, in the $(2,2)$-component the
+velocity-velocity correlation and the $(1,2)$-component is naturally the cross correlation between velocity and
+density fluctuations.
+The evolution equation governing the growth in time and the coupling between the modes of $P_{ab}(k; \eta, \eta')$, 
+is given in the Eikonal Renormalized Perturbation Theory framework (introduced by  \cite{anselmi_nonlinear_2012}
+and further detailed in \mcite{cite Peloso, Pietroni, 1609.06624}), by:
+\beeqalsp$\label{eq:evolution-eqn-Chi}
+\partial_{\mathcal{X}}\tilde{P}_{ab}(k;\mathcal{X})
+ & =-\tilde{\Omega}_{ac}\pkdc\tilde{P}_{cb}\pkdc-\tilde{\Omega}_{bc}\pkdc\tilde{P}_{ac}\pkdc \\
+ & +H_{\mathbf{a}}(k;\mathcal{X},\mathcal{X}_{in})\tilde{P}_{\mathbf{a}b}\pkdc+H_{\mathbf{b}}(k;\mathcal{X},\mathcal{X}_{in})\tilde{P}_{a\mathbf{b}}\pkdc  \\
+ & +\int\d s\left[\tilde{\Phi}_{ad}(k;\mathcal{X},s)G_{bd}^{eik}(k;\mathcal{X},s)+G_{ad}^{eik}(k;\mathcal{X},s)\tilde{\Phi}_{db}(k;\mathcal{X},s)\right] \quad,
+$
+where $\mathcal{X}=\ln(D(a)/D(a_{in}))$. Notice our different notation,
+since in the papers by \cite{anselmi_nonlinear_2012} and \mcite{cite Peloso, Pietroni, 1609.06624},
+$\eta$ is the time variable connected to the growth factor. The
 first line of this equation corresponds to the linear evolution equation
 of the power spectrum already discussed before. The second and third
-lines contain the 1PI (one-particle-irreducible) functions, the self-energy
-$\Sigma_{ab}$ and the mode-coupling term $\tilde{\Phi}G_{ab}^{AB}$\textbf{
-}accounting for the contributions at the large- and small-k limit
-at 1-loop order.
+lines contain the 1PI (one-particle-irreducible) functions: the so-called self-energy
+$\Sigma_{ab}$ and the mode-coupling term $\tilde{\Phi}G_{ab}^{AB}$ 
+accounting for the contributions at the large- and small-$k$ limits of non-linear structure formation.
 
 %\texttt{\textcolor{green}{Massimo: Can you check from eqns. 33-36? }}
 
@@ -874,204 +833,196 @@ If we transform this equation to $\eta=\ln\frac{a}{a_{in}}$, using
 the variable transformation $\partial\mathcal{X}/\partial\eta=\frac{\d\ln D(a)}{\d\ln a}=f(\eta)$,
 where $f(\eta)\equiv f(N(\eta))$ and the relation between $N$ and
 $\eta$ is given by $N=\eta+\ln(a_{in})$, we have to transform also
-the power spectrum since the field has been redefined (see \ref{eq:field-redefinition}):
-
+the power spectrum since the field has been redefined (see \cref{eq:field-redefinition}):
 \begin{equation}
 \tilde{P}_{ab}=e^{-2\mathcal{X}(\eta)}e^{2\eta}(\delta_{a1}+\frac{1}{f(\eta)}\delta_{a2})(\delta_{b1}+\frac{1}{f(\eta)}\delta_{b2})P_{ab}(\eta)\label{eq:PS-transformation}
 \end{equation}
 where we can call this transformation $\varXi_{ab}$: 
-\[
+\beeqc$ 
 \tilde{P}_{ab}=\varXi_{ab}P_{ab}(\eta)
-\]
+$
 and its inverse would be: 
 \begin{equation}
-\varXi_{ab}^{-1}=e^{2\mathcal{X}(\eta)}e^{-2\eta}(\delta_{a1}+f(\eta)\delta_{a2})(\delta_{b1}+f(\eta)\delta_{b2})
+\varXi_{ab}^{-1}=e^{2\mathcal{X}(\eta)}e^{-2\eta}(\delta_{a1}+f(\eta)\delta_{a2})(\delta_{b1}+f(\eta)\delta_{b2}) \quad .
 \end{equation}
-
-
-However, eqn. \ref{eq:evolution-eqn-Chi} is only invariant under
+However, \cref{eq:evolution-eqn-Chi} is only invariant under
 the transformation:
-
 \begin{equation}
 \varUpsilon_{ab}(\eta)=f(\eta)\varXi_{ab}^{-1}=f(\eta)e^{2\mathcal{X}(\eta)}e^{-2\eta}(\delta_{a1}+f(\eta)\delta_{a2})(\delta_{b1}+f(\eta)\delta_{b2})
 \end{equation}
-
-
 since we also have to transform the derivatives and the $\Omega_{ab}$
-functions. 
+matrix.
 
-Inserting these transformations into eqn. \ref{eq:evolution-eqn-Chi},
+Inserting these transformations into \cref{eq:evolution-eqn-Chi},
 and generalizing to the case where the growth rate is k-dependent,
-$f(\eta,k),$we obtain:
-
-\begin{align}
-\partial_{\mathcal{\eta}}P_{ab}(k;\eta) & =-\Omega_{ac}\pkdn P_{cb}\pkdn-\Omega_{bc}\pkdn P_{ac}\pkdn\label{eq:evolution-eqn-Chi-eta}\\
- & +\left[H_{\mathbf{a}}(k;\mathcal{X}(\eta,k),\mathcal{X}(\eta_{in},k))f(\eta,k)P_{\mathbf{a}b}(k;\eta)\right.\nonumber \\
- & \left.+H_{\mathbf{b}}(k;\mathcal{X}(\eta,k),\mathcal{X}(\eta_{in},k))f(\eta,k)P_{a\mathbf{b}}(k;\eta)\right]\nonumber \\
- & +\varUpsilon_{ab}(\eta,k)\times\int\d s\left[\tilde{\Phi}_{ad}(k;\mathcal{X}(\eta,k),s)G_{bd}^{eik}(k;\mathcal{X}(\eta,k),s)+G_{ad}^{eik}(k;\mathcal{X}(\eta,k),s)\tilde{\Phi}_{db}(k;\mathcal{X}(\eta,k),s)\right]\nonumber 
-\end{align}
-
-
-The quantities such as $H_{\mathbf{a}}(k;\eta,\eta_{in})$ and $\tilde{\Phi}_{ad}(k;\mathcal{\eta},s)$,
-shown in eqns \ref{eq:H1}-\ref{eq:PhiTilde_ad}, which are actually
-calculated in the $\mathcal{X}$ variable, are now indirectly a function
-of $\eta$ through the relation $\mathcal{X}(\eta)=\ln(D(N(\eta))/D(N(\eta_{in})))$.
-
+$f(\eta,k)$, we obtain:
+\beeqalsp$\label{eq:evolution-eqn-Chi-eta}
+\partial_{\mathcal{\eta}}P_{ab}(k;\eta) & =-\Omega_{ac}\pkdn P_{cb}\pkdn-\Omega_{bc}\pkdn P_{ac}\pkdn \\
+ & +\left[H_{\mathbf{a}}(k;\mathcal{X}(\eta,k),\mathcal{X}(\eta_{in},k))f(\eta,k)P_{\mathbf{a}b}(k;\eta)\right. \\
+ & \left.+H_{\mathbf{b}}(k;\mathcal{X}(\eta,k),\mathcal{X}(\eta_{in},k))f(\eta,k)P_{a\mathbf{b}}(k;\eta)\right] \\
+ & +\varUpsilon_{ab}(\eta,k)\times\int\d s\left[\tilde{\Phi}_{ad}(k;\mathcal{X}(\eta,k),s)G_{bd}^{eik}(k;\mathcal{X}(\eta,k),s) \right. \\
+ & \left. + G_{ad}^{eik}(k;\mathcal{X}(\eta,k),s)\tilde{\Phi}_{db}(k;\mathcal{X}(\eta,k),s)\right]
+$
+%The quantities such as $H_{\mathbf{a}}(k;\eta,\eta_{in})$ and $\tilde{\Phi}_{ad}(k;\mathcal{\eta},s)$,
+%shown in \ref{eq:H1}-\ref{eq:PhiTilde_ad}, which are actually
+%calculated in the $\mathcal{X}$ variable, are now indirectly a function
+%of $\eta$ through the relation $\mathcal{X}(\eta)=\ln(D(N(\eta))/D(N(\eta_{in})))$.
 The evolution equation as it is written in eqn. \ref{eq:evolution-eqn-Chi}
 relies on three different assumptions: the power spectrum is well
 behaved for $k\rightarrow0$, which is in our cosmology a good assumption,
-since it behaves just a power law $k^{n}$; there is a clear separation
+since it behaves just as a power law $k^{n}$ at very large and very small scales; 
+there is a clear separation
 of scales between ``hard'' and ``soft'' modes, or in other words,
-the eikonal limit is fulfilled. This means that the modes $k$ we
+the \emph{eikonal} limit is fulfilled. 
+This means that the modes $k$ we
 are interesting in are much bigger than the internal coupling modes
 $p,q$. The third assumption is of course the single-stream approximation,
 which is used in all forms of resummed and renormalized perturbation
-theories in cosmology as was explained already in section \ref{sub:The-field-notation}.
+theories in cosmology as was explained already in section \ref{sec:nonlinear-fluid}.
 
-In this work we want to solve eqn. \ref{eq:evolution-equation-eta}
-for the simple Horndeski models stated above. We will test two apporaches,
-first we will include inside the $\Omega_{ac}\pkdn$ functions, the
-full scale and time dependence of the parametrized Horndeski models.
-These terms will have a dominant effect on the evolution of $P(\vk k$)
-and we will calculate the 1-loop integrals using the usual $\Lambda$CDM
-model. Since the $H_{\mathbf{a}}(k;\eta,\eta_{in})$ and $\tilde{\Phi}_{ab}(k;\mathcal{\eta},s)$
-functions are calculated for a scale-dependent growth factor, we will
-have to test if this scale dependence has a big effect on the result.
+The purpose of this work is to solve \cref{eq:evolution-eqn-Chi-eta}
+for the Horndeski models stated above in \cref{enum:enumeration-cases}.
+We will proceed in two different steps, where we will 
+start with rough approximations and we will gradually improve our method.
+\begin{itemize}
+	\item First approximation: include inside the $\Omega_{ac}\pkdn$ functions, the
+	full scale dependence of the parametrized Horndeski models.
+	These terms will have a dominant effect on the evolution of $P(\vk k$).
+	We will use the linear propagator for a constant $\mu$ case
+	and the 1-loop integrals will be calculated within the standard $\lcdm$
+	model.
+	\item Second approximation: Here, we will use the $\Omega_{ac}\pkdn$ functions in
+	the Horndeski case, compute a linear propagator for a varying $\mu$, but we will still
+	keep the 1-loop integrals within the standard $\lcdm$
+	model.
+	\item Third approximation: In this case we will also include 
+	the modification given by $\mu$ into the calculation of the 1-loop integrals, by taking
+	into account a constant $\mu \neq 1$.
+\end{itemize}
+%We will test two approaches,
+%first we will include inside the $\Omega_{ac}\pkdn$ functions, the
+%full scale dependence of the parametrized Horndeski models.
+%These terms will have a dominant effect on the evolution of $P(\vk k$)
+%and we will calculate the 1-loop integrals using the usual $\Lambda$CDM
+%model. Since the $H_{\mathbf{a}}(k;\eta,\eta_{in})$ and $\tilde{\Phi}_{ab}(k;\mathcal{\eta},s)$
+%functions are calculated for a scale-dependent growth factor, we will
+%have to test if this scale dependence has a big effect on the result.
+%
+%As a second approach we will calculate the 1PI functions using the
+%linear Horndeski propagator in the case that $\mu$ is a constant
+%different from one. Once these integrals are calculated, we can then
+%solve the evolution equation completely. In this case we have to test
+%how much a change in $\mu(k)$ affects the result, i.e. if assuming
+%a constant $\mu$ is a good approximation or not. In the next section
+%we will show the explicit expressions for these integrals.
 
-As a second approach we will calculate the 1PI functions using the
-linear Horndeski propagator in the case that $\mu$ is a constant
-different from one. Once these integrals are calculated, we can then
-solve the evolution equation completely. In this case we have to test
-how much a change in $\mu(k)$ affects the result, i.e. if assuming
-a constant $\mu$ is a good approximation or not. In the next section
-we will show the explicit expressions for these integrals.
 
-
-\subsection{The 1PI functions in the Horndeski constant $\mu\protect\neq1$ case}
+\section{The 1-loop integrals in the Horndeski $\mu\protect\neq1$ case}
 
 %\textcolor{red}{The Horndeski variable is Y for compatibility
 %with the code for now, but it can be changed to $\mu$ later on.}
 
-Now we give the general expression for for the 1PI functions $\Sigma_{ab}^{(1)}(k;\mychi,\mychi')$
-and $\Phi_{ab}^{(1)}(k;\mychi,\mychi')$ computed at 1-loop in eRPT.
+Now we give the general expression for for the 1PI functions $\Sigma_{ab}^{(1)}(k;\mychi,\mychi')$, 
+$H_{a}(k;\mychi,-\infty)$ 
+and $\Phi_{ab}^{(1)}(k;\mychi,\mychi')$, appearing in the evolution equation (\ref{eq:evolution-eqn-Chi-eta})
+and computed at 1-loop in eRPT
+for the Horndeski case.
+In this section we define the constant:
+$Y\equiv \mu_{\rm const} \neq 1$, to specify that we are just looking at constant values of $\mu$,
+different from unity.
+
 The general expression for $\Sigma_{ab}^{(1)}(k;\mychi,\mychi')$
-is given by:
-
-\begin{align}
-\Sigma_{ab}^{(1)}(k;\mychi,\mychi') & =\nonumber \\
- & 4e^{\mychi+\mychi'}\int\d^{3}q\gamma_{acd}\pcq k{-q}{q-k}u_{c}P^{0}(q)u_{e}\gamma_{feb}\pcq{k-q}q{-k}g_{df}(\mychi,\mychi')
-\end{align}
-If we insert for $g_{ab}$ the linear propagator from \ref{eq:ghorn}
+is given by (see \cite{anselmi_nonlinear_2012}):
+\beeqalsp$
+\Sigma_{ab}^{(1)}(k;\mychi,\mychi') & = \\
+ & 4e^{\mychi+\mychi'} \left[ \int\d^{3}q \; \gamma_{acd}\pcq k{-q}{q-k}u_{c} \right. \\
+ &  \left. P^{0}(q)u_{e}\gamma_{feb}\pcq{k-q}q{-k}g_{df}(\mychi,\mychi') \phantom{\int} \right] 
+$
+Inserting for $g_{ab}$ the linear propagator from \ref{eq:ghorn}
 and the coupling vertices $\gamma_{abc}$ from \ref{eq:coupling-vertices}
-we have to perform an the angular integration of $\d^{3}q$, see Appendix
-\ref{sec:Self-energy-Terms-in} for the explicit terms.
-
-The $H_{1}(k;\mychi,-\infty)$, $H_{2}(k;\mychi,-\infty)$ functions
-are a time integration of the $\Sigma_{ab}^{(1)}(k;\mychi,\mychi')$
-quantities in the internal time from minus infinity to the external
+we have to perform an the angular integration of $\d^{3}q$, in order to get
+the $H_{1}(k;\mychi,-\infty)$, $H_{2}(k;\mychi,-\infty)$ functions.
+These are the time integration of the $\Sigma_{ab}^{(1)}(k;\mychi,\mychi')$
+quantities in the internal time $s$ from minus infinity to the external
 time $\eta$:
-
 \begin{align}
 H_{1}(k;\mychi,-\infty) & =\int_{-\infty}^{\eta}\d s\Sigma_{1b}^{(1)}(k;\mychi,\mychi')u_{b}\\
 H_{2}(k;\mychi,-\infty) & =\int_{-\infty}^{\eta}\d s\Sigma_{2b}^{(1)}(k;\mychi,\mychi')u_{b}
 \end{align}
-
-
-They have the following form after performing the time integration:
-
-\begin{equation}
-H_{1Y}(k;\mychi,-\infty)=-\frac{\pi k^{3}e^{2\mychi}}{3(3Y+4)}\int\d r\left[16+3Y\left(3r^{4}-8r^{2}+1\right)-\frac{9Y}{2r}\left(r^{2}-1\right)^{3}\log\left|\frac{1+r}{1-r}\right|\right]P^{0}(kr)\label{eq:H1}
-\end{equation}
-
-
-\begin{equation}
-H_{2Y}(k;\mychi,-\infty)=-\frac{\pi k^{3}e^{2\mychi}}{3(3Y+4)}\int\d r\left[-\frac{9Y}{r^{2}}+9r^{2}\mu+4(9Y+4)-\frac{9Y}{2r^{3}}\left(r^{2}-1\right)^{3}\log\left|\frac{1+r}{1-r}\right|\right]P^{0}(kr)\label{eq:H2}
-\end{equation}
-
-
-The third line of the evoution equation \ref{eq:evolution-eqn-Chi}
-contains the mode-coupling function, which is obtained by integrating
-the counter-term 1-loop quantity:
-
-\begin{align}
-\tilde{\Phi}_{ad}^{(1)}(k;\mychi,\mychi') & =2e^{\mychi+\mychi'}\int\d^{3}q\gamma_{acd}(\vk k,-\vk q,\vk p)u_{c}P^{0}(q)u_{d}\\
- & \times u_{e}P^{0}(p)u_{f}\gamma_{bef}(\vk k,-\vk q,\vk p)\label{eq:PhiTilde_ad}
-\end{align}
-where $\vk p=\vk k-\vk q$, together with the renormalized propagator
-from Crocce-Scoccimarro $\bar{G}_{bd}^{L}(k;\eta,s)$:
-
-\begin{equation}
-\int\d s\left[\tilde{\Phi}_{ad}(k;\mychi,s)\bar{G}_{bd}^{L}(k;\mychi,s)+\bar{G}_{ad}^{L}(k;\mychi,s)\tilde{\Phi}_{db}(k;\mychi,s)\right]=\tilde{\Phi}G_{ab}^{A}(k;\mychi)+\tilde{\Phi}G_{ab}^{B}(k;\mychi)
-\end{equation}
-
-
-where for all $a,\, b$, the $B$ terms are: 
+We will name them with a subscript $Y$, denoting that these are the quantities computed for Horndeski $Y\equiv \mu_{\rm const} \neq 1$.
+They have the following form after performing the time integrations:
+\beeqalsp$ \label{eq:H1}
+H_{1Y}(k;\mychi,-\infty) &=-\frac{\pi k^{3}e^{2\mychi}}{3(3Y+4)} \int\d r \; \left[16+3Y\left(3r^{4}-8r^{2}+1\right) \right. \\ 
+-& \left. \frac{9Y}{2r}\left(r^{2}-1\right)^{3}\log\left|\frac{1+r}{1-r}\right|\, \right] P^{0}(kr)   
+$
+\beeqalsp$ \label{eq:H2}
+H_{2Y}(k;\mychi,-\infty) &=-\frac{\pi k^{3}e^{2\mychi}}{3(3Y+4)}\int\d r \; \left[-\frac{9Y}{r^{2}}+9r^{2}\mu+4(9Y+4) \right. \\
+- & \left. \frac{9Y}{2r^{3}}\left(r^{2}-1\right)^{3}\log\left|\frac{1+r}{1-r}  \right|  \, \right] P^{0}(kr)
+$
+The third line of the evoution equation \cref{eq:evolution-eqn-Chi-eta}
+contains the mode-coupling function, which is obtained by integrating the counter-term 1-loop quantity (see \cite{anselmi_nonlinear_2012}):
+\beeqalsp$ \label{eq:PhiTilde_ad}
+\tilde{\Phi}_{ad}^{(1)}(k;\mychi,\mychi')  =2e^{\mychi+\mychi'} & \int\d^{3}q\gamma_{acd}(\vk k,-\vk q,\vk p)u_{c}P^{0}(q)u_{d}\\
+ & \;\; \times u_{e}P^{0}(p)u_{f}\gamma_{bef}(\vk k,-\vk q,\vk p) \quad,
+$
+together with the renormalized propagator
+from Crocce-Scoccimarro (see \cite{crocce_renormalized_2006}) $\bar{G}_{bd}^{L}(k;\eta,s)$.
+This integral can be expressed as:
+\beeqalsp$
+\int\d s\left[\tilde{\Phi}_{ad}(k;\mychi,s)\bar{G}_{bd}^{L}(k;\mychi,s) 
++\bar{G}_{ad}^{L}(k;\mychi,s)\tilde{\Phi}_{db}(k;\mychi,s)\right] \\
+& = \tilde{\Phi}G_{ab}^{A}(k;\mychi)+\tilde{\Phi}G_{ab}^{B}(k;\mychi) \quad,
+$
+where the $B$ terms are (for any indices $a$ and $b$): 
 \begin{equation}
 \tilde{\Phi}G_{ab}^{B}(k;\mychi)=u_{a}u_{b}y^{2}\left(\frac{\sqrt{\pi}}{2}\left(2y^{2}+1\right)\text{Erf}(y)+\left(e^{-y^{2}}-2\right)y\right)P^{0}(k)
 \end{equation}
-
-
-The $\tilde{\Phi}G_{ab}^{B}(k;\eta)$ expression has to be switched
+This expression, $\tilde{\Phi}G_{ab}^{B}(k;\eta)$, has to be switched
 off in the small $k$-limit since it contains 2-loop expressions valid
 only at large $k$, therefore it has to be ``filtered'' by a momentum-cutoff
 function:
-
-\[
+\beeq$ 
 \tilde{\Phi}G_{ab}^{A}(k;\eta)+\frac{(k/\bar{k})^{4}}{1+(k/\bar{k})^{4}}\tilde{\Phi}G_{ab}^{B}(k;\eta)
-\]
-
-
+$
 The $\bar{k}$ quantity can be set to a reasonable scale at which
 the large scale expression starts to be applicable, usually we can
 set here $\bar{k}=0.2h/\mbox{Mpc}$.
-The $A$ terms read (a new variable $W=\frac{3}{2}Y$ has been defined
-for simplicity):
-
-\begin{align}
+The $A$ terms are not the same for each component $a,\;b$, they read:
+\beeqalsp$
 \tilde{\Phi}G_{11}^{A} & =y(\Phi_{11}^{(1)}-\Phi_{11}^{(1)})\mathcal{B}(y^{2};W)\\
- & +\frac{\sqrt{\pi}\text{Erf}(y)}{W+1}(\Phi_{11}^{(1)}W+\Phi_{12}^{(1)})\nonumber 
-\end{align}
-
-
-\begin{align}
+ & +\frac{\sqrt{\pi}\text{Erf}(y)}{W+1}(\Phi_{11}^{(1)}W+\Phi_{12}^{(1)}) \quad,
+$
+\beeqalsp$
 \tilde{\Phi}G_{12}^{A} & =\frac{y\mathcal{\mathcal{B}}_{12}(y^{2};W)}{(1+W)^{2}(2+W)}(\Phi_{12}^{(1)}-\Phi_{22}^{(1)}-W(\Phi_{11}^{(1)}-\Phi_{12}^{(1)}))\\
- & +\frac{\sqrt{\pi}\text{Erf}(y)}{2(W+1)}(W(\Phi_{11}^{(1)}+\Phi_{12}^{(1)})+\Phi_{12}^{(1)}+\Phi_{22}^{(1)})
-\end{align}
-
-
-\begin{align}
+ & +\frac{\sqrt{\pi}\text{Erf}(y)}{2(W+1)}(W(\Phi_{11}^{(1)}+\Phi_{12}^{(1)})+\Phi_{12}^{(1)}+\Phi_{22}^{(1)}) \quad,
+$
+\beeqalsp$
 \tilde{\Phi}G_{22}^{A} & =\frac{yW}{(W+1)^{2}}(\Phi_{22}^{(1)}-\Phi_{12}^{(1)})\mathcal{B}(y^{2};W)\\
- & +\frac{\sqrt{\pi}}{(W+1)}\text{Erf}(y)(\Phi_{12}^{(1)}W+\Phi_{22}^{(1)})\nonumber 
-\end{align}
-
-
-and where we have used the combination of generalized Hypergeometric
+ & +\frac{\sqrt{\pi}}{(W+1)}\text{Erf}(y)(\Phi_{12}^{(1)}W+\Phi_{22}^{(1)}) \quad.
+$
+Here we have introduced for simplicity a new variable $W=\frac{3}{2}Y$ and
+ we have used the combination of generalized Hypergeometric
 functions:
-
-\begin{align*}
+\begin{align}
 \mathcal{B}(y^{2};W) & =\,_{2}F_{2}\left(\frac{1}{2},1;\frac{W}{2}+1,\frac{W}{2}+\frac{3}{2};-y^{2}\right)\\
  & +\frac{W+1}{W+2}\,_{2}F_{2}\left(\frac{1}{2},1;\frac{W}{2}+\frac{3}{2},\frac{W}{2}+2;-y^{2}\right)\\
  & -\frac{1}{W+2}\,_{2}F_{2}\left(1,\frac{3}{2};\frac{W}{2}+\frac{3}{2},\frac{W}{2}+2;-y^{2}\right)
-\end{align*}
-
-
-\begin{align*}
+\end{align}
+\begin{align}
 \mathcal{B}_{12}(y^{2};W) & =(2+W)\,_{2}F_{2}\left(\frac{1}{2},1;\frac{W}{2}+1,\frac{W}{2}+\frac{3}{2};-y^{2}\right)\\
  & -\,_{2}F_{2}\left(1,\frac{3}{2};\frac{W}{2}+\frac{3}{2},\frac{W}{2}+2;-y^{2}\right)
-\end{align*}
+\end{align}
 
 
-Assuming a general scale-dependent function $\mu(k)$ would turn out
-impossible an analaytic calculation of the intermediate quantities,
-which would render a practical implementation of this method to be
-numerically prohibitive. Therefore, using the fact that the $\mu$
-function behaves as a step function in $\log k$, having a well defined
-minimum and maximum value we can use simply a constant and check its
-effect on the 1-loop and 2-loop corrections. Besides, in any viable
-model compatible with observations $\mu$ can differ from $1$ by
-about 15-20\%. So that we can be sure that the overall effect will
-be just a perturbation around the LCDM value and should reduce to
-it in the limit $\mu\rightarrow1$.
+Assuming a general scale-dependent function $\mu(k)$ would turn out impossible to find
+an analytic expression for the 1-loop quantities A numerical
+implementation of this method would be too computationally expensive for the possible insight gained.
+Therefore, using the fact that the $\mu$
+function behaves as a step function in $\ln k$, having a well defined
+minimum and maximum value, we can use simply a constant at both extreme scales and check its
+effect on the 1-loop corrections. Besides, we will focus on viable
+alternatives to $\lcdm$, in which $\mu$ can differ from unity by
+about 15-20\%.
 
 %\textcolor{red}{Issue: }\textcolor{red}{In the LCDM case from
 %Massimo's paper, all three }$\tilde{\Phi}G_{ab}^{A}$ \textcolor{red}{functions
@@ -1080,29 +1031,64 @@ it in the limit $\mu\rightarrow1$.
 %\textcolor{red}{and} $\tilde{\Phi}G_{22}^{A}$.
 
 
-\subsection{Method of implementation}
+\section{Preliminary Results}
 
-Equation \ref{eq:evolution-equation-eta} is the final and main equation
-we want to solve and it represents a differential equation in time,
-for each external momentum $k$ that we are interested in. This means
+Equation \cref{eq:evolution-eqn-Chi-eta} is the main equation
+we want to solve and it represents a coupled differential equation in time 
+of three components,
+for each external momentum $k$ that we want to compute. This means
 that if we want to compute the power spectrum on a grid with 100 points
-in $k$-space, we need to solve 100 times the same differential equation.
-That is why parallelism plays an important role here to speed up the
-computational calulation.
+in $k$-space, we need to solve 100 times the differential equation.
+Parallelizing the numerical implementation plays an important role here.
 
-First we compute the linear growth function for a specific Horndeski
-model, using the linear part of \ref{eq:fg-rate-2}. With this we
+First, we compute the linear growth function for a specific Horndeski
+model. With this we
 obtain the growth rate and the growth factor, which are then used
 to calculate the loop integrals.
 
-The initial power spectrum is obtained from CAMB and its evaluated
-at 100 points in $k$-space. This is used to compute analytically
-eqns. \ref{eq:H1}, \ref{eq:H2}. These integrals can be stored as
-long as the cosmological parameters are not modified.
+The initial power spectrum at a high initial redshift ($z \approx 100$)
+is obtained from CAMB (developed in \cite{lewis_efficient_2000})
+and it is evaluated
+at 100 points in $k$-space. 
+Finally, we compute the \ref{eq:evolution-eqn-Chi} for each $k$ mode
+in  a parallel evaluation in \texttt{Wolfram Mathematica}. 
+The computing time to evaluate the power spectrum up to $z=0$,
+using 8 cores on a personal computer, is of about
+30 seconds.
 
-Finally we compute the \ref{eq:evolution-eqn-Chi} for each $k$ mode
-in parallel, which using 8 cores on a normal machine, takes about
-15 seconds until redshift $z=0$.
+In figure \cref{fig:change-Dplus-Y} we show how the growth factor 
+changes as a function of scale $k$. In the Horndeski model chosen here, we see that
+for non-linear scales, $k \gtrsim 0.1$, the growth 
+is suppressed at high redshifts $z\gtrsim 1$.
+\begin{figure}[tbph]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/resummation-plots/Dgrowth-YB1}
+	\caption[Growth factor in Horndeski.]{Comparison between the growth factor $D_{+}(z,k)$ in a Horndeski model at different
+	scales $k$ to the one in the $\lcdm$ case, with equal cosmological parameters. In this model, for non-linear scales $k \gtrsim 0.1$, the growth 
+is suppressed at high redshifts $z\gtrsim 1$.}
+	\label{fig:change-Dplus-Y}
+\end{figure}
+For the same model, we can compare how the $f \sigma_{8}$ curve would behave if we include linear or non-linear calculations. This is
+shown in \cref{fig:YB1-fsigma8}, where we are using the data points from \mcite{Macaulay et al. (2013)}.
+The solid red and blue lines, stand for a linear calculation of $f \sigma_{8}$ at $k=0.01 \mathrm{h/Mpc}$ and 
+$k=0.2 \mathrm{h/Mpc}$, respectively. The green line with dots, is a non-linear calculation at  $k=0.01 \mathrm{h/Mpc}$.
+We see that the inclusion of non-linearities can play an important role. This simplified Horndeski model, would be still compatible
+with the data points shown in red.
+\begin{figure}[tbph]
+	\centering
+	\includegraphics[width=0.7\linewidth]{Chapters/resummation-plots/fsigma8plot-preliminary-YB1.png}
+	\caption[$f \sigma_{8}$ in Horndeski.]{For a simple Horndeski model,
+		 we show the $f \sigma_{8}$ in three different cases. The solid red and blue lines, stand for a linear calculation of $f \sigma_{8}$ 
+		 at $k=0.01 \mathrm{h/Mpc}$ and 
+		$k=0.2 \mathrm{h/Mpc}$, respectively. The green line with dots, is a non-linear calculation at  $k=0.01 \mathrm{h/Mpc}$. The red data points,
+	are taken from \mcite{Macaulay et al. (2013)}.}
+	\label{fig:change-fsigma8-Y}
+\end{figure}
+
+Finally, we show for the same Horndeski model 
+
+
+
 
 %\section{Numerical approaches}
 %
