@@ -207,7 +207,7 @@ $
 which is the critical density that an Universe with zero curvature $k=0$ would have according to the observed value of the Hubble function.
 So, for each species in the Universe, with energy density $\rho_i$, we can define the energy density fraction as:
 \beeqc$
-\Omega_i (t) = \frac{\rho_i (t)}{\rho_cr (t)}
+\Omega_i (t) = \frac{\rho_i (t)}{\rho_{cr} (t)}
 $ 
 so that the first Friedmann equation \cref{eq:Friedmann-1st} (for a flat Universe) can be written as:
 \beeqp$
@@ -260,7 +260,7 @@ This special mixture of cosmological ingredients in the Universe, leads to a wel
 Therefore if we leave open the possibility that the accelerated expansion of the Universe is caused by a "Dark Energy" component, with 
 an unknown equation of state $w_{DE}(z)$ (where $w_{DE}(z) = -1$ would correspond to the Cosmological Constant), then together with the "standard" matter species (with $w=0$ for CDM and baryons and $w=1/3$ for radiation), we can write down
 the evolution of the Hubble parameter as a function of redshift $z \equiv 1/a - 1 $ :
-\beeqalsp$\label{eq:H-of-z-Lcdm}
+\beeqalsp$\label{eq:H-of-z-lcdm}
 H^2 (z) =& H_0 \left(  \Omega_c (1+z)^3 + \Omega_b (1+z)^3  + \Omega_r (1+z)^4   
 \phantom{\exp \left[ \int_{0}^{z}  \frac{3}{1} \right]} \right. \\
       & \left.  +\Omega_{DE}  \exp \left[ \int_{0}^{z} \dx{}{\tilde z} \frac{3(1+w_{DE}(\tilde z))}{1+\tilde z} \right]     \right)
@@ -453,8 +453,8 @@ stress perturbation $\sigma$ defined through $ (\bar p + \bar \rho)\nabla^2\sigm
 Additionally to \crefrange{eq:pertphipsi-1}{eq:pertphipsi-4}, we still have the covariant conservation of the energy-momentum tensor: $\nabla_{\mu} T^\munu$,
 which yields:
 \beeqal$
-\dot \delta &= -(1+w)(\theta - 3 \dot \Phi ) - 3 \curH (c^2_s - w) \delta \\
-\dot \theta &= -\curH (1-3w)\theta - \frac{\dot w}{1+w} \theta - \frac{c^2_s}{1+w} \nabla^2 \delta + \nabla^2 \sigma - \nabla^2 \Psi \quad, 
+\dot \delta &= -(1+w)(\theta - 3 \dot \Phi ) - 3 \curH (c^2_s - w) \delta \label{eq:deltadot-general}\\
+\dot \theta &= -\curH (1-3w)\theta - \frac{\dot w}{1+w} \theta - \frac{c^2_s}{1+w} \nabla^2 \delta + \nabla^2 \sigma - \nabla^2 \Psi \label{eq:thetadot-general} \quad, 
 $
 where we have defined $c^2_s \equiv \delta p / \delta \rho $ and we now use the notation $\delta \equiv \delta \rho / \bar \rho$.
 In order to close these set of equations, one needs to specify a sound speed and an equation of state and furthermore fix the anisotropic

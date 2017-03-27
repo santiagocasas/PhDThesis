@@ -50,6 +50,184 @@ The equations, the results and most of the text of this chapter are based on a p
 Dr. Massimo Pietroni and Dr. Valeria Pettorino.
 
 
+\section{Growth of perturbations for a Dark Matter component \label{sec:DM-growth}}
+
+Before dealing with non-linear perturbation equations in modified gravity,
+let us review the derivation of the evolution of the growth factor 
+for a single Cold Dark Matter (CDM) component in linear theory.
+This will help us introduce some quantities and 
+relations that we will make use of in the next sections.
+We will introduce the quasistatic approximation and 
+then we will find a simple analytic formula for the growth factor $D_{+}(a)$
+of CDM perturbations which will be useful later on. We will make use of the 
+linearized Einstein equations  in the conformal Newtonian gauge, introduced in \cref{chap:DE-MG-Overview}, where we
+follow the sign and naming conventions of the seminal work by \cite{MaBertschinger}.
+
+If we transform \cref{eq:deltadot-general} and \cref{eq:thetadot-general} to
+Fourier space, we obtain in the 
+case of CDM which has a very simple equation of state $w=0$ and vanishing 
+sound of speed and anisotropic velocity dispersion $c_s^2 = \sigma =0$:
+\beeqal$
+\dot{\delta}(\tau,\vk k) & =-\theta(\tau,\vk k)+3\dot\Phi(\tau,\vk k)  \label{eq:deltadot-CDM} \quad,\\
+\dot{\theta}(\tau,\vk k) & =-\curH \theta(\tau,\vk k) + k^{2}\Psi(\tau,\vk k) 
+\label{eq:thetadot-CDM} \quad,
+$
+where $\tau$ is the conformal time $\dx{}{\tau} = \dx{}{t}/a$ and an overdot 
+represents a derivative with respect to $\tau$.
+
+Derivating the first of the above equations with respect to $\tau$
+and eliminating $\dot{\theta}$ and $\theta$ using both equations,
+one obtains the second order differential equation for the density
+contrast: 
+\beeqc$\label{eq:deltadotdot}
+\ddot{\delta} + \curH\dot{\delta} = 3 \curH \dot{\Phi} + 3\ddot{\Phi} -k^2\Psi  
+$
+for simplicity, we have dropped the arguments of the scale and time dependent functions.
+
+At this stage we introduce the quasistatic (QS) approximation. In this approximation,
+the first and second derivatives of the gravitational potential
+$\Phi$ are taken to be negligible compared to the spatial gradients of $\Psi$. 
+This is justified since the potentials vary only at cosmological time scales
+and we are focusing on evolutions of the perturbations at subhorizon scales, where
+$aH/k \gg 1$.
+Now we apply the QS limit and use the relativistic Poisson equation \ref{eq:relativistic-Poisson} to substitute the Laplacian of $\Psi$ with a source term 
+that depends on $\delta$:
+\beeqp$ \label{eq:deltadotdot-sourced-tau}
+\ddot \delta + \curH \dot\delta  = 4 \pi G a^2 \bar{\rho}_m  \delta 
+$
+In order to solve this equation, it is easier if we first transform 
+our time variable to the scale factor $a$. To do so, we can define some transformations between conformal time and the scale factor:
+\beeqal$
+\curH &= \frac{\dot a }{a} = a \frac{\dd a}{\dd t} = a H \\
+\dot \curH &=  \frac{\ddot a}{a} - \curH^2 \\
+\frac{\dd{}}{\dd \tau} &= a^2 H \frac{\dd{}}{\dd a} \quad,
+$
+furthermore, from \cref{eq:Friedmann-1st} and \cref{eq:H-of-z-lcdm},
+we can find the relation:
+\beeqal$
+\frac{4 \pi G}{H^2(a)} \rho_{m}(a) &= \frac{3}{2} \Omega_m (a) \quad,\\
+\intertext{where, }
+\Omega_m (a) = \frac{H_0^2 \Omega_{m,0} a^{-3}}{H^2 (a)} \quad.
+$
+Finally the transformed equation for $\delta$ has the form:
+\beeqp$ \label{eq:deltaprimeprime}
+\delta'' + \left( \frac{3}{a} + \frac{H'}{H} \right) \delta' = \frac{3}{2} 
+\frac{\Omega_m (a)}{a^2} \,\delta 
+$
+This second order differential equation has two solutions: a decaying one, $D_{-}(a)$
+and a growing one $D_{+}(a)$.
+The decaying solution is $\delta \propto H$ and it can be shown easily by inspection
+in the
+matter dominated case where all the energy is non-relativistic matter (see \mcite{Dodelson book}). In that case,
+$H \propto a^{-3/2}$ and all terms scale as $a^{-7/2}$, so that passing all terms to the 
+left hand side, the coefficients 
+$\{\frac{15}{4}, -\frac{9}{4} , -\frac{3}{2}\}$ indeed cancel out.
+It can be shown that this decaying solution is satisfied even if $H$ contains
+other energy components.
+This can be done with the interesting relation between derivatives of $H$
+and the matter species density fraction:
+\beeqalsp$
+\frac{H''(a)}{H(a)}+\frac{H'(a) \left(a H'(a)+3 H(a)\right)}{a H(a)^2} &= \\
+   & \frac{3 H_0^2 \left(\Omega _{m,0}+\left(w_{\text{DE}}+1\right) \left(3 w_{\text{DE}}+1\right) \Omega _{\text{DE}} a^{-3 w_{\text{DE}}}\right)}{2 a^5 H^2} \quad,
+$
+where for generality, we have taken a \emph{wCDM cosmology}, with Hubble function:
+\beeqc$\label{eq:Hprime-weff}
+H^2 = H_0^2 \left( \Omega _{m,0} a^{-3}+\Omega _{\text{DE}} a^{-3
+	\left(w_{\text{DE}}+1\right)}\right)
+$
+and Dark Energy equation of state $w_{\rm DE}$. With $w_{\rm DE}=-1$,
+one can readily transform the r.h.s. of \cref{eq:deltaprimeprime}
+and prove the validity of the decaying solution.
+
+The growing mode of \cref{eq:deltaprimeprime} can be found by trying the 
+Ansatz $u = \delta/H$ and by using the relation above \cref{eq:Hprime-weff},
+between matter density and derivatives of $H$, we can find the evolution equation for 
+$u$:
+\beeqp$
+u'' + 3 \left[ \frac{H'}{H} + \frac{1}{a} \right]u' = 0
+$
+Since there are no terms proportional to $u$,
+this can be expressed as a first order equation of $v \equiv u'$:
+\beeqal$
+v' &= - 3 \left[ \frac{H'}{H} + \frac{1}{a} \right] v \nonumber\\
+\ln v &= -3 \ln \left( a H \right) \nonumber \\
+v &\propto (aH)^{-3} \quad .
+$
+This can be further integrated to find the growing mode, $D_{+}(a) \equiv \delta(a) 
+ = u(a)H(a)$ as the integral:
+\beeqc$ \label{eq:Dplus-Integral}
+D_{+}(a)  = \frac{5 \Omega_{m,0}}{2 a_{\rm ini}} \frac{H(a)}{H_0} \int_{0}^{a} 
+\frac{\dd{\tilde{a}}}{(\tilde a H(\tilde a)/H_0)^3}  
+$
+where the proportionality constant has been obtained by enforcing
+$D_{+} = a$ at early matter-dominated times, when $H = H_0 \Omega_{m,0}^{1/2} a^{-3/2}$, 
+see \mcite{Dodelson book} and $a_{\rm ini}$ is the scale factor at which
+the initial condition $\Omega_{m}(a_{\rm ini}) = 1$, has been set. In this
+way, \cref{eq:Dplus-Integral} matches exactly the numerical solution
+of \cref{eq:deltaprimeprime}.
+
+\begin{figure}[tbph]
+	\includegraphics[width=0.47\linewidth]{Figures/fGrowthRate-ofa-Approx-vs-ExactHyper}
+	\includegraphics[width=0.47\linewidth]{Figures/fGrowthRate-Ratio-ofa-Approx-vs-ExactHyper-RatioToNumeric}
+	\caption[Growth rate comparison for CDM]{
+	\textbf{Left:} growth rate function $f(a)$, calculated by two different methods. In orange, the $\Omega^\gamma$-approximation, with $\gamma=5/9$, while
+	in green the exact analytical solution from \cref{eq:Dplus-Hyper}.
+    \textbf{Right:} Ratio of each of the two methods to the numerical solution of \cref{eq:fgrowth-of-N}, same coloring as before. The exact and numerical solution
+agree exactly, while the $\gamma$-approximation is fine at the permille level.}
+	\label{fig:fgrowthrate-ofa-approx-vs-exacthyper}
+\end{figure}
+
+
+
+Usually, this integral in this form can only be expressed analytically for
+an open Universe without Dark Energy (see \mcite{Dodelson book}).
+However, by doing a further transformation into e-folding time: $ N \equiv \ln a$,
+we can find a closed analytical expression
+for the late-time $\lcdm$ scenario, with matter and a cosmological constant.
+In this variable, the Hubble function looks like:
+\beeqc$
+H(N) = H_0 \sqrt{\Omega_{m,0} \exp{(-3 N)} + \Omega_{\Lambda,0} }
+$
+while the integral of \cref{eq:Dplus-Integral} transforms to:
+\beeqp$\label{eq:Dplus-Nfolding-Integral}
+D_{+}(N)  = \frac{5 \Omega_{m,0}}{2 a_{\rm ini}} H_0^2 H(a) \int_{-\infty}^{N} 
+\frac{e^{-2 \tilde N} \dd{\tilde{N}}}{ H^3(\tilde N)}
+$
+It turns out that \cref{eq:Dplus-Nfolding-Integral} has a closed analytical
+solution in the case of a cosmological constant and a total matter component.
+It can be expressed in terms of Hypergeometric functions as:
+\beeqp$\label{eq:Dplus-Hyper}
+D_{+}(N) = \frac{1}{a_{\rm ini}} e^{N} \, _2F_1\left(\frac{1}{3},1;\frac{11}{6};-\frac{e^{3 N} \Omega_{\Lambda,0}}{ \Omega_{m,0} } \right)
+$
+The growth rate which is defined as:
+\beeqc$
+f(a) = \frac{\dd{\,\ln} D_{+}(a)}{\dd \ln a} 
+$
+and it is usually approximated as $f(a)=\Omega^\gamma (a)$,
+with $\gamma \approxeq 5/9$, 
+can also be expressed in terms of Hypergeometric functions, as:
+\beeqp$\label{eq:fgrowth-of-N}
+f(N) = 1-\frac{6 e^{3 N} \Omega _{\Lambda ,0} \,\; _2F_1\left(\frac{4}{3},2;\frac{17}{6};-\frac{e^{3 N} \Omega _{\Lambda ,0}}{\Omega _{m,0}}\right)}{11 \Omega _{m,0} \;\, _2F_1\left(\frac{1}{3},1;\frac{11}{6};-\frac{e^{3 N} \Omega_{\Lambda ,0}}{\Omega _{m,0}}\right)}
+$
+It can be shown that $f(N)$ satisfies exactly the growth rate equation, which can be derived
+from \cref{eq:deltaprimeprime} and we express here in terms of the e-folding time
+$N = \ln a$:
+\beeqp$\label{eq:f-of-N-diffeq}
+ \totder{f}{N} + f^2 + \left( 2 + \totder{\,\ln H}{N} \right) f = \frac{3}{2} \Omega_m
+$
+In \cref{fig:fgrowthrate-ofa-approx-vs-exacthyper} we show the result
+for the formulas presented above. In the left panel,
+we show $f(a)$ for the $\gamma$ approximation (orange solid line) compared
+to the exact $f(a)$ solution of \cref{eq:fgrowth-of-N}. The difference is almost unnoticeable
+by eye. Notice how at early times, when most of the energy of the Universe
+consisted on non-relativistic matter, the growth rate is equal to unity and it 
+decreases due to the later dominance of Dark Energy.
+In the right panel of \cref{fig:fgrowthrate-ofa-approx-vs-exacthyper},
+we plot the ratio between the $\gamma$-approximation and the numerical solution
+of \cref{eq:fgrowth-of-N} in orange solid lines,
+while in dashed green we plot the ratio of the exact solution to the numerical one.
+The latter agrees exactly, while the $\gamma$-approximation is accurate at the permille level.
+
 \section{The non-linear fluid equations \label{sec:nonlinear-fluid}}
 
 
@@ -58,7 +236,7 @@ For studying large scale structure formation we will treat the Dark
 Matter distribution as a perfect fluid coupled to gravity, described
 by the continuity, Euler and Poisson's equations. This amounts to
 neglecting higher moments of the Vlasov equation, such as the stress
-tensor and velocity dispersions \cite{bernardeau_large-scale_2001}.
+tensor and velocity dispersion (see \cite{bernardeau_large-scale_2001}).
 This is equivalent to the single stream approximation and is one of
 the main limitations of Eulerian perturbation theory, since the theory
 breaks down as soon as shell crossing and multi-streaming start being
@@ -102,26 +280,9 @@ For simplicity, we will neglect baryonic matter and neutrinos.
 %that describes how a specific Fourier mode is able to depend on another
 %mode at a different wave vector. 
 
-If we linearize \crefrange{eq:continuity}{eq:poisson}, therefore neglecting all terms which are not linear
-in $\delta$ and $\vk v$, we can readily go to Fourier space.
-In the following, we will adopt the conformal Newtonian gauge in the
-notation of \citep{MaBertschinger}, so that the gauge invariant potentials
-$\Psi$ and $\Phi$ are also equal to the gravitational potentials
-in the Newtonian limit. In this formulation, the cold dark matter
-(CDM, c) perturbation equations for the density contrast $\delta$
-and the velocity divergence $\theta$ can be written in Fourier space
-in this way: 
-\begin{align}
-\dot{\delta}(\tau,\vk k) & =-\theta(\tau,\vk k)+3\dot\Phi(\tau,\vk k)  \quad,\\
-\dot{\theta}(\tau,\vk k) & =-\curH \theta(\tau,\vk k) + k^{2}\Psi(\tau,\vk k) \quad.
-\end{align}
-Derivating the first of the above equations with respect to $\tau$
-and eliminating $\dot{\theta}$ and $\theta$ using both equations,
-one obtains the usual second order equation in time for the density
-contrast: 
-\begin{equation}
-\ddot{\delta}(\tau,\vk k)=-(H\dot{\delta}(\tau,\vk k)-3H\dot{\Phi}(\tau,\vk k)+k\text{\texttwosuperior}\Psi(\tau,\vk k)-3\ddot{\Phi}(\tau,\vk k))\,\,.\label{eq:deltadotdot}
-\end{equation}
+
+
+
 
 %For dimensional reasons \comment{VP: what do you mean? dimensional
 %reasons cannot tell you anything about the amplitude of any quantity}
