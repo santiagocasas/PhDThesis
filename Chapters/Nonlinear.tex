@@ -313,7 +313,7 @@ the gravitational slip $\eta$:
 \end{equation}
 For the remainder of this chapter, we will consider all $h_{i}$ functions as constants in order to simplify our computations and to show the main effects of MG, without specifying
 a model. The scale $k_{*}$ is an arbitrary pivot scale, which can be chosen accordingly.
-As it can be seen from  \cref{eq:Yfunc} and \cref{eq:etaFunc},
+As it can be seen from  \cref{eq:mufunc} and \cref{eq:etaFunc},
 the functions $h_{5}$ and $h_{3}$ are degenerate as well as $h_{4}$
 and $h_{5}$. The $\Lambda\textrm{CDM}$ case is recovered when $\mu=\eta=1$, which
 implies $h_{5}=h_{4}=h_{3}$ and an amplitude $h_{1}=h_{2}=1$.
@@ -1042,11 +1042,12 @@ in $k$-space, we need to solve 100 times the differential equation.
 Parallelizing the numerical implementation plays an important role here.
 
 First, we compute the linear growth function for a specific Horndeski
-model. With this we
+model, using \cref{eq:omegamatrix-horn} and the corresponding linear propagator. 
+With this we
 obtain the growth rate and the growth factor, which are then used
-to calculate the loop integrals.
+to calculate terms in the loop integrals.
 
-The initial power spectrum at a high initial redshift ($z \approx 100$)
+The initial power spectrum at a high redshift ($z \approx 100$)
 is obtained from CAMB (developed in \cite{lewis_efficient_2000})
 and it is evaluated
 at 100 points in $k$-space. 
@@ -1055,6 +1056,10 @@ in  a parallel evaluation in \texttt{Wolfram Mathematica}.
 The computing time to evaluate the power spectrum up to $z=0$,
 using 8 cores on a personal computer, is of about
 30 seconds.
+
+Now we will show preliminary results for a Horndeski model which we will label as YB1, and
+has $h_1 = 1.0$, $h_5 = 1.15$ with a pivot scale $k_{*} = 0.9 \textrm{h/Mpc}$. See \cref{eq:mufunc} for the definition of the coefficients
+entering $\mu$.
 
 In figure \cref{fig:change-Dplus-Y} we show how the growth factor 
 changes as a function of scale $k$. In the Horndeski model chosen here, we see that
@@ -1077,7 +1082,7 @@ with the data points shown in red.
 \begin{figure}[tbph]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Chapters/resummation-plots/fsigma8plot-preliminary-YB1.png}
-	\caption[$f \sigma_{8}$ in Horndeski.]{For a simple Horndeski model,
+	\caption[$f \sigma_{8}$ in Horndeski.]{For a simple Horndeski model $YB1$,
 		 we show the $f \sigma_{8}$ in three different cases. The solid red and blue lines, stand for a linear calculation of $f \sigma_{8}$ 
 		 at $k=0.01 \mathrm{h/Mpc}$ and 
 		$k=0.2 \mathrm{h/Mpc}$, respectively. The green line with dots, is a non-linear calculation at  $k=0.01 \mathrm{h/Mpc}$. The red data points,
@@ -1085,7 +1090,51 @@ with the data points shown in red.
 	\label{fig:change-fsigma8-Y}
 \end{figure}
 
-Finally, we show for the same Horndeski model 
+Finally, we show in \cref{fig:PS-resummed-YB1}, for the same Horndeski model YB1, its non-linear power spectrum vs. the one in $\lcdm$,
+with the same cosmological parameters. As a reference, we also show the input linear power spectrum, extrapolated to $z=0$,
+using linear theory. We can see that the model YB1 (blue line), has a 1\%
+higher power spectrum at scales $k \approx 0.1$, compared to $\lcdm$, increasing up to 5\% at $k \gtrapprox 0.5$.
+As we have seen in previous discussions in this dissertation (see \cref{chap:lin-nonlin-MG-forecasts} and \cref{chap:Fitting-CDE}), this is an effect that can be measured by future galaxy redshift surveys.
+
+\begin{figure}[tbph]
+	\centering
+	\includegraphics[width=0.9\linewidth]{Chapters/resummation-plots/PS-Resummation-YB1-vs-LCDM.pdf}
+	\caption[$f \sigma_{8}$ in Horndeski.]{For the simple model Horndeski model, YB1,
+		we show its non-linear power spectrum (blue lines) $P(k)$, compared to the $\lcdm$ case (red lines), with the same parameters.
+		The green thick line is the linear input power spectrum. The ratio to $\lcdm$ is shown in the inside box, where the red line is $\lcdm$ and therefore
+		equal to 1, while the blue line is the model YB1. The maximum difference to $\lcdm$ is of the order of 5\% at scales $k \gtrapprox 0.5$.}
+	\label{fig:PS-resummed-YB1}
+\end{figure}
+
+\section{Summary}
+
+In this chapter we have shown first of all how to obtain the linear and non-linear equations
+governing the density perturbations of a Cold Dark Matter (and therefore, non-relativistic) component, 
+under the influence of gravity.
+
+For the linear theory, we have shown in \cref{sec:DM-growth} that there are several
+ways to tackle the problem and that the growth of perturbations can be even solved analytically, see
+\cref{eq:Dplus-Hyper}.
+
+For the non-linear theory, we have shown that the full set of fluid equations complicates considerably.
+As we have seen, there has been a tremendous progress in the treatment of these equations in the last 10 years and many different
+and complimentary techniques have been developed.
+
+Here we chose a specific resummation technique called eikonal Renormalized Perturbation Theory (eRPT, see \cite{anselmi_nonlinear_2012} and
+\mcite{Peloso, Pietroni, 2016}) and we applied it for the first time 
+to Horndeski models of modified gravity within the quasistatic approximation.
+We have been able to compute the linear propagator and the 1-loop integrals in a specific case and we have 
+produced the first numerical results. As already stated in the introduction, this is work in progress and the results
+still have to be confirmed and checked against N-body simulations and other semi-analytic methods.
+In recent years there has been substantial progress in this direction, with more N-body simulations and semi-analytic
+methods, capable of calculating structure formation in modified gravity theories (see, \mcite{Winther, Baldi, COLA 2016, Li}).
+Moreover, we will also profit from recent Boltzmann codes like \textsc{EFTCAMB} by \cite{hu_eftcamb/eftcosmomc:_2014-1} and 
+\textsc{hi-CLASS} by \cite{zumalacarregui} that can provide a more exact initial power spectrum in the models
+we are studying here.
+
+The results of this chapter so far, will be published in a paper together with Dr. Massimo Pietroni and
+Dr. Valeria Pettorino.
+
 
 
 
@@ -1125,7 +1174,19 @@ Finally, we show for the same Horndeski model
 %spectrum from simulation data. 
 
 
-\section{Other computational techniques: N-body simulations \label{sec:Computational}}
+\section{Excursion into other computational techniques: N-body simulations \label{sec:Computational}}
+
+
+As we have seen repeatedly in the previous chapters, non-linear structure formation 
+is of extreme importance for the era of precision cosmology.
+In order to connect our analytic and semi-analytic methods presented in \cref{chap:lin-nonlin-MG-forecasts}
+and \cref{chap:nonlinear} with a fully non-linear N-body treatment discussed in \cref{chap:GNQ} below,
+we will review in this section some of the fundamental properties of N-body simulations.
+
+The progress in this field has been impressive and nowadays N-body codes are capable
+of simulating trillions of particles \mcite{Illustris, Coyote, DEUS}, including not only 
+gravitational physics, but also star formation, galactic and supernova feedback, magnetic fields and
+many more complicated astrophysical phenomena \mcite{Illustris, Springel}.
 
 To perform an exact evolution of the density fluctuations, beyond
 linear perturbations, the density field has to be represented by a
@@ -1133,7 +1194,9 @@ set of fictitious discrete particles with a certain mass. These particles
 do not represent real galaxies or clusters of galaxies, they just
 sample the underlying density field. For current cosmological simulations,
 depending on the desired resolutions, the particle masses are around
-$m_{p}\approx10^{9}-10^{12}M_{\odot}$. (see \citet{kuhlen_numerical_2012})
+$m_{p}\approx10^{9}-10^{12}M_{\odot}$, see \citet{kuhlen_numerical_2012}.
+\footnote{Parts of the following text have appeared as part of papers by the author (see list of papers)
+and as part of his Master thesis, presented at the University of Heidelberg, 2013.}
 
 The equations of motion for each particle depend on solving for the
 gravitational field due to all the other particles, finding the change
@@ -1148,21 +1211,15 @@ dynamics and the expansion history of the Universe is taken into account
 by using comoving coordinates, where the expansion rate $a(t)$ is
 factored out (see \citet{peacock_cosmological_1999,dehnen_n-body_2011}).
 We then obtain for the comoving velocity $u$ the following equations:
-
 \begin{equation}
 \frac{d}{dt}\vec{u}=-2\frac{\dot{a}}{a}u-\frac{1}{a^{2}}\nabla\Phi
 \end{equation}
-
-
 where $\Phi$ is the Newtonian gravitational potential due to density
 perturbations. If we change the time variable from $t$ to $a$ we
 obtain:
-
 \begin{equation}
 \frac{d}{d\mbox{ln}a}(a^{2}\vec{u})=\frac{a}{H}\vec{g}=\frac{G}{aH}\sum_{i}m_{i}\frac{\vec{x_{i}}-\vec{x}}{\left|\vec{x_{i}}-\vec{x}\right|^{3}}
 \end{equation}
-
-
 We see that in order to get the gravitational acceleration for one
 single particle, we have to sum the contributions from all other particles,
 which leads to the exact solution, but it is computationally prohibitive
@@ -1179,8 +1236,6 @@ potential can be described as (\citet{dehnen_n-body_2011}):
 \begin{equation}
 \Phi(\mathbf{x},t)=-G\sum_{\mathbf{n}}\int d\mathbf{x}'\,\frac{\rho(\mathbf{x}'+\mathbf{n}L,t)}{\left|\mathbf{x-x}'-\mathbf{n}L\right|}
 \end{equation}
-
-
 where the sum is performed over $\mathbf{n}=(N_{x},\,N_{y},\,N_{z})$
 and accounts for all periodic replica. Usually all the $N_{i}$ are
 the same in all directions. Because of the fact, that performing an
@@ -1197,8 +1252,6 @@ small distances to something like (see \citet{trenti_gravitational_2008}):
 \begin{equation}
 \vec{F_{i}}=-\sum_{j\neq i}Gm_{i}m_{j}\frac{\vec{x_{i}}-\vec{x_{j}}}{\left(\left|\vec{x_{i}}-\vec{x_{j}}\right|^{2}+\epsilon^{2}\right)^{3/2}}
 \end{equation}
-
-
 where $\epsilon>0$ is the softening or smoothing length, which is
 a typical size below which the gravitational interaction is suppressed.
 In current cosmological N-body simulations, the softening length is
@@ -1343,4 +1396,4 @@ references, check \citet{dehnen_n-body_2011}.
 %\end{figure}
 
 
-\subsection{Fitting formulae and prescriptions}
+%\subsection{Fitting formulae and prescriptions}
