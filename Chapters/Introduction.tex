@@ -34,19 +34,24 @@ exciting first detection of gravitational waves (\cite{cite}).
 It is impressive that a theory that was formulated on the grounds of some very basic
 principles, has proven to be so accurate across several orders of magnitude in scales.
 
-To explain the accelerated expansion of the Universe, which was observationally verified almost 20 years ago,
-(\cite{cite, supernova, 1998}), Einstein's General Relativity needs to invoke a cosmological constant, which despite the fact that
-it is allowed by the theory (see Lovelock's theorem below in\cref{sub:Einstein-Hilbert} ),
-possesses many unsatisfactory properties. 
-We will review this issue in \cref{sub:CC-problem} below.
-
-In order to provide some context for the main results of this dissertation, we will
-provide in the following sections a very brief overview of the standard cosmological model. 
 In \cref{sec:GR-framework} we will review the main principles and the mathematical 
 formulation of General Relativity, its field equations and
 its linearized Newtonian limit.
 In \cref{sec:Standard-LCDM} we will deal with the composition of the Universe,
 its evolution and the standard cosmological scenario.
+To explain the accelerated expansion of the Universe, which was observationally verified almost 20 years ago,
+(\cite{cite, supernova, 1998}), Einstein's General Relativity needs to be supplemented with a Cosmological Constant (known as CC or $\Lambda$). Despite the fact that $\Lambda$ is allowed by the classical theory, as was proven by Lovelock in the 1970's (see \cref{sec:GR-framework}) and 
+it fits very well present cosmological observations (\mcite{Planck 2015}), it
+possesses many unsatisfactory properties from the theoretical point of view. 
+We will review the Cosmological Constant problem in \cref{sub:CC-problem} below.
+
+A popular alternative to the cosmological constant is to introduce an extra dynamical degree of freedom, which is able to explain the present acceleration of the Universe and its apparent dominance at late cosmological times, but which can lead 
+to modifications of gravitational structure formation at small and large scales. This will
+be the main topic of this chapter and will be covered in \crefrange{sec:DE-MG-sec}{sec:nonuniversal-coupling}.
+
+%In order to provide some context for the main results of this dissertation, we will
+%provide in the following sections a very brief overview of the standard cosmological model. 
+
 
 
 \section{The framework of General Relativity \label{sec:GR-framework}}
@@ -69,20 +74,20 @@ its evolution and the standard cosmological scenario.
 %Constructing from there a fully-fledged non-linear theory of gravity took Einstein more than 10 years, with the (maybe indirect) help
 %of very bright mathematicians like Grossmann, Levi-Civita and Hilbert.
 
-Although Einstein based its construction of General Relativity on considerations of the \emph{Equivalence Principle},  we can say, in more modern terms, that General Relativity is a theory of 
+Einstein based its construction of General Relativity on considerations of the \emph{Equivalence Principle} and relativity of inertial frames, but, in more modern terms, we can say that General Relativity is a theory of 
 a dynamical tensor field, the metric $g_{\mu \nu}$, which defines the lengths 
-of space-time intervals $ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}$ and which is invariant under diffeomorphisms. 
+of space-time intervals $ds^2 = g_{\mu \nu} dx^{\mu} dx^{\nu}$ and which is covariant under diffeomorphisms. 
 All particles and fields couple to the metric $g$ in a universal way.
-This means that the equations of motion and all the physical properties do not depend on the chosen coordinates.
-Diffeomorphism invariance is a very important symmetry that has to be respected if one wishes to construct
-extensions of gravity. 
+This means that the equations of motion and all the physical properties do not depend on the chosen coordinates. This metric lives on a generally curved 4-dimensional manifold, which by definition, can be transformed
+locally into Euclidean $\mathbb{R}^n$ space ---the mathematical description of Einstein's
+Equivalence Principle.
+%Diffeomorphism invariance is a very important symmetry that has to be respected if one wishes to construct
+%extensions of gravity. 
 %However, at the smallest (Planck length) and largest (super-horizon) scales, there are suggestions
 %that this symmetry might be broken in order to be able to construct a consistent theory of Quantum Gravity
 %(\cite{cite Rovelli}).
 
-
-
-\subsection{The Einstein-Hilbert action and the field equations \label{sub:Einstein-Hilbert}}
+\subsection*{The Einstein-Hilbert action and the field equations \label{sub:Einstein-Hilbert}}
 
 Although Einstein postulated the field equations of General Relativity in a heuristic
 form, they can be obtained by varying the so-called Einstein-Hilbert action
@@ -109,13 +114,13 @@ As it was famously expressed by \cite{Misner, Wheeler, Gravitation}:
 "Matter tells space-time how to curve and space-time tells geometry how to move" .
 
 Another important property of these field equations, is that due to a purely geometric property called the Bianchi identity, which
-states that the covariant divergence of the Einstein tensor is identically zero:
+states that the covariant divergence of the Einstein tensor is identically zero, 
 $\nabla_{\mu} G^\munu = 0$, 
 we can ensure that the energy-momentum tensor is locally conserved:
 \beeqc$
 \nabla_{\mu} T^\munu = 0
 $
-therefore one recovers all the well-known properties of classical and fluid mechanics.
+therefore one recovers all the properties of classical and fluid mechanics.
 
 %Einstein's field equations are very complicated to solve analytically in its full glory. They consist on
 %10 coupled non-linear partial differential equations.
@@ -125,7 +130,7 @@ therefore one recovers all the well-known properties of classical and fluid mech
 %The richness and complexity of this theory is one of the reasons it has to be so successful explaining 
 %star formation, gravitational collapse, black holes, gravitational waves and the evolution of the Universe.
 
-%\subsubsection{Lovelock's theorem and the uniqueness of General Relativity}
+\subsection*{Lovelock's theorem and the uniqueness of General Relativity}
 
 One might then ask if these field equations are unique, especially if as in our case, 
 we are interested in testing these equations at the very largest scales of the Universe and we might 
@@ -174,7 +179,7 @@ where $r$ is the radial coordinate, $\theta$ the polar angle and $\phi$ the azim
 The curvature $k$ which can be 0, 1 or -1, corresponds to Universes which are flat, closed or open, respectively.
 Due to the stringent constraints on $k$ given by recent observations,
 we will use for the rest of this work only a flat geometry with $k=0$.
-Also it is standard convention that "Greek" indices run from 0 to 3, as in \cref{eq:FLRW-full},
+Also we will use the convention that "Greek" indices run from 0 to 3, as in \cref{eq:FLRW-full},
 while "Latin" indices run from 1 to 3 as in equations involving only spatial coordinates, like \cref{eq:FLRW-spatial}.
 
 
