@@ -151,8 +151,10 @@
 
 \RequirePackage{booktabs} % Required for better table rules
 
-\RequirePackage[centerlast,small,sc]{caption} % Required for customising the captions
-\setlength{\captionmargin}{50pt}
+%\RequirePackage[centerlast,small,sc]{caption} % Required for customising the captions
+\RequirePackage[normal,small,sc,bf]{caption} % Required for customising the captions
+%\setlength{\captionmargin}{50pt}
+\setlength{\captionmargin}{30pt}
 
 %----------------------------------------------------------------------------------------
 
