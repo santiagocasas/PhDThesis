@@ -87,6 +87,11 @@ headsepline, % Uncomment to get a line under the header
 \definecolor{violet}{cmyk}{0,1,0,0} 
 \definecolor{darkgreen}{rgb}{0,0.65,0.05}
 \definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.61}
+\definecolor{winehd}{rgb}{0.568, 0.023, 0.027}
+\definecolor{nicegreen}{rgb}{0.058, 0.505, 0.415}
+\definecolor{niceblue}{rgb}{0.023, 0.568, 0.568}
+\definecolor{vividred}{rgb}{0.823, 0.062, 0.062}
+\definecolor{papaya}{rgb}{0.788, 0.368, 0.094}
 %
 \def\revtext#1{\textcolor{blue}{#1}} % valeria
 \def\comm#1{\textcolor{red}{#1}} % valeria
@@ -223,22 +228,26 @@ headsepline, % Uncomment to get a line under the header
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
 
-This thesis deals with the relevance of non-linear structure formation in the Universe,
-for the determination of the cosmological parameters beyond the standard $\lcdm$ model.
-Future galaxy surveys will be able to measure $\sim 10^7$ galaxies and will determine with high
-precision the galaxy and matter power spectrum. This function encodes substantial 
-information on the cosmological model, especially at non-linear scales.
-In this dissertation we want to investigate how to make use of non-linearities 
-in structure formation in order to discriminate between models of dark energy and modified gravity that go beyond the standard cosmological $\lcdm$ model. Here, we approach this task from three different
-angles. In the first one we use N-body simulations to produce observables that can be constrained with future observations, as in the case of Coupled Dark Energy and Growing Neutrino Models. 
-In the second, we use semi-analytic methods for the non-linearities 
-and we study its impact on parameterizations of Modified Gravity which are independent of a specific model. Finally, we concentrate on specific cases of Horndeski's theory to compute non-linear corrections
-to the matter power spectrum using renormalization methods in perturbation theory.
-For the parameter constraints, we focus on Galaxy Clustering and Weak Lensing observables. 
-To forecast how well future surveys will be able to measure the parameters entering Modified Gravity and
-Dark Energy models, we employ the Fisher matrix formalism, for which we also develop a specialized
-code.
-
+This thesis investigates the importance of non-linear structure formation on the 
+the determination of the cosmological parameters for models beyond the standard $\lcdm$ scenario.
+One of the main motivations is that future galaxy surveys will be able to measure the positions
+and shapes of approximately $10^7$ galaxies and will be 
+able to determine with high precision their two-point correlation function, 
+or its equivalent in wavevector space, the matter power spectrum. 
+If one is able to extract the information encoded in the power spectrum at small scales,
+one can gain a substantial constraining power on the cosmological parameters.
+In this dissertation I look at different models of Dark Energy and Modified Gravity:
+Coupled Dark Energy, Growing Neutrino Quintessence, Effective Field Theory, Horndeski models,
+and general phenomenological parameterizations of Modified Gravity. 
+To study non-linear structure formation I use standard and specialized N-body simulations, 
+semi-analytic prescriptions based on the Halo model
+and resummation methods in cosmological perturbation theory.
+In order to constrain the model parameters and to forecast the errors measured by future surveys,
+I use the Bayesian Fisher matrix formalism, for which I developed a code that can deal with
+Galaxy Clustering and Weak Lensing observables.
+The overall result of this work is that non-linear structure formation
+cannot be neglected, if one pretends to discriminate between general Dark Energy models and
+the Cosmological Constant scenario in the near future.
 
 
 
