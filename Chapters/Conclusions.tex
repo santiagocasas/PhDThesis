@@ -9,16 +9,18 @@
 
 %----------------------------------------------------------------------------------------
 
+\todo{finish conclusions}
 In this thesis we have investigated non-linear structure formation in models of Dark Energy and Modified 
 Gravity which go beyond the standard $\lcdm$ scenario. We have focused on predicting its impact
-on parameter constraints and contrasting the difference of the linear and the non-linear calculations on observable properties like Weak Lensing, Galaxy Clustering and the evolution of background quantities.
+on parameter constraints and contrasting the difference of the linear and the non-linear calculations on observable properties like Weak Lensing, 
+Galaxy Clustering and the evolution of background quantities.
 
 In \cref{chap:DE-MG-Overview} we introduced the theoretical framework of cosmology, which is
 based on Einstein's General Relativity (GR) and then we proceeded to explain the concordance $\lcdm$
 model and its main properties. 
 We have argued that despite the actual data being well explained by the standard model, 
 there are some unsatisfactory properties with the Cosmological Constant, namely the so-called fine-tuning
-and coincidence problems, that motivate an extension of General Relativity with an extra degree of freedom.
+and coincidence problems, that motivate extending General Relativity by an extra degree of freedom.
 We have focused on theories of Dark Energy (DE) and Modified Gravity (MG) in which this extra degree of freedom  is represented by a dynamical scalar field. The scalar field can not 
 only modify the background cosmological solutions,
 but in some cases it can also lead to the appearance of an extra "fifth-force" acting between test bodies.
@@ -30,7 +32,7 @@ Therefore, universally coupled models have to invoke a "screening" mechanism tha
 On the other hand, non-universally coupled theories pass the stringent solar system constraints by decoupling the baryons
 and allowing only for dark sector interactions, involving the scalar field and dark matter or neutrinos, as we discuss in \cref{sec:nonuniversal-coupling}.
 
-For universally coupled theories, we focused on Effective Field Theory (EFT) models and Horndeski models, or on Parameterized Modified Gravity, which
+For universally coupled theories, we focus on Effective Field Theory (EFT) models, Horndeski models and on parameterized Modified Gravity, which
 are very general descriptions of theories of GR plus a scalar field.
 EFT includes in the action all possible terms allowed by symmetries at first order in perturbation theory, while Horndeski is the most general theory
 of GR plus a scalar field, which is second order in the equations of motion and free of ghost instabilities.
@@ -42,9 +44,9 @@ expresses the gravitational anisotropic stress (also known as gravitational slip
 Both functions reduce to unity in the standard GR case or if the DE model just modifies the background equations.
 
 For non-universally coupled theories, we focused on two distinct scenarios. The first one called Coupled Dark Energy
-(CDE) is a model in which there is a dark sector interaction between Dark Matter and the Dark Energy field, see \cref{sub:CDE}. This leads to a fifth-force that modifies the growth and the clustering of DM particles and introduces a gravitational bias 
+(CDE) is a model in which there is a dark sector interaction between Dark Matter and the Dark Energy field, see \cref{sub:CDE}. This leads to a fifth-force that modifies the growth and the clustering of DM particles and introduces a gravitational bias.
 We studied this model in the non-linear regime, based on cosmological N-body simulations and we found
-noticeable differences in the non-linear matter power spectrum dependent on the strength of the DM-DE coupling, as detailed in \cref{chap:Fitting-CDE}.
+noticeable differences in the non-linear matter power spectrum depending on the strength of the DM-DE coupling. This was a subject of \cref{chap:Fitting-CDE}.
 The second non-universally coupled model we study is Growing Neutrino Quintessence (GNQ) in which
 the mass of the neutrinos is directly coupled to the scalar field (referred to as ``cosmon``).
 In this model Dark Matter and baryons follow standard gravity, but neutrinos feel an extra force among them, which
@@ -52,6 +54,96 @@ is very strong (of the order of $10^2$ times the gravitational force) and leads 
 or they present very rapid oscillations, dissolving and forming again. To study the dynamics of these lumps
 and their backreaction effect on background quantities, we perform specialized N-body simulations, as we 
 detail in \cref{chap:GNQ}. 
+
+In order to study the impact of non-linearities onto the determination of cosmological parameters,
+we need to make use of Bayesian statistical tools, which we review in \cref{chap:Statistics}. 
+In the first part we introduce the concepts of Gaussianity, linearity and statistical homogeneity and 
+we conclude that they are intrinsically connected and that therefore non-linear structure formation
+introduces non-Gaussianities and non-homogeneities into our statistical analysis.
+Using Bayes' theorem we can define the likelihood as the probability of obtaining a particular model given the data, therefore
+we can find which are the set of model parameters that maximize the likelihood function.
+We then developed the concept of Fisher Matrix, which is a way of approximating the likelihood function at the maximum, 
+assuming that around the peak, the likelihood can be approximated as a Gaussian (see \cref{sec:Fisher-Matrix-forecasts}).
+Since the Fisher matrix for the model parameters can be obtained without data, just by knowing the data and noise covariance matrices,
+we are able to forecast the result of future experiments.
+
+In this work we have dealt with the predictions for future galaxy surveys: Euclid, SKA1, SKA2 and DESI (for more details see \cref{sub:FutureSurveys}).
+These missions will observe approximately $10^7 \sim 10^9$ galaxy shapes and positions (angles with spectroscopic plus photometric redshifts) at redshifts of $z \approx 0-3$, giving us valuable information
+in the linear as well as in the non-linear regime of structure formation.
+With the galaxy positions and spectroscopic redshifts one can measure what we call Galaxy Clustering (GC). This is 
+a combination of the shape of the power spectrum (the Fourier transform of the galaxy two-point correlation function), 
+its amplitude as a function of time and its particular features like Baryon Acoustic Oscillations and Redshift Space Distortions.
+What we call Weak Lensing (WL) is the process of using galaxy shapes and photometric redshifts one obtains the cosmic shear power spectrum, which
+can be related to the matter power spectrum integrated along the line of sight. This provides us with valuable information about the evolution
+of structures in the Universe.
+In \cref{sec:FisherTools-code} we explain the implementation of a Fisher Matrix code for GC and WL, which contains different methods 
+to forecast the errors on cosmological parameters obtained by future surveys. This code, called \textsc{FisherTools}, integrates
+very well with other commonly used codes in the community, like Boltzmann codes or emulator codes and has been thoroughly 
+tested within the Inter Science Taskforce and the Theory Working Group of the Euclid collaboration.
+
+In \cref{chap:lin-nonlin-MG-forecasts} we have used the \textsc{FisherTools} code to 
+forecast the sensitivity of future surveys to general modifications of gravity given by $\mu$ (the deviation from the GR Poisson equation) 
+and $\eta$ (the anisotropic stress) in the linear and in the 
+mildly non-linear regime of structure formation. 
+For the linear power spectrum we use a modified Boltzmann code called \textsc{MGCAMB} which is able to compute the linearized
+Einstein-Boltzmann equations for modified gravity. For the non-linear corrections we test two prescriptions, one based on a rough application
+of the \textsc{Halofit} formalism on top of the linear spectra and a prescription in which we interpolate
+from an MG non-linear power spectrum to a GR non-linear spectrum at small scales, to emulate something like a screening mechanism. This is the 
+so-called "Hu-Sawicki" (HS) prescription
+(see \cref{sub:MG-nonlinear-spectra} for more details).
+
+In this project, we have tested three different parameterizations of Modified Gravity.
+In two of them $\mu(a)$ and $\eta(a)$  are smooth functions of the scale
+factor $a$ and we have neglected possible scale dependence. In the third one, we have not assumed any specific functional form for $\mu(a)$ and $\eta(a)$,
+but we have binned these functions in 5 redshift bins and we have assumed that $\mu(z_i)$ and $\eta(z_i)$ 
+are free parameters at each redshift bin $z_i$.
+To obtain the fiducial parameters for these three cases, we have computed the best fit parameters obtained by
+performing a Markov-Chain-Monte-Carlo calculation, that computes the likelihood function obtained with recent data from the \textit{Planck} CMB satellite.
+
+In the redshift-binned scenario, we find that the $\mu(z_i)$ and $\eta(z_i)$ are quite correlated among each other and
+with the primordial amplitude of the power spectrum $\mathcal{A}_s$. We find that including non-linear power spectra and adding
+a \textit{Planck} covariance matrix as prior, reduces the correlations considerably. Particularly, in the non-linear case, the correlation
+with the primordial amplitude disappears almost completely. We find that the lower redshift bins are the best constrained
+by observations. 
+Using non-linear power spectra and Galaxy Clustering only,
+the parameters in the first bin $z_1$, covering from $z=0$ to $z=0.5$, are constrained for $\mu$ at the 
+7\% level and for $\eta$ at the 20\% level; combining GC with Weak Lensing improves the constraints 
+to 2.2\% and 3.6\%, respectively. If one considers only linear scales in the analysis,
+the GC+WL combined errors on $mu_1$ and $\eta_1$ are twice as large, while the individual GC
+and WL lensing errors are 10 to 20 times larger.
+This shows the importance of having a proper model of the non-linear power spectrum if one wishes to extract information
+on the Modified Gravity parameters with future surveys.
+
+In the redshift-binned scenario we further apply a Zero-phase Component Analysis (ZCA) decorrelation, which in analogy to the commonly used
+Principal Component Analysis (PCA) gives us a set of decorrelated variables, in which the new covariance matrix is diagonal.
+With these decorrelated variables, we can find which are the combinations of MG parameters that can be best constrained with future surveys.
+We find that for low redshifts, the best constrained parameters are the combination $2\mu + \eta$, which will be measured at a precision of better
+than 1\%, if one combines GC+WL and Planck \textit{priors}. 
+
+For the case in which we parameterize $\mu(a)$ and $\eta(a)$ with smooth functions of time, we consider two possible behaviors. The first one, is the so-called
+late-time parameterization in which the modifications of gravity are stronger at late times and are proportional to the fraction of Dark Energy
+$\Omega_{DE}$ in the Universe. The second one is the so-called early-time parameterization, which consists of the zeroth and first terms of a Taylor expansion
+of a general function of $a$, around $a=1$. In this parameterization the modifications $\mu$ and $\eta$ can be large at high redshifts.
+In both cases we find that using non-linearities and combining GC plus WL, we can constrain the MG parameters at around the 1\% level.
+An interesting difference between these two parameterizations is that in the late-time parameterization, Galaxy Clustering is only able
+to constrain the $\mu$ function, while WL is able to constrain the combination $\Sigma=(1+\eta)\mu/2$, which is what one expects naively from
+the subhorizon perturbation equations. Nevertheless, in the early-time parameterization since $\eta$ and $\mu$ are not unity at high redshifts,
+the terms proportional to derivatives of the gravitational potential $\dot \Phi $ and $\ddot \Phi$, appearing in the evolution equation
+for the density perturbations \cref{eq:deltadotdot} are not negligible and one can observe the effects of $\eta$ both with the clustering of galaxies 
+and with the cosmic shear.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
 
 
 

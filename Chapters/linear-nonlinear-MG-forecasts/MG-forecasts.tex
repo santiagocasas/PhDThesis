@@ -4,6 +4,7 @@
 
 \section{Introduction}
 
+\todo{check that this intro does not overlap too much with previous chaps}
 Future large scale structure surveys will be able to measure with
 percent precision the parameters governing the evolution of matter
 perturbations. While we have the tools to investigate the standard model, the next challenge is to be able to compare those data with cosmologies that go beyond General Relativity, in order to test whether a fluid component like Dark Energy or similarly a Modified Gravity scenario can better fit the data. On the theoretical side, while many Modified Gravity models are still allowed by type Ia supernova (SNIa) and
@@ -166,7 +167,7 @@ of each bin as free parameters, thus with the $i$ index spanning the values
 $\{0.5,1.0,1.5,2.0,2.5,3.0\}$. The first bin is assumed to have a constant 
 value, coinciding with the one at $z_1=0.5$, i.e. $\mu(z<0.5)=\mu(z_{1})$ and $\eta(z<0.5)=\eta(z_{1})$.
 The $\mu(z)$ function (and analogously $\eta(z)$) is then reconstructed
-as 
+as \todo{this is repeated}
 \begin{equation}\label{eq:MGbin-mu-parametrization}
 \mu(z)=\mu(z_{1})+\sum_{i=1}^{N-1}{\frac{\mu(z_{i+1})-\mu(z_{i})}{2}\left[1+\tanh{\left(s\frac{z-z_{i+1}}{z_{i+1}-z_{i}}\right)}\right]},
 \end{equation}
@@ -228,8 +229,9 @@ with respect to standard GR will be only functions of the scale factor
 $a$.
 
 
-\subsection{Non-linear power spectra}
+\subsection{Non-linear power spectra \label{sub:MG-nonlinear-spectra}}
 
+\todo{Check that there is not too much repetition}
 As the Universe evolves, matter density fluctuations
 ($\delta_{m}$) on small scales (k > 0.1 h/Mpc) become larger than unity and shell-crossing will eventually occur. The usual continuity and
 Euler equations, together with the Poisson equation become singular
@@ -1412,6 +1414,8 @@ the analysis of the {\it Planck}+BSH datasets (where we recall that BSH stands f
 as discussed in Section \ref{sub:Fisher-Planck}.
 
 \subsubsection{Galaxy Clustering in the linear and mildly non-linear regime}
+
+\todo[Maybe]{maybe add the correlation matrices for these models}
 In Table \ref{tab:errors-Euclid-GC-WL-late_time} we show forecasts for the Euclid survey \cite{laureijs_euclid_2011} for Galaxy Clustering (top part of the table) and three different cases: using only linear scales with a cutoff at $k_{\rm max}=0.15$h/Mpc, labeled GC(lin); extending forecasts in the mildly non-linear regime, obtained using the prescription described in Sec.\ \ref{sub:Prescription-HS}, with a cutoff at $k_{\rm max}=0.5$ h/Mpc, labeled GC(nl-HS); combining the mildly non-linear case with \planck\ priors, as described in Sec.\ \ref{sub:Fisher-Planck}. We take into account
 the BAO features, redshift space distortions and the full shape of
 the power spectrum, as well as the survey specifications of the Euclid Redbook, recalled
@@ -1840,9 +1844,9 @@ then given by
 \tilde{F}=J^{T}F\,J
 \end{equation}
 For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
-we obtain the following non-vanishing derivatives
+we obtain the following non-vanishing derivatives \todo{fix these eqns alignement}
 
-\begin{alignat}{2}
+\begin{alignat}{2} 
 \frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
 \frac{\partial\Sigma}{\partial\Omega_{c}} &
 =-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
@@ -1993,6 +1997,7 @@ and since we are also requiring gravitational slip $\eta = \Phi / \Psi$, we then
 k^2 \Phi = -4 \pi G a^2 \mu(\tau) \eta(\tau) \rho(\tau) \delta(\tau) \label{eq:Phipoisson}
 \end{equation}
 
+\todo{check alignmenent of figs}
 Taking the time derivative of (\ref{eq:deltadot}) and using (\ref{eq:thetadot}) and (\ref{eq:deltadot}) to 
 replace $\dot \theta$ and $\theta$, and substituting $\Psi$ from (\ref{eq:Psipoisson}), we obtain:
 \begin{align}
@@ -2032,7 +2037,7 @@ Detailed specifications of the different surveys are explained in the text.
 }
 \end{figure}
 
-For the SKA1 and SKA2 surveys (whose specifications are explained in detail in Section \ref{sub:FutureSurveys}), 
+For the SKA1 and SKA2 surveys (whose specifications are explained in detail in Section \ref{sub:FutureSurveys}) \todo{fix this}, 
 previous work on forecasting cosmological parameters has been done, among others, by \cite{baker_observational_2015} and \cite{bull_extending_2015}. 
 In the latter work, the author parameterizes the evolution of $\mu(a)$ using the late-time parameterization, but also adds an extra parameter
 allowing for a scale dependence in $\mu(a)$ and including a \planck\ prior. For a fixed scale,
@@ -2430,7 +2435,7 @@ the effect is very small and the errors found previously remain stable both for 
 
 It is clear that limiting the analysis to linear scales discards important information encoded in structure formation. On the other hand, a realistic analysis of non-linear scales would have to include several further effects (baryonic effects, higher order RSD's, damping of BAO peaks, corrections
 to peculiar velocity perturbations, higher order perturbation theory in Modified Gravity, just to name a few), which make our non-linear case an optimistic limit.
-Therefore, the quantitive true constraints given by a survey like Euclid will probably lie in between these two limiting cases. 
+Therefore, the quantitive true constraints given by a survey like Euclid will probably lie in between these two limiting cases. \todo{check for repetitions with other chaps}
 
 
 
