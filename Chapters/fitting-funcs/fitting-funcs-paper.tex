@@ -962,24 +962,25 @@ the integral over the galaxy distribution function $n(z)$ (eqn. \ref{eq:ngal dis
 is equal. The resulting peaks of the bins and their full width at
 half maximum are specified in table \ref{tab:WL-zbins-specs}.
 
-\begin{table}
-\centering{}%
-\begin{tabular}{|c|c|c|}
-\hline 
-\textbf{Parameter}  & \textbf{Value}  & \textbf{Description}\tabularnewline
-\hline 
-$f_{sky}$  & 0.364  & Observed sky fraction\tabularnewline
-$\gamma_{int}$  & 0.22  & Intrinsic alignment\tabularnewline
-$n_{\theta}$  & 30  & Galaxy density per $arcmin^{2}$\tabularnewline
-$\sigma_{pz}$  & 0.05  & Photometric redshift error\tabularnewline
-\hline 
-\end{tabular}
-\caption[Specifications for a Euclid WL Fisher forecast]{\label{tab:WL-specifications-1} Specifications for the Fisher Matrix
-of an Euclid-like weak lensing survey.}
-\end{table}
+%\begin{table}
+%\centering{}%
+%\begin{tabular}{|c|c|c|}
+%\hline 
+%\textbf{Parameter}  & \textbf{Value}  & \textbf{Description}\tabularnewline
+%\hline 
+%$f_{sky}$  & 0.364  & Observed sky fraction\tabularnewline
+%$\gamma_{int}$  & 0.22  & Intrinsic alignment\tabularnewline
+%$n_{\theta}$  & 30  & Galaxy density per $arcmin^{2}$\tabularnewline
+%$\sigma_{pz}$  & 0.05  & Photometric redshift error\tabularnewline
+%\hline 
+%\end{tabular}
+%\caption[Specifications for a Euclid WL Fisher forecast]{\label{tab:WL-specifications-1} Specifications for the Fisher Matrix
+%of an Euclid-like weak lensing survey.}
+%\end{table}
 
 
 \begin{table}
+\footnotesize
 \centering{}%
 \begin{tabular}{|c|c|c|}
 \hline 
@@ -988,8 +989,8 @@ of an Euclid-like weak lensing survey.}
 $\mathcal{N}$  & 6  & Number of redshift bins\tabularnewline
 $z_{peak}$  & $\{0.59,0.75,0.90,1.06,1.28,1.57\}$  & $z$-position of peak of the bin\tabularnewline
 $w_{z}$  & $\{0.22,0.23,0.25,0.27,0.32,0.51\}$  & full width at half maximum of the peak\tabularnewline
-$\ell_{cut,\, k_{1}}$  & $\{1686,2070,2410,2753,3155,4344\}$  & cutoff in multipole $\ell$ at the center of each bin for $k_{max}=k_{Ny}/2$\tabularnewline
-$\ell_{cut,\, k_{2}}$  & $\{3372,4141,4820,5506,6311,8689\}$  & cutoff in multipole $\ell$ at the center of each bin for $k_{max}=k_{Ny}$\tabularnewline
+$\ell_{cut,\, k_{1}}$  & $\{1686,2070,2410,2753,3155,4344\}$  & cutoff in multipole $\ell$ for $k_{max}=k_{Ny}/2$\tabularnewline
+$\ell_{cut,\, k_{2}}$  & $\{3372,4141,4820,5506,6311,8689\}$  & cutoff in multipole $\ell$ for $k_{max}=k_{Ny}$\tabularnewline
 $z_{range}$  & $0.5\leq z\leq3$  & Total range in redshift of each bin\tabularnewline
 \hline 
 \end{tabular}
@@ -1000,7 +1001,7 @@ in the multipoles $\ell$ at each redshift bin, for two different
 cases: scales larger than $k_{1}=k_{Ny}/2$ and scales larger than
 $k_{2}=k_{Ny}$.}
 \end{table}
-
+\normalsize
 
 Analogously to the galaxy clustering case, we show in table \ref{tab:1-sigmaerrors-nl-WL-full}
 the fully marginalised 1-$\sigma$ errors on the parameters $p_{i}$.
@@ -1009,7 +1010,7 @@ performed from $\ell_{min}=5$ up to a maximum of $\ell_{max}=20000$,
 but as explained in section \ref{sub:Weak-Lensing}, we perform a
 cutoff at each redshift bin, so that no scales in the non-linear power
 spectrum beyond the half of the Nyquist (for our reference case) or
-beyond \todo{correct table size or move to appendix} the Nyquist frequency (for our second case) contribute to the
+beyond \done\todo{correct table size or move to appendix} the Nyquist frequency (for our second case) contribute to the
 WL signal. The values of these cutoffs, $\ell_{cut}$ for the two
 different cases $k_{1}=k_{Ny}/2$ and $k_{2}=k_{Ny}$ are listed in
 table \ref{tab:WL-zbins-specs}. In contrast to the GC case, going
@@ -1124,7 +1125,7 @@ the importance of applying non-linear corrections that depend on the
 parameter to be tested.
 
 \begin{table}
-\tiny
+\footnotesize
 \begin{centering}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
@@ -1171,25 +1172,29 @@ at $k_{Ny}/2$. }
 
 \begin{figure}
 \begin{centering}
-\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid1}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid2}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid3} 
+\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid1}
+\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid2}\hfill{}
+\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid3} 
 \par\end{centering}
 
 \begin{centering}
-\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid4}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid5}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid6} 
+\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid4}
+\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid5}
+\hfill{}
+%\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid6} 
 \par\end{centering}
 
-\begin{centering}
-\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid7}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid8}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid9} 
-\par\end{centering}
+%\begin{centering}
+%\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid7}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid8}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid9} 
+%\par\end{centering}
 
-\begin{centering}
-\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid10}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid11}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid12} 
-\par\end{centering}
-
-\begin{centering}
-\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid13}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid14}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid15} 
-\par\end{centering}
-
+%\begin{centering}
+%\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid10}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid11}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid12} 
+%\par\end{centering}
+%
+%\begin{centering}
+%\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid13}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid14}\hfill{}\includegraphics[height=0.15\paperheight]{Chapters/fitting-funcs/figures/GC-WL-Comb-kNyHalf-margedCont-Grid15} 
+%\par\end{centering}
 \centering{}
 \caption[Fisher confidence regions for GC and WL in the CDE model.]{\label{fig:Contour-regions} Marginalized confidence contour regions
 (1,2,3-$\sigma$) for all cosmological parameters considered in this

@@ -15,17 +15,19 @@ Gravity which go beyond the standard $\lcdm$ scenario. We have focused on predic
 on parameter constraints and contrasting the difference of the linear and the non-linear calculations on observable properties like Weak Lensing, 
 Galaxy Clustering and the evolution of background quantities.
 
+\subsection*{Dark Energy and Modified Gravity}
+
 In \cref{chap:DE-MG-Overview} we introduced the theoretical framework of cosmology, which is
 based on Einstein's General Relativity (GR) and then we proceeded to explain the concordance $\lcdm$
 model and its main properties. 
 We have argued that despite the actual data being well explained by the standard model, 
 there are some unsatisfactory properties with the Cosmological Constant, namely the so-called fine-tuning
-and coincidence problems, that motivate extending General Relativity by an extra degree of freedom.
+and coincidence problems, that motivate the extension of General Relativity by an extra dynamical degree of freedom.
 We have focused on theories of Dark Energy (DE) and Modified Gravity (MG) in which this extra degree of freedom  is represented by a dynamical scalar field. The scalar field can not 
 only modify the background cosmological solutions,
 but in some cases it can also lead to the appearance of an extra "fifth-force" acting between test bodies.
 In the second half of \cref{chap:DE-MG-Overview} we have classified the DE and MG models into universally coupled  and non-universally coupled. The former are those models in which all matter and radiation species couple
-in the same way to the scalar field, while the latter are models in which just a specific matter component feels the influence of the scalar field. 
+in the same way to the scalar field, while the latter are models in which just a specific matter component feels the influence of the field. 
 
 General Relativity has been thoroughly tested at laboratory and solar system scales, therefore the coupling to standard matter (baryons) is very well constrained to be negligibly small.
 Therefore, universally coupled models have to invoke a "screening" mechanism that recovers GR at small scales (see \cref{sec:universal-coupling}).
@@ -55,6 +57,8 @@ or they present very rapid oscillations, dissolving and forming again. To study 
 and their backreaction effect on background quantities, we perform specialized N-body simulations, as we 
 detail in \cref{chap:GNQ}. 
 
+\subsection*{Statistics and the Fisher Matrix formalism}
+
 In order to study the impact of non-linearities onto the determination of cosmological parameters,
 we need to make use of Bayesian statistical tools, which we review in \cref{chap:Statistics}. 
 In the first part we introduce the concepts of Gaussianity, linearity and statistical homogeneity and 
@@ -81,16 +85,18 @@ to forecast the errors on cosmological parameters obtained by future surveys. Th
 very well with other commonly used codes in the community, like Boltzmann codes or emulator codes and has been thoroughly 
 tested within the Inter Science Taskforce and the Theory Working Group of the Euclid collaboration.
 
-In \cref{chap:lin-nonlin-MG-forecasts} we have used the \textsc{FisherTools} code to 
+
+\subsection*{Linear and non-linear forecasts for Modified Gravity with future surveys}
+
+In \cref{chap:MG-forecasts} we have used the \textsc{FisherTools} code to 
 forecast the sensitivity of future surveys to general modifications of gravity given by $\mu$ (the deviation from the GR Poisson equation) 
 and $\eta$ (the anisotropic stress) in the linear and in the 
 mildly non-linear regime of structure formation. 
-For the linear power spectrum we use a modified Boltzmann code called \textsc{MGCAMB} which is able to compute the linearized
-Einstein-Boltzmann equations for modified gravity. For the non-linear corrections we test two prescriptions, one based on a rough application
-of the \textsc{Halofit} formalism on top of the linear spectra and a prescription in which we interpolate
-from an MG non-linear power spectrum to a GR non-linear spectrum at small scales, to emulate something like a screening mechanism. This is the 
-so-called "Hu-Sawicki" (HS) prescription
-(see \cref{sub:MG-nonlinear-spectra} for more details).
+For the linear power spectrum we use a modified Boltzmann code called \textsc{MGCAMB} \mcite{MGCAMB} which is able to compute the linearized
+Einstein-Boltzmann equations for modified gravity. For the non-linear corrections we test two prescriptions: one based on a rough application
+of the \textsc{Halofit} \mcite{Halofit} formalism on top of the linear spectra and a prescription in which we interpolate
+from an MG non-linear power spectrum to a GR non-linear spectrum at small scales, to emulate a screening mechanism. This is the 
+so-called "Hu-Sawicki" (HS) prescription \mcite{Hu Sawicki}. In section \cref{sub:MG-nonlinear-spectra} we give more details about our implementation.
 
 In this project, we have tested three different parameterizations of Modified Gravity.
 In two of them $\mu(a)$ and $\eta(a)$  are smooth functions of the scale
@@ -114,26 +120,58 @@ and WL lensing errors are 10 to 20 times larger.
 This shows the importance of having a proper model of the non-linear power spectrum if one wishes to extract information
 on the Modified Gravity parameters with future surveys.
 
-In the redshift-binned scenario we further apply a Zero-phase Component Analysis (ZCA) decorrelation, which in analogy to the commonly used
+We further apply a Zero-phase Component Analysis (ZCA) decorrelation, which in analogy to the commonly used
 Principal Component Analysis (PCA) gives us a set of decorrelated variables, in which the new covariance matrix is diagonal.
-With these decorrelated variables, we can find which are the combinations of MG parameters that can be best constrained with future surveys.
+With these new set of variables, we can find which are the combinations of MG parameters that can be best constrained with future surveys.
 We find that for low redshifts, the best constrained parameters are the combination $2\mu + \eta$, which will be measured at a precision of better
-than 1\%, if one combines GC+WL and Planck \textit{priors}. 
+than 1\%, if one combines GC+WL and \textit{Planck} priors. The best constraints on the decorrelated parameters are 2 orders of magnitude better
+for the linear case and 1 order of magnitude better for the non-linear case, compared to the original parameters.
 
 For the case in which we parameterize $\mu(a)$ and $\eta(a)$ with smooth functions of time, we consider two possible behaviors. The first one, is the so-called
 late-time parameterization in which the modifications of gravity are stronger at late times and are proportional to the fraction of Dark Energy
 $\Omega_{DE}$ in the Universe. The second one is the so-called early-time parameterization, which consists of the zeroth and first terms of a Taylor expansion
-of a general function of $a$, around $a=1$. In this parameterization the modifications $\mu$ and $\eta$ can be large at high redshifts.
-In both cases we find that using non-linearities and combining GC plus WL, we can constrain the MG parameters at around the 1\% level.
+of a general function of $a$, around $a=1$. In this parameterization, the modifications with respect to GR can be large at high redshifts.
+In both cases we find that using non-linearities and combining GC plus WL, we can constrain the modification to the Poisson equation $\mu$
+and the modification to the lensing potential $\Sigma=(1+\eta)\mu/2$ at around the 1\% level, while if we use only linear
+scales, the constraints are of the order of 7\% and 2\%, respectively.
 An interesting difference between these two parameterizations is that in the late-time parameterization, Galaxy Clustering is only able
-to constrain the $\mu$ function, while WL is able to constrain the combination $\Sigma=(1+\eta)\mu/2$, which is what one expects naively from
+to constrain the $\mu$ function, while WL is able to constrain $\Sigma$, which is what one expects naively from
 the subhorizon perturbation equations. Nevertheless, in the early-time parameterization since $\eta$ and $\mu$ are not unity at high redshifts,
-the terms proportional to derivatives of the gravitational potential $\dot \Phi $ and $\ddot \Phi$, appearing in the evolution equation
-for the density perturbations \cref{eq:deltadotdot} are not negligible and one can observe the effects of $\eta$ both with the clustering of galaxies 
-and with the cosmic shear.
+the terms proportional to derivatives of the gravitational potential, $\dot \Phi $ and $\ddot \Phi$, appearing in the evolution equation
+for the density perturbations (\cref{eq:dotdotdelta-mueta}), are not negligible. Therefore, one can observe the effects of $\eta$ both with the clustering of galaxies 
+and with cosmic shear.
 
+We also tested the effect of our non-linear prescription onto the forecasted constraints in two different ways. The non-linear HS
+prescription depends on two parameters $c_{nl}$ and $s$, which determine how fast and at which scales the MG power spectrum
+goes back to the GR case. In principle these parameters have to be adjusted by comparing with N-body simulations. First we tested how much the constraints 
+on $\mu$, $\eta$ and $\Sigma$ changed when  modifying the fiducial of $c_{nl}$ and $s$. We find that for the most extreme variations
+of the HS parameters, the 1$\sigma$ error on $\mu$ gets affected by a factor $\sigma_{\mu} \times (1\pm^{0.9}_{0.3})$, while the constraints on $\Sigma$ vary around $\pm 6\%$
+(see \cref{fig:Density-GC-HSpars} and \cref{fig:Density-WL-HSpars}).
+The second test performed, was the inclusion of the HS parameters as nuisance parameters on the forecast. 
+We found that after marginalizing over these nuisance parameters, the results on all cosmological parameters are quite robust and the constraints are just slightly worse, as was expected by the addition
+of two extra parameters.
+All the above mentioned constraints refer to the Euclid probe, but we also performed the same forecasts for SKA2, SKA1 and DESI-ELG (which measures GC only). These tables can be found in \cref{chap:MG-forecasts}.
+In order to compare across experiments and across different cases (linear, non-linear, with and without prior) we defined the Figure of Merit (FoM, \cref{eq:FoM})
+and the Figure of Correlation (FoC, \cref{eq:FoC}), which are good measures of the constraining power of an experiment and the correlation among the parameters.
 
  
+\subsection*{Fitting and forecasting Coupled Dark Energy in the non-linear regime}
+
+
+For the Coupled Dark Energy model, which is a quintessence model in which Dark Matter particles and the scalar field interchange
+energy and momentum, we used the publicly available \textsc{CoDECS} N-body simulations \mcite{Codecs Baldi} 
+to find a fit to the non-linear power spectrum and
+applied them to improve previous forecasts on this model for future galaxy redshift surveys, which had been done taking
+into account linear scales only \mcite{cite Luca, Valeria}.
+The fitting formulae we found are functions of the DM-DE coupling $\beta$ and the redshift $z$, and are very precise when compared to the  full simulations.
+However, since they were calculated as the correction with respect to the $\lcdm$ case, 
+we still need to add on top of them a semi-analytic or numeric prescription for the non-linear power spectrum, which
+can be varied with respect to the standard cosmological parameters.
+Here we used the Halofit formula and the Coyote Cosmic Emulator as the ``fiducial`` $\lcdm$ non-linear power spectrum. 
+We found that the \textsc{CoDECS} $\lcdm$ simulation departs from Halofit at around 5\% 
+at scales $k \lesssim 0.2 \mathrm{h/Mpc}$ and as much as 15\% at scales of about $k \approx 1.0 \mathrm{h/Mpc}$, for $z=0$.
+The Cosmic Emulator performs somehow better, matching the $\lcdm$ simulations at present time ($z=0$) at better than 5\%
+for all scales of interest $k \lesssim 2.0 \mathrm{h/Mpc}$.
 
 
 
