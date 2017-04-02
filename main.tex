@@ -71,7 +71,8 @@ headsepline, % Uncomment to get a line under the header
 %\usepackage{todo}
 \usepackage{outlines}
 
-\usepackage[backend=bibtex,citestyle=authoryear-comp, bibstyle=numeric,natbib=true,
+%authoryear-comp
+\usepackage[backend=bibtex,citestyle=numeric, bibstyle=numeric,natbib=true,
 backref=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 \DeclareNameAlias{author}{last-first}
 
@@ -109,8 +110,8 @@ backref=true]{biblatex} % User the bibtex backend with the authoryear citation s
 \definecolor{vividred}{rgb}{0.823, 0.062, 0.062}
 \definecolor{papaya}{rgb}{0.788, 0.368, 0.094}
 %
-\def\revtext#1{\textcolor{blue}{#1}} % valeria
-\def\comm#1{\textcolor{red}{#1}} % valeria
+%\def\revtext#1{\textcolor{blue}{#1}} % valeria
+%\def\comm#1{\textcolor{red}{#1}} % valeria
 
 %%%% -------------------------------------------------
 
@@ -138,14 +139,14 @@ backref=true]{biblatex} % User the bibtex backend with the authoryear citation s
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
 \degree{Doctor of Natural Sciences} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Santiago \textsc{Casas Castro}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
-\addresses{Philosophenweg} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+\addresses{Philosophenweg 12} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
 \subject{Cosmology} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
-\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\keywords{Cosmology, Dark Energy, Large Scale Structure, Galaxy Surveys} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{http://www.uni-heidelberg.de/}{Karl-Ruprechts Universität Heidelberg}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
-\department{\href{http://department.university.com}{Institute for Theoretical Physics}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
-\group{\href{http://researchgroup.university.com}{Cosmology Group}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
-\faculty{\href{http://faculty.university.com}{Fakultät für Physik und Astronomie}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+\department{\href{http://www.thphys.uni-heidelberg.de}{Institut für Theoretische Physik}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://www.thphys.uni-heidelberg.de/~cosmo}{Cosmology Group}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://www.physik.uni-heidelberg.de/}{Fakultät für Physik und Astronomie}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
@@ -179,20 +180,31 @@ backref=true]{biblatex} % User the bibtex backend with the authoryear citation s
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
-\href{http://www.johnsmith.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\href{http://www.thphys.uni-heidelberg.de/~casas/}{\authorname} % Author name - remove the \href bracket to remove the link
 \end{flushleft}
 \end{minipage}
 \begin{minipage}{0.4\textwidth}
 \begin{flushright} \large
 \emph{Supervisor:} \\
-\href{http://www.jamessmith.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\href{https://valeriapettorino.wordpress.com/}{\supname} % Supervisor name - remove the \href bracket to remove the link  
 \end{flushright}
 \end{minipage}\\[3cm]
  
-\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
-\textit{in the}\\[0.4cm]
-\facname \\ \deptname\\[2cm] % Research group name and department name
+
+\large 
+\textit{Dissertation\\
+submitted to the\\
+Combined Faculties for the Natural Sciences and for Mathematics\\
+of the} \\ 
+\univname
+\\[0.2cm]
+\textit{for the degree of\\
+Doctor of Natural Sciences} \\[2cm]
  
+%\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+%\textit{in the}\\[0.4cm]
+%\facname \\ \deptname % Research group name and department name
+
 {\large \today}\\[4cm] % Date
 %\includegraphics{Logo} % University/department logo - uncomment to place it
  
@@ -258,21 +270,26 @@ determination of cosmological parameters for models beyond the standard $\lcdm$ 
 A major motivation therefore is the ability of future galaxy surveys to measure the positions
 and shapes of approximately $10^7$ galaxies and precisely determine their two-point correlation function, 
 or its equivalent in wavevector space, the galaxy power spectrum. 
-If one is able to extract the information encoded in the power spectrum at small scales,
-one can gain a substantial constraining power on the cosmological parameters of the model.
+If one is capable to extract the information encoded in the power spectrum at small scales,
+one can gain a substantial constraining power on the parameters of the underlying theory.
 This dissertation considers different models beyond $\lcdm$:
-Coupled Dark Energy, Growing Neutrino Quintessence, Effective Field Theory, Horndeski theory,
+Coupled Dark Energy, Growing Neutrino Quintessence, Effective Field Theory, Horndeski theory
 and general phenomenological parameterizations of Modified Gravity. 
 In this work we study non-linear structure formation with a variety of different methodologies:
 fitting formulae, semi-analytic prescriptions based on the Halo model, resummation methods in 
 cosmological perturbation theory and specialized N-body simulations.
-In order to constrain the model parameters and to forecast the errors measured by future surveys,
-we use the Bayesian Fisher matrix formalism, for which the author developed a code to deal with
+In order to forecast how well future surveys are able to constrain the cosmological parameters,
+we use the Bayesian Fisher matrix formalism, for which we developed a code designed to handle
 Galaxy Clustering and Weak Lensing observables.
-We present the first forecasts on Coupled Dark Energy done with fitting formulae obtained from simulations and new results on linear and non-linear forecasts for Modified Gravity parameterizations. 
-We also find the best combination of redshift-binned Modified Gravity parameters constrained by future surveys.
-Using special N-body simulations, we are able to show that the Growing Neutrino Quintessence model presents different oscillation regimes for neutrino lumps and a heating of the neutrino fluid. In the case of Horndeski models in the quasistatic regime, we apply a resummation method which had only been used within standard cosmological model so far.
-The main message of this work is that non-linear structure formation has a significant impact on cosmology and if in the future we want to discriminate between competing theories, 
+We obtain new results on linear and non-linear forecasts for Modified Gravity parameterizations
+with upcoming surveys, namely Euclid, SKA and DESI.
+We also determine the best combination of redshift-binned Modified Gravity parameters constrained by forthcoming surveys.
+Furthermore, we present the first forecasts on Coupled Dark Energy performed with fitting formulae obtained from N-body simulations.
+In these forecasts we find that including non-linear scales improves by more than an order of 
+magnitude the constraints obtained only with linear theory.
+For the Growing Neutrino Quintessence model we use special non-Newtonian N-body simulations. With them we are able to show that this model presents different regimes for the dynamics of neutrino lumps and that the lump interactions induce a heating of the neutrino fluid. 
+Moreover, we obtain the non-linear corrections to the power spectrum in the case of Horndeski models assuming the quasistatic regime. To achieve this, we apply a resummation method for higher order perturbation theory, which had so far only been used within the standard cosmological model.
+The main message of this thesis is that non-linear structure formation has a significant impact on cosmology and if we want to discriminate between competing theories, using upcoming data, 
 we need to take non-linearities into account and understand their implications.
 
 
