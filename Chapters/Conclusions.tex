@@ -1,5 +1,6 @@
 \chapter*{Conclusions \label{Conclu}} % Main chapter title
 
+\addcontentsline{toc}{chapter}{Conclusions}
  % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
 
@@ -29,7 +30,7 @@ but in some cases it can also lead to the appearance of an extra "fifth-force" a
 In the second half of \cref{chap:DE-MG-Overview} we have classified the DE and MG models into universally coupled  and non-universally coupled. The former are those models in which all matter and radiation species couple
 in the same way to the scalar field, while the latter are models in which just a specific matter component feels the influence of the field. 
 
-General Relativity has been thoroughly tested at laboratory and solar system scales, therefore the coupling to standard matter (baryons) is very well constrained to be negligibly small.
+General Relativity has been thoroughly tested at laboratory and Solar System scales, therefore the coupling to standard matter (baryons) is very well constrained to be negligibly small.
 Therefore, universally coupled models have to invoke a "screening" mechanism that recovers GR at small scales (see \cref{sec:universal-coupling}).
 On the other hand, non-universally coupled theories pass the stringent solar system constraints by decoupling the baryons
 and allowing only for dark sector interactions, involving the scalar field and dark matter or neutrinos, as we discuss in \cref{sec:nonuniversal-coupling}.
@@ -69,7 +70,7 @@ we can find which are the set of model parameters that maximize the likelihood f
 We then developed the concept of Fisher Matrix, which is a way of approximating the likelihood function at the maximum, 
 assuming that around the peak, the likelihood can be approximated as a Gaussian (see \cref{sec:Fisher-Matrix-forecasts}).
 Since the Fisher matrix for the model parameters can be obtained without data, just by knowing the data and noise covariance matrices,
-we are able to forecast the result of future experiments.
+we are able to forecast the result of future experiments in a theoretical way.
 
 In this work we have dealt with the predictions for future galaxy surveys: Euclid, SKA1, SKA2 and DESI (for more details see \cref{sub:FutureSurveys}).
 These missions will observe approximately $10^7 \sim 10^9$ galaxy shapes and positions (angles with spectroscopic plus photometric redshifts) at redshifts of $z \approx 0-3$, giving us valuable information
@@ -171,11 +172,44 @@ Here we used the Halofit formula and the Coyote Cosmic Emulator as the ``fiducia
 We found that the \textsc{CoDECS} $\lcdm$ simulation departs from Halofit at around 5\% 
 at scales $k \lesssim 0.2 \mathrm{h/Mpc}$ and as much as 15\% at scales of about $k \approx 1.0 \mathrm{h/Mpc}$, for $z=0$.
 The Cosmic Emulator performs somehow better, matching the $\lcdm$ simulations at present time ($z=0$) at better than 5\%
-for all scales of interest $k \lesssim 2.0 \mathrm{h/Mpc}$.
+for all scales of interest $k \lesssim 2.0 \mathrm{h/Mpc}$, see \cref{fig:Error-comp-Halofit-CosmicEmu}. 
+For this reason, we used the Cosmic Emulator as the baseline $\lcdm$ non-linear spectrum.
+We included the error on the fitting functions, the error with respect to the Cosmic Emulator and the sample variance error
+of the simulation as a source of error $\sigma_p(k,z)$ into our analysis, see \cref{fig:Error-sources}.
 
+We computed the systematic bias on the parameter constraints (cf. \cref{sub:syst-bias-theory}) and 
+found that the systematic errors due to the ignorance on the correct non-linear matter power spectrum can be as large as the statistical errors
+(see \cref{tab:systbias}),
+so that for data analysis it is extremely important to have the correct matter power spectrum under control.
 
+We found that the including non-linear scales from a fit to simulations, improves the previous constraints (which used only linear spectra) on the coupling parameter $\beta^2$ 
+by more than an order of magnitude. 
+We investigated how the constraints change as a function of the maximum wavenumber $k_{max}$ included in the GC and WL analysis.
+It is shown in \cref{fig:Contour-scale} and \cref{fig:WL-lmax-variation} that the errors decrease steadily with increasing $k_{max}$,
+but then after $k_{max} \gtrsim 1$ the errors remain more or less constant.
+We also show that using the wrong non-linear prescription, namely applying Halofit directly on top of the CDE linear spectra,
+gives worse constraints and wrong degeneracy directions of the confidence contours. This is expected, since Halofit cannot account for the 
+changes in structure formation at non-linear scales given by the "fifth-force".
+Therefore, we show in this work, that to obtain the correct constraints on a modified gravity parameter, like the DM-DE coupling, 
+it is necessary to calculate the correct non-linear power spectrum within the MG model.
 
+The final constraint we obtain on $\beta^2$, which is $\sigma_{\beta^2} \approx 8\times 10^{-5}$ 
+is not far from the current
+best limits reached with Solar System observations on a coupling to
+baryons \cite{Agashe:2014kda}, which can be translated in our notation
+as $\beta^{2}\le2\cdot10^{-5}$ at 1-$\sigma$.
+Hence, we can expect that with future galaxy surveys and a correct modeling of the non-linear power spectrum and its associated
+systematic errors, the dark sector couplings will be constrained with the same level of precision as we constrain the visible sector
+within the Solar System nowadays.
 
+\subsection*{Resummation methods for Horndeski theory}
+
+As we have discussed in previous chapters, including the correct non-linear power spectrum when studying a Modified Gravity model
+is of uttermost importance. We can use approximated non-linear prescriptions based on the Halo model as we did in \cref{chap:MG-forecasts}
+to improve considerably the constraints obtained using just linear theory,
+but we showed in \cref{chap:Fitting-CDE} that using the wrong prescription can bias our results and that the way to go is to 
+find fits directly from N-body simulations computed specifically for the model in question.
+However, this is prohibitively expensive, we cannot calculate for each DE and MG model a set of N-body simulations  
 
 
 

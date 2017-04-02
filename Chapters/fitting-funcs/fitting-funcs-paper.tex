@@ -124,7 +124,7 @@ publications on the subject \citep{Amendola_2000,Amendola_2004,pettorino_bacciga
 
 
 \begin{table}
-\tiny
+\footnotesize
 \centering{}\label{tab:models} %
 \begin{tabular}{ccc|c}
 \textbf{Parameter}  & \textbf{Explanation}  & \textbf{Value}  & \textbf{Reference $\Lambda$CDM}\tabularnewline
@@ -200,6 +200,7 @@ accuracy the deviations of the coupled DE nonlinear power spectra
 from the reference $\Lambda$CDM case.
 
 \begin{table}
+	\footnotesize
 \centering{}%
 \begin{tabular}{cc}
 \textbf{Parameter}  & \textbf{Value} \tabularnewline
@@ -214,7 +215,7 @@ $n_{s}$  & $0.966$ \tabularnewline
 \end{tabular}\protect\protect\caption{ \label{tab:ParametersWMAP7}The set of cosmological parameters used
 in all CoDECS simulations, consistent with the WMAP7 results.}
 \end{table}
-
+\normalsize
 
 
 
@@ -291,10 +292,10 @@ which corresponds roughly to $k_{Ny}$.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z000}
-\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z055}\\
-\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z100}
-\includegraphics[width=0.5\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z161} 
+\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z000}
+\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z055}\\
+\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z100}
+\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z161} 
 \par\end{centering}
 \caption[Ratios to $\lcdm$ of the non-linear matter power spectra in the \noun{CoDECS} simulations]
 {Ratios of the non-linear matter power spectra of the \noun{CoDECS}
@@ -388,10 +389,11 @@ are basically the same (less than half of a percent relative difference
 in the estimated final errors).
 
 \begin{table}
+	\footnotesize
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
 \hline 
-Model Name  & Functional form  & \# of coefficients  & $\mbox{R}^{2}$-value\tabularnewline
+Model Name  & Functional form  & \# of coeff.  & $\mbox{R}^{2}$-value\tabularnewline
 \hline 
 \hline 
 M2  & $f(k)=1+a_{0}+a_{1}\cdot k+c\cdot k\cdot\arctan((k-k_{0})\cdot b)$  & 5  & 0.99996\tabularnewline
@@ -407,8 +409,8 @@ a polynomial in the coupling parameter $\beta$ and the redshift $z$
 (see Appendix \ref{sec:AppendixA} for further details). The R$^{2}$-value
 is a measure of the goodness of fit: a value of 1 corresponds to a
 perfect fit, while 0 means that the model does not fit the data.}
- 
 \end{table}
+\normalsize
 
 
 
@@ -474,7 +476,8 @@ below 1\% for the scales and redshifts we are interested in.}
 
 
 \begin{figure}
-\centering{}\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/emulatorHalofitNbodyPkErrors-v7}\protect\protect\caption[Relative error of the fitting
+\centering{}
+\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/emulatorHalofitNbodyPkErrors-v7}\protect\protect\caption[Relative error of the fitting
 functions Halofit and CosmicEmulator
 with respect to the CoDECS $\lcdm$ N-body power spectra.]{\label{fig:Error-comp-Halofit-CosmicEmu} Relative error of the fitting
 functions Halofit (green) and CosmicEmulator (orange) (FrankenEmu)
@@ -516,6 +519,7 @@ and they have performed very careful resolution tests using hundreds
 of realizations. 
 
 \begin{figure}
+\centering{}	
 \includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/allNbodyCosmicEmuFit-Errors-v8-Saveas}
 \protect\caption[Sources of errors affecting the power spectrum from a CoDECS simulation.]{\label{fig:Error-sources}Different sources of error affecting the
 nonlinear power spectrum. Each source of error is shown at two different
@@ -899,6 +903,7 @@ spectrum at $k_{max}=k_{Ny}/2$, and a hard cut at $k_{Ny}$.}
 \subsubsection{Variation of the $k_{max}$ integration limit}
 
 \begin{figure}[h]
+\footnotesize
 \centering{}
 \includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/kmaxvariationGC-sigmav}
 \protect\protect
@@ -912,7 +917,7 @@ get steadily smaller, especially when going from linear ($k\approx0.1h/\mbox{Mpc
 to mildly non-linear ($k\approx0.3h/\mbox{Mpc}$) scales. The vertical
 dashed grey lines, mark the half and the full Nyquist frequencies.}
 \end{figure}
-
+\normalsize
 
 We now test the gain in information obtained by including progressively
 more non-linear wavemodes $k$ into the Fisher integration. We perform
@@ -935,7 +940,8 @@ washed out (c.f. section \ref{sub:Fitt-and-nonlinear-cosmo-pars}
 above).
 
 \begin{figure}
-\centering{}\includegraphics[height=0.35\textheight]{Chapters/fitting-funcs/figures/GC-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}\includegraphics[height=0.35\textheight]{Chapters/fitting-funcs/figures/WL-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
+\centering{}\includegraphics[height=0.4\textwidth]{Chapters/fitting-funcs/figures/GC-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
+\includegraphics[height=0.4\textwidth]{Chapters/fitting-funcs/figures/WL-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
 \caption[Fisher confidence contour regions
 for $\beta^{2}$ and $h$ in CDE using GC and WL surveys.]{\label{fig:Contour-scale} Marginalized confidence contour regions
 1,2,3-$\sigma$ for $\beta^{2}$ and $h$. The plots correspond to
@@ -1209,7 +1215,7 @@ the estimation is dominated by the GC Fisher matrix estimation.}
 
 
 
-\section{Conclusions Fitting Functions}
+\section{Conclusions}
 
 \todo{check for repetitions and maybe remove some unneeded plots} 
 The goal of this paper is to exploit the cosmological information
