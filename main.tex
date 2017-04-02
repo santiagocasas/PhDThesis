@@ -69,9 +69,24 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{cleveref}
 \usepackage[marginpar]{todo}
 %\usepackage{todo}
+\usepackage{outlines}
 
-\usepackage[backend=bibtex,citestyle=authoryear, bibstyle=numeric,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
+\usepackage[backend=bibtex,citestyle=authoryear-comp, bibstyle=numeric,natbib=true,
+backref=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 \DeclareNameAlias{author}{last-first}
+
+\newbool{clearurl}
+
+\AtEveryBibitem{%
+	\ifbool{clearurl}
+	{%
+		\clearfield{urlday}%
+		\clearfield{urlmonth}%
+		\clearfield{urlyear}%
+	}{}%
+}
+
+
 
 \addbibresource{Bib-MG}
 \addbibresource{Bib-GNQ} % The filename of the bibliography
@@ -121,7 +136,7 @@ headsepline, % Uncomment to get a line under the header
 \thesistitle{Non-linear structure formation in models of Dark Energy and Modified Gravity} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
 \supervisor{Dr. Valeria \textsc{Pettorino}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
 \examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
-\degree{Doctor in Physics} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\degree{Doctor of Natural Sciences} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
 \author{Santiago \textsc{Casas Castro}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
 \addresses{Philosophenweg} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
@@ -130,7 +145,7 @@ headsepline, % Uncomment to get a line under the header
 \university{\href{http://www.uni-heidelberg.de/}{Karl-Ruprechts Universität Heidelberg}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{http://department.university.com}{Institute for Theoretical Physics}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{\href{http://researchgroup.university.com}{Cosmology Group}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
-\faculty{\href{http://faculty.university.com}{Fakultät Physik und Astronomie}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+\faculty{\href{http://faculty.university.com}{Fakultät für Physik und Astronomie}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
 
 \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
 \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
@@ -194,16 +209,23 @@ headsepline, % Uncomment to get a line under the header
 
 \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
 
-\begin{itemize} 
-\item This work was done wholly or mainly while in candidature for a research degree at this University.
-\item Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
-\item Where I have consulted the published work of others, this is always clearly attributed.
-\item Where I have quoted from the work of others, the source is always given. 
-With the exception of such quotations, this thesis is entirely my own work. \todo{Add list of papers}
-\item I have acknowledged all main sources of help.
-\item Where the thesis is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
-\end{itemize}
- 
+\begin{outline} 
+\1 This work was done wholly or mainly while in candidature for a research degree at this University.
+\1 Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+\1 Where I have consulted the published work of others, this is always clearly attributed.
+\1 Where I have quoted from the work of others, the source is always given. 
+With the exception of such quotations, this thesis is entirely my own work. \done\todo{Add list of papers}
+\1 Parts of this dissertation have been published in the following articles:
+\2 Casas, S., Amendola, L., Baldi, M., Pettorino, V. and Vollmer, A. \\
+   Fitting and forecasting coupled dark energy in the non-linear regime. \\
+   JCAP, 2016, 045 (2016).
+\2 Casas, S., Pettorino, V. and Wetterich, C. \\ 
+   Dynamics of neutrino lumps in growing neutrino quintessence. \\
+   Phys. Rev. D 94, 103518 (2016).
+\2 Casas, S., Kunz, M., Martinelli, M. and Pettorino, V. \\ 
+   Linear and non-linear Modified Gravity forecasts with future surveys. \\ Preprint: arXiv:1703.01271 [astro-ph, physics:gr-qc] (2017).
+\end{outline}
+\vspace{1cm}
 \noindent Signed:\\
 \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
  
@@ -211,7 +233,7 @@ With the exception of such quotations, this thesis is entirely my own work. \tod
 \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
 \end{declaration}
 
-\cleardoublepage
+\clearpage
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
@@ -377,6 +399,7 @@ the Cosmological Constant scenario in the near future.
 % 
 % ^.
 
+\booltrue{clearurl}
 %\bibliography{1-MG-CAMB-Cosmo}
 \printbibliography[heading=bibintoc]
 
