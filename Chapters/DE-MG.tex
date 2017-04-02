@@ -521,12 +521,12 @@ the $\mu$ and $\eta$ functions, adopting the ones used in the
 \begin{itemize}
 	\item a parameterization in which the time evolution is related to the dark
 	energy density fraction, to which we refer as `late-time' parameterization:
-	\begin{eqnarray}
-	\mu(a,k)\equiv1+E_{{\rm 11}}\Omega_{{\rm
-			DE}}(a)\,\,\,,\label{eq:DE-mu-parametrization}\\
-	\eta(a,k)\equiv1+E_{{\rm 22}}\Omega_{{\rm
-			DE}}(a)\,\,\,;\label{eq:DE-eta-parametrization}
-	\end{eqnarray}
+	\beeqal$
+	\mu(a,k) \equiv& \; 1+E_{{\rm 11}}\Omega_{{\rm
+			DE}}(a)  \quad ,\label{eq:DE-mu-parametrization}\\
+	\eta(a,k)\equiv& \; 1+E_{{\rm 22}}\Omega_{{\rm
+			DE}}(a)  \quad ;\label{eq:DE-eta-parametrization}
+     $
 	
 	\item a parameterization in which the time evolution is the simplest first
 	order Taylor expansion of a general function of the scale factor $a$
@@ -535,13 +535,12 @@ the $\mu$ and $\eta$ functions, adopting the ones used in the
 	allows departures from GR also at high redshifts:
 %	\footnote{Notice that our early-time parametrization is called
 %		`time-related' in \cite{planck_collaboration_planck_2016}.}:
-	\begin{eqnarray}
-	\mu(a,k)\equiv1+E_{{\rm 11}}+E_{{\rm
-			12}}(1-a)\,\,\,,\label{eq:TR-mu-parametrization}\\
-	\eta(a,k)\equiv1+E_{{\rm 21}}+E_{{\rm
-			22}}(1-a)\,\,\,.\label{eq:TR-eta-parametrization}
-	\end{eqnarray}
-	
+	\beeqal$
+	\mu(a,k)\equiv & \; 1+E_{{\rm 11}}+E_{{\rm
+			12}}(1-a)  \quad,\label{eq:TR-mu-parametrization}\\
+	\eta(a,k)\equiv & \; 1+E_{{\rm 21}}+E_{{\rm
+			22}}(1-a)  \quad.\label{eq:TR-eta-parametrization}
+	$	
 \end{itemize}
 The parameters $E_{i j}$ are usually order-unity parameters, which give the amplitude of the modifications
 at present time: $E_{11}$ for $\mu$ and $E_{22}$ for $\eta$ in the late-time parameterization and 
@@ -580,6 +579,18 @@ values. We assume that both $\mu$ and $\eta$ reach the Einstein-GR limit
 for a redshift higher than $z_h$: to realize this, the last $\mu(z_{N})$ and $\eta(z_{N})$
 values assume the standard $\lcdm$ value $\mu=\eta=1$ and both functions
 are kept constant at higher redshifts $z> z_h$.
+
+
+Similarly, the derivatives of these functions are obtained by computing
+\begin{equation}
+\mu'({\bar{z}_{j}})=\frac{\mu(z_{i+1})-\mu(z_{i})}{z_{i+1}-z_{i}},
+\end{equation}
+with $\bar{z}_{j}=(z_{i+1}+z_{i})/2$, using the same $\tanh(x)$
+smoothing function: 
+\begin{equation}\label{eq:MGbin-muderiv-parametrization}
+\frac{d\mu(z)}{dz}=\mu'(\bar{z}_{1})+\sum_{j=1}^{N-2}{\frac{\mu'(\bar{z}_{j+1})-\mu'(\bar{z}_{j})}{2}\left[1+\tanh{\left(s\frac{z-\bar{z}_{j+1}}{\bar{z}_{j+1}-\bar{z}_{j}}\right)}\right]}\,\,\,.
+\end{equation}
+In particular we assume $\mu'=\eta'=0$ for $z<0.5$ and for $z>3$.
 
 This approach has the advantage of being independent of the parameterization of the time evolution of $\mu$ and $\eta$,
 but at the cost of introducing

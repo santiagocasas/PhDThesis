@@ -4,27 +4,34 @@
 
 \section{Introduction}
 
-\todo{Add footnote here and in other chapters about published papers}
-\todo{check that this intro does not overlap too much with previous chaps}
+\done\todo{Add footnote here and in other chapters about published papers}
+\done\todo{check that this intro does not overlap too much with previous chaps}
+\footnote{This chapter is based on a publication by the author in: 
+	Casas, S., Kunz, M., Martinelli, M. and Pettorino, V.;
+	Linear and non-linear Modified Gravity forecasts with future surveys. ; Preprint: arXiv:1703.01271 [astro-ph, physics:gr-qc] (2017).; Submitted to the Journal: Physics of the Dark Universe, Elsevier.}
 Future large scale structure surveys will be able to measure with
 percent precision the parameters governing the evolution of matter
-perturbations. While we have the tools to investigate the standard model, the next challenge is to be able to compare those data with cosmologies that go beyond General Relativity, in order to test whether a fluid component like Dark Energy or similarly a Modified Gravity scenario can better fit the data. On the theoretical side, while many Modified Gravity models are still allowed by type Ia supernova (SNIa) and
+%perturbations. While we have the tools to investigate the standard model, the next challenge is to be able to compare those data with cosmologies that go beyond General Relativity, in order to test whether a fluid component like Dark Energy or similarly a Modified Gravity scenario can better fit the data. 
+On the theoretical side, while many Modified Gravity models are still allowed by type Ia supernova (SNIa) and
 Cosmic Microwave Background (CMB) data \cite{planck_collaboration_planck_2016}; structure formation can help us to distinguish among them and the standard scenario, thanks to their signatures on the matter power spectrum,
-in the linear and mildly non-linear regimes (for some examples of forecasts, see \cite{amendola_cosmology_2013, casas_fitting_2015,  bielefeld_cosmological_2014}).
+in the linear and mildly non-linear regimes (for some examples of recent MG forecasts, see \cite{amendola_cosmology_2013, casas_fitting_2015,  bielefeld_cosmological_2014}).
 
-The evolution of matter perturbations can be fully described by two generic functions of time and space \cite{kunz_phenomenological_2012, amendola_observables_2013}, which can be measured via Galaxy Clustering and Weak Lensing surveys. In this work we want to forecast how well we can measure those functions, in different redshift bins.
+%The evolution of matter perturbations can be fully described by two generic functions of time and space \cite{kunz_phenomenological_2012, amendola_observables_2013}, which can be measured via Galaxy Clustering and Weak Lensing surveys. In this work we want to forecast how well we can measure those functions, in different redshift bins.
+%
+%While any two independent functions of the gravitational potentials would do, we follow the notation of \cite{planck_collaboration_planck_2016} and consider $\mu$ and $\eta$: the first modifies the Poisson equation for $\Psi$ while the second is equal to the ratio of the gravitational potentials (and is therefore also a direct observable \cite{amendola_observables_2013}). 
 
-While any two independent functions of the gravitational potentials would do, we follow the notation of \cite{planck_collaboration_planck_2016} and consider $\mu$ and $\eta$: the first modifies the Poisson equation for $\Psi$ while the second is equal to the ratio of the gravitational potentials (and is therefore also a direct observable \cite{amendola_observables_2013}). We will consider forecasts for the planned surveys Euclid, SKA1 and SKA2 and a subset of DESI, DESI-ELG, using as priors the
-constraints from recent \planck\ data (see also \cite{Alonso2016, hojjati_cosmological_2012, baker_observational_2015, bull_extending_2015, Gleyzes2016} for previous works that address forecasts in Modified Gravity.
+%We will consider forecasts for the planned surveys Euclid, SKA1 and SKA2 and a subset of DESI, DESI-ELG, using as priors the
+%constraints from recent \planck\ data (see also \cite{Alonso2016, hojjati_cosmological_2012, baker_observational_2015, bull_extending_2015, Gleyzes2016} for previous works that address forecasts in Modified Gravity.
 
-In section \ref{sec:Parameterizing-Modified-Gravity} we define $\mu$ and $\eta$ and parameterize them in three different ways. First, in a general manner, we let these functions vary freely in different  redshift bins. Complementarily, we also consider two specific parameterizations of the time evolution proposed in \cite{planck_collaboration_planck_2016}. Here, we also specify the fiducial values of our cosmology for each of the
-parameterizations considered.
+In \cref{sub:parameterizing-MG} we have defined $\mu$ and $\eta$ and have shown how to parameterize them in three different ways. 
+%First, in a general manner, we let these functions vary freely in different  redshift bins. Complementarily, we also consider two specific parameterizations of the time evolution proposed in \cite{planck_collaboration_planck_2016}. Here, we also specify the fiducial values of our cosmology for each of the
+%parameterizations considered.
 Section \ref{sec:The-non-linear-power} discusses our treatment for the linear and mildly non-linear regime. Linear spectra are obtained from a modified Boltzmann
 code \cite{hojjati_testing_2011}; the mild non-linear regime (up to k $\sim$ 0.5 h/Mpc) compares two methods to emulate the non-linear power spectrum: the commonly used Halofit \cite{smith_stable_2003, takahashi_revising_2012}, and a semi-analytic prescription to model
 the screening mechanisms present in Modified Gravity models \cite{hu_parameterized_2007}.
-In section \ref{sec:Fisher-Matrix-method} we explain the method used
-to produce the Fisher forecasts both for Weak Lensing and Galaxy
-Clustering. We explain how we compute and add the CMB \planck\ priors to our Fisher matrices.
+%In section \ref{sec:Fisher-Matrix-method} we explain the method used
+%to produce the Fisher forecasts both for Weak Lensing and Galaxy
+%Clustering. We explain how we compute and add the CMB \planck\ priors to our Fisher matrices.
 Section \ref{sec:Results:-Redshift-Binned} discusses the results
 obtained for the redshift binned parameterization both for Galaxy Clustering
 and for Weak Lensing in the linear and non-linear cases. We describe our method to decorrelate the errors in section
@@ -39,27 +46,27 @@ regimes. To test the effect of our non-linear prescription, we show in section \
  We will consider forecasts for the planned surveys Euclid, SKA1 and SKA2 and a subset of DESI, DESI-ELG, using as priors the
 constraints from recent \planck\ data (see also \cite{Alonso2016, hojjati_cosmological_2012, baker_observational_2015, bull_extending_2015, Gleyzes2016} for previous works that address forecasts in Modified Gravity.
 
-This has however
-the disadvantage of loosing generality and making our constraints
-on $\mu$ and $\eta$ parameterization-dependent. In this
-work, we prefer to complement specific choices of parameterizations
-adopted in the literature (we will use the choice made in \cite{planck_collaboration_planck_2016}) 
-with a more general approach: we will bin
-the functions $\mu(a)$ and $\eta(a)$ in redshift bins with index
-$i$ and we will treat each $\mu_{i}$ and $\eta_{i}$ as independent
-parameters in our forecast; we will then apply a variation of Principal Component Analysis (PCA), called Zero-phase Component Analysis (ZCA).
-This approach has been taken previously
-in the literature by \cite{hojjati_cosmological_2012}, where they
-bin $\mu$ and $\eta$ in several redshift and $k$-$scale$ bins
-together with a binning of $w(z)$ and cross correlate large scale
-structure observations with CMB temperature, E-modes and polarization
-data together with Integrated Sachs-Wolfe (ISW) observations to forecast
-the sensitivity of future surveys to modifications in $\mu$ and $\eta$.
-In the present work, we will neglect a possible $k$-dependence, 
-we will focus on Galaxy Clustering (GC) and weak
-lensing (WL) surveys and we will show that there are important differences
-between the linear and non-linear cases; including the non-linear regime generally reduces correlations
-among the cosmological parameters. In the remainder of this section we will introduce the parameterizations that we will use.
+%This has however
+%the disadvantage of loosing generality and making our constraints
+%on $\mu$ and $\eta$ parameterization-dependent. In this
+%work, we prefer to complement specific choices of parameterizations
+%adopted in the literature (we will use the choice made in \cite{planck_collaboration_planck_2016}) 
+%with a more general approach: we will bin
+%the functions $\mu(a)$ and $\eta(a)$ in redshift bins with index
+%$i$ and we will treat each $\mu_{i}$ and $\eta_{i}$ as independent
+%parameters in our forecast; we will then apply a variation of Principal Component Analysis (PCA), called Zero-phase Component Analysis (ZCA).
+%This approach has been taken previously
+%in the literature by \cite{hojjati_cosmological_2012}, where they
+%bin $\mu$ and $\eta$ in several redshift and $k$-$scale$ bins
+%together with a binning of $w(z)$ and cross correlate large scale
+%structure observations with CMB temperature, E-modes and polarization
+%data together with Integrated Sachs-Wolfe (ISW) observations to forecast
+%the sensitivity of future surveys to modifications in $\mu$ and $\eta$.
+%In the present work, we will neglect a possible $k$-dependence, 
+%we will focus on Galaxy Clustering (GC) and weak
+%lensing (WL) surveys and we will show that there are important differences
+%between the linear and non-linear cases; including the non-linear regime generally reduces correlations
+%among the cosmological parameters. In the remainder of this section we will introduce the parameterizations that we will use.
 
 In \cite{bull_extending_2015, Gleyzes2016, Alonso2016} the authors used a similar time parameterization in which the Modified Gravity
 parameters depend on the time evolution of the dark energy fraction. In \cite{bull_extending_2015} an extra parameter accounts for a scale-dependent $\mu$: their treatment keeps $\eta$ (called $\gamma$ in their paper) fixed and equal to 1; it uses linear power spectra up to $k_{\mathrm{max}}(z)$ with $k_{\rm max}(z=0)=0.14$/Mpc $\approx$ 0.2 h/Mpc. 
@@ -153,8 +160,8 @@ performing a Monte Carlo analysis of {\it Planck}+BAO+SNe+H$_{0}$ (BSH) data
 		\includegraphics[width=0.45\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/fiducials/etaFiducialsPlot}
 	\end{center}
 	\caption[Modified Gravity functions $\eta$ and $\mu$.]{\label{fig:fidplot}
-The Modified Gravity functions $\mu$ and $\eta$ as a function of redshift $z$ for each of the models considered in this work, evaluated at the fiducials specified inTable \ref{tab:fiducial-MG-AllCases}. 
-In light long-dashed blue lines, the `redshift binned model' (Eqns.\ \ref{eq:MGbin-mu-parametrization}-\ref{eq:MGbin-muderiv-parametrization}). In short-dashed red lines the late-time parameterization (Eqns.\ \ref{eq:DE-mu-parametrization}-\ref{eq:DE-eta-parametrization}) and in green solid lines the early-time parameterization (Eqns.\ \ref{eq:TR-mu-parametrization}-\ref{eq:TR-eta-parametrization}). Finally the medium-dashed orange line represents the standard $\lcdm$ model (GR) for reference.
+The Modified Gravity functions $\mu$ and $\eta$ as a function of redshift $z$ for each of the models considered in this work, evaluated at the fiducials specified in \cref{tab:fiducial-MG-AllCases}. 
+In light long-dashed blue lines, the `redshift binned model' (\crefrange {eq:MGbin-mu-general-parametrization}{eq:MGbin-muderiv-parametrization}). In short-dashed red lines the late-time parameterization (\crefrange{eq:DE-mu-parametrization}{eq:DE-eta-parametrization}) and in green solid lines the early-time parameterization (\crefrange{eq:TR-mu-parametrization}{eq:TR-eta-parametrization}). Finally the medium-dashed orange line represents the standard $\lcdm$ model (GR) for reference.
 		}
 \end{figure}
 
@@ -165,35 +172,28 @@ any parameterization. To this purpose we divide the redshift
 range $0\leq z\leq3$ in 6 redshift bins and we consider the values
 $\mu(z_{i})$ and $\eta(z_{i})$ at the right limiting redshift $z_{i}$
 of each bin as free parameters, thus with the $i$ index spanning the values
-$\{0.5,1.0,1.5,2.0,2.5,3.0\}$. The first bin is assumed to have a constant 
-value, coinciding with the one at $z_1=0.5$, i.e. $\mu(z<0.5)=\mu(z_{1})$ and $\eta(z<0.5)=\eta(z_{1})$.
-The $\mu(z)$ function (and analogously $\eta(z)$) is then reconstructed
-as \todo{this is repeated}
-\begin{equation}\label{eq:MGbin-mu-parametrization}
-\mu(z)=\mu(z_{1})+\sum_{i=1}^{N-1}{\frac{\mu(z_{i+1})-\mu(z_{i})}{2}\left[1+\tanh{\left(s\frac{z-z_{i+1}}{z_{i+1}-z_{i}}\right)}\right]},
-\end{equation}
-where $s=10$ is a smoothing parameter and $N$ is the number of binned
-values. We assume that both $\mu$ and $\eta$ reach the GR limit
-at high redshifts: to realize this, the last $\mu(z_{6})$ and $\eta(z_{6})$
-values assume the standard $\lcdm$ value $\mu=\eta=1$ and both functions
-are kept constant at higher redshifts $z>3$.
-
-Similarly, the derivatives of these functions are obtained by computing
-\begin{equation}
-\mu'({\bar{z}_{j}})=\frac{\mu(z_{i+1})-\mu(z_{i})}{z_{i+1}-z_{i}},
-\end{equation}
-with $\bar{z}_{j}=(z_{i+1}+z_{i})/2$, using the same $\tanh(x)$
-smoothing function: 
-\begin{equation}\label{eq:MGbin-muderiv-parametrization}
-\frac{d\mu(z)}{dz}=\mu'(\bar{z}_{1})+\sum_{j=1}^{N-2}{\frac{\mu'(\bar{z}_{j+1})-\mu'(\bar{z}_{j})}{2}\left[1+\tanh{\left(s\frac{z-\bar{z}_{j+1}}{\bar{z}_{j+1}-\bar{z}_{j}}\right)}\right]}\,\,\,.
-\end{equation}
-In particular we assume $\mu'=\eta'=0$ for $z<0.5$ and for $z>3$.
+$\{0.5,1.0,1.5,2.0,2.5,3.0\}$. 
+The form of the binning function and the precise assumptions we make, have been specified in \cref{sub:param-z-bins-th}.
+%The first bin is assumed to have a constant 
+%value, coinciding with the one at $z_1=0.5$, i.e. $\mu(z<0.5)=\mu(z_{1})$ and $\eta(z<0.5)=\eta(z_{1})$.
+%The $\mu(z)$ function (and analogously $\eta(z)$) is then reconstructed
+%as \todo{this is repeated}
+%\begin{equation}\label{eq:MGbin-mu-parametrization}
+%\mu(z)=\mu(z_{1})+\sum_{i=1}^{N-1}{\frac{\mu(z_{i+1})-\mu(z_{i})}{2}\left[1+\tanh{\left(s\frac{z-z_{i+1}}{z_{i+1}-z_{i}}\right)}\right]},
+%\end{equation}
+%where $s=10$ is a smoothing parameter and $N$ is the number of binned
+%values. We assume that both $\mu$ and $\eta$ reach the GR limit
+%at high redshifts: to realize this, the last $\mu(z_{6})$ and $\eta(z_{6})$
+%values assume the standard $\lcdm$ value $\mu=\eta=1$ and both functions
+%are kept constant at higher redshifts $z>3$.
 We set the first five amplitudes of $\mu_{i}$ and $\eta_{i}$ as
 free parameters, thus the set we consider is:
 $\theta=\{\Omega_{m},\Omega_{b},h,\ln10^{10} A_{s},n_{s},\{\mu_{i}\},\{\eta_{i}\}\}$,
 with $i$ an index going from 1 to 5. We take as fiducial cosmology
 the values shown in Tab. \ref{tab:fiducial-MG-AllCases} columns 5
-and 6. We only modify the evolution of perturbations and assume that
+and 6. 
+
+We only modify the evolution of perturbations and assume that
 the background expansion is well described by the standard $\Lambda$CDM
 expansion law for a flat universe with given values of $\Omega_{m}$,
 $\Omega_{b}$ and $h$.
@@ -232,23 +232,23 @@ $a$.
 
 \subsection{Non-linear power spectra \label{sub:MG-nonlinear-spectra}}
 
-\todo{Check that there is not too much repetition}
-As the Universe evolves, matter density fluctuations
-($\delta_{m}$) on small scales (k > 0.1 h/Mpc) become larger than unity and shell-crossing will eventually occur. The usual continuity and
-Euler equations, together with the Poisson equation become singular
-\cite{bernardeau_large-scale_2001,bernardeau_evolution_2013},
-therefore making a computation of the matter power spectrum in the
-highly non-linear regime practically impossible under the standard
-perturbation theory approach. However, at intermediate scales of around
-$k\approx0.1-0.2$ h/Mpc, there is the possibility of calculating
-semi-analytically the effects of non-linearities on the oscillation
-patterns of the baryon acoustic oscillations (BAO). There are many
-approaches in this direction, from renormalized perturbation theories
-\cite{crocce_renormalized_2006,blas_time-sliced_2016,taruya_closure_2008}
-to time flow equations \cite{pietroni_flowing_2008,anselmi_nonlinear_2012}, effective or coarse grained theories
-\cite{carrasco_effective_2012,baumann_cosmological_2012,pietroni_coarse-grained_2011,manzotti_coarse_2014} and many others.
- This direction of research is important, since from the
-amplitude and widths of the first few BAO peaks, one can extract more information from data and break degeneracies among parameters, especially in Modified Gravity.
+\done\todo{Check that there is not too much repetition}
+%As the Universe evolves, matter density fluctuations
+%($\delta_{m}$) on small scales (k > 0.1 h/Mpc) become larger than unity and shell-crossing will eventually occur. The usual continuity and
+%Euler equations, together with the Poisson equation become singular
+%\cite{bernardeau_large-scale_2001,bernardeau_evolution_2013},
+%therefore making a computation of the matter power spectrum in the
+%highly non-linear regime practically impossible under the standard
+%perturbation theory approach. However, at intermediate scales of around
+%$k\approx0.1-0.2$ h/Mpc, there is the possibility of calculating
+%semi-analytically the effects of non-linearities on the oscillation
+%patterns of the baryon acoustic oscillations (BAO). There are many
+%approaches in this direction, from renormalized perturbation theories
+%\cite{crocce_renormalized_2006,blas_time-sliced_2016,taruya_closure_2008}
+%to time flow equations \cite{pietroni_flowing_2008,anselmi_nonlinear_2012}, effective or coarse grained theories
+%\cite{carrasco_effective_2012,baumann_cosmological_2012,pietroni_coarse-grained_2011,manzotti_coarse_2014} and many others.
+% This direction of research is important, since from the
+%amplitude and widths of the first few BAO peaks, one can extract more information from data and break degeneracies among parameters, especially in Modified Gravity.
 
 Computing the non-linear power spectrum in standard GR is still an
 open question, and even more so when the Poisson equations are modified,
@@ -1409,7 +1409,8 @@ meaning that there is little gain of information when going to one of the other 
 As discussed in Sec.\ \ref{sec:Parameterizing-Modified-Gravity}, $\mu$ and $\eta$ (or an equivalent pair of functions of the gravitational potentials) depend in general on time and space. We will now investigate the time dependence further, starting from the two parameterizations proposed in \cite{planck_collaboration_planck_2016} and recalled in Eqns.\ (\ref{eq:DE-mu-parametrization}-\ref{eq:TR-eta-parametrization}) in this paper. We extend the analysis of the \planck\ paper by testing different prescriptions for the non-linear regime in Modified Gravity (as illustrated in Section \ref{sec:The-non-linear-power}) and further investigate forecasts for future experiments like Euclid, SKA, DESI. In the following subsections we first give results for the late-time parameterization of Eqns.\ (\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization}) and then for the early time parameterization of Eqns.\ (\ref{eq:TR-mu-parametrization},\ref{eq:TR-eta-parametrization}). In both cases we consider Galaxy Clustering and Weak Lensing, neglecting, as in Section \ref{sec:Results:-Redshift-Binned} any information coming from the cross correlation of the two probes.
 
 \subsection{\label{sub:MG-DE}Modified Gravity in the late-time parameterization}
-The late-time parameterization is defined in Eqns.\ (\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization}). We now calculate forecasts for Galaxy Clustering and Weak Lensing, with future surveys, in the linear and mildly non-linear regimes.
+
+The late-time parameterization is defined in  \crefrange{eq:DE-mu-parametrization}{eq:DE-eta-parametrization}. We now calculate forecasts for Galaxy Clustering and Weak Lensing, with future surveys, in the linear and mildly non-linear regimes.
 We also include prior information obtained from
 the analysis of the {\it Planck}+BSH datasets (where we recall that BSH stands for BAO + SNe + $H_0$ prior),
 as discussed in Section \ref{sub:Fisher-Planck}.
@@ -1687,7 +1688,7 @@ Notice that in this parameterization, a GC survey would only constrain $\mu$ wit
 a high accuracy, while a WL survey would constrain $\Sigma$ with
 a very good accuracy. The combination of both is much more
 powerful than the single probes. Adding \planck\ priors (last row) improves considerably the
-constraints on the $\lcdm$ parameters but has an almost negligible effect on the MG parameters (MG FoM remain almost constant when adding \planck\ priors to the GC+WL (non-linear HS) case. The marginalized contours for the $\mu$-$\eta$ plane , comparing these surveys, can be seen in the left panel ofFig.\ref{fig:combined_surveys}.
+constraints on the $\lcdm$ parameters but has an almost negligible effect on the MG parameters (MG FoM remain almost constant when adding \planck\ priors to the GC+WL (non-linear HS) case. The marginalized contours for the $\mu$-$\eta$ plane , comparing these surveys, can be seen in the left panel of \cref{fig:combined_surveys}.
 }
 \end{table}
 \normalsize
@@ -1845,23 +1846,22 @@ then given by
 \tilde{F}=J^{T}F\,J
 \end{equation}
 For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
-we obtain the following non-vanishing derivatives \todo{fix these eqns alignement}
+we obtain the following non-vanishing derivatives \done\todo{fix these eqns alignement}
 
-\begin{alignat}{2} 
-\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
-\frac{\partial\Sigma}{\partial\Omega_{c}} &
-=-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
-&  &  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
-\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
-\frac{\partial\Sigma}{\partial\Omega_{b}} &
-=-\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
-&  &  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))\\
-\frac{\partial\mu}{\partial E_{11}} &
-=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\Sigma}{\partial
-	E_{11}} &
-=\frac{1}{2}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})\\
-&  & \frac{\partial\Sigma}{\partial E_{22}} &
-=\frac{1}{2}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})
+\begin{alignat}{2}
+\frac{\partial\mu}{\partial\Omega_{c}}  = & -E_{11}, \quad \frac{\partial\mu}{\partial\Omega_{b}}  =-E_{11} ,\quad \frac{\partial\mu}{\partial E_{11}} 
+=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} & &\\
+\frac{\partial\Sigma}{\partial\Omega_{c}} 
+= & -\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})) & &\\
+  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})) &  & \nonumber \\
+\frac{\partial\Sigma}{\partial\Omega_{b}}
+= &  \frac{\partial\Sigma}{\partial\Omega_{c}}  \\
+\frac{\partial\Sigma}{\partial E_{11}} 
+= & \frac{1}{2}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))
+(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}) & & \\
+\frac{\partial\Sigma}{\partial E_{22}} 
+= & \frac{1}{2}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))
+(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}) & &
 \end{alignat}
 
 \subsubsection{Weak Lensing in the linear and mildly non-linear regime}
@@ -1891,6 +1891,7 @@ and WL+{\it Planck} has a comparable overall constraining power, with GC+{\it Pl
 \subsubsection{Combining Weak Lensing and Galaxy Clustering}\label{subsub:late-time-comb-GC+WL}
 
 \begin{figure}[htbp]
+	\centering
 \begin{centering}
 \includegraphics[width=0.3\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/ellipses/DE-related/ellipsesPlot-withLegendManual-MuEtaFisher-Marged-fiducialMGDE2nonuhs-GC_WL_GC+WL+Planck--nlHS-pars-6-7_-.pdf}
 \includegraphics[width=0.3\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/ellipses/DE-related/ellipsesPlot-noLegendManual-MuSigmaFisher-Marged-fiducialMGDE2nonuhs-GC_WL_GC+WL+Planck--nlHS-pars-6-7_-.pdf} \\
@@ -1968,6 +1969,7 @@ our fundamental derivatives $\partial P(k,z)/\partial E_{ij}$ to derivatives of 
 
 
 \begin{figure}[htbp]
+	\centering{}
 	\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGTR-Pk-wrt-mu-4z.pdf}
 	\includegraphics[width=0.4\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/power-spectra/derivs/MGTR-Pk-wrt-eta-4z.pdf}
 	\caption[Derivatives of the power spectrum in the early-time parameterization.]
@@ -1998,7 +2000,7 @@ and since we are also requiring gravitational slip $\eta = \Phi / \Psi$, we then
 k^2 \Phi = -4 \pi G a^2 \mu(\tau) \eta(\tau) \rho(\tau) \delta(\tau) \label{eq:Phipoisson}
 \end{equation}
 
-\todo{check alignmenent of figs}
+\done\todo{check alignmenent of figs}
 Taking the time derivative of (\ref{eq:deltadot}) and using (\ref{eq:thetadot}) and (\ref{eq:deltadot}) to 
 replace $\dot \theta$ and $\theta$, and substituting $\Psi$ from (\ref{eq:Psipoisson}), we obtain:
 \begin{align}\label{eq:dotdotdelta-mueta}
