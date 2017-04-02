@@ -30,7 +30,8 @@ but in some cases it can also lead to the appearance of an extra "fifth-force" a
 In the second half of \cref{chap:DE-MG-Overview} we have classified the DE and MG models into universally coupled  and non-universally coupled. The former are those models in which all matter and radiation species couple
 in the same way to the scalar field, while the latter are models in which just a specific matter component feels the influence of the field. 
 
-General Relativity has been thoroughly tested at laboratory and Solar System scales, therefore the coupling to standard matter (baryons) is very well constrained to be negligibly small.
+General Relativity has been thoroughly tested at laboratory and Solar System scales. It has been found that the
+coupling to standard matter (baryons) is very well constrained to be negligibly small.
 Therefore, universally coupled models have to invoke a "screening" mechanism that recovers GR at small scales (see \cref{sec:universal-coupling}).
 On the other hand, non-universally coupled theories pass the stringent solar system constraints by decoupling the baryons
 and allowing only for dark sector interactions, involving the scalar field and dark matter or neutrinos, as we discuss in \cref{sec:nonuniversal-coupling}.
@@ -164,6 +165,7 @@ energy and momentum, we used the publicly available \textsc{CoDECS} N-body simul
 to find a fit to the non-linear power spectrum and
 applied them to improve previous forecasts on this model for future galaxy redshift surveys, which had been done taking
 into account linear scales only \mcite{cite Luca, Valeria}.
+
 The fitting formulae we found are functions of the DM-DE coupling $\beta$ and the redshift $z$, and are very precise when compared to the  full simulations.
 However, since they were calculated as the correction with respect to the $\lcdm$ case, 
 we still need to add on top of them a semi-analytic or numeric prescription for the non-linear power spectrum, which
@@ -193,7 +195,7 @@ changes in structure formation at non-linear scales given by the "fifth-force".
 Therefore, we show in this work, that to obtain the correct constraints on a modified gravity parameter, like the DM-DE coupling, 
 it is necessary to calculate the correct non-linear power spectrum within the MG model.
 
-The final constraint we obtain on $\beta^2$, which is $\sigma_{\beta^2} \approx 8\times 10^{-5}$ 
+The final constraint we obtain on $\beta^2$, which is $\sigma_{\beta^2} \approx 8\times 10^{-5}$ (see \cite{casas_fitting_2015})
 is not far from the current
 best limits reached with Solar System observations on a coupling to
 baryons \cite{Agashe:2014kda}, which can be translated in our notation
@@ -204,20 +206,173 @@ within the Solar System nowadays.
 
 \subsection*{Resummation methods for Horndeski theory}
 
-As we have discussed in previous chapters, including the correct non-linear power spectrum when studying a Modified Gravity model
+As we have discussed in previous chapters, the estimation of the correct non-linear power spectrum when studying a Modified Gravity model
 is of uttermost importance. We can use approximated non-linear prescriptions based on the Halo model as we did in \cref{chap:MG-forecasts}
 to improve considerably the constraints obtained using just linear theory,
-but we showed in \cref{chap:Fitting-CDE} that using the wrong prescription can bias our results and that the way to go is to 
-find fits directly from N-body simulations computed specifically for the model in question.
-However, this is prohibitively expensive, we cannot calculate for each DE and MG model a set of N-body simulations  
+but we showed in \cref{chap:Fitting-CDE} that using the wrong prescription can bias our results and that the more precise approach is to 
+find fitting functions directly from N-body simulations computed specifically for the model in question.
+However, this is prohibitively expensive, we cannot calculate for each DE and MG model a set of N-body simulations covering
+the parameter space. Therefore, while N-body simulations of Dark Energy and Modified Gravity provide 
+the best estimates of the non-linear power spectrum, we cannot use them realistically for a large number of forecasts or future data analysis.
+
+In \cref{chap:nonlinear} we took a different approach. The idea here was to use a recently developed resummation
+formalism in cosmological perturbation theory, called eikonal Renormalized Perturbation Theory (eRPT), to calculate 
+the non-linear corrections to the matter power spectrum at mildly non-linear scales, for a set of Horndeski models.
+Since these calculations are relatively complex, we focus on Horndeski theory in the quasistatic limit,
+in which the modifications to the gravitational potentials, which are given by $\mu$ and $\eta$, depend on 5 functions
+of time, while the scale dependence is fixed, see \cref{eq:mufunc} and \cref{eq:etaFunc}.
+
+Standard Perturbation Theory (SPT) in Large Scale Structure (LSS) suffers from the problem that corrections at higher orders (higher loops),
+are not smaller the more loops one includes in the calculations. Therefore, one has in principle to sum contributions at all orders.
+Being a resummation method, eRPT does not suffer from this problem, and we can compute the linear part plus 1-loop terms under certain conditions, ensuring that
+higher orders will not spoil completely the result.
+In this method we can derive an evolution equation for the non-linear power spectrum (see \cref{eq:evolution-eqn-Chi-eta}) which
+depends on the linear power spectrum and the linear propagator (the solution of the differential equation for the growth).
+This method has been compared to N-body simulations for $\lcdm$ by \mcite{Pietroni} and has been found to be 1--3\% accurate at mildly non-linear 
+scales $k \lesssim 0.4 \mathrm{h/Mpc}$ for redshifts up to $z=0$.
+
+In this project (which corresponds to a publication in preparation) we have computed the necessary terms for the evolution equation
+for Horndeski models in the quasistatic limit. 
+We have made several approximations on the way, which we specify in \cref{sec:The-Evolution-Equation} and we relax them progressively, to 
+obtain a more realistic result.
+
+Our preliminary results show that modifications of $\mu$ of around 15\% at small scales, compared to the GR case ($\mu=1$)
+can affect the power spectrum at around 5\% at mildly non-linear scales (see \cref{fig:change-PS-resummed-YB1}).
+As we have shown in previous chapters, such an effect would be observable by future galaxy surveys.
+Since in these models the growth of perturbations is scale-dependent,
+the correct calculation of non-linearities can also affect the constraints coming from data on $f\sigma_8$,
+as we show in \cref{fig:change-fsigma8-Y}.
+
+This eRPT method for Horndeski models still has to be tested against recently developed N-body simulations for Modified Gravity and we have to
+study more in detail the effect of the approximations we have taken.
 
 
+\subsection*{Dynamics of lumps in Growing Neutrino Quintessence}
+
+In \cref{chap:GNQ} we studied a model in which the neutrino mass is coupled to the scalar ``cosmon`` field.
+This model can be motivated by considering the ``cosmon`` field as a Goldstone mode coming from the breaking
+of scale invariance and by considering the neutrino mass generation in the seesaw mechanism (see \cite{wetterich_growing_2007}).
+
+The coupling between neutrinos and the scalar field $\beta(\phi)$ needs to be very high in order to respect constraints on early Dark Energy and
+on the evolution of the equation of state. This strong coupling leads to the formation of large neutrino structures known as ``neutrino lumps``, 
+which have been observed using specialized non-Newtonian N-body simulations as in \cite{ayaita_structure_2012}.
+Previous studies had found that for a constant coupling $\beta$, there is no way of obtaining a realistic cosmology (see \cite{fuhrer_backreaction_2015}),
+due to the strong backreaction effects caused by the large and stable lumps.
+
+In the publication by \citet{casas_dynamics_2016} we studied, using N-body simulations, the dynamics of neutrino lumps 
+for different masses of the neutrino at present time, $m_{\nu,0}$.
+We found that there are two regimes: for large masses, above $m_{\nu,0} \gtrsim 0.5 eV$, the neutrino lumps become 
+stable and grow increasingly with time, forming larger and larger structures; for 
+small masses (below $m_{\nu,0} \lesssim 0.5 eV$) the neutrino lumps form and dissolve in time,
+causing oscillations in the neutrino equation of state and in smaller measure also in the energy fraction of Dark Energy, and the total equation 
+of state of $w_{\phi+\nu}$ due to the strong coupling (see \cref{fig:bckg-mod2-1} and \cref{fig:backg-wnu-wqnu-mod2}).
+This mass-divide of the phenomenology of lumps can be visualized clearly in \cref{fig:Snapshots-of-models-oscill}.
+
+In the case of stable and growing lumps, the backreaction is strong and we cannot obtain any realistic cosmological evolution. 
+For very high neutrino masses our N-body code is not able to resolve anymore the highly non-linear equations. In these
+extreme cases all neutrinos cluster into one single structure in the simulation box.
+
+In the case of oscillating lumps, we find an interesting phenomenology. Neutrinos start as relativistic particles in the early Universe,
+but then due to the ``cosmon`` coupling and the expanding Universe, their masses increase and they become non-relativistic.
+This leads to an effective potential with a minimum, that stops the cosmon from rolling down its exponential potential,
+giving rise to the onset of Dark Energy domination. This minimum causes oscillations in the perturbations of the scalar field,
+which in turn causes oscillations in the perturbations of the neutrino energy density.
+When neutrinos are non-relativistic, they tend to attract each other and form large  structures, however their acceleration towards the lumps
+and the oscillations of the cosmon field, turn them again into relativistic particles, which can escape from the newly formed structures.
+'
+Despite this complicated non-linear interaction between the cosmon and the neutrinos, we find in this regime of small masses,
+a cosmology compatible with present observations. The total Dark Energy equation of state $w_{\phi+\nu}$ is very close to $-1$
+and the energy fractions of DE, DM and neutrinos, are compatible with recent observations by the \textit{Planck} satellite \cite{Planck:2015xua}
+and by lower limits on the neutrino mass given by laboratory experiments \mcite{neutrino mass lab}. We also find that
+the total gravitational potentials in the small $m_{\nu,0}$ mass regime are not significantly affected by the neutrino lumps.
+The neutrino contribution to the gravitational potential $\Phi$ is two to three orders of magnitude smaller than the one coming from
+Cold Dark Matter particles. Therefore, present constraints on modified gravity coming from the Integrated Sachs-Wolfe effect \mcite{Gianantonnio}, 
+can still be respected.
+
+Furthermore, we found a very interesting effect on the neutrino fluid. The acceleration and deceleration towards the neutrino lumps,
+causes a net increase in the neutrinos kinetic energy, which translates into a shift of the mean of their momentum distribution. 
+Since the neutrino distribution can be well fitted by a Fermi-Dirac distribution, this amounts to an increasing of the neutrino temperature.
+This effect can be well visualized in \cref{fig:histogram-FermiD-1}. It could have interesting implications for observations in the
+far future which plan to put constraints on the Cosmic Neutrino Background \mcite{some CnuB paper?}.
+
+This is a good example of a Dark Energy model that cannot be solved using linear theory. The Klein-Gordon equation
+for the scalar field (\cref{eq:klein-gordon-equation}) is highly non-linear and the rapid growth of $\delta_{\nu}$ cannot be approximated by linear perturbations. Present Boltzmann codes that are able to solve the GNQ model, start failing already at redshifts of about $z\approx 10$, since they cannot follow
+anymore the oscillations of the neutrino equation of state and the large non-homogeneous values of $\delta_{\nu}$.
+A previous N-body simulation trying to solve this model (see \cite{baldi_oscillating_2011}), based on Newtonian codes, was also 
+not capable of evolving the neutrino evolution until present time. Therefore in this project we used an N-body code created 
+in our research group \cite{ayaita_nonlinear_2016}, which includes both gravitational potentials $\Phi$ and $\Psi$,
+allows for the possibility of having relativistic velocities, takes into account backreaction effects
+and solves for the ``cosmon`` field $\phi$ on a grid, using a multigrid Newton-Gauß-Seidel solver.
+All these effects come at the cost of a computationally demanding implementation, which is very difficult to parallelize in an optimal way.
 
 
+\section*{Summary and Outlook}
 
+In this thesis we have shown how important it is for future cosmological observations to take into account
+the effects of non-linear structure formation. This is especially the case if one wishes to discriminate
+between competing cosmological models in Dark Energy and Modified Gravity, which resemble 
+very closely the evolution of the standard $\lcdm$ scenario at the background level,
+but offer quite distinctive features at the level of large scale structure formation.
 
+We have tackled this issue from different angles: 
+semi-analytic prescriptions based on the Halo model (\cref{chap:MG-forecasts}), 
+fitting formulae based on simulations (\cref{chap:Fitting-CDE}), 
+resummation methods for higher-order cosmological perturbation theory (\cref{chap:nonlinear}) and directly computing,
+computationally demanding, non-Newtonian N-body simulations in \cref{chap:GNQ}.
 
+In all these cases we have seen that taking into account non-linearities yields observable effects that will
+be measured with high precision in future galaxy surveys. Using only linear theory and limiting the 
+analysis to linear scales, not only worsens the forecasted constraints by more than one order of magnitude (see 
+\cref{chap:MG-forecasts}), but can also bias the result (see \cref{chap:Fitting-CDE}).
+Even more dramatically, for certain models of Modified Gravity, involving strong ``fifth-forces``, 
+the predictions of the model cannot be calculated properly using linear theory, and one is forced to compute
+all observables, even the background quantities, with the help of specialized N-body simulations (see \cref{chap:GNQ}).
 
+In \cref{chap:Statistics} we detail the Fisher matrix method and the code we created to forecast the
+constraining power of future surveys, using Galaxy Clustering and Weak Lensing observables. We concentrated on the missions: 
+Euclid, SKA1, SKA2 and DESI. All of them will be started in the next 2 to 10 years.
+We also explained how we introduce non-linearities into the Fisher matrix formalism and how we deal with the unknown 
+estimation of the power spectrum and the involved sources of noise and errors.
+
+The field of non-linear structure formation and its application to the analysis of cosmological observations
+is a field which is advancing very rapidly, due to the urgent necessity of understanding this problem in order
+to gain as much information as possible from future data.
+
+In the near future we would still need to explore several open questions in this field.
+For example, how degenerate are the Modified Gravity predictions at non-linear scales, with other
+effects like the neutrino mass, baryonic feedback and the unknown properties of bias and primordial non-Gaussianities.
+Especially the effect of baryonic physics at small scales, is of great concern, since it can affect and wash away
+most cosmological information above a certain wavenumber. This is an open issue that has to be resolved in such a way, that allows 
+future observational cosmologists to discard as little information as possible from small scales.
+
+Another issue we need to solve is how to parameterize optimally the effects of Modified Gravity models. As we have seen 
+in \cref{chap:MG-forecasts}, the most parameterization independent way of doing this, is to \emph{pixelize} the evolution
+of $\mu(a)$ and $\eta(a)$ in redshift bins. However, it is not clear how many bins need to be used, which
+priors can be imposed on these binned parameters and if in general, parameterizing $\mu$ and $\eta$ as we have done in 
+\cref{chap:MG-forecasts}, is still a valid approach once non-linear corrections are taken consistently into account.
+
+All this can only be investigated once a semi-analytic method (like the resummation method of \cref{chap:nonlinear}) 
+for computing non-linearities in Modified Gravity theories is mature enough to yield consistent results for 
+a large range of models and parameters. Exploring
+the model and parameter space will not be feasible in the near future by computing for each model a separate N-body simulation.
+
+In terms of Fisher forecasts, we have shown at the end of \cref{chap:Statistics} how we can go beyond the Gaussian approximation for the likelihood.
+However, for a proper analysis of non-linear structure formation, we still would need to take into account 
+non-diagonal covariance matrices, cross-correlations among Galaxy Clustering and Weak Lensing and small scale effects
+modifying our formulas for the Baryon Acoustic Oscillations and Redshift Space Distortions. This will be the subject of future
+work on the \textsc{FisherTools} code.
+
+In this thesis we have dealt almost exclusively with the non-linear matter power spectrum. But we know that at highly non-linear scales,
+this statistical measure cannot give us the full picture. The cosmic web, consisting of voids, sheets and filaments, is not
+well described by the two-point correlation function. Going to the three-point correlation function (called the bispectrum in Fourier space)
+can yield already some extra information, although its calculation is quite demanding. 
+However, this will not be enough, and for future data, we will need to find
+some other statistical measures that can give us clear information of what is happening at the smallest scales.
+Possible options could be Minkowski functionals, position dependent power spectra, large deviation statistics and 
+massive galaxy clusters, just for naming a few.
+
+Definitely, the next decade of the precision era of cosmology, will be an era of rapid technological advances,
+impressive developments in theory and statistical tools and many surprising discoveries.
 
 
 
