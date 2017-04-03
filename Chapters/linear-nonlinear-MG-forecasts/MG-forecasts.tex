@@ -512,6 +512,80 @@ with respect to the parameters of interest. Our Jacobian is then simply
 J_{ij}=\frac{\partial\Theta_{i}}{\partial\theta_{j}} \, .
 \end{equation}
 
+
+\subsection{Jacobian for the late time parameterization \label{subsub:Jacobian}}
+Our main observables are parameterized
+in terms of the primary variables $E_{11}$ and $E_{22}$ from Equation
+\ref{eq:TR-mu-parametrization}; we are however interested in forecasting
+the constraints on the pair of secondary variables $\{\mu$, $\eta\}$
+or on the pair $\{\mu$, $\Sigma$\}.
+
+Therefore we need to transform the variables using a Jacobian
+$J_{ij}=\partial\theta_{i}/\partial\tilde{\theta}_{j}$,
+where $\theta_{i}$ is the set of primary variables and $\tilde{\theta}_{i}$
+is the vector of secondary variables. 
+Eqns. (\ref{eq:SigmaofMuEta},\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization})
+allow us to express the $\tilde{\theta}_{i}$ as a function of the variables $\theta_{i}$ and 
+to obtain the non-vanishing derivatives
+of $\mu$ and $\eta$ w.r.t to all cosmological parameters:
+
+\begin{alignat}{2}
+\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
+\frac{\partial\eta}{\partial\Omega_{c}} & =-E_{22}\\
+\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
+\frac{\partial\eta}{\partial\Omega_{b}} & =-E_{22}\\
+\frac{\partial\mu}{\partial E_{11}} &
+=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\eta}{\partial
+	E_{22}} & =1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} \,\,\, .
+\end{alignat}
+With these derivatives we can construct the inverse of the Jacobian
+$J_{ij}^{-1}=\partial\tilde{\theta}_{j}/\partial\theta_{i}$.
+The Fisher matrix in the secondary variables $\tilde{F}{}_{ij}$ is
+then given by 
+\begin{equation}
+\tilde{F}=J^{T}F\,J
+\end{equation}
+For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
+we obtain the following non-vanishing derivatives 
+\begin{alignat}{2}
+\frac{\partial\mu}{\partial\Omega_{c}}  = & -E_{11}, \quad \frac{\partial\mu}{\partial\Omega_{b}}  =-E_{11} ,\quad \frac{\partial\mu}{\partial E_{11}} 
+=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} & &\\
+\frac{\partial\Sigma}{\partial\Omega_{c}} 
+= & -\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})) & &\\
+& -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})) &  & \nonumber \\
+\frac{\partial\Sigma}{\partial\Omega_{b}}
+= &  \frac{\partial\Sigma}{\partial\Omega_{c}}  \\
+\frac{\partial\Sigma}{\partial E_{11}} 
+= & \frac{1}{2}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))
+(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}) & & \\
+\frac{\partial\Sigma}{\partial E_{22}} 
+= & \frac{1}{2}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))
+(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}) & &
+\end{alignat}
+
+\subsection{Jacobian for the early time parameterization}
+
+In the early time case, we have two parameters for each $\mu(a)$
+and $\eta(a)$ function as in Eq.\ (\ref{eq:TR-mu-parametrization}).
+If we are interested in the parameters $\mu$, $\eta$ and $\Sigma$
+today ($a=1$), then the parameters $E_{12}$ and $E_{21}$ are not
+important anymore and we can simply marginalize over them in our Fisher
+matrix. Then the relation between $\mu$ and $\eta$ is very simple
+$\{\mu,\eta\}=1+\{E_{11},\,E_{22}\}$. The corresponding Jacobian
+is simply a $7\times7$ identity matrix and we can apply it to the
+Fisher matrix after we marginalize over the two unimportant parameters.
+
+For the transformation to the pair $\mu$-$\Sigma$ we use the definition
+of $\Sigma$ of Eq.\ (\ref{eq:SigmaofMuEta}) and then find the derivatives
+with respect to $E_{ij}$. We obtain
+
+\begin{align}
+\frac{\partial\Sigma}{\partial E_{11}} & =\frac{1}{2}(2+E_{22})\\
+\frac{\partial\Sigma}{\partial E_{22}} & =\frac{1}{2}(2+E_{11})\quad,
+\end{align}
+while all other derivatives remain the same.
+
+
 \section{\label{sec:Results:-Redshift-Binned}Results: Euclid forecasts for redshift binned parameters}
 In this section we analyze the Modified Gravity functions $\mu(a)$ and $\eta(a)$,
 described in Section \ref{sub:parameterizing-MG}, when they are allowed
@@ -1429,7 +1503,7 @@ In the late-time scenario, for a Galaxy Clustering survey,
 neither $\eta$ nor $\Sigma$ are actually
 constrained by a linear forecast, while $\mu$ is mildly constrained.  
 Adding the non-linear regime improves constraints on $\mu$, while the other parameters remain unconstrained, 
-unless we also include \planck\ priors, which yields an improvement in the FoM of 6.3 nits. In general the observable power spectrum may depend on both $\mu$ (explicitely appearing in the last term of the equation for the density perturbation (cf. Eqn.(\ref{eq-delta})) and on $\eta$ (implicitly contained in the derivatives of the gravitational potential in the same equation). The contribution of the derivative of the potentials is larger in the early-time parameterization, with respect to the late-time one by construction. This is due to the fact that in the late-time case deviations from GR go to zero at large redshifts. In this sense, in the specific case of the late time parameterization, the observed power spectrum mainly depends on $\mu$ only, which explains why this is the only quantity (mildly) constrained by GC alone. In the early-time parameterization, though, modifications can appear also at earlier times, so that both $\eta$ and $\mu$ effectively affect the power spectrum, which explains why they can both be constrained with a smaller uncertainty, as we will discuss in Section \ref{sub:MG-TR}.
+unless we also include \planck\ priors, which yields an improvement in the FoM of 6.3 nits. In general the observable power spectrum may depend on both $\mu$ (explicitely appearing in the last term of the equation for the density perturbation (cf. \cref{eq:dotdotdelta-mueta}) and on $\eta$ (implicitly contained in the derivatives of the gravitational potential in the same equation). The contribution of the derivative of the potentials is larger in the early-time parameterization, with respect to the late-time one by construction. This is due to the fact that in the late-time case deviations from GR go to zero at large redshifts. In this sense, in the specific case of the late time parameterization, the observed power spectrum mainly depends on $\mu$ only, which explains why this is the only quantity (mildly) constrained by GC alone. In the early-time parameterization, though, modifications can appear also at earlier times, so that both $\eta$ and $\mu$ effectively affect the power spectrum, which explains why they can both be constrained with a smaller uncertainty, as we will discuss in Section \ref{sub:MG-TR}.
 
 In \cref{sec:appder} we review the equation governing the evolution of cold dark matter density fluctuations, 
 as a function of the Modified Gravity functions $\mu(a)$ and $\eta(a)$ as they are implemented in the code MGCAMB \cite{hojjati_testing_2011}.
@@ -1526,7 +1600,7 @@ is quite small.
 
 \begin{table}[htbp]
 \footnotesize
-%\centering{}%
+\centering{}
 \begin{tabular}{|l|c|c|c|c|c||c|c|c|c|}
 \hline
 \Tstrut \textbf{Euclid} (Redbook) & $\Omega_{c}$ & $\Omega_{b}$ & $n_{s}$ & $\ell\mathcal{A}_{s}$ & $h$ & $\mu$ & $\eta$ & $\Sigma$
@@ -1692,7 +1766,7 @@ powerful than the single probes. Adding \planck\ priors (last row) improves cons
 constraints on the $\lcdm$ parameters but has an almost negligible effect on the MG parameters (MG FoM remain almost constant when adding \planck\ priors to the GC+WL (non-linear HS) case. The marginalized contours for the $\mu$-$\eta$ plane , comparing these surveys, can be seen in the left panel of \cref{fig:combined_surveys}.
 }
 \end{table}
-\normalsize
+
 
 \begin{table}[htbp]
 \centering{}%
@@ -1814,57 +1888,7 @@ for SKA1 the contraints would be at the 8\% level. The marginalized contours for
 \normalsize
 
 
-\subsubsection{Transforming the variables \label{subsub:Jacobian}}
-Our main observables are parameterized
-in terms of the primary variables $E_{11}$ and $E_{22}$ from Equation
-\ref{eq:TR-mu-parametrization}; we are however interested in forecasting
-the constraints on the pair of secondary variables $\{\mu$, $\eta\}$
-or on the pair $\{\mu$, $\Sigma$\}.
 
-Therefore we need to transform the variables using a Jacobian
-$J_{ij}=\frac{\partial\theta_{i}}{\partial\tilde{\theta}_{j}}$,
-where $\theta_{i}$ is the set of primary variables and $\tilde{\theta}_{i}$
-is the vector of secondary variables. 
-Eqns. (\ref{eq:SigmaofMuEta},\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization})
-allow us to express the $\tilde{\theta}_{i}$ as a function of the variables $\theta_{i}$ and 
-to obtain the non-vanishing derivatives
-of $\mu$ and $\eta$ w.r.t to all cosmological parameters:
-
-\begin{alignat}{2}
-\frac{\partial\mu}{\partial\Omega_{c}} & =-E_{11},\qquad &
-\frac{\partial\eta}{\partial\Omega_{c}} & =-E_{22}\\
-\frac{\partial\mu}{\partial\Omega_{b}} & =-E_{11},\qquad &
-\frac{\partial\eta}{\partial\Omega_{b}} & =-E_{22}\\
-\frac{\partial\mu}{\partial E_{11}} &
-=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu},\qquad & \frac{\partial\eta}{\partial
-	E_{22}} & =1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} \,\,\, .
-\end{alignat}
-With these derivatives we can construct the inverse of the Jacobian
-$J_{ij}^{-1}=\frac{\partial\tilde{\theta}_{j}}{\partial\theta_{i}}$.
-The Fisher matrix in the secondary variables $\tilde{F}{}_{ij}$ is
-then given by 
-\begin{equation}
-\tilde{F}=J^{T}F\,J
-\end{equation}
-For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
-we obtain the following non-vanishing derivatives 
-\done\todo{fix these eqns alignement}
-
-\begin{alignat}{2}
-\frac{\partial\mu}{\partial\Omega_{c}}  = & -E_{11}, \quad \frac{\partial\mu}{\partial\Omega_{b}}  =-E_{11} ,\quad \frac{\partial\mu}{\partial E_{11}} 
-=1-\Omega_{b}-\Omega_{c}-\Omega_{\nu} & &\\
-\frac{\partial\Sigma}{\partial\Omega_{c}} 
-= & -\frac{1}{2}E_{22}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})) & &\\
-  & -\frac{1}{2}E_{11}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu})) &  & \nonumber \\
-\frac{\partial\Sigma}{\partial\Omega_{b}}
-= &  \frac{\partial\Sigma}{\partial\Omega_{c}}  \\
-\frac{\partial\Sigma}{\partial E_{11}} 
-= & \frac{1}{2}(2+E_{22}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))
-(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}) & & \\
-\frac{\partial\Sigma}{\partial E_{22}} 
-= & \frac{1}{2}(1+E_{11}(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}))
-(1-\Omega_{b}-\Omega_{c}-\Omega_{\nu}) & &
-\end{alignat}
 
 \subsubsection{Weak Lensing in the linear and mildly non-linear regime}
 
@@ -2129,7 +2153,7 @@ When combining both probes (GC+WL (non-linear HS)) the FoC goes to an intermedia
 \\
 \includegraphics[width=0.45\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/ellipses/T-related/ellipsesPlot-noLegend-Manual-MuSigmaFisher-Marged-fiducialMGTR2nonuhs-GC_WL_GC+WL+Planck--nlHS-pars-2-6_-.pdf}
 \includegraphics[width=0.45\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/ellipses/T-related/ellipsesPlot-noLegend-Manual-MuSigmaFisher-Marged-fiducialMGTR2nonuhs-GC_WL_GC+WL+Planck--nlHS-pars-4-7_-.pdf}
-\caption[1$\sigma$ marginalized confidence contours for Euclid GC, WL and Planck in the eraly-time parameterization.]{\label{fig:T-related-ellipses-mu-omegac} Fisher Matrix marginalized forecasted contours
+\caption[1$\sigma$ marginalized confidence contours for Euclid GC, WL and Planck in the early-time parameterization.]{\label{fig:T-related-ellipses-mu-omegac} Fisher Matrix marginalized forecasted contours
 (1$\sigma$, 2$\sigma$) for the Euclid Redbook satellite in the early-time
 parameterization using mildly non-linear scales and the HS prescription.
 Green lines represent constraints from the Galaxy Clustering survey,
@@ -2144,27 +2168,7 @@ $\Sigma$ and $\ln 10^{10} A_s$. Notice that in this parameterization, GC and WL 
 $\eta$ or $\Sigma$ on their own.}
 \end{figure}
 
-\subsubsection{Early time parameterization}
 
-In the early time case, we have two parameters for each $\mu(a)$
-and $\eta(a)$ function as in Eq.\ (\ref{eq:TR-mu-parametrization}).
-If we are interested in the parameters $\mu$, $\eta$ and $\Sigma$
-today ($a=1$), then the parameters $E_{12}$ and $E_{21}$ are not
-important anymore and we can simply marginalize over them in our Fisher
-matrix. Then the relation between $\mu$ and $\eta$ is very simple
-$\{\mu,\eta\}=1+\{E_{11},\,E_{22}\}$. The corresponding Jacobian
-is simply a $7\times7$ identity matrix and we can apply it to the
-Fisher matrix after we marginalize over the two unimportant parameters.
-
-For the transformation to the pair $\mu$-$\Sigma$ we use the definition
-of $\Sigma$ of Eq.\ (\ref{eq:SigmaofMuEta}) and then find the derivatives
-with respect to $E_{ij}$. We obtain
-
-\begin{align}
-\frac{\partial\Sigma}{\partial E_{11}} & =\frac{1}{2}(2+E_{22})\\
-\frac{\partial\Sigma}{\partial E_{22}} & =\frac{1}{2}(2+E_{11})\quad,
-\end{align}
-while all other derivatives remain the same.
 
 
 
@@ -2211,8 +2215,101 @@ for the Weak Lensing observable.
 \end{figure}
 
 
+\section{Modified Gravity in the Effective Field Theory formalism}
 
-\subsection{Testing the effect of the Hu-Sawicki non-linear prescription on parameter estimation
+\footnote{This section is not contained in the publication \cite{casas_linear_2017}, 
+but will be the subject of a future work.}
+In this section we show some forecasts for the 
+constraints that can be obtained on the parameters of a simple model within the Effective Field Theory  (EFT) formalism. We simulate a Galaxy Clustering Euclid survey and test the difference between applying linear and non-linear power spectra. 
+
+The EFT action was presented in \cref{sub:EFT-of-DE}, where we described the 6 free 
+functions of time that characterize this formalism, which is able to recover all theories of a 
+scalar field plus GR at the linear perturbation level.
+Following the example of the \planck paper \cite{planck_collaboration_planck_2016-7},
+as we have done in the previous two parameterizations,
+we will reduce considerably the freedom contained in the EFT Lagrangian.
+From the 6 free functions available in \cref{eq:EFT-funcs}, we will demand that
+$\bar{M}_3^2 = \bar{M}_2^2$, which implies that $\alpha_T = 0$, so that gravitational waves 
+propagate with the speed of light. In order to remain within the ``Horndeski``
+class of models, we further impose $\alpha_H = 0$. Furthermore, to simplify
+our model, we will set $\bar{M}_3^1 = \bar{M}_2^4 = 0$, which in terms of the $\alpha$
+functions, implies: $\alpha_M = - \alpha_B$. 
+Therefore, we will consider a very limited model, which basically
+reduces to a non-minimally coupled k-essence model (see \cite{amendola_dark_2010}, for a review). Nevertheless,
+this model offers an interesting phenomenology that modifies the gravitational
+potentials at large and small scales.
+
+In addition to
+the standard cosmological parameters, we have now just a free function $\alpha_{M}$,
+which can be linked to the operator $\Omega(a)$ in \cref{eq:EFT-funcs}, through: 
+\begin{equation}
+\alpha_{M}(a)=\frac{a}{\Omega(a)+1}\frac{\mbox{d}\Omega(a)}{\mbox{d}a}\label{eq:alphama}
+\end{equation}
+In order to reduce this function in a parametric form, we use a scaling
+ansatz and set $\alpha_{M}=\alpha_{M0}a^{\beta}$, where the subscript
+$0$ indicates the value today. For $\beta>0$ the modification of
+gravity decreases in the past. Integrating equation \ref{eq:alphama},
+one obtains:
+\begin{equation}\label{eq:EFT-omega}
+\Omega(a)=\exp\left(\frac{\alpha_{M0}}{\beta}a^{\beta}\right)-1.
+\end{equation}
+Therefore the free parameters in this case are $\theta_i=\{\Omega_{m},\Omega_{b},\ln(10^{10}A_{s}),n_{s},h,\alpha_{M0},\beta\}$
+and as fiducial cosmology we assume the marginalized values obtained
+through the analysis of Planck CMB data.
+
+\begin{table}[htbp]
+	\centering{}
+	\begin{tabular}{|c|c|}
+		\hline 
+		\multicolumn{2}{|c|}{\Tstrut \textbf{EFT}}  \tabularnewline
+		\hline
+		Parameter  & Fiducial \Tstrut \tabularnewline
+		\hline 
+		$\Omega_{c}$  & $0.254$ \Tstrut  \tabularnewline
+		$\Omega_{b}$  & $0.048$  \tabularnewline
+		$n_{s}$  & $0.969$  \tabularnewline
+		$\log(10^{10}A_{s})$  & $3.06$  \tabularnewline
+		$h$  & $0.682$   \tabularnewline
+		$\alpha_{M}$  & $0.01$ \tabularnewline
+		$\beta$  & $1$ \tabularnewline
+		\hline 
+	\end{tabular}\protect\caption{Fiducial model used for the EFT parametrization. 
+	The parameters are those allowed by the analysis in the \planck paper \cite{planck_collaboration_planck_2016-7}.}
+	\label{tab:fiducial-EFT} 
+\end{table}
+
+\begin{figure}[htbp]
+	\centering{}
+	\includegraphics[width=0.45\textwidth]{Figures/EFT-alfa-beta.png}
+	\includegraphics[width=0.45\textwidth]{Figures/EFT-alfa-h.png}
+	\\
+	\includegraphics[width=0.45\textwidth]{Figures/EFT-alfa-Omb.png}
+	\includegraphics[width=0.45\textwidth]{Figures/EFT-h-Omb.png}
+	\caption[1$\sigma$ marginalized confidence contours for Euclid GC in the EFT formalism.]{\label{fig:EFT-ellipses-mu-omegac} Fisher Matrix marginalized forecasted contours
+		(1$\sigma$, 2$\sigma$, 3$\sigma$) for the Euclid Redbook satellite in the EFT model using mildly non-linear scales and the HS prescription (labeled as nonlin-Zh in the figure).
+		Green lines represent linear constraints, while blue lines stand for the non-linear
+		forecasts. \textbf{Upper left: }contours for the fully marginalized
+		errors on $\alpha_m$ and $\beta$. \textbf{Upper right: }contours for the
+		fully marginalized errors on $\alpha_m$ and $h$.\textbf{ Lower left:
+		}contours for the fully marginalized errors on $\alpha_m$ and $\Omega_b$.
+		\textbf{Lower right: }contours for the fully marginalized errors on
+		$h$ and $\Omega_b$.
+	    It can be seen quite clearly from these plots that the inclusion of non-linear
+    scales improves radically the constraints on the model parameters.}
+\end{figure}
+
+In \cref{fig:EFT-ellipses-mu-omegac}, we show the marginalized confidence contours for the our EFT model, using a Galaxy Clustering Euclid survey, with Redbook specifications.
+We can see in \cref{fig:EFT-ellipses-mu-omegac} that the constraints on the $\beta$ and $\alpha_m$ parameters are quite poor if one uses only linear scales to perform the forecast.
+Using non-linear scales together with the non-linear HS prescription, yields constraints
+which are more than one order of magnitude better. We see again, as in previous sections,
+that this effect is much bigger for Modified Gravity parameters than for standard cosmological parameters.
+For example in the case of the combination $h$-$\Omega_b$ in the bottom left panel of \cref{fig:EFT-ellipses-mu-omegac}, we see that the improvement when adding non-linear scales is of just a factor 
+$\sim 2-3$.
+The constraints on $\beta$ and $\alpha_m$ are relatively good for a non-linear forecast, but we have to take into account that we are imposing a very particular parameterization in \cref{eq:EFT-omega}.
+
+We leave for a future work the study of a redshift-binned parameterization within the EFT formalism.
+
+\section{Effect of the Hu-Sawicki non-linear prescription on the forecasts
 \label{sub:Testing-the-effect-of-Zhao}}
 
 In this section we show the effect of changing the parameters $\cnl$
@@ -2336,7 +2433,7 @@ when adding two extra parameters, but the change is very small, of just 0.3-0.5 
 
 \begin{table}[htbp]
 \centering{}%
-\footnotesize
+\tiny
 \begin{tabular}{|c|c|c|c|c|c||c|c|c||c|c|c|}
 \hline 
 \textbf{Euclid} (Redbook)  & $\Omega_{c}$  & $\Omega_{b}$  & $n_{s}$  &
@@ -2372,7 +2469,13 @@ same as for Table \ref{tab:errors-Euclid-GC-WL-late_time}. Remarkably, the combi
 \end{table}
 \normalsize
 
-\todo{Add EFT plot}
+\done\todo{Add EFT plot}
+
+
+
+
+
+
 
 
 \section{Conclusions}
