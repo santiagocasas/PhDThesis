@@ -17,16 +17,16 @@ Since this has become such an important issue in the last few years, there has b
 substantial progress in the theoretical and numerical
 treatment of non-linearities for cosmological structure formation. 
 From very advanced N-body simulations
-\mcite{Springel, Illustris, Teyssier, Baldi, Winther, COLA, gevolution}, to
-comprehensive semi-analytical methods \mcite{Halofit, HMcode, Halo model, Cosmic Emu, 
-PkAnn} and complex resummation and renormalization methods \mcite{RPT, eRPT,
-2LPT, regPT, gRPT, tSPT, EFTofLSS, TRG, Coarse}. There has also been a great advance in
-new statistical tools for analyzing non-linear, non-Gaussian cosmic structures, see
-\mcite{Large deviation, Minkowski functionals, Bispectrum, Separate Universe, 
-analytic Covariance}.
+\cite{vogelsberger_introducing_2014, kim2011new, baldi2014cosmic, winther2015fast, adamek2016gevolution, tassev2013solving}, to
+comprehensive semi-analytical methods \cite{smith_stable_2003, mead_rapid_2014, heitmann_coyote_2014, 
+agarwal_pkann_2012} and complex resummation and renormalization methods \cite{crocce_mptbreeze:_2012, crocce_renormalized_2006-8, blas_time-sliced_2015,blas_time-sliced_2016, pietroni_coarse-grained_2011,pietroni_flowing_2008,peloso_galilean_2016,matarrese_resumming_2007,anselmi_nonlinear_2012,anselmi_next--leading_2010, senatore_ir-resummed_2014-1,carrasco_effective_2012, taruya_regularized_2014, bernardeau_constructing_2012}. There has also been a great advance in
+new statistical tools for analyzing non-linear, non-Gaussian cosmic structures, for example
+large deviation statistics \cite{uhlemann_two_2016}, 
+Minkowski functionals \cite{novaes_local_2016} and separate Universe methods to extract
+the squeezed bispectrum \cite{Chiang:2014oga}.
 
 Here we apply for the first time the Eikonal Renormalized Perturbation Theory (eRPT) developed
-by \cite{anselmi_nonlinear_2012}, \mcite{Pietroni, recent, 2016} to the 
+by \cite{anselmi_nonlinear_2012, anselmi_next--leading_2010} and recently refined in \cite{peloso_galilean_2016} to the 
 case of Horndeski models which were treated in \cref{sub:EFT-of-DE}.
 In order to do so, we will take some simplifying assumptions like the quasistatic limit and
 some specific variations of the $\mu$ and $\eta$ functions, previously
@@ -40,7 +40,7 @@ In \cref{sec:nonlinear-fluid} we start from the Vlasov-Poisson
 system and write down the fluid equations for a non-relativistic matter component.
 Then we show, using the quasistatic limit, which modified gravity functions we are going to 
 take into account from Horndeski's theory.
-In \cref{sec:field-notation} we write down the continuity, Euler and Poisson equations in a unified
+In \cref{sec:The-field-notation} we write down the continuity, Euler and Poisson equations in a unified
 field notation, which is the basis of our resummation method.
 Finally in \cref{sec:linear propagator} and \cref{sec:The-Evolution-Equation} we will detail
 the formalism of the eRPT method, computing the propagator 
@@ -48,7 +48,7 @@ and the evolution equation for the power spectrum, but mostly focusing on how it
 At the end of the chapter in \cref{sec:Computational} we make a short excursion through
 computational techniques, like N-body simulations and semi-analytical methods, which
 will be of importance for discussing this and the next chapter.
-\todo{Implement Florians comments}
+\done\todo{Implement Florians comments}
 
 
 \section{Growth of perturbations for a Dark Matter component \label{sec:DM-growth}}
@@ -62,7 +62,7 @@ We will introduce the quasistatic approximation and
 then we will find a simple analytic formula for the growth factor $D_{+}(a)$
 of CDM perturbations which will be useful later on. We will make use of the 
 linearized Einstein equations  in the conformal Newtonian gauge, introduced in \cref{chap:DE-MG-Overview}, where we
-follow the sign and naming conventions of the seminal work by \cite{MaBertschinger}.
+follow the sign and naming conventions of the seminal work by \cite{ma_cosmological_1995}.
 
 If we transform \cref{eq:deltadot-general} and \cref{eq:thetadot-general} to
 Fourier space, we obtain in the 
@@ -99,7 +99,7 @@ $
 In order to solve this equation, it is easier if we first transform 
 our time variable to the scale factor $a$. To do so, we can define some transformations between conformal time and the scale factor:
 \beeqal$
-\curH &= \frac{\dot a }{a} = a \frac{\dd a}{\dd t} = a H \\
+\curH &= \frac{\dot a }{a} = \frac{\dd a}{\dd t} = a H \\
 \dot \curH &=  \frac{\ddot a}{a} - \curH^2 \\
 \frac{\dd{}}{\dd \tau} &= a^2 H \frac{\dd{}}{\dd a} \quad,
 $
@@ -119,13 +119,13 @@ This second order differential equation has two solutions: a decaying one, $D_{-
 and a growing one $D_{+}(a)$.
 The decaying solution is $\delta \propto H$ and it can be shown easily by inspection
 in the
-matter dominated case where all the energy is non-relativistic matter (see \mcite{Dodelson book}). In that case,
+matter dominated case where all the energy is non-relativistic matter (see \cite{dodelson2003modern}). In that case,
 $H \propto a^{-3/2}$ and all terms scale as $a^{-7/2}$, so that passing all terms to the 
 left hand side, the coefficients 
 $\{\frac{15}{4}, -\frac{9}{4} , -\frac{3}{2}\}$ indeed cancel out.
 It can be shown that this decaying solution is satisfied even if $H$ contains
 other energy components.
-This can be done with the interesting relation between derivatives of $H$
+This can be done with the following relation between derivatives of $H$
 and the matter species density fraction:
 \beeqalsp$
 \frac{H''(a)}{H(a)}+\frac{H'(a) \left(a H'(a)+3 H(a)\right)}{a H(a)^2} &= \\
@@ -162,7 +162,7 @@ D_{+}(a)  = \frac{5 \Omega_{m,0}}{2 a_{\rm ini}} \frac{H(a)}{H_0} \int_{0}^{a}
 $
 where the proportionality constant has been obtained by enforcing
 $D_{+} = a$ at early matter-dominated times, when $H = H_0 \Omega_{m,0}^{1/2} a^{-3/2}$, 
-see \mcite{Dodelson book} and $a_{\rm ini}$ is the scale factor at which
+see \cite{dodelson2003modern} and $a_{\rm ini}$ is the scale factor at which
 the initial condition $\Omega_{m}(a_{\rm ini}) = 1$, has been set. In this
 way, \cref{eq:Dplus-Integral} matches exactly the numerical solution
 of \cref{eq:deltaprimeprime}.
@@ -182,7 +182,7 @@ agree exactly, while the $\gamma$-approximation is fine at the per mille level.}
 
 
 Usually, this integral in this form can only be expressed analytically for
-an open Universe without Dark Energy (see \mcite{Dodelson book}).
+an open Universe without Dark Energy.
 However, by doing a further transformation into e-folding time: $ N \equiv \ln a$,
 we can find a closed analytical expression
 for the late-time $\lcdm$ scenario, with matter and a cosmological constant.
@@ -218,10 +218,9 @@ $N = \ln a$:
  \totder{f}{N} + f^2 + \left( 2 + \totder{\,\ln H}{N} \right) f = \frac{3}{2} \Omega_m
 $
 In \cref{fig:fgrowthrate-ofa-approx-vs-exacthyper} we show the result
-for the formulas presented above. In the left panel,
+for the formulae presented above. In the left panel,
 we show $f(a)$ for the $\gamma$ approximation (orange solid line) compared
-to the exact $f(a)$ solution of \cref{eq:fgrowth-of-N}. The difference is almost unnoticeable
-by eye. Notice how at early times, when most of the energy of the Universe
+to the exact $f(a)$ solution of \cref{eq:fgrowth-of-N}. The discrepancy is almost negligible. Notice how at early times, when most of the energy of the Universe
 consisted on non-relativistic matter, the growth rate is equal to unity and it 
 decreases due to the later dominance of Dark Energy.
 In the right panel of \cref{fig:fgrowthrate-ofa-approx-vs-exacthyper},
@@ -251,7 +250,6 @@ of the phase-space distribution ($\rho$) is coupled to the first-moment ($\vk u$
 the first-moment to the second $\sigma_{ij}$ and so on (see \cite{bernardeau_large-scale_2001}).
 For our purposes we will neglect the anisotropic stress tensor $\sigma_{ij}$,
 which describe velocity dispersion and anisotropic pressure.
-and so on.
 This is the so-called \emph{single stream approximation} and is one of
 the main limitations of Eulerian perturbation theory, since the theory
 breaks down as soon as shell crossing and multi-streaming start being
@@ -303,7 +301,7 @@ of the gravitational potentials from General Relativity,
 can be parameterized with two arbitrary functions
 of scale and time: $\mu(k,a)$ and $\eta(k,a)$,
 as was explained in \cref{chap:DE-MG-Overview}, \cref{sub:parameterizing-MG}.
-However, in the quasistatic limit for Horndeski theories, these two functions have a specific form, given by \mcite{amendola, observables, bellini}: 
+However, in the quasistatic limit for Horndeski theories, these two functions have a specific form, given by \cite{amendola_observables_2013-3, bellini_maximal_2014}: 
 \begin{equation}
 \mu(k,a)\equiv-\frac{2k^{2}\Psi}{3\Omega_{m}\delta_{m}}=h_{1}\left(\frac{1+(k/k_{*})^{2}h_{5}}{1+(k/k_{*})^{2}h_{3}}\right)\label{eq:mufunc}
 \end{equation}
@@ -321,7 +319,7 @@ and $h_{5}$. The $\Lambda\textrm{CDM}$ case is recovered when $\mu=\eta=1$, whic
 implies $h_{5}=h_{4}=h_{3}$ and an amplitude $h_{1}=h_{2}=1$.
 
 Since we are in the QS limit, the only MG function entering the perturbation equations
-is $mu(a,k)$. The function $\eta(a,k)$ could enter the equations
+is $\mu(a,k)$. The function $\eta(a,k)$ could enter the equations
 if we would not neglect the derivatives of the gravitational potential $\Phi$, as 
 was shown in \cref{chap:MG-forecasts}.
 In the following we will only consider the scale-dependence of $\mu$, therefore $\mu(k,a)=\mu(k)$ (although perturbations require
@@ -477,9 +475,11 @@ the linear propagator and will be studied in section \ref{sec:linear propagator}
 The nonlinear part, cannot be solved analytically, nor with a simple
 numerical integration.
 However, a perturbative approach using tools from Quantum Field Theory
-can be used to regularize its divergences which are caused by the
+can be used to regularize the UV (short wavelength, large $k$) modes,
+which make the higher loop integrals diverge. The failure of standard perturbation
+theory is also caused by the
 fact that the density perturbations (which is at the same time the
-perturbation variable) grows with time and increasing wave vector.
+perturbation variable) grow with time and increasing wave vector.
 For this part we will use the resummation technique of \cite{anselmi_nonlinear_2012}
 and this will be explained in detail in section \ref{sec:The-Evolution-Equation}.
 
@@ -487,7 +487,7 @@ Resumming and renormalizing perturbation theory can help in finding the evolutio
 of the nonlinear power spectrum at small scales and late times, but
 even if we could calculate exactly its result at all loop orders,
 there are still intrinsic limitations given by the starting equations
-\ref{eq:continuity}-\ref{eq:poisson}. Apart from neglecting vorticity
+\ref{eq:continuity}-\ref{eq:MG-poisson-fluid}. Apart from neglecting vorticity
 in the later stages of evolution, the initial equations are derived
 in the single-stream-approximation. This means that at a single point
 in space, the velocity field can only have one value, therefore no two particles
@@ -816,8 +816,7 @@ in the $(1,1)$-component, the correlation between density fluctuations, in the $
 velocity-velocity correlation and the $(1,2)$-component is naturally the cross correlation between velocity and
 density fluctuations.
 The evolution equation governing the growth in time and the coupling between the modes of $P_{ab}(k; \eta, \eta')$, 
-is given in the Eikonal Renormalized Perturbation Theory framework (introduced by  \cite{anselmi_nonlinear_2012}
-and further detailed in \mcite{cite Peloso, Pietroni, 1609.06624}), by:
+is given in the Eikonal Renormalized Perturbation Theory framework (introduced by  \cite{anselmi_nonlinear_2012, anselmi_next--leading_2011}), as:
 \beeqalsp$\label{eq:evolution-eqn-Chi}
 \partial_{\mathcal{X}}\tilde{P}_{ab}(k;\mathcal{X})
  & =-\tilde{\Omega}_{ac}\pkdc\tilde{P}_{cb}\pkdc-\tilde{\Omega}_{bc}\pkdc\tilde{P}_{ac}\pkdc \\
@@ -825,7 +824,7 @@ and further detailed in \mcite{cite Peloso, Pietroni, 1609.06624}), by:
  & +\int\d s\left[\tilde{\Phi}_{ad}(k;\mathcal{X},s)G_{bd}^{eik}(k;\mathcal{X},s)+G_{ad}^{eik}(k;\mathcal{X},s)\tilde{\Phi}_{db}(k;\mathcal{X},s)\right] \quad,
 $
 where $\mathcal{X}=\ln(D(a)/D(a_{in}))$. Notice our different notation,
-since in the papers by \cite{anselmi_nonlinear_2012} and \mcite{cite Peloso, Pietroni, 1609.06624},
+since in the papers by \cite{anselmi_nonlinear_2012, anselmi_next--leading_2011},
 $\eta$ is the time variable connected to the growth factor. The
 first line of this equation corresponds to the linear evolution equation
 of the power spectrum already discussed before. The second and third
@@ -888,8 +887,7 @@ theories in cosmology as was explained already in section \ref{sec:nonlinear-flu
 
 The purpose of this work is to solve \cref{eq:evolution-eqn-Chi-eta}
 for the Horndeski models stated above in \cref{enum:enumeration-cases}.
-We will proceed in two different steps, where we will 
-start with rough approximations and we will gradually improve our method.
+We will proceed in three different steps of increasing complexity.
 \begin{itemize}
 	\item First approximation: include inside the $\Omega_{ac}\pkdn$ functions, the
 	full scale dependence of the parametrized Horndeski models.
@@ -1079,22 +1077,24 @@ is suppressed at high redshifts $z\gtrsim 1$.}
 	\label{fig:change-Dplus-Y}
 \end{figure}
 For the same model, we can compare how the $f \sigma_{8}$ curve would behave if we include linear or non-linear calculations. This is
-shown in \cref{fig:change-fsigma8-Y}, where we are using the data points from \mcite{Macaulay et al. (2013)}. \todo{Valerias comments, comment on data}
-\todo{Improve labels and legs of figs}
+shown in \cref{fig:change-fsigma8-Y}, where we are using the data points from \cite{macaulay2013lower}, which consist on redshift space distortion (RSD) measurements of the cosmological growth rate, $f(z)\sigma_{8}(z)$, using data from the 6dFGS, BOSS, LRG, WiggleZ, and VIPERS galaxy redshift surveys.
 The solid red and blue lines, stand for a linear calculation of $f \sigma_{8}$ at $k=0.01 \mathrm{h/Mpc}$ and 
 $k=0.2 \mathrm{h/Mpc}$, respectively. The green line with dots, is a non-linear calculation at  $k=0.01 \mathrm{h/Mpc}$.
 We see that the inclusion of non-linearities can play an important role. This simplified Horndeski model, would be still compatible
 with the data points shown in red.
+
 \begin{figure}[tbph]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Chapters/resummation-plots/fsigma8plot-preliminary-YB1.png}
-	\caption[$f \sigma_{8}$ in Horndeski.]{For a simple Horndeski model $YB1$,
+	\caption[$f \sigma_{8}$ in Horndeski.]{For a simple Horndeski model YB1,
 		 we show the $f \sigma_{8}$ in three different cases. The solid red and blue lines, stand for a linear calculation of $f \sigma_{8}$ 
 		 at $k=0.01 \mathrm{h/Mpc}$ and 
 		$k=0.2 \mathrm{h/Mpc}$, respectively. The green line with dots, is a non-linear calculation at  $k=0.01 \mathrm{h/Mpc}$. The red data points,
-	are taken from \mcite{Macaulay et al. (2013)}.}
+	are taken from \cite{macaulay2013lower} and include data from the 
+	6dFGS, BOSS, LRG, WiggleZ, and VIPERS galaxy redshift surveys.}
 	\label{fig:change-fsigma8-Y}
 \end{figure}
+
 Finally, we show in \cref{fig:change-PS-resummed-YB1}, for the same Horndeski model YB1, its non-linear power spectrum vs. the one in $\lcdm$,
 with the same cosmological parameters. As a reference, we also show the input linear power spectrum, extrapolated to $z=0$,
 using linear theory. We can see that the model YB1 (blue line), has a 1\%
@@ -1125,15 +1125,15 @@ As we have seen, there has been a tremendous progress in the treatment of these 
 and complimentary techniques have been developed.
 
 Here we chose a specific resummation technique called eikonal Renormalized Perturbation Theory (eRPT, see \cite{anselmi_nonlinear_2012} and
-\mcite{Peloso, Pietroni, 2016}) and we applied it for the first time 
+\cite{peloso_galilean_2016}) and we applied it for the first time 
 to Horndeski models of modified gravity within the quasistatic approximation.
 We have been able to compute the linear propagator and the 1-loop integrals in a specific case and we have 
 produced the first numerical results. As already stated in the introduction, this is work in progress and the results
 still have to be confirmed and checked against N-body simulations and other semi-analytic methods.
 In recent years there has been substantial progress in this direction, with more N-body simulations and semi-analytic
-methods, capable of calculating structure formation in modified gravity theories (see, \mcite{Winther, Baldi, COLA 2016, Li}).
-Moreover, we will also profit from recent Boltzmann codes like \textsc{EFTCAMB} by \cite{hu_eftcamb/eftcosmomc:_2014-1} and 
-\textsc{hi-CLASS} by \cite{zumalacarregui} that can provide a more exact initial power spectrum in the models
+methods capable of calculating structure formation in modified gravity theories (see, \cite{ baldi2014cosmic, winther2015fast, mead_rapid_2014}).
+Moreover, we will also profit from the recent development of Boltzmann codes like \textsc{EFTCAMB} by \cite{hu_eftcamb/eftcosmomc:_2014-1} and 
+\textsc{hi-CLASS} by \cite{zumalacarregui_hi_class:_2016} that can provide us with a more exact initial power spectrum in the models
 we are studying here.
 %\footnote{The results of this chapter so far, will be published in a paper together with Dr. Massimo Pietroni and
 %Dr. Valeria Pettorino.}
@@ -1187,9 +1187,9 @@ and \cref{chap:nonlinear} with a fully non-linear N-body treatment discussed in 
 we will review in this section some of the fundamental properties of N-body simulations.
 
 The progress in this field has been impressive and nowadays N-body codes are capable
-of simulating trillions of particles \mcite{Illustris, Coyote, DEUS}, including not only 
+of simulating trillions of particles \cite{vogelsberger2014introducing, lawrence_coyote_2010, rasera_introducing_2010-2,alimi_deus_2012}, including not only 
 gravitational physics, but also star formation, galactic and supernova feedback, magnetic fields and
-many more complicated astrophysical phenomena \mcite{Illustris, Springel}.
+many more complicated astrophysical phenomena (see the simulation in \cite{vogelsberger2014introducing}, among many others in this field).
 
 \footnote{Parts of the following text have appeared as part of papers by the author (see authorship declaration)
 and as part of the author's Master thesis, submitted at the University of Heidelberg, 2013.}
@@ -1199,7 +1199,7 @@ set of fictitious discrete particles with a certain mass. These particles
 do not represent real galaxies or clusters of galaxies, they just
 sample the underlying density field. For current cosmological simulations,
 depending on the desired resolutions, the particle masses are around
-$m_{p}\approx10^{9}-10^{12}M_{\odot}$ ($M_{\odot}$ = 1 solar mass = $1.99 \times 10^{30} \mathrm{kg}$), see \citet{kuhlen_numerical_2012}.
+$m_{p}\approx10^{9}-10^{12}M_{\odot}$ ($M_{\odot}$ = 1 solar mass = $1.99 \times 10^{30} \mathrm{kg}$), see \cite{kuhlen_numerical_2012}.
 
 
 The equations of motion for each particle depend on solving for the
@@ -1213,28 +1213,28 @@ fact that at smaller scales the Universe must tend to locally inertial
 frames where Newton's laws are valid. Therefore we can just use Newtonian
 dynamics and the expansion history of the Universe is taken into account
 by using comoving coordinates, where the expansion rate $a(t)$ is
-factored out (see \citet{peacock_cosmological_1999,dehnen_n-body_2011}).
-As was mentioned in \mcite{Coley, Wiltshire, 2017}, standard cosmological simulations
+factored out (see \cite{peacock_cosmological_1999,dehnen_n-body_2011}).
+As was mentioned in \cite{coley2017computational}, standard cosmological simulations
 can be expressed by:
 \emph{"Friedmann tells space how to curve and Newton tells matter how to move"}.
-However, in the past couple of years, there has been an increasing interest
+
+Nevertheless, in the past couple of years, there has been an increasing interest
 in fully general-relativistic codes, either imposing an FLRW metric and treating the equations
-perturbatively (\mcite{gevolution, Adamek, Durrer, Kunz, 2016}) or solving the full non-linear 
-equations, without imposing any background in a numerical-relativity framework (\mcite{Giblin,
-Mertens, Starkman, 2015}).
+perturbatively (\cite{adamek2016gevolution}) or solving the full non-linear 
+equations, without imposing any background in a numerical-relativity framework (see \cite{giblin_jr_departures_2016}).
 
 
 
-Returning to our equations of motion, 
+Writing down the equations of motion for collisionless particles, 
 we obtain for the comoving velocity $u$ the following relation:
 \begin{equation}
-\frac{d}{dt}\vec{u}=-2\frac{\dot{a}}{a}u-\frac{1}{a^{2}}\nabla\Psi
+\frac{\dd{}}{\dd{t}}\vec{u}=-2\frac{\dot{a}}{a}u-\frac{1}{a^{2}}\nabla\Psi
 \end{equation}
 where $\Psi$ is the Newtonian gravitational potential due to density
 perturbations. If we change the time variable from $t$ to $a$ we
 obtain:
 \begin{equation}
-\frac{d}{d\mbox{ln}a}(a^{2}\vec{u})=\frac{a}{H}\vec{g}=\frac{G}{aH}\sum_{i}m_{i}\frac{\vec{x_{i}}-\vec{x}}{\left|\vec{x_{i}}-\vec{x}\right|^{3}}
+\frac{\dd{}}{\dd{\ln a}}(a^{2}\vec{u})=\frac{a}{H}\vec{g}=\frac{G}{aH}\sum_{i}m_{i}\frac{\vec{x_{i}}-\vec{x}}{\left|\vec{x_{i}}-\vec{x}\right|^{3}}
 \end{equation}
 We see that in order to get the gravitational acceleration for one
 single particle, we have to sum the contributions from all other particles,
@@ -1256,15 +1256,15 @@ where the sum is performed over $\mathbf{n}=(N_{x},\,N_{y},\,N_{z})$
 and accounts for all periodic replica. Usually all the $N_{i}$ are
 the same in all directions. Because of the fact, that performing an
 infinite sum of replicas is in practice not possible, the sum is approximated
-using Ewald's method (see \citet{ewald_berechnung_1921}), which was
+using Ewald's method (see \cite{ewald_berechnung_1921}), which was
 originally developed for periodic crystals in solid state physics
-and was first adapted to this field by \citet{hernquist_application_1991}.
+and was first adapted to this field by \cite{hernquist_application_1991}.
 
 The gravitational Newtonian force has a singularity when two particles
 approach too close to each other, that is why a so-called softening
 term has to be added to the force equation in order to avoid unphysical
 accelerations during close encounters. The force can be modified for
-small distances to something like (see \citet{trenti_gravitational_2008}):
+small distances to something like (see \cite{trenti_gravitational_2008}):
 \begin{equation}
 \vec{F_{i}}=-\sum_{j\neq i}Gm_{i}m_{j}\frac{\vec{x_{i}}-\vec{x_{j}}}{\left(\left|\vec{x_{i}}-\vec{x_{j}}\right|^{2}+\epsilon^{2}\right)^{3/2}}
 \end{equation}
@@ -1277,7 +1277,7 @@ since making it too small increases computational effort
 (due to smaller time steps), but allows for more realistic gravitational
 potentials and on the other hand it introduces spurious two-body relaxation
 effects that can cause artificial fragmentation of structure (see
-\citet{kuhlen_numerical_2012} and references therein).
+\cite{kuhlen_numerical_2012} and references therein).
 
 Many alternatives to direct summation of forces, have been developed
 in the last 20 years, also using hybrid approaches. The most relevant
@@ -1285,7 +1285,7 @@ ones for our purposes are the following (see reviews by \citet{trenti_gravitatio
 \begin{itemize}
 \item \textbf{Particle Mesh PM: }Since the problem is to solve Poisson's
 equation, a faster approach is to use Fourier methods for discretized
-systems, such as the FFT (see \ref{sub:Fourier-Transform-Discr})
+systems, such as the Fast Fourier Transform (FFT)
  and solve directly for Poisson's equation in Fourier space: 
 \begin{equation}
 (\nabla\Psi)_{k}=-i\Psi_{k}\mathbf{k}=\frac{-i4\pi Ga^{2}\overline{\rho}}{k^{2}}\delta_{k}\mathbf{k}
@@ -1305,8 +1305,7 @@ both these steps. Particles do not interact with each other but only
 through the mean field, which causes that the maximum force resolution
 to be limited to about the size of the mesh. The computational advantage
 of this method is that the number of computations is now of the order
-$\mathcal{O}(N_{g}log(N_{g}))$, for $N_{g}$ the number of grid cells.
-This is the scaling of the FFT method also (see \ref{sub:Fourier-Transform-Discr}).
+$\mathcal{O}(N_{g}\ln(N_{g}))$, for $N_{g}$ the number of grid cells.
 \item \textbf{Particle-particle-particle-mesh $\mathbf{P^{3}M}:$ }Since
 PM codes are gravitationally softened below the mesh size and the
 resolution is therefore low, this hybrid method uses a coarse grid
@@ -1344,24 +1343,25 @@ from different cells with center of mass $\vec{z_{a}}$, depending
 on some opening angle: $\mbox{sin}(\theta)=\left|\vec{x}-\vec{z}_{a}\right|/w_{a}$,
 where $w_{a}$ is the linear size of the box (this is the easiest
 approximation, for a formal derivation of the tree code, using taylor
-expansions and multipoles, see \mcite{dehnen_n-body_2011, springel}). If the
+expansions and multipoles, see \cite{dehnen_n-body_2011, springel_gadget:_2001-2}). If the
 opening angle is bigger than wanted, one applies the algorithm to
 the daughter cells. In this way one gets the contributions from all
 possible groups of particles. This method offers a computational time
-that scales like the depth of the tree, therefore being of order $\mathcal{O}(N\mbox{ln}(N))$,
+that scales like the depth of the tree, therefore being of order 
+$\mathcal{O}(N\ln(N))$,
 which is similar to the above mentioned methods. For nearby particles,
 a standard particle-particle interaction is calculated. The complicated
 aspect of the tree method is, among others, how to visit each cell
 only once, in a highly parallelizable way. Really efficient methods
-have been developed, using Peano-Hilbert curves, such as in the Gadget-2
+have been developed, using Peano-Hilbert curves, such as in the \textsc{Gadget-2}
 code, which is a Tree-PM code (see \cite{springel_cosmological_2005}).
 A drawback of this method is that each interaction is only one-sided,
 meaning that the force of a single particle on the group of particles
 of a distant cell is not calculated and therefore Newton's third law
 is violated. This can lead to fluctuations in the total energy of
 the N-body system, but it has been shows that these spurious effects
-can be kept quite small (see \citet{dehnen_n-body_2011}). 
-\done\todo[maybe]{maybe an image}
+can be kept quite small (see \cite{dehnen_n-body_2011}). 
+
 %In \ref{fig:5.1}
 %(top), the binary tree hierarchy of the simulation box can be seen
 %and (bottom) a comparison between the computation of the force with
