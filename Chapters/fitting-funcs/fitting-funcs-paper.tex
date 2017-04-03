@@ -773,7 +773,7 @@ We calculate these tables for each of the parameters $\theta_{i}\pm\epsilon$,
 where $\epsilon=0.03.$ \textcolor{black}{We do the same for the linear
 perturbation quantity $G(z)$, whose logarithmic derivative with respect
 to $\ln(a)$, known as the growth rate $f(z)$ enters the redshift
-space distortion term in \ref{eq:observed-Pk}. The background quantities
+space distortion term in \ref{eq:obs-power-basic}. The background quantities
 }$H(z)$ and $D(z)$ are important in the Fisher forecast for the
 Alcock-Paczynski geometrical term, which we take into account in the
 observed power spectrum.
@@ -805,8 +805,8 @@ effective noise terms into our Fisher estimation.
 
 We now present results for galaxy clustering and weak lensing, using
 the specifications for a Euclid-like survey as described in tables
-\ref{tab:GC-specifications} and \ref{tab:WL-specifications-1} below.
-We use the Fisher formalism described in section \ref{sec:Fisher-Matrix-method}
+\ref{tab:GC-specifications-CDE}, \ref{tab:WL-zbins-specs} and \ref{tab:WL-specifications}.
+We use the Fisher formalism described in section \ref{sec:Fisher-Matrix-forecasts}
 to forecast the errors in the cosmological parameters, using information
 from the non-linear power spectrum for coupled Dark Energy models,
 as obtained with the procedure described in section \ref{sec:Folding-method}
@@ -853,16 +853,16 @@ $\Delta z$  & 0.2  & Redshift bin width\tabularnewline
 $\{z_{min},\ z_{max}\}$  & \{0.6, 2.0\}  & Min. and max. limits for redshift bins \tabularnewline
 \hline 
 \end{tabular}\protect\protect
-\caption[Specifications for a Euclid GC survey forecast.]{\label{tab:GC-specifications} Specifications for the Fisher Matrix
+\caption[Specifications for a Euclid GC survey forecast.]{\label{tab:GC-specifications-CDE} Specifications for the Fisher Matrix
 of an Euclid-like galaxy clustering survey.}
 \end{table}
 
 
-Table \ref{tab:GC-specifications} shows the specifications of a Euclid-like
+Table \ref{tab:GC-specifications-CDE} shows the specifications of a Euclid-like
 survey, which are used in our Fisher forecast. While Euclid specifications
 use 14 redshift bins of a width $\Delta z=0.1$ (see \cite{amendola_cosmology_2012-short},
 table 3 in that work), we use only 6 bins of a width of 0.2. We check
-in the case of $\lcdm$, that this re-binning ( done using the specified
+in the case of $\lcdm$, that this re-binning (done using the specified
 number of galaxies and the corresponding comoving volumes in our cosmology)
 has a very small effect (of a few percent) on the estimation of the
 1-$\sigma$ errors on the parameters.
@@ -1231,7 +1231,7 @@ variants, but not for the large variety of modifed gravity models
 that have been proposed in recent years.
 
 The first part of this chapter has then been devoted to the task of
-finding corrections to the linear power spectrum in the range of $k\approx0.1-1h/$Mpc
+finding corrections to the linear power spectrum in the range of $k\approx0.1-1 \;\mathrm{h/Mpc}$
 for a selected class of modified gravity models, namely coupled dark
 energy. This model is indeed one of the simplest possible extensions
 of Einstein's gravity and depends entirely on a single parameter,
