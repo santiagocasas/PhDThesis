@@ -8,26 +8,26 @@
 
 \subsection{Gaussian random fields}
 
-In cosmology, we are interested in studying observables which are the product of a large number of random processes.
+In cosmology, we are interested in studying observables which are influenced by a large number of random processes, giving them a stochastic nature.
 The best examples are the fluctuations of temperature in the CMB $\delta T / T$ or the fluctuations of the matter density in the Universe, 
 usually denoted by the symbol $\delta$, which originate from complicated interactions between different matter species, gravity and other fundamental forces.
-Using the Central Limit Theorem \cite{(cite...)}, we can show that the sum of a large number of random variables, that originate from independent random processes, will yield a variable that it is almost exactly Gaussian distributed. The Gaussian probability distribution $p(x)$ for a random variable $x$, with mean $\mu$ and variance $\sigma$ is given by
+Using the Central Limit Theorem \cite{marinucci2011random}, we can show that the sum of a large number of random variables, that originate from independent random processes, will yield a variable that it is almost exactly Gaussian distributed. The Gaussian probability distribution $p(x)$ for a random variable $x$, with mean $\mu$ and variance $\sigma$ is given by
 \begin{equation}
 p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}}\exp\left( \frac{(x-\mu)^2}{2\sigma^2} \right)
 \end{equation}
-As we sill see, Gaussian distributed variables will be very important in observations and analysis of cosmological observables.
+As we will see, Gaussian distributed variables will be very important in observations and analysis of cosmological observables.
 In the case of structure formation, 
 \beeqc$
 \delta(\vec{x}, t) \equiv (\rho(\vec{x}, t) - \bar{\rho}(t))/\bar{\rho}(t) $
 is a random field that describes inhomogeneities in the density field $\rho(\vec x, t)$ with respect to the mean density $\bar\rho$. 
 Due to the 
 assumption that the density fluctuation $\delta$ originates from independent random processes in a homogeneous and isotropic universe,
-its statistical properties must be homogeneous and isotropic too \cite{(cite...Peacock, Bjoern, ?)}.
+its statistical properties must be homogeneous and isotropic too \cite{peacock_cosmological_1999-2}.
 That means that the probability distribution $p(\delta(\vec{x}))$ must be invariant under translations and rotations of space.
 The expectation value of $\langle \delta^n \rangle$ is formally speaking defined by an ensemble average, meaning that
 we should actually observe this process in many random realizations of the Universe. Since this is not possible,
-in cosmology we postulate the ergodicity principle \cite{(cite Adler...)}, which states that for sufficient large volumes
-the ensemble average is equal to the volume average and therefore, we can write:
+in cosmology we postulate the ergodicity principle \cite{adler2010geometry}, which states that for sufficient large volumes
+the ensemble average is equal to the volume average and therefore we can write:
 \begin{equation}
 \langle \delta^n \rangle = \frac{1}{V} \int_V \mathrm{d}^3 x \, \delta^n (\vec{x}) p(\delta (\vec{x}))
 \end{equation} 
@@ -35,26 +35,7 @@ The importance of this postulate, in practical terms, is that we can use our for
 to compute theoretically the expectation values by 
 just averaging over large volumes in the sky.
 
-\subsection{The two-point correlation function}
 
-The advantage of working with fluctuation variables in cosmology is that, by construction, their mean is zero, i.e. $\langle \delta \rangle = 0$
-and that they are small ($\delta<<1$) at initial times.
-Therefore, the first statistical quantity we need is not their mean, but their variance, $\langle \delta^2 \rangle$. If 
-we are measuring the fluctuations at two separated points in the universe ($\vec{x}$ and $\vec{y}$),
-then it makes sense to study their two-point correlation function, defined as:
-\begin{equation} \label{eq:correlationfunct}
-\xi(\vec{x} ,\vec{y}) = \langle \delta (\vec{x})  \delta (\vec{y}) \rangle \quad.
-\end{equation}
-As we have seen before, $\delta$ is statistically homogeneous and isotropic. Therefore, due to homogeneity, the correlation
-function can only depend on separation $\vec r = \vec{y} - \vec{x} $ and due to invariance under 
-rotations it can only depend on the magnitude of the separation, denoted as $r$.
-In simple words ---for the case of large scale structure--- $\xi(r)$ is telling us how probable it is to find
-a galaxy a distance $r$ away from a given galaxy at position $\vec x$.
-This is the ideal case for ideal measurements of a linear and Gaussian observable, but in the later chapters, when we discuss
-non-linearities and observational effects (for example redshift space distortions), we will see that the situation is in practice not so simple. In reality, 
-the observable $\delta$ will not be specified only by its 
-two-point correlation function and will not be statistically isotropic, leading to different correlation
-functions parallel and perpendicular to the line of sight \cite{(cite some BAO stuff)}.
 
 \subsection{The data covariance matrix}
 
@@ -88,7 +69,7 @@ have 1 million elements. Therefore, it is very important not only for theoretica
 that the covariance matrix is as simple and symmetric as possible.
 
 Luckily, for Gaussian random fields their statistical properties can be defined entirely by the their two-point correlation function,
-where the following recursion relations (obtained by Isserli's or Wick's theorem \cite{(cite Wick or something)}) are valid:
+where the following recursion relations (obtained by Isserli's or Wick's theorem \cite{bernardeau_large-scale_2001}) are valid:
 \begin{align}
 \langle \delta^{2n}\rangle = (2n-1)!!\langle \delta \rangle \, & ,\quad \langle \delta^{2n+1}\rangle =0
 \end{align}
@@ -96,6 +77,30 @@ Therefore, for Gaussian random variables, the two-point correlation function is 
 This is of course expected, 
 since we have defined in \cref{eq:multivariateGaussian} the covariance matrix $\mathbf{C}$ as the only statistical quantity needed to specify
 fully the distribution of the multivariate  Gaussian random field.
+
+\subsection{The two-point correlation function}
+
+The advantage of working with fluctuation variables in cosmology is that, by construction, their mean is zero, i.e. $\langle \delta \rangle = 0$
+and that they are small ($\delta<<1$) at initial times.
+Therefore, the first statistical quantity we need is not their mean, but their variance, $\langle \delta^2 \rangle$. If 
+we are measuring the fluctuations at two separated points in the universe ($\vec{x}$ and $\vec{y}$),
+then it makes sense to study their two-point correlation function, defined as:
+\begin{equation} \label{eq:correlationfunct}
+\xi(\vec{r}) = \langle \delta (\vec{y}-\vec{r})  \delta (\vec{y}) \rangle 
+= \frac{1}{V} \int \delta (\vec{y}-\vec{r})  \delta (\vec{y}) \dx{3}{y} \quad.
+\end{equation}
+As we have seen before, $\delta$ is statistically homogeneous and isotropic. Therefore, due to homogeneity, the correlation
+function can only depend on separation $\vec r = \vec{y} - \vec{x} $ and due to invariance under 
+rotations it can only depend on the magnitude of the separation, denoted as $r$.
+In simple words ---for the case of large scale structure--- $\xi(r)$ is telling us how probable it is to find
+a galaxy a distance $r$ away from a given galaxy at position $\vec x$.
+This is the ideal case for ideal measurements of a linear and Gaussian observable, but in the later chapters, when we discuss
+non-linearities and observational effects (for example redshift space distortions), we will see that the situation is in practice not so simple. In reality, 
+the observable $\delta$ will not be specified only by its 
+two-point correlation function and will not be statistically isotropic.
+An example of this can be seen in Baryon Acoustic oscillations \cite{bassett_baryon_2009}, in which the correlation function has different values, depending if it is
+parallel or perpendicular to the line of sight.
+
 
 \subsection{The power spectrum}
 
@@ -108,30 +113,31 @@ since space derivatives become factors of $\vec k$ and the function in Fourier s
 evolves in time independently for each $k$-mode, but only if the field is statistically homogeneous.
 The Fourier transform of the density field, denoted $\delta(\vec k)$ is defined as:
 \begin{equation}
-\delta(\vec k) = \int \mathrm{d}^3 x \; \delta(\vec x) \exp(-i \vec{k} \cdot \vec{x})
+\delta(\vec k) = \frac{1}{V} \int \mathrm{d}^3 x \; \delta(\vec x) \exp(-i \vec{k} \cdot \vec{x})
 \end{equation}
 and its inverse is
 \begin{equation}
-\delta(\vec x) = \int \frac{\mathrm{d}^3 k}{(2\pi^3)} \; \delta(\vec k) \exp(i \vec{k} \cdot \vec{x}) \quad .
+\delta(\vec x) = \frac{V}{(2\pi^3)} \int \mathrm{d}^3 k \; \delta(\vec k) \exp(i \vec{k} \cdot \vec{x}) \quad ,
 \end{equation}
+where $V$ is the volume and both $\delta$ functions in Fourier and real space are dimensionless.
 Since now $\delta(\vec k)$ can be complex, we can define the variance between two $k$-modes as:
 \begin{equation}
 \langle \delta (\vec{k}_1)  \delta^{*} (\vec{k}_2) \rangle = 
-\int \mathrm{d}^3 x \, \mathrm{d}^3 y \langle \delta (\vec{x})  \delta (\vec{y}) \rangle \exp(-i \vec{k} \cdot (\vec{x}-\vec{y}) )
-(2\pi)^3 \delta_{D}(\vec{k}_{1}-\vec{k}_{2})  \quad .
+\int \mathrm{d}^3 x \, \mathrm{d}^3 y \langle \delta (\vec{x})  \delta (\vec{y}) \rangle \exp(-i \vec{k}_1 \cdot \vec{x} + i \vec{k}_2 \cdot \vec{y}) )
+ \quad .
 \end{equation}
 Using the definition of the correlation function \ref{eq:correlationfunct} and the fact that the Gaussian random field $\delta$
 is homogeneous we can define the power spectrum $P(\vec k)$ as:
 \begin{equation}\label{eq:powerspectrum}
 P(\vec k) = \int \mathrm{d}^3r \, \xi(\vec r) \exp(-i \vec{k} \cdot \vec{r})
 \end{equation}
-The relation between the expected value of $\langle \delta (\vec{k}_1)  \delta^{*} (\vec{k}_2) \rangle$ and the power spectrum $P(\vec k)$ can be obtained by a similar straightforward calculation, \mcite{(cite Luca, Dodelson, ??)} where taking into account
+The relation between the expected value of $\langle \delta (\vec{k}_1)  \delta^{*} (\vec{k}_2) \rangle$ and the power spectrum $P(\vec k)$ can be obtained by a similar straightforward calculation \cite{dodelson2003modern, ,amendola_dark_2010}, where taking into account
 that the $\delta$ field is real-valued, one can obtain:
 \begin{equation}
-\langle \delta (\vec{k}_1)  \delta (\vec{k}_2) \rangle = (2\pi)^3  P(k) \delta_{D}(\vec{k}_{1}-\vec{k}_{2}) \quad .
+\langle \delta (\vec{k})  \delta (\vec{k}') \rangle = (2\pi)^3  P(k) \delta_{D}(\vec{k}+\vec{k}') \quad .
 \end{equation}
 The Dirac delta $\delta_D$ in the previous equation, shows us directly what we had expected from a random Gaussian and homogeneous field;
-the Fourier modes $\vec{k}_1$ and $\vec{k}_2$ for the density fluctuations are mutually uncorrelated.
+the Fourier modes $\vec{k}$ and $\vec{k}'$ for the density fluctuations are mutually uncorrelated.
 Therefore, for linear perturbations, the data covariance matrix $\mathbf{C}$, defined in \cref{eq:dataCovariance-abstract},
 is perfectly diagonal in Fourier space, making an analysis of the observations much more tractable.
 
@@ -169,7 +175,7 @@ This in turn makes the data covariance matrix $\mathbf{C}$ in Fourier space not 
 
 \todo{add Kevins comments}
 The subject of Bayesian statistics is a very complex, but very important topic in modern
-statistics, data science and the physical sciences \cite{cite Gregory and others}
+statistics, data science and the physical sciences \cite{gregory2005bayesian}
 and it is outside of the scope of this work to try to even review its more fundamental properties.
 We will just comment on the simple but very powerful concept of the likelihood function and how the Bayesian
 approach to statistical analysis is best suited in a field like cosmology.
@@ -179,7 +185,7 @@ we have to
 try to build a theoretical model, which depends on some free parameters $\theta^i$ 
 that can give us the probability distribution $p(x^i | \theta^i)$ to find the variable $x^i$ 
 inside an interval $\Delta x$ for a specific measurement.
-Then what physicists are interested in, is in constraining the model parameters $\theta$ and try to find
+Then what physicists are interested in, is in constraining the model parameters $\theta_i$ and try to find
 the set of parameters (or the model) that best explains the data.
 
 There are two possibilities of analyzing the results of that experiment, the \emph{frequentist}
@@ -197,15 +203,14 @@ for cosmology, since we cannot repeat many times the same experiment and we cann
 the parameters of the Universe.
 
 How do we then "invert" $P(D | T)$ ---the probability of the data given a model--- to obtain $P(T | D)$? The solution is given by 
-Bayes' theorem \cite{Bayes, Dodelson, Luca, many}:
-
+Bayes' theorem \cite{Bayes1763}:
 \beeq$ \label{eq:BayesTheorem}
 P(T | D) = \frac{P(D | T) P(T)}{P(D)}$
 $P(T | D)$ is usually called the posterior probability (of having a theory $T$ given the data $D$), 
 $P(T)$ is the prior probability on the theory (which quantifies our previous knowledge and prejudices)
-and $P(D)$ is the evidence (the probability of the data), which for all purposes we can ignore, since it
-represents just a normalization factor.
-Also here, a discussion on the significance and the effects of the prior is out of our scope. \cite{cite Amendola, Dodelson, Gregory, reviews}. However, in our case it will be an efficient way of combining results from previous
+and $P(D)$ is the evidence (the probability of the data), which for our purposes we can ignore, since it
+represents just a normalization factor in our applications.
+Also here, a discussion on the significance and the effects of the prior is out of our scope \cite{amendola_dark_2010, ,dodelson2003modern}. However, in our case it will be an efficient way of combining results from previous
 experiments into our predictions for future experiments. The prior can be as simple as the theoretical expectation
 that a parameter cannot be zero (for example the matter density of the Universe) or it can be the entire
 probability distribution of a previous experiment.
@@ -217,12 +222,12 @@ From the likelihood we can obtain some useful quantities:
 	\item The maximum likelihood estimators $\hat{\theta}_{i}$,
 	which are found by solving \\ $\partial L(\theta_i)/\partial\theta_i = 0$.
 	This would amount to the 'best fit' parameters, but they
-	are in general different tp the frequentist ones, if we have used a prior.
+	are in general different to the frequentist ones, if we have used a prior.
 	\item The confidence regions for the parameters, denoted $R(\alpha)$, for which
 	the normalized likelihood integrated in that region has a specific value:\\ 
 	\beeqp$\label{eq:likeli-confidregions}
 	\int_{R(\alpha)}  L(\theta_i) \mathrm{d}^n \theta = \alpha$
-	If $\alpha=0.683,0.954,0.997$, this regions are called 1, 2 and 3$\sigma$ regions respectively.
+	If $\alpha=0.683,0.954,0.997$, these regions are called 1, 2 and 3$\sigma$ regions respectively.
 	\item Marginalization over a parameter. If the likelihood depends on 
 	three parameters $\theta^1, \theta^2, \theta^3$, but we are not interested in $\theta^3$, because it is a nuisance parameter
 	or we have no clear idea how to relate it to the theory, we can marginalize over it by integrating 
@@ -234,15 +239,15 @@ Despite the great usefulness of the likelihood, its evaluation represents a chal
 and computationally, since it is a complicated multi-
 dimensional function.
 Evaluating the likelihood for a relatively coarse grid of points in parameter space, becomes unfeasible for 
-more than 7 or 8 parameters. So, techniques like Markov Chain Monte Carlo (MCMC) \cite{cite some basic MCMC literature}
- have become more and more sophisticated. In this techniques, the basic idea is to explore the parameter
- space using a random walk, which is itself guided by the steepness or flatness of the likelihood at that point.
- In this way there are much less evaluations in places where the likelihood is smooth and many evaluations
- where the likelihood changes very rapidly. Two very well known
- codes in the cosmological community are \textsc{MontePython} and \textsc{CosmoMC} \cite{cite Cosmomc and Montepython},
- which are used to evaluate the likelihood of many large and modern experiments like \textit{Planck} \cite{cite Planck}.
- 
-Therefore many approximations can be made in order to estimate the likelihood or at least 
+more than 7 or 8 parameters. So, techniques like Markov Chain Monte Carlo (MCMC) (see \cite{Dunkley2005} for a review)
+have become more and more sophisticated. In these techniques, the basic idea is to explore the parameter
+space using a random walk, which is itself guided by the steepness or flatness of the likelihood at that point.
+In this way there are much less evaluations in places where the likelihood is flat and many evaluations
+where the likelihood changes very rapidly. Two very well known
+codes in the cosmological community are \textsc{MontePython} and \textsc{CosmoMC} \cite{lewis2002cosmological,audren2013conservative}
+which are used to evaluate the likelihood of many large and modern experiments like \textit{Planck} \cite{planck_collaboration_planck_2016-2}.
+
+Many approximations can be made in order to estimate the likelihood or at least 
 to find its maximum. 
 For a Gaussian distributed data vector $\bm{x}$ with $n$ components, 
 with mean $\bm{\mu}$ and covariance matrix $\bm{C}$ of dimension $n\times n$ we can 
@@ -259,7 +264,7 @@ $\bm C = \langle \bm D \rangle $.
 We will see in the next section that a very useful approximation is to say that the likelihood is Gaussian
 not only in the data, but also in the parameters. In this case, a useful quantity will
 be the log-likelihood $\Li \equiv \ln L$, since we can get rid of the exponential function.
-For (approximately) Gaussian distributed parameters, the parameter covariance matrix will be of extremely
+For (approximately) Gaussian distributed parameters, the parameter covariance matrix will be of great
 importance to analyze and forecast the results of large future experiments.
 
 %\subsection{Methodology of Fisher forecasts}
@@ -280,47 +285,48 @@ importance to analyze and forecast the results of large future experiments.
 %\end{itemize}
 We have seen in the previous section, how the log-likelihood function $\Li$ is a powerful
 tool to estimate the probability distribution of model parameters, given some previously measured data.
-But what if we don't have data avilable yet? For example when we want to know 
+But what if we don't have data available yet? For example when we want to know 
 with which accuracy a certain future experiment is going to be able to constrain certain parameters of
 a model. 
-This is where the Fisher formalism \cite{(cite Fisher, Tegmark, etc.)} enters.
+This is where the Fisher formalism \cite{hu_weak_1999,seo_baryonic_2005} enters.
 The Fisher matrix is defined as the expectation value of the \emph{curvature} of the log-likelihood:
 \begin{equation}\label{eq:Fishermatrix-definition}
 F_{ij} = -\left< \frac{\partial^2 \Li(\bm{\theta})}{\partial \theta_i \theta_j} \right>
 \end{equation}
 If we assume that the errors on the data measurements are Gaussianly distributed (where then we can write the likelihood as 
 $L = e^{-\chi^2 / 2}$) then we can also think of the Fisher matrix as a Taylor expansion of the log-likelihood around its maximum
-$\hat \theta$, or equivalently where the $\chi^2$ is a minimum:
+$\hat \theta$, or equivalently where the $\chi^2$ has a minimum:
 \begin{equation}
 \Li(\theta) = \Li(\hat \theta) + (\theta - \hat \theta)\parder{\Li}{\theta} + 
 \frac{1}{2}(\theta - \hat \theta)^2 \pardersq{\Li}{\theta}
 \end{equation}
 The linear derivative term in the above equation vanishes, since we are expanding around the maximum and we are considering here 
-for simplicity just one parameter $\theta$; but the generalization to more parameters is straightforward.
+for simplicity just one parameter $\theta$, but the generalization to more parameters is straightforward.
 The fact that the Fisher matrix is related to the curvature of the log-likelihood around its maximum, tells us that the Fisher matrix 
-is an indication of how fast the likelihood changes around the peak \cite{cite Dodelson...}. 
+is an indication of how fast the likelihood changes around the peak \cite{dodelson2003modern}. 
 If the curvature is high, then the likelihood changes
 fast and the experiment is very constraining, allowing for just small changes of the parameters, before the likelihood becomes too small.
 If the curvature is low, then the likelihood is very flat and the experiment is not very constraining in parameter 
 space \footnote{The relation between information matrices and geometry is not only qualitative, it is a 
-formal field of study called Information Geometry \cite{cite Springer book}}.
+formal field of study called Information Geometry \cite{arwini2008information}}.
 
 \subsection{The Fisher matrix for a galaxy power spectrum}
 
 In order to understand better the following sections where we will talk about the 
 Fisher matrix of the galaxy clustering and weak lensing observables, let us specify the Fisher
 matrix defined in \cref{eq:Fishermatrix-definition} in a more concrete way.
-In this section we follow closely the argumentations of \cite{cite Dodelson} and \cite{cite Amendola}.
+In this section we follow closely the argumentations of \cite{dodelson2003modern} and \cite{amendola_dark_2010}.
 
 We are interested in finding the distribution of matter in the Universe, and as we have seen before,
-for large sufficient scales, the overdensity of matter at a specific scale $k$ is given by $\delta(k)$.
+for sufficiently large scales, the overdensity of matter at a specific scale $k$ is given by $\delta(k)$.
 For a galaxy survey, covering a volume $V(z+ \Delta z)$ in three-dimensional space and providing
 $m$ Fourier modes $k_i$ in a redshift bin $\Delta z$, 
-we can compute (the full details of the calculation can be found in \cite{cite Dodelson})
+we can compute 
 that the data covariance matrix between mode $k_i$ and mode $k_j$ is given by:
 \beeq$\label{eq:dataCovariancePk}
-V \langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \frac{\delta_{ij}}{V} \left( P(k_i, z) + \frac{1}{\bar{n}(z+\Delta z)} \right)
+\langle\delta_{k_i} \delta^*_{k_j} \rangle = C_{k_{i} k_{j}} = \delta_{ij} \left( P(k_i, z) + \frac{1}{\bar{n}(z+\Delta z)} \right)
 $
+The reader can find the full details of the calculation in \cite{dodelson2003modern}.
 The data covariance $C_{k_{i} k_{j}}$ is always a sum of the signal covariance and the noise covariance, which 
 in this case is simply given by the Poisson noise of a discrete random distribution, where $\bar n$ is the 
 average number density of galaxies. Again, let us emphasize that we are at relatively large scales, where then
@@ -366,15 +372,14 @@ this Fisher matrix has to be computed at each redshift bin.
 Having done this example explicitly we can also write down the more general expression for Gaussian likelihoods, such as the one
 specified in \cref{eq:moreGeneral-Gaussian-Likelihood}, in which
 the likelihood contains covariance matrices $\bm C$ which are not diagonal and the average
-of the data measurements $\bm \mu$ is not zero. (see \cite{cite Luca, Dodelson}
+of the data measurements $\bm \mu$ is not zero. (see \cite{tegmark1997karhunen}
 among other works, for more details). In this case the Fisher matrix can be written as:
-
 \beeq$ \label{eq:Fisher-MatrixForm-GaussianGeneral}
 F_{\alpha \beta} = \frac{1}{2}\mathrm{Tr}\left[\bm{C}^{-1}\bm{C}_{,\alpha}\bm{C}^{-1}\bm{C}_{,\beta}
 + \bm{C}^{-1}\langle \bm{D}_{,\alpha \beta} \rangle  
 \right]
 $
-This last term, the expected value of the derivatives of the data matrix $\bm D$, is what usually is zero
+This last term, the expected value of the derivatives of the data matrix $\bm D$, is usually zero 
 in cosmology, since we study quantities which are fluctuations around the mean and their mean is therefore identically
 vanishing.
 In the following sections we will write down the more specific and exact expressions for 
@@ -395,12 +400,11 @@ We will present in the following sections, the specific formulas for Galaxy Clus
 and Weak Lensing, under some simplifying assumptions (Gaussian likelihood,
 diagonal data covariance matrices, no redshift-bin correlations).
 In a paper by \cite{sellentin_breaking_2014} the Gaussian approximation has been 
-dropped and higher order ``Fisher tensors`` are used to approximate the true underlying likelihood \cite{cite Sellentin more}.
+dropped and higher order ``Fisher tensors`` are used to approximate the true underlying likelihood \cite{sellentin_breaking_2014}.
 Also recently, there has been some work in extending the simplifying assumptions of 
-diagonal covariance, redshift-bin correlations and $k$-space correlations \cite{bailoni_improving_2016, Durrer, 
-Amendola with Blot}.
+diagonal covariance, redshift-bin correlations and $k$-space correlations \cite{bailoni_improving_2016,blot_matter_2014}.
 
-In \cite{Khedekar, Majumdar} the authors also compared directly the Fisher matrix formalism with a direct MCMC approach
+In \cite{khedekar_cosmology_2012} the authors also compared directly the Fisher matrix formalism with a direct MCMC approach
 and have encountered considerable differences in the case of CMB experiments,
 especially when departing from the standard cosmological model.
 
@@ -419,7 +423,7 @@ Using the previously found equation \ref{eq:Fisher-fromloglik-inPk} for the
 Fisher matrix of the power spectrum, we can write that expression in a more compact form, where 
 we express the sum over the $k$-modes as an integral and take into account the number of observed modes into
 the volume. We end up with the following formula:
-form \citep{seo_improved_2007, amendola book, dodelson}: 
+form \citep{seo_improved_2007}: 
 \beeqc$\label{eq:fisher-matrix-gc}
 F_{ij}=\frac{1}{8\pi^{2}}\int_{-1}^{+1}\mbox{d}\mu\int_{k_{\rm min}}^{k_{\rm max}}\mbox{d}k\,k^{2}\frac{\partial\ln
 	\Pobs (k,\mu,z)}{\partial\theta_{i}}\frac{\partial\ln
@@ -433,7 +437,7 @@ Here $V_{\rm survey}$
 is the volume covered by the survey and contained in a redshift slice
 $\Delta z$, while $n(z)$ is the galaxy number density as a function of
 redshift. The galaxy number density has to be taken from specifications for each survey, which
-are obtained by direct measurements in the sky and end-to-end simulations \cite{Dida, Guzzo, etc}.
+are obtained by direct measurements in the sky and end-to-end simulations \cite{laureijs_euclid_2011}.
 $P_{obs}(k,\mu,z)$ is the observed galaxy power
 spectrum as a function of redshift $z$, the wavenumber $k$ and
 of $\mu\equiv\cos\alpha$, where $\alpha$ is the angle between the
@@ -467,7 +471,7 @@ $\theta_{i}$) together by the following contributions which modify its signal:
 
 \begin{enumerate}
 \item The geometrical factor coming from the change of the Baryon Acoustic Peak (BAO) peak \\ marked orange
-in \cref{eq:obs-power-basic}. It can be shown \cite{cite some BAO review} that the 
+in \cref{eq:obs-power-basic}. It can be shown \cite{ross_information_2015} that the 
 shift of the BAO peak due to geometrical distortions when considering a different cosmology
 as the reference one is proportional to $H(z)$/$D^2_{A}(z)$.
 \item The galaxy bias $b(z)$ marked brown in the formula below.
@@ -475,7 +479,7 @@ This term has to be estimated from observations and simulations
 for different types of galaxy populations. In this case, we take into account
 just a linear local bias which means that we assume that the galaxy overdensity $\delta_g$ differs from the 
 underlying matter overdensity by a function which just depends on redshift: $\delta_g = b(z) \delta_m$.
-This assumption breaks at very large and very small scales \cite{cite some bias review}.
+This assumption breaks at very large and very small scales \cite{desjacques_large-scale_2016}.
 \item The contribution from Redshift Space Distortions (RSD) \\
 marked green in \cref{eq:obs-power-basic}, where $\beta(z) = f(z)/b(z)$, where
 $b(z)$ is the galaxy bias and $f(z)$ the logarithmic growth rate of perturbations $f(z)=\mathrm{d}\ln(D_+)/\mathrm{d}\ln(a)/$.\\
@@ -500,7 +504,7 @@ P_{{\rm obs}}\left(z,k,\mu;\theta\right)=\textcolor{blue}{P_{{\rm s}}(z)}+{\colo
 {\color{green}\left(1+\beta(z){\color{red}\mu}^{{\color{red}2}}\right)^{2}}P({\color{red}k},z){\color{magenta}e^{-k^{2}\mu^{2}(\sigma_{z}^{2}/H(z)+\sigma_{v}^{2}(z))}}
 $
 In the previous formula we have neglected relativistic contributions and further non-linear effects.
-For a quick review on those topics see \mcite{durrer, bonvin, taruya, scoccimarro}.
+For more details on those topics see \cite{taruya_baryon_2010,scoccimarro_redshift-space_2004, Bonvin:2014owa}.
 In general for the forecasts presented in this work,
 we will marginalize over the bias $b(z)$, which we will take as a different nuisance parameter at each redshift. We usually fix
 the spectroscopic redshift error  to a value given by the specifications of the instrument, and it is in general a very small number
@@ -529,11 +533,11 @@ evolution of the lensing potential in the Universe.
 The transformation of a light bundle in the case of small angles and small gravitational potentials
 can be described by a distortion tensor which contains a convergence component $\kappa$ (appearing only in its diagonal) and a
 shear component $\gamma_i$ (appearing both in the diagonal as in the off-diagonal elements). 
-For more details and derivations, see the comprehensive review by \cite{cite Bartelmann Schneider}.
+For more details and derivations, see the comprehensive review by \cite{bartelmann_weak_2001}.
 What we observe when we measure the correlation among galaxy ellipticities is the shear
 power spectrum $P_{\gamma \gamma}$. However, it can be shown in linear theory, that 
 the shear power spectrum is proportional to the convergence power spectrum 
-$P_{\kappa \kappa}$ (see \cite{Amendola, Tegmark, Hu, Bartelmann}),
+$P_{\kappa \kappa}$ (see \cite{amendola_dark_2010, hu_weak_1999}),
 and it can be linked directly to a combination of the matter power spectrum and the background cosmological quantities.
 Therefore, by measuring something conceptually simple, such as galaxy shapes, we gain
 access to the parameters of the cosmological model governing the evolutions of structure in the Universe.
@@ -821,7 +825,7 @@ with the same mean values and covariance matrices $\mathcal{A}$ and $\mathcal{B}
 \begin{equation}\label{eq:KL-Gaussian}
 \mathcal{D}(p_2||p_1) = -\frac{1}{2} \left[\ln\left(\frac{\det(\mathcal{A})}{\det(\mathcal{B})} \right) +\mathrm{Tr}\left[\mathbbm{1}-\mathcal{B}^{-1}\mathcal{A}   \right] \right].
 \end{equation}
-We can then define a Kullback-Leibler matrix $\mathcal{K}$, introduced in (\cite{casas_mg_forec} appendix F) composed of the KL-divergence measure among our observables, defined as:
+We can then define a Kullback-Leibler matrix $\mathcal{K}$, introduced in (\cite{casas_linear_2017} appendix F) composed of the KL-divergence measure among our observables, defined as:
 \begin{equation}\label{eq:KL-Matrix}
 \mathcal{K}_{ij}=\mathcal{D}(p_j||p_i).
 \end{equation}
@@ -849,7 +853,7 @@ due to the uncertainties on the non-linear power spectrum. We will
 show how big this systematic bias would be, if we used for our forecasts
 a power spectrum which is not the ``correct'' one. 
 % for example one obtained from a single N-body realization.
-The following discussion was introduced in \cite{casas_fitting_2015} in reference to
+The following discussion was introduced in \cite{casas_fitting_2016} in reference to
 forecasts using non-linear power spectra from N-body simulations and is based mostly on 
 the expressions derived in Appendix
 B of \cite{taylor_probing_2007}.
@@ -928,23 +932,23 @@ The code contains of 4 basic modules:
 	visualization.
 	\item WeakLensingTools: Some special functions related to Weak Lensing analysis, like window functions, multipoles,
 	computation of bins and bin correlations.
-	\item UsefulTools: Auxiliary tools used in the code that are not provided by \texttt{Mathematica},
+	\item UsefulTools: Auxiliary tools used in the code that are not provided by \\ \texttt{Mathematica},
 	such as file exporting and importing, string parsing and matrix operations.
 \end{enumerate}
 
 \subsection{The interface \textsc{Cosmomathica} \label{sub:cosmomathica}}
 
 The \textsc{Cosmomathica} code was created originally by Dr. Adrian Vollmer and used 
-for several projects in the field of Fisher matrix forecasts and perturbation theory \cite{papers by Adrian}.
+for several projects in the field of Fisher matrix forecasts and perturbation theory \cite{amendola_model-independent_2013}.
 It is now maintained by the author of this work and it can be found 
 and copied from its repository under the URL: \url{https://github.com/santiagocasas/cosmomathica}.
 
 Its main function is to interface many codes and routines used in the cosmology community to a simple \texttt{Mathematica} notebook
 or package.
-The supported codes are the Boltzmann codes: \texttt{CAMB} \cite{lewis_efficient_2000} and \texttt{CLASS} \cite{lesgourges}.
-The fitting functions from Eisenstein \& Hu \cite{cite Eisenstein}, \texttt{Halofit} \cite{smith} and the \texttt{Cosmic Emulator}
+The supported codes are the Boltzmann codes: \texttt{CAMB} \cite{lewis_efficient_2000} and \texttt{CLASS} \cite{lesgourgues_cosmic_2011-2,lesgourgues_cosmic_2011-3}.
+The fitting functions from Eisenstein \& Hu \cite{eisenstein_power_1999}, \texttt{Halofit} \cite{smith_stable_2003} and the \texttt{Cosmic Emulator}
 \cite{heitmann_coyote_2010, heitmann_coyote_2014}; and a code that calculates higher order perturbation theory for large scale structure, 
-called \texttt{COPTER} \cite{find citation}.
+called \texttt{COPTER} \cite{upadhye_large-scale_2014}.
 
 This interface (which uses the \texttt{MathLink} technology from the \texttt{Wolfram} language) allows a very efficient and fast communication
 between the notebooks, the packages and the codes. Therefore, there is no need to create large quantities of files that have to be read
@@ -1088,7 +1092,7 @@ The new Fisher matrix would change accordingly to $\tilde F$ and it would be giv
 \tilde F = J^{T}\, F \,J
 \end{equation}
 
-This method is called the "BAO" method \cite{seo_improved_2007, seo_improved_2005}, since in BAO observations
+This method is called the "BAO" method \cite{seo_improved_2007}, since in BAO observations
 the redshift independent functions $D_{A}(z)$, $H(z)$ and $f(z)$ are the main observables and
 one obtains cosmological parameter constraints from them by first constraining their values 
 and then projecting these constraints onto a cosmological model. 
@@ -1311,14 +1315,14 @@ The \fito code contains these options and many other tools for plotting and visu
 The Fisher matrix approach for forecasting the error on the parameters is based on the Gaussian approximation, although the concept
 of the Fisher matrix is more general than that, being defined as simply the curvature (or the Hessian) of the log-likelihood \cref{eq:Fishermatrix-definition}.
 
-In order to go beyond the Gaussian approximation, several approaches have been taken recently in the literature (see \cite{sellentin_breaking_2014}, 
-\cite{cite more sellentin}) and the \textsc{DALI} code \cite{cite more sellentin, link github} has been developed, which allows
+In order to go beyond the Gaussian approximation, several approaches have been taken recently in the literature (see \cite{sellentin_breaking_2014}), 
+for example the \textsc{DALI} code \cite{Sellentin:2015axa}, which allows
 to find confidence contours for the model parameters, when the likelihood departs from an underlying Gaussian form.
 
 In the \fito code some of the terms used in these extensions of the Fisher formalism have been implemented. One of its main applications is to study
-the effect of changing the fiducial value of the parameters on the forecasted errors on these parameters. Recently \cite{bjoern and reischke}
+the effect of changing the fiducial value of the parameters on the forecasted errors on these parameters. Recently \cite{reischke_variations_2016}
 have studied the same effect, by looking at the corresponding matrix transformations that change under the influence of the fiducial.
-In our approach, which is still a work in progress and will be published soon,
+In our approach, which is still a work in progress,
 we take a different route, where we make a Taylor expansion of the Fisher matrix defined in \cref{eq:Fisher-MatrixForm-GaussianGeneral} 
 around the fiducial parameters $p_{\gamma}$ with data mean $\mu$:
 
