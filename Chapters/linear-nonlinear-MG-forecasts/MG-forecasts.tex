@@ -80,7 +80,7 @@ with respect to $\lcdm$. As fiducial cosmology we use the values
 shown in Table \ref{tab:fiducial-MG-AllCases}, columns 1 and 2, i.e.
 the marginalized parameter values obtained fitting these models with
 recent \planck\ data; notice that these results differ slightly from
-the \planck\ analysis in \cite{planck_collaboration_planck_2016} for
+the \planck\ analysis in \cite{planck_collaboration_planck_2016-7} for
 the same parameterization, because we don't consider here the effect
 of massive neutrinos.
 
@@ -212,7 +212,7 @@ In this work we will use linear power spectra calculated with MGCAMB
 of the Boltzmann code CAMB \cite{lewis_efficient_2000}. We do so,
 as MGCAMB offers the possibility to input directly any parameterization
 of $\mu$ and $\eta$ without requiring further assumptions:
-MGCAMB uses our Eqns.\ (\ref{eq: mu_def}) and (\ref{eq: eta_def}) in the Einstein-Boltzmann
+MGCAMB uses \cref{eq:mu_def} and \cref{eq:eta_def} in the Einstein-Boltzmann
 system of equations, providing the modified evolution of matter perturbations,
 corresponding to our choice of the gravitational potential functions.
 Non-relativistic particles like cold dark matter are accelerated by the
@@ -322,7 +322,7 @@ $\{\Omega_{m},\Omega_{b},h,\,A_{s},n_{s}\}$. We can see clearly that
 MG in the non-linear regime, using the standard Halofit, shows a distinctive
 feature at scales in between $0.2\lesssim k\lesssim2$. This feature
 however, does not come from higher order perturbations induced by
-the modified Poisson equations (\ref{eq: mu_def}, \ref{eq:Sigma-def}),
+the modified Poisson equations (\ref{eq:mu_def}, \ref{eq:Sigma-def}),
 because Halofit, as explained above, is calibrated with simulations
 within the $\lcdm$ model and does not contain any information from
 Modified Gravity. The feature seen here is caused by the different
@@ -428,13 +428,13 @@ determination of cosmological parameters.
 power spectrum using the HS prescription by \cite{hu_parameterized_2007}
 ($P_{\mathrm{nlHS}}$) with respect to the GR+Halofit fiducial non-linear power spectrum $P_{\mathrm{HGR}}$, 
 for different values of $\cnl$ (left panel) and $s$ (right panel),
-illustrated in Eqns.(\ref{eq:PHSDefinition}, \ref{eq:prescription_sigma_def}).
+illustrated in \cref{eq:PHSDefinition} and \cref{eq:prescription_sigma_def}.
 The value $\cnl=0$ (green solid line) corresponds
 to MG+Halofit $P_{\HMG}$.
 All curves are calculated at $z=0$.
 \textbf{Left: } We show the ratio for $\cnl=\{0.5,1.0,10,10^8\}$,
 plotted as short-dashed red, medium-dashed blue, short-dashed brown and medium-dashed purple
-lines respectively. When $\cnl\rightarrow\infty$, Eqn.\ (\ref{eq:PHSDefinition})
+lines respectively. When $\cnl\rightarrow\infty$, \cref{eq:PHSDefinition}
 corresponds to the limit of $P_{\HGR}$ and therefore the ratio is
 just 1. The effect of the HS prescription
 is to grasp some of the features of the non-linear power spectrum
@@ -456,7 +456,7 @@ and references therein. The grey dashed line marks the constant value of 1.}
 Alongside the information brought by LSS probes,
 we also include CMB priors on the parameterizations considered. In
 order to obtain these, we analyze the binned and parameterized approaches
-described in Section \ref{sec:Parameterizing-Modified-Gravity} with
+described in \cref{sub:parameterizing-MG} with
 the {\it Planck}+BSH combination of CMB and background (BAO+SN-Ia+$H_{0}$)
 datasets discussed in the \planck\ Dark Energy and Modified Gravity paper
 \cite{planck_collaboration_planck_2016}.
@@ -507,14 +507,14 @@ prior Fisher matrix and then use a Jacobian to convert between the
 MCMC parameter basis $\Theta_{i}$ and the GC-WL parameter basis $\theta_{i}$.
 We use the formulas above for the sound horizon $r_{s}$ and the angular
 diameter distance $d_{A}$ to calculate the derivatives of $\theta_{\rm MC}$
-with respect to the parameters of interest. Our Jacobian is then simply (see Appendix \ref{sec:appjac} for details)
+with respect to the parameters of interest. Our Jacobian is then simply
 \begin{equation}
 J_{ij}=\frac{\partial\Theta_{i}}{\partial\theta_{j}} \, .
 \end{equation}
 
 \section{\label{sec:Results:-Redshift-Binned}Results: Euclid forecasts for redshift binned parameters}
 In this section we analyze the Modified Gravity functions $\mu(a)$ and $\eta(a)$,
-described in Section \ref{sec:Parameterizing-Modified-Gravity}, when they are allowed
+described in Section \ref{sub:parameterizing-MG}, when they are allowed
 to vary freely in five redshift bins.
 
 For this purpose, we calculate a Fisher matrix of fifteen parameters:
@@ -553,7 +553,7 @@ For the redshift-binned case, we will report forecasts only for a Euclid survey,
 using Euclid Redbook specifications which
 are detailed in section \ref{sub:Fisher-Galaxy-Clustering}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.47\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/correlation-full-fiducialMGBin3-Euclid-GC-linearPK-}
 \includegraphics[width=0.47\textwidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-GC/correlation-full-fiducialMGBin3-Euclid-GC-nonlinearPk__Zhao-}
@@ -570,14 +570,14 @@ to the Poisson equation.}
 \end{figure}
 
 
-We calculate the Fisher matrix for the 15 parameters
+We calculate the Fisher matrix for the 15 parameters \\
 $\theta=\{\Omega_{m},\Omega_{b},h,\ln10^{10}A_{s},n_{s},\mu_{i},\eta_{i}\}$
 where $\eta_{i}$ and $\mu_{i}$ represent ten independent parameters, one for each function
 at each of the 5 redshift bins corresponding to the redshifts z=\{0-0.5, 0.5-1.0, 1.0-1.5, 1.5-2.0, 2.0-2.5\}. As a standard procedure, we marginalize over the unknown bias parameters.
 From the covariance matrix, defined
-previously in Eqn.\ (\ref{eq:covariance_def}), we obtain the correlation
-matrix $P_{ij}$ defined in Eqn.\ (\ref{eq:correlation_def}) for the
-set of parameters $\theta_{i}$. In Figure \ref{fig:GCcorr} we show
+previously in \cref{eq:covariance_def}, we obtain the correlation
+matrix $P_{ij}$ defined in \cref{eq:correlation_def} for the
+set of parameters $\theta_{i}$. In figure \ref{fig:GCcorr} we show
 the matrix $P_{ij}$ in the linear (left panel) and non-linear-HS
 (right panel) cases. Redder (bluer) colors signal stronger correlations
 (anti-correlations). 
@@ -675,13 +675,12 @@ In the case of Weak Lensing, the linear forecast is performed with
 linear power spectra up to a maximum multipole $\ell_{\rm max}=1000$,
 while the non-linear forecast is performed with non-linear spectra
 up to a maximum multipole of $\ell_{\rm max}=5000$, as explained in
-section \ref{sec:Fisher-Matrix-method}. Since we limit 
-our power spectrum to a maximum in $k$-space, as explained
-in section \ref{sub:Fisher-Weak-Lensing}, these multipole values are not reached at every redshift.
+ \cref{sub:Weak-Lensing-Fisher}. Since we limit 
+our power spectrum to a maximum in $k$-space, these multipole values are not reached at every redshift.
 Like for GC, also for WL it is very important
 to include information from the non-linear power spectrum, since in
 that range will lie most of the constraining power of next-generation
-surveys like Euclid. In Figure \ref{fig:WLcorr} we show the correlation
+surveys like Euclid. In figure \cref{fig:WLcorr} we show the correlation
 matrices for the linear (left panel) and non-linear (right panel)
 Fisher Matrix forecasts. In this case, as opposed to the GC correlation matrices, it is not visually 
 clear which case is more correlated than the other.
@@ -690,7 +689,7 @@ $j={2,3,4,5}$ and an anti-correlation between $\eta_{1}$ and the primordial ampl
 In the non-linear case, the primordial amplitude parameter is effectively decorrelated from the Modified Gravity parameters,
 and the anti correlation between $\mu_{j}$ and the $\eta_{j}$ affects the first three bins (effectively increasing degeneracies in the first bin).
 The anti-correlation between these two sets of parameters
-is expected, since WL is sensitive to $\Sigma$, which is a product of $\eta$ and $\mu$, c.f.\ Eqn.\ (\ref{eq:SigmaofMuEta}).
+is expected, since WL is sensitive to $\Sigma$, which is a product of $\eta$ and $\mu$, c.f. \cref{eq:SigmaofMuEta}.
 The decrease of correlation when going from the linear to the non-linear case is confirmed, also quantitatively, by the FoC: the one for the linear case is of $\approx 69$, larger than the one for the non-linear case $\approx 32$. Once again, the inclusion of non-linear scales breaks degeneracies, especially among the linear amplitude of the power spectrum and the MG parameters. 
 
 \begin{figure}[htbp]
@@ -710,7 +709,7 @@ The anti-correlation between these two sets of parameters
 is expected, since WL is sensitive to the Weyl potential $\Sigma$, which is a product of $\mu$ and $\eta$.}
 \end{figure}
 
-Table \ref{tab:errors-all-MGBin3} shows the corresponding 1$\sigma$ marginalized errors on $\ln{(10^{10}A_s)}$
+\Cref{tab:errors-all-MGBin3} shows the corresponding 1$\sigma$ marginalized errors on $\ln{(10^{10}A_s)}$
 and on the $\mu_i$ and $\eta_i$, both in the linear and 
 non-linear cases for a Euclid Redbook WL survey. 
 As in the case of GC, linear WL cannot constrain alone any of the amplitudes of 
@@ -720,7 +719,7 @@ The 1$\sigma$ errors on $\mu_{i}$ and $\eta_{i}$
 improve up to one order of magnitude, with the FoM increasing by 17 nits, although remaining quite unconstraining for Modified Gravity parameters in all redshift bins.
 Notice, however, that the 1$\sigma$ error on $\mu_1$ from WL in the linear case is slightly smaller than in the non-linear case.
 This can be attributed to the fact that in the linear case, $\mu_1$ is uncorrelated to any other parameter, as 
-shown in Figure \ref{fig:WLcorr} and on that specific bin (0 < z < 0.5) non-linearities don't seem to improve the constraints on this parameter.
+shown in figure \ref{fig:WLcorr} and on that specific bin (0 < z < 0.5) non-linearities don't seem to improve the constraints on this parameter.
 
 
 
@@ -730,8 +729,8 @@ shown in Figure \ref{fig:WLcorr} and on that specific bin (0 < z < 0.5) non-line
 
 The combination of Galaxy Clustering and Weak Lensing is expected to be very powerful for 
 Modified Gravity parameters as they measure two different combinations of $\mu$ and $\eta$, 
-thus breaking their degeneracy as illustrated in Fig. \ref{fig:DE+Planck-ellipses-mu-sig-eta}. 
-This is shown in Table \ref{tab:errors-all-MGBin3}, where the sensitivity drastically increases with respect to the two separate probes, 
+thus breaking their degeneracy as illustrated in  \cref{fig:DE+Planck-ellipses-mu-sig-eta}. 
+This is shown in \cref{tab:errors-all-MGBin3}, where the sensitivity drastically increases with respect to the two separate probes, 
 especially in the low redshifts bins $(0.<z<1.5)$, where the lensing signal is dominant. 
 Adding non-linearities further doubles the FoM. The \planck\ 
 data constrains mostly the standard $\lcdm$ parameters and has only a limited ability to constrain the MG sector. 
@@ -742,8 +741,7 @@ We also see in Table \ref{tab:errors-all-MGBin3} that the differences between th
 adopted here (nl-HS) and a straightforward application of Halofit to the MG case (nl-Halofit) is not
 very large. We will investigate further the impact of the parameters used in the non-linear prescription in section \ref{sub:Testing-the-effect-of-Zhao}.
 
-\subsection{\label{sub:Decorrelation-of-covariance}Decorrelation of covariance
-matrices and the Zero-phase Component Analysis}
+\section{Decorrelation of covariance matrices and the Zero-phase Component Analysis \label{sec:Decorrelation-of-covariance}}
 
 In the previous subsections we highlighted how the MG parameters and the 
 amplitude of the primordial power spectrum exhibit significant correlations and showed how including non-linearities helps to decorrelate them. Even without including non-linearities, however, it is interesting to investigate how we can completely decorrelate the parameters, identifying in this way those parameter combinations which are best constrained by data.
@@ -799,7 +797,7 @@ transformed covariance is still diagonal but is not the identity matrix:
 and at the same time we ensure that 
 the vector of new variables $q_i$ will have the same norm as the old vector of variables $p_i$.
 
-\subsubsection{ZCA for Galaxy Clustering \label{subsub:ZCA-GC}}
+\subsection{ZCA for Galaxy Clustering \label{subsub:ZCA-GC}}
 
 
 From Fig.\ \ref{fig:GCcorr} we can see that the correlations are present in sub-blocks, one for 
@@ -817,9 +815,9 @@ Therefore we will also have 11 transformed uncorrelated $q_i$ parameters, functi
 
 
 Figure \ref{fig:Wmat-ZCA-GC} shows the coefficients that relate the 
-$q_i$ parameters to the original $p_i$ ones, in the linear (left panel) and the non-linear (right panel) cases, also shown explicitly in Tables
-\ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} of Appendix \ref{sec:Wmatrices}.
-We plot in Figure \ref{fig:GCbinerrs} a comparison between the 1$\sigma$ errors on the primary parameters $p_i$ 
+$q_i$ parameters to the original $p_i$ ones, in the linear (left panel) and the non-linear (right panel) cases. The explicit coefficients are shown in Appendix D of the publication \cite{casas_linear_2017}.
+%\ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} of Appendix \ref{sec:Wmatrices}.
+We plot in figure \ref{fig:GCbinerrs} a comparison between the 1$\sigma$ errors on the primary parameters $p_i$ 
 (represented by circles connected with dark green dashed lines) and the decorrelated parameters $q_i$ 
 (represented by squares connected with orange solid lines). 
 In the linear case (left panel), we can see that the errors on the $q_i$ parameters are 2 orders of magnitude 
@@ -830,7 +828,7 @@ This shows that a decorrelation procedure is still worth to do, even when includ
 even if the degeneracy with the amplitude is already completely broken thanks to the non-linear prescription.
 The fact that the curve of 1$\sigma$ errors for the $q_i$ follows the same pattern as the curve for the $p_i$ errors, 
 is due to the fact that we have used a ZCA decomposition 
-(see Section \ref{sub:Decorrelation-of-covariance}) and therefore the $q_i$ are as similar as possible to the $p_i$.
+(see section \ref{sub:Decorrelation-of-covariance}) and therefore the $q_i$ are as similar as possible to the $p_i$.
 
 
 \begin{figure}[htbp]
@@ -873,7 +871,7 @@ is a linear combination of the primary parameters $p_i$. The $q_i$ in the legend
 
 We are interested in finding the best combination of primary parameters $p_i$ giving rise
 to the best constrained uncorrelated parameters $q_i$. In order to find the errors 
-on the parameters $q_i$, we need to look at the diagonal of the decorrelated covariance matrix $\mathbf{\tilde{C}}$ expressed in Eqn.\ (\ref{eq:Ctilde-decor}) and 
+on the parameters $q_i$, we need to look at the diagonal of the decorrelated covariance matrix $\mathbf{\tilde{C}}$ expressed in \cref{eq:Ctilde-decor} and 
 identify the $q_i$ parameters with the smallest relative errors ($\sigma_{q_i}/q_i$): we find than in the linear GC case, the best 
 constrained combinations of primary parameters (ordered from most to least constrained) are given approximately by:
 
@@ -901,15 +899,15 @@ can be seen graphically in Fig.\ \ref{fig:GCbestconst} for the linear (left pane
 and non-linear HS (right panel) cases respectively. 
 From these combinations we see that a survey like Euclid, using GC only, will be sensitive to Modified Gravity parameters $\mu$ and $\eta$ mainly in the first three redshift bins, corresponding to a range $0. < z < 1.5$.
 The complete matrix $W$ of coefficients relating the $q_i$ to the $p_i$ parameters, 
-can be found in Tables \ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} of Appendix \ref{sec:Wmatrices}.
+can be found in Appendix D of the publication \cite{casas_linear_2017}.
 
 
-\subsubsection{ZCA for Weak Lensing}
+\subsection{ZCA for Weak Lensing}
 
 We apply the same decorrelation procedure to the WL case, obtaining the $q$ vectors
-shown in the weight matrix of Figure \ref{fig:Wmat-ZCA-WL}
-again reported explicitly in Tables \ref{tab:Wcoeff-lin-WL} and \ref{tab:Wcoeff-nlHS-WL}
-in Appendix \ref{sec:Wmatrices}. 
+shown in the weight matrix of figure \ref{fig:Wmat-ZCA-WL}.
+%again reported explicitly in Tables \ref{tab:Wcoeff-lin-WL} and \ref{tab:Wcoeff-nlHS-WL}
+%in Appendix \ref{sec:Wmatrices}. 
 
 \begin{figure}[htbp]
 	\centering{}\includegraphics[width=0.47\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-WL/Weight_Matrix_ZCA_SquareNorm--_fiducialMGBin3_Euclid_WL_linearPK_}
@@ -921,7 +919,7 @@ As for GC, most $q_i$ parameters have only small or negligible contributions fro
 	\label{fig:Wmat-ZCA-WL}}
 \end{figure}
 
-In Figure \ref{fig:WLbinerrs} we show the comparison between the errors on the primary
+In figure \ref{fig:WLbinerrs} we show the comparison between the errors on the primary
 parameters $p_i$ and the de-correlated ones $q_i$. As for the GC case, the errors in the linear case improve by 2 orders of magnitude after applying the decorrelation procedure (left panel). In the non-linear case (right panel) the improvement is smaller, but still worth to do, especially to constrain $q_2,q_3,q_7,q_8$.
 
 \begin{figure}[htbp]
@@ -967,8 +965,9 @@ For the non-linear WL case, the combinations remain practically the same, except
 	q_4  &= -0.46\mu_1 + 0.29 \mu_2 + 0.73\mu_3 + 0.31 \eta_3 \,\,\, .
 \end{aligned}
 \end{equation}
-These combinations can also be visualized in the right panel of Figure \ref{fig:WLbestconst}.
-The complete matrix $W$ of coefficients relating the $q_i$ to the $p_i$ parameters, can be found in Tables \ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} of Appendix \ref{sec:Wmatrices}.
+These combinations can also be visualized in the right panel of figure \ref{fig:WLbestconst}.
+The complete matrix $W$ of coefficients relating the $q_i$ to the $p_i$ parameters, 
+can be found in Appendix D of the publication \cite{casas_linear_2017}.
 
 \begin{figure}[htbp]
 	\centering{}\includegraphics[width=0.47\linewidth]{Chapters/linear-nonlinear-MG-forecasts/figures/Decorrelations-WL/linear_WL--_best_constrained_modes-Errors_on_q_ZCA_SquareNorm--_fiducialMGBin3_Euclid_WL_linearPK_}
@@ -983,7 +982,7 @@ Each of the four best constrained parameters $q_i$, shown in the panels, is a li
 
 
 
-\subsubsection{ZCA for Weak Lensing + Galaxy Clustering +  CMB \planck\ priors}
+\subsection{ZCA for Weak Lensing + Galaxy Clustering +  CMB \planck\ priors}
 
 As mentioned earlier, Galaxy Clustering and Weak Lensing are particularly important, combined together, to constrain Modified Gravity parameters, as they probe two independent combinations of the gravitational potentials. We now show results for their combination, using for both the non-linear HS prescription, together with a \planck\ prior
  (which was obtained by performing an MCMC analysis on {\it Planck}+BSH background data, as specified in Section \ref{sub:Fisher-Planck}). Notice that we neglect here any
@@ -993,7 +992,7 @@ and we simply add the GC and WL Fisher matrices to obtain our combined results; 
  In Table \ref{tab:errors-all-MGBin3}, we can see that the inclusion of the \planck\ prior improves considerably certain parameters, especially
  the less constrained ones by GC+WL, namely $\mu_{4,5}$ and $\eta_{4,5}$.
  In terms of correlations, we can observe in the left panel of Fig.\ \ref{fig:GC+WL+Planck-corr-Wmat}, that the structure of the correlation matrix resembles the one of the linear WL case (Fig.\ \ref{fig:WLcorr}), except that the block of standard $\lcdm$ parameters is much less correlated and that the anti-correlation among $\mu_i$ and $\eta_i$ is much stronger now.
-On the other hand, applying the decorrelation procedure (Section \ref{sub:Decorrelation-of-covariance}), the weight matrix $W$ (right panel of Fig.\ \ref{fig:GC+WL+Planck-corr-Wmat}), resembles the $W$ matrix observed in the non-linear GC case, illustrated in Figure \ref{fig:Wmat-ZCA-GC}). Notice that now the variables $q_i$ depend quite strongly on only one of the $\mu_i$ for $i=\{1,2,3,4\}$, while the $q_i$ for $i=\{6,7,8,9,10\}$ depend on a balanced sum of $\mu_i$ and $\eta_i$ for $i=\{6,7,8,9,10\}$.
+On the other hand, applying the decorrelation procedure (\cref{sec:Decorrelation-of-covariance}), the weight matrix $W$ (right panel of Fig.\ \ref{fig:GC+WL+Planck-corr-Wmat}), resembles the $W$ matrix observed in the non-linear GC case, illustrated in Figure \ref{fig:Wmat-ZCA-GC}). Notice that now the variables $q_i$ depend quite strongly on only one of the $\mu_i$ for $i=\{1,2,3,4\}$, while the $q_i$ for $i=\{6,7,8,9,10\}$ depend on a balanced sum of $\mu_i$ and $\eta_i$ for $i=\{6,7,8,9,10\}$.
 
 \begin{figure}[htbp]
 	\centering
@@ -1037,7 +1036,7 @@ parameters are drastically reduced.
 The fact that the curve of 1$\sigma$ errors for the $q_i$ (orange line, marked with circles) 
 follows the same pattern as the curve for the $p_i$ errors (green dashed line, marled with circles), 
 is due to the fact that we have used a ZCA decomposition and therefore the $q_i$ are as close as possible to the $p_i$.
-The complete matrix of coefficients $W$ can be found in Table \ref{tab:Wcoeff-nlHS-WL+GC+Planck} in appendix \ref{sec:Wmatrices}.
+%The complete matrix of coefficients $W$ can be found in Table \ref{tab:Wcoeff-nlHS-WL+GC+Planck} in appendix \ref{sec:Wmatrices}.
 
 
 \begin{figure}[htbp]
@@ -1110,17 +1109,17 @@ Finally, we note that since we are showing errors on $\mu$ and $\eta$, WL seems 
 \end{sidewaystable}
 \normalsize
 
-\section{Weight matrices coefficients}
-\label{sec:Wmatrices}
-
-Here we explicitly show the coefficient of the $W$ matrices illustrated in Figures
-\ref{fig:Wmat-ZCA-GC}, \ref{fig:Wmat-ZCA-WL}
-and \ref{fig:GC+WL+Planck-corr-Wmat}.
-Tables \ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} contain the coefficient matrices obtained for 
-Galaxy Clustering in the linear and non-linear HS prescription cases respectively, while 
-Tables \ref{tab:Wcoeff-lin-WL} and \ref{tab:Wcoeff-nlHS-WL} contain the coefficients obtained for WL. 
-Finally, Table \ref{tab:Wcoeff-nlHS-WL+GC+Planck} reports the coefficients for the combination of GC, 
-WL and \planck\ priors, in the non-linear HS case.
+%\section{Weight matrices coefficients}
+%\label{sec:Wmatrices}
+%
+%Here we explicitly show the coefficient of the $W$ matrices illustrated in Figures
+%\ref{fig:Wmat-ZCA-GC}, \ref{fig:Wmat-ZCA-WL}
+%and \ref{fig:GC+WL+Planck-corr-Wmat}.
+%Tables \ref{tab:Wcoeff-lin-GC} and \ref{tab:Wcoeff-nlHS-GC} contain the coefficient matrices obtained for 
+%Galaxy Clustering in the linear and non-linear HS prescription cases respectively, while 
+%Tables \ref{tab:Wcoeff-lin-WL} and \ref{tab:Wcoeff-nlHS-WL} contain the coefficients obtained for WL. 
+%Finally, Table \ref{tab:Wcoeff-nlHS-WL+GC+Planck} reports the coefficients for the combination of GC, 
+%WL and \planck\ priors, in the non-linear HS case.
 
 %\begin{table}[H]
 %	\[
@@ -1270,7 +1269,7 @@ WL and \planck\ priors, in the non-linear HS case.
 
 \section{Other Decorrelation Methods}\label{sec:appdec}
 
-In section \ref{sub:Combined-GC-WL-Planck-Binned} we have worked with a special decorrelation method, ZCA (Zero-phase component analysis, first 
+In \cref{sec:Decorrelation-of-covariance} we have worked with a special decorrelation method, ZCA (Zero-phase component analysis, first 
 introduced by \cite{Bell19973327} in the context of image processing), which
 allows us to find a new vector of decorrelated variables $q$ that is as similar as possible to the original
 vector of variables $p$.
@@ -1365,7 +1364,7 @@ it becomes decorrelated from the MG parameters in the non-linear case.
 \subsection{Kullback-Leibler divergence measure \label{sub:KL-matrices-MGBin}}
 
 In \cref{sub:KL-def} we introduced the Kullback-Leibler divergence (see \cref{eq:KL-Gaussian}) as another way of measuring 
-the constraining power of a survey and we defined the Kullback-Leibler matrices (\cref{eq:KL-Matrix}) (first introduced in \cite{casas-MGforec}) as a way
+the constraining power of a survey and we defined the Kullback-Leibler matrices (\cref{eq:KL-Matrix}) (first introduced in \cite{casas_linear_2017}) as a way
 of visualizing the information gain between different probes.
 Here we will visualize the KL-matrix for the probes: GC(lin), GC(nl-HS), WL(lin), WL(nl-HS), GC+WL(lin) and GC+WL(nl-HS) in the redshift
 binned parameterization of section \ref{sec:Results:-Redshift-Binned}.
@@ -1409,7 +1408,7 @@ meaning that there is little gain of information when going to one of the other 
 
 \section{Modified gravity with simple smooth functions of the scale factor}
 
-As discussed in Sec.\ \ref{sec:Parameterizing-Modified-Gravity}, $\mu$ and $\eta$ (or an equivalent pair of functions of the gravitational potentials) depend in general on time and space. We will now investigate the time dependence further, starting from the two parameterizations proposed in \cite{planck_collaboration_planck_2016} and recalled in Eqns.\ (\ref{eq:DE-mu-parametrization}-\ref{eq:TR-eta-parametrization}) in this work. We extend the analysis of the \planck\ paper by testing different prescriptions for the non-linear regime in Modified Gravity (as illustrated in Section \ref{sec:The-non-linear-power}) and further investigate forecasts for future experiments like Euclid, SKA, DESI. In the following subsections we first give results for the late-time parameterization of Eqns.\ (\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization}) and then for the early time parameterization of Eqns.\ (\ref{eq:TR-mu-parametrization},\ref{eq:TR-eta-parametrization}). In both cases we consider Galaxy Clustering and Weak Lensing, neglecting, as in Section \ref{sec:Results:-Redshift-Binned} any information coming from the cross correlation of the two probes.
+As discussed in \cref{sub:parameterizing-MG}, $\mu$ and $\eta$ (or an equivalent pair of functions of the gravitational potentials) depend in general on time and space. We will now investigate the time dependence further, starting from the two parameterizations proposed in \cite{planck_collaboration_planck_2016-7} and recalled in eqns.\ (\ref{eq:DE-mu-parametrization}-\ref{eq:TR-eta-parametrization}) in this work. We extend the analysis of the \planck\ paper \cite{planck_collaboration_planck_2016-7} by testing different prescriptions for the non-linear regime in Modified Gravity (as illustrated in Section \ref{sec:The-non-linear-power}) and further investigate forecasts for future experiments like Euclid, SKA, DESI. In the following subsections we first give results for the late-time parameterization of Eqns.\ (\ref{eq:DE-mu-parametrization},\ref{eq:DE-eta-parametrization}) and then for the early time parameterization of Eqns.\ (\ref{eq:TR-mu-parametrization},\ref{eq:TR-eta-parametrization}). In both cases we consider Galaxy Clustering and Weak Lensing, neglecting, as in Section \ref{sec:Results:-Redshift-Binned} any information coming from the cross correlation of the two probes.
 
 \subsection{\label{sub:MG-DE}Modified Gravity in the late-time parameterization}
 
@@ -1815,7 +1814,7 @@ for SKA1 the contraints would be at the 8\% level. The marginalized contours for
 \normalsize
 
 
-\subsubsection{Late time parameterization}
+\subsubsection{Transforming the variables \label{subsub:Jacobian}}
 Our main observables are parameterized
 in terms of the primary variables $E_{11}$ and $E_{22}$ from Equation
 \ref{eq:TR-mu-parametrization}; we are however interested in forecasting
@@ -1848,7 +1847,8 @@ then given by
 \tilde{F}=J^{T}F\,J
 \end{equation}
 For the parameter set containing $\tilde{\theta}_{i}=\{\mu,\Sigma\}$
-we obtain the following non-vanishing derivatives \done\todo{fix these eqns alignement}
+we obtain the following non-vanishing derivatives 
+\done\todo{fix these eqns alignement}
 
 \begin{alignat}{2}
 \frac{\partial\mu}{\partial\Omega_{c}}  = & -E_{11}, \quad \frac{\partial\mu}{\partial\Omega_{b}}  =-E_{11} ,\quad \frac{\partial\mu}{\partial E_{11}} 
@@ -1957,9 +1957,8 @@ An overview of the constraints on Modified Gravity described in this section is 
 \subsubsection{Derivatives of the Power Spectrum with respect to $\mu$ and $\eta$}\label{sec:appder}
 
 In this section we investigate the derivatives of the power spectrum with respect to the MG parameters. 
-Using the Jacobians from the previous Appendix \ref{sec:appjac}, we can convert 
+Using the Jacobians from \cref{subsub:Jacobian}, we can convert 
 our fundamental derivatives $\partial P(k,z)/\partial E_{ij}$ to derivatives of $\partial P(k,z)/\partial (\mu, \eta)$ evaluated at $z=0$.
-
 
 \begin{figure}[htbp]
 	\centering{}
@@ -2384,7 +2383,8 @@ We study in this chapter the constraining power of upcoming large scale surveys 
 We study three different approaches to MG: redshift-binning, where we discretize the functions $\mu(z)$ and $\eta(z)$ in 5 redshift bins and 
 let the values of $\mu$ and $\eta$ in each of the bins vary independently with respect to the others; an early-time parameterization, where $\mu$ and $\eta$ are allowed to vary at early times and their amplitude
 can be different from unity today; a late-time parameterization where  $\mu$ and $\eta$ are linked to the energy density of dark energy and therefore they are very
-close to unity in the past, but they can vary considerably at small redshifts. For convenience, we summarize all results in Table \ref{table_results}, with a direct link to the section and tables related to each scenario.
+close to unity in the past, but they can vary considerably at small redshifts.
+% For convenience, we summarize all results in Table \ref{table_results}, with a direct link to the section and tables related to each scenario.
 
 %\begin{table}
 %\begin{tabular}{|l|l|l|} 
