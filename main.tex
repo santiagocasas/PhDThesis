@@ -71,6 +71,8 @@ headsepline, % Uncomment to get a line under the header
 %\usepackage{todo}
 \usepackage{outlines}
 
+\usepackage{rotating}
+
 %authoryear-comp
 \usepackage[backend=bibtex,citestyle=numeric, bibstyle=numeric,natbib=true,
 backref=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
@@ -218,7 +220,7 @@ Doctor of Natural Sciences} \\[2cm]
 
 \begin{declaration}
 \addchaptertocentry{\authorshipname}
-
+\label{declaration-author}
 \noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
 
 \begin{outline} 

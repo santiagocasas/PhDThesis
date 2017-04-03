@@ -7,67 +7,69 @@
 
 
 
-\todo{check for repetitions}
+\done\todo{check for repetitions}
 \footnote{This chapter is based on a publication by the author in: 
 	Casas, S., Amendola, L., Baldi, M., Pettorino, V. and Vollmer, A.; 
 	Fitting and forecasting coupled dark energy in the non-linear regime.
 	JCAP, 2016, 045 (2016).}
-Cosmological data have reached a level of precision that forces us
-to address effects which may have been safely neglected in the past.
-Among them, predicting the behaviour of theoretical models at non-linear
-scales gives a more concrete chance to disentangle $\Lambda$CDM from
-alternative scenarios. The non-linear power spectrum contains useful
-information encoded in the clustering of galaxies and the weak lensing
-correlations, which can help to constrain more tightly the cosmological
-parameters and remove certain degeneracies between them. The drawback
-relies in the fact that the full estimate of the non-linear power
-spectrum requires time-demanding and computationally expensive N-body
-simulations. As a consequence, there exist simulations only for a
-handful of models beyond $\Lambda$CDM on a very limited subset of
-the parameter space of dark energy theories. This makes it hard to
-use the non-linear power spectrum in forecasts (see e.g.),
-both when doing cosmological parameter estimation via Monte Carlo
-simulations and with the simpler approximation of the Fisher matrix
-formalism. The alternative is to employ fitting functions for the
-non-linear power spectrum, like Halofit \citep{smith_stable_2003,takahashi_revising_2012}
-or machine learning estimators like the cosmological emulator (CosmicEmu)
-\citep{heitmann_coyote_2010,lawrence_coyote_2010,heitmann_coyote_2014}
-and the interpolator PkANN \cite{agarwal_pkann_2012,agarwal_pkann_2014}
-based on artificial neural networks. All these methods are calibrated
-or trained using large sets of N-body simulations and typically permit
-an exploration of the parameter space just around a fiducial $\lcdm$
-cosmology or $w\mbox{CDM }$cosmology with a constant $w$. An extension
-of Halofit to account for massive neutrinos was realised in \citep{bird_massive_2011},
-which was then used in \citep{audren_neutrino_2013} to perform a
-parameter estimation using a Markov Chain Monte Carlo technique. Other
-authors have recently used polynomial fits to take into account systematic
-effects in the non-linear regime like baryonic effects such as in
-\cite{bielefeld_cosmological_2014} or to parametrize the cosmological
-dependence of non-linear clustering, beyond the Zeldovich approximation
-(see \cite{mohammed_analytic_2014}). These fitting functions have,
-however, an intrinsic error that usually increases when scales become
-highly non-linear; therefore one has to be aware of the range in scales
-and redshifts they were designed to work on, in order to keep the
-errors induced on the power spectrum under control.
-
-As an alternative to fitting formulae and N-body simulations, there
-has been in recent years a substantial progress in semi-analytical
-methods to calculate the non-linear power spectrum at mildly non-linear
-scales, such as for example renormalized perturbation theory \citep{crocce_renormalized_2006}
-and all other resummation methods derived from it (for example \cite{Anselmi2012}),
-the time renormalisation group (TRG) \citep{Pietroni_2008} and effective
-field theories of large scale structure \cite{baumann_cosmological_2010}.
-Most of these approaches claim to reach percent accuracy at the baryon
-acoustic oscillation (BAO) scale and a bit beyond the second BAO peak,
-but they are still not able to predict what happens at highly non-linear
-scales, when the single stream approximation does not hold any longer.
-
-In this paper, we will use N-Body simulations to find fitting functions
-for a class of models beyond $\Lambda$CDM usually refered to as coupled
-Dark Energy (CDE). These models, widely discussed in literature \citep{Wetterich_1995, Amendola_2000,Amendola_2004,pettorino_baccigalupi_2008},
-involve an extra degree of freedom, associated to a scalar field that
+%Cosmological data have reached a level of precision that forces us
+%to address effects which may have been safely neglected in the past.
+%Among them, predicting the behaviour of theoretical models at non-linear
+%scales gives a more concrete chance to disentangle $\Lambda$CDM from
+%alternative scenarios. The non-linear power spectrum contains useful
+%information encoded in the clustering of galaxies and the weak lensing
+%correlations, which can help to constrain more tightly the cosmological
+%parameters and remove certain degeneracies between them. The drawback
+%relies in the fact that the full estimate of the non-linear power
+%spectrum requires time-demanding and computationally expensive N-body
+%simulations. As a consequence, there exist simulations only for a
+%handful of models beyond $\Lambda$CDM on a very limited subset of
+%the parameter space of dark energy theories. This makes it hard to
+%use the non-linear power spectrum in forecasts (see e.g.),
+%both when doing cosmological parameter estimation via Monte Carlo
+%simulations and with the simpler approximation of the Fisher matrix
+%formalism. The alternative is to employ fitting functions for the
+%non-linear power spectrum, like Halofit \citep{smith_stable_2003,takahashi_revising_2012}
+%or machine learning estimators like the cosmological emulator (CosmicEmu)
+%\citep{heitmann_coyote_2010,lawrence_coyote_2010,heitmann_coyote_2014}
+%and the interpolator PkANN \cite{agarwal_pkann_2012,agarwal_pkann_2014}
+%based on artificial neural networks. All these methods are calibrated
+%or trained using large sets of N-body simulations and typically permit
+%an exploration of the parameter space just around a fiducial $\lcdm$
+%cosmology or $w\mbox{CDM }$cosmology with a constant $w$. An extension
+%of Halofit to account for massive neutrinos was realised in \citep{bird_massive_2011},
+%which was then used in \citep{audren_neutrino_2013} to perform a
+%parameter estimation using a Markov Chain Monte Carlo technique. Other
+%authors have recently used polynomial fits to take into account systematic
+%effects in the non-linear regime like baryonic effects such as in
+%\cite{bielefeld_cosmological_2014} or to parametrize the cosmological
+%dependence of non-linear clustering, beyond the Zeldovich approximation
+%(see \cite{mohammed_analytic_2014}). These fitting functions have,
+%however, an intrinsic error that usually increases when scales become
+%highly non-linear; therefore one has to be aware of the range in scales
+%and redshifts they were designed to work on, in order to keep the
+%errors induced on the power spectrum under control.
+%
+%As an alternative to fitting formulae and N-body simulations, there
+%has been in recent years a substantial progress in semi-analytical
+%methods to calculate the non-linear power spectrum at mildly non-linear
+%scales, such as for example renormalized perturbation theory \citep{crocce_renormalized_2006}
+%and all other resummation methods derived from it (for example \cite{Anselmi2012}),
+%the time renormalisation group (TRG) \citep{Pietroni_2008} and effective
+%field theories of large scale structure \cite{baumann_cosmological_2010}.
+%Most of these approaches claim to reach percent accuracy at the baryon
+%acoustic oscillation (BAO) scale and a bit beyond the second BAO peak,
+%but they are still not able to predict what happens at highly non-linear
+%scales, when the single stream approximation does not hold any longer.
+In \cref{sub:CDE} we introduced the Coupled Dark Energy model, 
+which involves an extra degree of freedom, associated to a scalar field that
 provides acceleration and mediates a fifth force, in addition to gravity,
-which is felt by dark matter particles only. Semi-analytical non-linear
+which is felt by dark matter particles only \citep{Wetterich_1995, Amendola_2000,Amendola_2004,pettorino_baccigalupi_2008}.
+
+In this chapter, we will use N-Body simulations to find fitting functions
+for a class of models beyond $\Lambda$CDM usually refered to as coupled
+Dark Energy (CDE).
+Semi-analytical non-linear
 analysis \cite{wintergerst_clarifying_2010,Saracco_etal_2010} and
 cosmological N-body simulations within coupled Dark Energy have been
 performed by many different groups \citep{baldi_etal_2010,Li_Barrow_2011,maccio_coupled_2004,carlesi_hydrodynamical_2014-1,baldi_codecs_2012,2015arXiv150407243P}
@@ -100,7 +102,7 @@ characteristic and measurable features in the morphology and history
 of non-linear structures, such as halos, subhalos and voids,\textcolor{black}{{}
 and therefore in the non-linear power spectrum.}
 
-The aim of this paper is to create fitting functions which are valid
+The aim of this work is to create fitting functions which are valid
 in the observable regime of non-linear perturbations at all interesting
 redshifts and reproduce the subtle effects of coupled dark energy
 on the non-linear power spectrum while allowing us to vary the different
@@ -117,13 +119,13 @@ In this way we obtain a conservative estimate on how well a probe
 like Euclid, will be able to measure a DM-DE coupling.
 
 
-\section{Coupled Dark Energy\label{sec:Coupled-Dark-Energy}}
-
-In this section we briefly review the main equations governing the
-coupled DE models that will be investigated in the present work. For
-a more detailed and extended discussion and for the full derivation
-of the equations we refer the interested reader to some of the original
-publications on the subject \citep{Amendola_2000,Amendola_2004,pettorino_baccigalupi_2008,baldi_etal_2010}.
+%\section{Coupled Dark Energy\label{sec:Coupled-Dark-Energy}}
+%
+%In this section we briefly review the main equations governing the
+%coupled DE models that will be investigated in the present work. For
+%a more detailed and extended discussion and for the full derivation
+%of the equations we refer the interested reader to some of the original
+%publications on the subject \citep{Amendola_2000,Amendola_2004,pettorino_baccigalupi_2008,baldi_etal_2010}.
 
 
 
@@ -153,25 +155,25 @@ corresponding valuem for the reference $\Lambda$CDM cosmology.}
 
 \section{The CoDECS simulations}
 
-The \noun{\small{}{}CoDECS}{\small{} suite}%
-\footnote{see also the public {\small{}{}{}{}{}{}{}{}{}CoDECS} database
+The \textsc{CoDECS}% suite
+\footnote{see also the public \textsc{CoDECS} database
 at www.marcobaldi.it/CoDECS/%
-}{\small{} includes simulated periodic volumes of the universe at different
+} suite includes simulated periodic volumes of the universe at different
 scales and with different physical ingredients (as e.g. simulations
 with and without hydrodynamics) in the context of a series of coupled
 DE cosmologies characterised by various choices of the self-interaction
 potential $V(\phi)$ and of the coupling functions $\beta(\phi)$.
 The simulations have been performed with a suitably modified version
 (see \citep{baldi_codecs_2012} for more details on the numerical
-implementation) of the widely-used TreePM N-body code }\noun{\small{}{}GADGET}{\small{}
+implementation) of the widely-used TreePM N-body code  \textsc{GADGET}
 \citep{springel_cosmological_2005}. Such modified version includes
 all the relevant effects that characterise coupled DE cosmologies,
 from the modified background evolution to the CDM particle mass variation,
-the ``fifth-force\textquotedbl{} and the velocity-dependent acceleration
-appearing in equation (\ref{linear_cdm}).}{\small \par}
+the ``fifth-force`` and the velocity-dependent acceleration
+appearing in equation (\ref{linear_cdm}).
 
 As already stated above, in this work we will consider -- besides
-the reference $\Lambda$CDM simulation -- the subset of \noun{\small{}{}CoDECS}{\small{}
+the reference $\Lambda$CDM simulation -- the subset of \textsc{CoDECS}
 runs characterised by an exponential potential and by a constant coupling
 function. This consists of three different coupled DE models with
 the same potential slope $\alpha$ and with three values of the coupling
@@ -185,7 +187,7 @@ from model to model due to the different dynamics of the DE scalar
 field. The present observational constraints on the cosmological parameters
 have only slightly changed with the latest updated release of Planck
 data \citep{Planck:2015xua} with respect to the assumed WMAP7 values,
-and are still good enough for the purposes of this paper, being in
+and are still good enough for the purposes of this work, being in
 good agreement with large scale structure observations. For what concerns
 linear perturbations, all cosmologies have been normalised to have
 the same statistics (i.e. the same power spectrum shape and amplitude)
@@ -194,8 +196,8 @@ $z_{{\rm CMB}}\approx1100$. As a consequence of this choice and of
 the different growth associated with the various coupling values,
 all the models will have a different normalisation $\sigma_{8}$ of
 the linear perturbations amplitude at $z=0$. The main features of
-these models are summarised in Table \ref{tab:models}. We refer to
-\citep{baldi_codecs_2012} for further details.}{\small \par}
+these models are summarised in Table \cref{tab:normalization-conventions-codecs}. We refer to
+\citep{baldi_codecs_2012} for further details.
 
 For the purposes of the present work, we will employ the matter power
 spectra extracted from the CoDECS runs of these cosmologies at different
@@ -246,12 +248,12 @@ typical grid size $L/N$ where $L$ is the length of one side of the
 simulation box and $N$ is the number of particles. This maximum frequency
 is called the Nyquist frequency $k_{Ny}\equiv2\pi N/L$ and modes
 smaller than this \textcolor{black}{cannot be reliably measured} (this
-corresponds to the so-called aliasing effect). For the CoDECS simulations
+corresponds to the so-called aliasing effect). For the \textsc{CoDECS} simulations
 used in this work, the Nyquist frequency has the value $k_{Ny}\approx2.2$
 $\mbox{h}/\mbox{Mpc}$ at present time.
 
-The power spectrum computation embedded in \noun{\small{}{}GADGET-3}{\small{}
-that was adopted in the }\noun{\small{}{}CoDECS}{\small{} simulations
+The power spectrum computation embedded in \textsc{GADGET-3}
+that was adopted in the \textsc{CoDECS} simulations
 employs the so-called folding method developed by \cite{colombi_accurate_2009}
 -- which is based on \cite{jenkins_galaxy_1999} -- to calculate the
 matter power spectrum for smaller scales than the Nyquist frequency.
@@ -259,7 +261,7 @@ Following this method one ends up with two separate power spectra,
 $P_{top}$ which is calculated using the simulation particle mesh
 (PM) at $k\lesssim k_{Ny}$ and $P_{fold}$ which is the folded power
 valid for $k\gtrsim k_{Ny}$. In order to provide a single sampling
-of the power spectrum across $k_{Ny}$ the {}{}CoDECS} project employed
+of the power spectrum across $k_{Ny}$ the \textsc{CoDECS} project employed
 a simple interpolation procedure around $k_{Ny}$ by averaging the
 two power spectra in the region of overlap. However, this might introduce
 some spurious features that appear only when considering the ratio
@@ -270,7 +272,7 @@ power spectra, since we want to calculate fitting functions that can
 capture the effect of the dark energy - dark matter coupling compared
 to $\lcdm$ and therefore we need to correct for these spurious effects.
 
-We then developed a \noun{Python} code that finds the optimal interpolation
+We then developed a \texttt{Python} code that finds the optimal interpolation
 and matching between the $P_{top}$ and $P_{fold}$ power spectra.
 By evaluating the first and second derivatives of the ratios and minimizing
 abrupt changes, it finds the optimal number of points to be removed
@@ -296,10 +298,10 @@ which corresponds roughly to $k_{Ny}$.
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z000}
-\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z055}\\
-\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z100}
-\includegraphics[width=0.44\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z161} 
+\includegraphics[width=0.45\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z000}
+\includegraphics[width=0.45\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z055}\\
+\includegraphics[width=0.45\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z100}
+\includegraphics[width=0.45\columnwidth]{Chapters/fitting-funcs/figures/ratioPk-z161} 
 \par\end{centering}
 \caption[Ratios to $\lcdm$ of the non-linear matter power spectra in the \noun{CoDECS} simulations]
 {Ratios of the non-linear matter power spectra of the \noun{CoDECS}
@@ -347,7 +349,7 @@ accuracy goal at the 1\% level.
 
 \subsection{Generating the fitting functions}
 
-\todo{remove fitting functions part}
+\done\todo{remove fitting functions part}
 The fact that one can observe a clear trend that relates the amplitude
 of the signal to an increase of the coupling, together with a shift
 of the peak towards larger length scales when looking at smaller redshifts,
@@ -387,8 +389,7 @@ squares and is proportional to the variance of the data. An $\mbox{R}^{2}$-value
 of 1 corresponds to a perfect fit. The analytical expressions for
 the best models M2 and M7 are shown in table \ref{tab:Fitting-models},
 together with \textcolor{black}{their} $\mbox{R}^{2}$-value. We performed
-the whole Fisher analysis (see section \ref{sec:Fisher-Matrix-method}
-below), for both of the models and the results on the parameter estimation
+the whole Fisher analysis for both of the models and the results on the parameter estimation
 are basically the same (less than half of a percent relative difference
 in the estimated final errors).
 
@@ -409,8 +410,7 @@ M7  & $f(k)=1+a_{0}+a_{1}\cdot k+c\cdot k\cdot\frac{b\cdot(k-k_{0})}{\sqrt{1+b^{
 number of fitting coefficients and their R$^{2}$-value.]{\label{tab:Fitting-models}Fitting models M2 and M7 with their corresponding
 number of fitting coefficients and their R$^{2}$-value. Each coefficient
 $a_{0}$, $a_{1}$, $c$, \textbf{$b$} and $k_{0}$ is fitted as
-a polynomial in the coupling parameter $\beta$ and the redshift $z$
-(see Appendix \ref{sec:AppendixA} for further details). The R$^{2}$-value
+a polynomial in the coupling parameter $\beta$ and the redshift $z$. The R$^{2}$-value
 is a measure of the goodness of fit: a value of 1 corresponds to a
 perfect fit, while 0 means that the model does not fit the data.}
 \end{table}
@@ -909,7 +909,7 @@ spectrum at $k_{max}=k_{Ny}/2$, and a hard cut at $k_{Ny}$.}
 \begin{figure}[h]
 \footnotesize
 \centering{}
-\includegraphics[width=0.7\textwidth]{Chapters/fitting-funcs/figures/kmaxvariationGC-sigmav}
+\includegraphics[width=0.75\textwidth]{Chapters/fitting-funcs/figures/kmaxvariationGC-sigmav}
 \protect\protect
 \caption[Effect of non-linear scales on the 1$\sigma$ errors on cosmological parameters.]{\label{fig:kmax-change-lin-nonlin} 
 Change of the 1-$\sigma$ fully
@@ -944,8 +944,8 @@ washed out (c.f. section \ref{sub:Fitt-and-nonlinear-cosmo-pars}
 above).
 
 \begin{figure}
-\centering{}\includegraphics[height=0.4\textwidth]{Chapters/fitting-funcs/figures/GC-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
-\includegraphics[height=0.4\textwidth]{Chapters/fitting-funcs/figures/WL-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
+\centering{}\includegraphics[height=0.45\textwidth]{Chapters/fitting-funcs/figures/GC-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
+\includegraphics[height=0.45\textwidth]{Chapters/fitting-funcs/figures/WL-linear-vs-PkCut-1p1-kNy-margedContours-h-beta}
 \caption[Fisher confidence contour regions
 for $\beta^{2}$ and $h$ in CDE using GC and WL surveys.]{\label{fig:Contour-scale} Marginalized confidence contour regions
 1,2,3-$\sigma$ for $\beta^{2}$ and $h$. The plots correspond to
@@ -1221,8 +1221,8 @@ the estimation is dominated by the GC Fisher matrix estimation.}
 
 \section{Conclusions}
 
-\todo{check for repetitions and maybe remove some unneeded plots} 
-The goal of this paper is to exploit the cosmological information
+\done\todo{check for repetitions and maybe remove some unneeded plots} 
+The goal of this work is to exploit the cosmological information
 contained in the non-linear regime in order to improve parameter estimation
 from future large-scale observations. The main obstacle along this
 road is that we have accurate non-linear corrections for the matter
@@ -1230,13 +1230,13 @@ power spectrum only for $\Lambda$CDM and a few other relatively simple
 variants, but not for the large variety of modifed gravity models
 that have been proposed in recent years.
 
-The first part of this paper has then been devoted to the task of
+The first part of this chapter has then been devoted to the task of
 finding corrections to the linear power spectrum in the range of $k\approx0.1-1h/$Mpc
 for a selected class of modified gravity models, namely coupled dark
 energy. This model is indeed one of the simplest possible extensions
 of Einstein's gravity and depends entirely on a single parameter,
 the coupling constant $\beta$ (in addition to the standard ones).
-Employing the CoDECS suite of simulations \citep{baldi_codecs_2012}
+Employing the \textsc{CoDECS} suite of simulations \citep{baldi_codecs_2012}
 we build different fitting function models, such that when multiplied
 by the $\Lambda$CDM non-linear power spectrum (we use the estimator
 provided in ref. \citep{heitmann_coyote_2014} ) they reproduce the

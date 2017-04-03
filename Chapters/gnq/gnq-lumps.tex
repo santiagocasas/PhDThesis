@@ -1,31 +1,55 @@
-\chapter{Growing Neutrino Quintessence \label{chap:GNQ}}
+\chapter{Dynamics of neutrino lumps in Growing Neutrino Quintessence \label{chap:GNQ}}
 
 
-
-\section{Introduction}
-
-
-
-The observed accelerated expansion of the Universe is currently well
-described by the standard $\lcdm$ scenario, where a cosmological
-constant leads the background of the Universe to a final de Sitter
-state. Such a scenario, however, raises a ``coincidence\textquotedbl{}
-(or ``why-now\textquotedbl{}) problem, as it is not understood why
-dark energy becomes important just recently, marking the present cosmological
-epoch as a special one within cosmic history. Alternative models of
-dynamical dark energy or modified gravity should address the ``why
-now problem'' and the associated fine tuning of parameters. At the
-same time they need to explain why dark energy is almost static in
-the present epoch, such that the present dark energy equation of state
-$w$ is close to the observed range near $-1$. \todo{check for repetition and remove or merge}
+%
+%\section{Introduction}
 
 
+In \cref{sub:GNQ} we introduced the Growing Neutrino Quintessence model,
+as a viable alternative to the $\lcdm$ scenario, which can alleviate the
+``why-now`` problem (see \cref{sub:CC-problem}) by linking the 
+onset of acceleration to the neutrinos becoming non-relativistic at
+late times.
+The coupling of the neutrino mass to the scalar field ($\beta$), produces
+a strong ``fifth`` force among neutrinos that can lead to the formation 
+of large neutrino structures; the so-called ``neutrino-lumps``. 
 
-\section{Numerical treatment of growing neutrino cosmologies}
+Previous works by \cite{ayaita_structure_2012, 
+fuhrer_backreaction_2015} using specially designed N-body simulations, had shown that in the case where the coupling
+is constant, the neutrinos become stable and can induce important backreaction
+effects, yielding inviable cosmological evolutions.
+In this chapter we will deal with the case of varying coupling ($\beta=\beta(\phi)$) and we will show that the dynamics of neutrino lumps in
+this model is much richer than expected.
+
+In \cref{sec:GNQ-numerics} we will detail our implementation of the GNQ
+model which uses Boltzmann codes to calculate initial conditions and 
+the linear evolution and uses a specialized non-Newtonian N-body simulation,
+that takes into account relativistic velocities, anisotropic stress, backreaction
+effects and solves the evolution of the inhomogeneous scalar field on a grid.
+
+In \cref{sec:GNQ-lumps} we show the dynamics of neutrino lumps and discover
+that there are two distinct regimes: one in which neutrino structures grow steadily
+and a second one in which lumps form and dissolve several times over the evolution
+of the Universe.
+We show in \cref{sec:GNQ-cosmo} that this second regime possesses solutions
+which are very close to $\lcdm$ at the background level.
+
+In \cref{sec:heating-of-the-neutrino} we show another interesting property of
+this model, which is the heating of the neutrino fluid. We will see that this heating is produced by the strong oscillations of the neutrino structures.
+Despite the large neutrino structures formed in GNQ, we will see in \cref{sec:GNQ-gravpot} that in the oscillating regime, the neutrinos do not contribute significantly to the total gravitational potentials, making these lumps 
+hard to detect observationally.
 
 
-\subsection{Modified Boltzmann code\label{sub:Modified-Boltzmann-code}}
+\section{Numerical treatment of growing neutrino cosmologies \label{sec:GNQ-numerics}}
 
+
+\subsection{Modified Boltzmann code \label{sub:Modified-Boltzmann-code}}
+
+\footnote{This chapter is based on a publication by the author in: 
+	Casas, S., Pettorino, V. and Wetterich, C.;
+	Dynamics of neutrino lumps in growing neutrino quintessence.
+	Phys. Rev. D 94, 103518 (2016).
+}
 For the early stages of the evolution of the growing neutrino quintessence
 model, neutrinos behave as standard relativistic particles and the
 coupling to the cosmon field is suppressed. Therefore the Klein-Gordon
@@ -55,7 +79,7 @@ n_{\nu} & =\frac{2}{(2\pi)^{3}}\int\mbox{d}^{3}p\, f_{FD}(p)\,\,,\label{eq:nnu-F
 P_{\nu} & =\frac{2}{(2\pi)^{3}}\int\mbox{d}^{3}p\,\frac{p^{2}}{E(p)}f_{FD}(p)\,\,.\label{eq:pnu-FD}
 \end{align}
 The solution of the Boltzmann hierarchy of neutrinos coupled to the
-perturbed Einstein equations \ref{eq:Poisson} and \ref{eq:stress-phipsi},
+perturbed Einstein system \crefrange{eq:perturbed-Tmunu}{eq:pertphipsi-4},
 together with the solution of the background Klein-Gordon equation
 \ref{eq:klein-gordon-equation}, form the basis of the modification
 of nuCAMB with respect to the standard code CAMB, which handles dark
@@ -99,14 +123,14 @@ quintessence N-body simulation. This will be explained more in detail
 at the end of the following section.
 
 
-\subsection{N-body simulation\label{sub:N-body-simulation}}
+\subsection{N-body simulation\label{sub:GNQ-N-body-simulation}}
 
 For N-body simulations, we use here the code developed in \cite{ayaita_neutrino_2013,ayaita_nonlinear_2016,ayaita_structure_2012}
 and then refined in \cite{fuhrer_backreaction_2015} and in the present
 work, which uses a particle-mesh approach for the neutrino and dark
 matter particle evolution and a multi-grid approach for solving the
 non-linear scalar field equations. In table \ref{tab:simus-params}
-we describe the parameters of the models discussed in this paper.
+we describe the parameters of the models discussed in this work.
 We consider 5 models with different neutrino masses.
 
 Our N-body simulation differs from standard Newtonian N-body codes
@@ -144,6 +168,7 @@ while its pressure reads
 \end{equation}
 We will use for the following a convention in which bars denote spatial
 averages, while angular brackets denote time averaged quantities.
+
 The evolution of the cosmon field is solved using a multigrid relaxation
 algorithm, known as the Newton-Gauß-Seidel solver, which was originally
 developed for $f(R)$ modified gravity simulations \cite{puchwein_modified-gravity-gadget:_2013}
@@ -159,9 +184,9 @@ equation
 \end{equation}
 in which the right hand side gets a contribution from the coupling.
 
-\begin{table}
+\begin{sidewaystable}
 \centering{}%
-\footnotesize
+\small
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
 \textbf{Cosmological parameters}  & \multicolumn{6}{c|}{\textbf{Growing neutrino models}}\tabularnewline
@@ -216,9 +241,9 @@ which represents dynamical dark energy. $a_{final}$ is the final
 time at which simulations were computed accurately. Therefore, for
 the models M3-M6 we cannot cite values of present time quantities
 or averages at times beyond $a_{final}$. The input values for nuCAMB
-corresponding to all models can be found in table \ref{tab:CAMB-inipars-1}
-of appendix \ref{sec:Initial-parameters-for-nucamb}.}
-\end{table}
+corresponding to all models can be found in tables II and III
+of appendix A in the publication \cite{casas_dynamics_2016}.}
+\end{sidewaystable}
 \normalsize
 
 Simulations start at an initial value of $a_{in}=0.02$. Until $a\approx0.30$
@@ -283,12 +308,13 @@ of the coupling parameter $\beta(\phi)$, the multigrid Newton-Gauß-Seidel
 solver is of crucial importance. For the parallelization of the code,
 we use a simple \emph{OpenMP} approach, which calculates in parallel,
 for the available processing cores, the equations of motion of the
-particles and the fast Fourier transforms. In Tab.\ref{tab:Nbody-inipars-1-1}
-we describe all parameters related to the N-body simulations, including
+particles and the fast Fourier transforms. 
+In table II of appendix A in the publication \cite{casas_dynamics_2016},
+the reader can find all parameters related to the N-body simulations, including
 box and grid size.
 
 
-\section{Lump dynamics and the low mass - high mass divide}
+\section{Lump dynamics and the low mass - high mass divide \label{sec:GNQ-lumps}}
 
 We find two different regimes for the non-linear evolution of neutrino
 lumps, depending on the average value of the neutrino mass. For light
@@ -301,8 +327,8 @@ The repeated acceleration epochs heat the neutrino fluid to a huge
 effective temperature, such that neutrinos have again an almost relativistic
 equation of state during alternating periods of time.
 
-\begin{figure}[H]
-\includegraphics[height=0.6\textheight]{Chapters/gnq/figures/all_snapshots_v2-eps-converted-to.pdf}
+\begin{figure}[htbp]
+\includegraphics[height=0.55\textheight]{Chapters/gnq/figures/all_snapshots_v2-eps-converted-to.pdf}
 \caption[Snapshots of the number density
 contrast of neutrinos for two GNQ models: M2 and M4.]{\label{fig:Snapshots-of-models-oscill} Snapshots of the number density
 contrast of neutrinos $\delta n_{\nu}(\vec{x})\equiv n_{\nu}(\vec{x})/\bar{n}_{\nu}-1$
@@ -371,7 +397,7 @@ the numerical framework for the growing neutrino quintessence evolution
 breaks down and we can no longer solve reliably the coupled system
 of equations.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \begin{centering}
 \includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model325-crash0062-1-leg}
 \includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model5-crash065-1-noleg} 
@@ -392,7 +418,7 @@ by our numerical approach and our simulation breaks down.}
 
 
 
-\section{Cosmological evolution in the light neutrino regime}
+\section{Cosmological evolution in the light neutrino regime \label{sec:GNQ-cosmo}}
 
 As we have seen in the previous section, there is a qualitative difference
 between the cosmological evolution of a model with a light or a heavy
@@ -442,17 +468,17 @@ w_{\nu+\phi}=\frac{\bar{p}_{\phi}+\bar{p}_{\nu}}{\bar{\rho}_{\phi}+\bar{\rho}_{\
 In the literature \cite{brookfield_cosmology_2007,das_super-acceleration_2006,perrotta_extended_1999,perrotta_dark_2002},
 there are several definitions of the effective equation of state or
 the observed equation of state in the case in which the scalar field
-is coupled to other particles. We argue that \ref{eq:Wqnu}
+is coupled to other particles. We argue that \cref{eq:Wqnu}
 is actually the equation of state one would observe from the evolution
 of the Hubble function (i.e. with Supernovae and standard candle methods
-of redshift distance measurements). In appendix \ref{sec:The-effective-W}
+of redshift distance measurements). In appendix B of the publication \cite{casas_fitting_2015},
 we comment further on this and show a comparison between the ``observed''
-and theoretical equation of state of dark energy in fig.\ref{fig:Wnuphi-Wde-model2}.
+and theoretical equation of state of dark energy.
 
-In fig.\ref{fig:bckg-mod2-1} we plot for model M2 the background
+In \cref{fig:bckg-mod2-1} we plot for model M2 the background
 evolution of the neutrino energy density $\Omega_{\nu}$ (orange lines)
 and the combined cosmon+neutrino fluid energy density $\Omega_{\nu+\phi}$
-(blue lines) as defined in eq.\ref{eq:Omega-cosmon+nu}. The
+(blue lines) as defined in \cref{eq:Omega-cosmon+nu}. The
 dashed lines correspond to the linear computation in nuCAMB, while
 the solid lines correspond to the results of the N-body simulation.
 One can see that the effect of non-linearities and backreaction is
@@ -480,7 +506,7 @@ discussed in the text.}
 \end{figure}
 
 
-We show in fig.\ref{fig:backg-wnu-wqnu-mod2} the neutrino equation
+We show in \cref{fig:backg-wnu-wqnu-mod2} the neutrino equation
 of state $w_{\nu}$ (orange lines) as well as the combined cosmon-neutrino
 fluid equation of state $w_{\nu+\phi}$ as defined in equation \ref{eq:Wqnu}
 (blue lines), both for the case of the linear computation with nuCAMB
@@ -531,7 +557,7 @@ of the neutrino fluid.}
 \end{figure}
 
 
-In fig.\ref{fig:NuMass-mod2}, we show the evolution of the spatial
+In \cref{fig:NuMass-mod2}, we show the evolution of the spatial
 average of the neutrino mass in the N-body simulation as a function
 of the scale factor $a$. One can see that the value of $\bar{m}_{v}$
 varies along an order of magnitude, from approx.$10^{-2}$ to $10^{-1}$,
@@ -621,7 +647,7 @@ as a function of the mean momentum
 \begin{equation}
 \bar{T}=\frac{180\zeta(3)}{7\pi^{4}}\bar{p}
 \end{equation}
-We neglect the chemical potential in \ref{eq:momentum-dist},
+We neglect the chemical potential in \cref{eq:momentum-dist},
 because the exponential term in the denominator is 2 or 3 orders of
 magnitude larger than unity. Since in our case, the average momentum
 and mass of the neutrinos are of the same order, we cannot use either
@@ -646,7 +672,7 @@ This also holds for the distribution of kinetic energies. With the
 bulk quantities as momenta and kinetic energies roughly distributed
 thermally this is an example of prethermalization \cite{berges_prethermalization_2004}.
 
-In fig. (\ref{fig:histogram-FermiD-1}) we fit the distribution of
+In \cref{fig:histogram-FermiD-1} we fit the distribution of
 momenta of the neutrino particles on the grid (shown with an histogram)
 with a Fermi Dirac distribution. The actual distribution of momenta
 fits the thermal equilibrium distribution very well. At later times
@@ -675,8 +701,7 @@ neutrino background by more than a factor 100.}
 
 When comparing the equation of state of neutrinos obtained from the
 N-body simulation to a neutrino equation of state $w_{\nu}=p_{\nu}/\rho_{\nu}$,
-using our Fermi-Dirac fit to the particle distribution and eqns.\ref{eq:pnu-FD}
-and \ref{eq:rhonu-FD}, we get a very good agreement, taking
+using our Fermi-Dirac fit to the particle distribution and \crefrange{eq:rhonu-FD}{eq:pnu-FD}, we get a very good agreement, taking
 into account that for the Fermi-Dirac fit, we are neglecting the spatial
 variation of the neutrino mass $m_{\nu}(\phi)$. For model M2 at the
 scale factor $a=0.75$ we obtain from the N-body simulation a neutrino
@@ -689,7 +714,7 @@ fit with a mean temperature of $\bar{T}=0.065$eV and an average neutrino
 mass $\bar{m}_{\nu}=0.2327$ amounts to a neutrino equation of state
 of $w_{\nu}=0.182$.
 
-To visualize the evolution of $w_{\nu}$, we can observe from fig.\ref{fig:backg-wnu-wqnu-mod2}
+To visualize the evolution of $w_{\nu}$, we can observe from \cref{fig:backg-wnu-wqnu-mod2}
 that neutrinos in the N-body simulation start as non-relativistic
 particles and oscillate between being almost relativistic and completely
 non-relativistic in the interval $a=[0.3,0.6]$. However, at later
@@ -703,7 +728,7 @@ from zero, once neutrinos are heated to very high temperatures due
 to the collapsing and dissolving of the neutrino-cosmon lumps.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.7\textwidth]{Chapters/gnq/figures/Phi-GravPotSpec-M2-and-M5-at-006500-Phit_Phinu-new}
+\centering{}\includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Phi-GravPotSpec-M2-and-M5-at-006500-Phit_Phinu-new}
 \caption[Gravitational potential $\Phi$ for models of GNQ.]{\label{fig:gravpot-in-scale} Power spectra of the total gravitational
 potential $\Phi_{t}$ (blue lines) and of the neutrino contribution
 $\Phi_{\nu}$ (orange lines) for model M2 and model M5 at the scale
@@ -725,7 +750,7 @@ h/Mpc.}
 
 
 
-\section{Gravitational Potentials of Neutrino Lumps}
+\section{Gravitational Potentials of Neutrino Lumps \label{sec:GNQ-gravpot}}
 
 The gravitational potential $\Phi$ is a good measure of the physics
 going on in structure formation. We know from observational constraints,
@@ -777,7 +802,8 @@ scales, while at small scales ($k\gtrsim0.4$) the neutrino contribution
 is still subdominant.
 
 \begin{figure}
-\centering{}\includegraphics[width=0.65\textwidth]{Chapters/gnq/figures/Lineout-Diagonal--at-a0p75-deltanu_numbnu_Phinu}\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model2-psinu-numbnu-a0p75-cropped}\protect
+\centering{}
+\includegraphics[width=0.75\textwidth]{Chapters/gnq/figures/Lineout-Diagonal--at-a0p75-deltanu_numbnu_Phinu}\includegraphics[width=0.35\textwidth]{Chapters/gnq/figures/model2-psinu-numbnu-a0p75-cropped}\protect
 \caption[Line plot of the gravitational potential and snapshot for model M2 in GNQ.]{\label{fig:lineout-gravpotnu} 
 \textbf{Left: }Line plot through the
 main diagonal of the simulation box, for model M2 at $a=0.75$. The
@@ -794,7 +820,7 @@ and red, corresponding to density contrasts $\delta n_{\nu}$ of 1.5,
 \end{figure}
 
 
-In fig.\ref{fig:gravpot-intime1} we show the power spectra of the
+In fig. \ref{fig:gravpot-intime1} we show the power spectra of the
 total gravitational potential $\Phi$ (blue lines) and of the neutrino
 contribution to it (orange lines) at two different scales, $k=0.016$
 (solid lines) and $k=0.116$ (dashed lines) as a function of the scale
@@ -813,7 +839,7 @@ and higher gravitational potential.
 There is also anticorrelation between the neutrino structures and
 the neutrino induced gravitational potential, as expected from the
 fact that neutrinos will tend to fall into gravitational potential
-wells. In the left panel of fig.\ref{fig:lineout-gravpotnu}, we plot
+wells. In the left panel of \cref{fig:lineout-gravpotnu}, we plot
 the values of the neutrino number density contrast $\delta n_{\nu}=n_{\nu}(\vec{x})/\bar{n}_{\nu}-1$
 and the negative neutrino induced gravitational potential $\Phi_{\nu}$,
 along a diagonal line through the simulation box. The correlation
@@ -823,7 +849,7 @@ of the order of a few Mpc. By plotting the neutrino density contrast
 $\delta_{\nu}$, we also show that at this time $a=0.75$, the neutrino
 number density and the energy density are proportional, meaning that
 neither local mass variations or relativistic speeds are having any
-effect in the neutrino total energy. In the right panel of fig.\ref{fig:lineout-gravpotnu}
+effect in the neutrino total energy. In the right panel of \cref{fig:lineout-gravpotnu}
 we visualize the neutrino induced gravitational potential as a yellow
 region marking the equipotential surface $\Phi_{\nu}=+1.0\times10^{-7}$
 and the neutrino number overdensity structures colored blue, purple
@@ -835,11 +861,10 @@ the simulated volume.
 
 
 
-\section{Conclusions of Dynamics of Neutrino Lumps}
+\section{Conclusions \label{sec:GNQ-conclu}}
 
-We have investigated the dynamics of neutrino lumps in growing neutrino
-quintessence and how it depends on the mass of neutrinos. As a main
-result of this paper we found a characteristic divide in the qualitative
+We have investigated the dynamics of neutrino lumps in GNQ and how it depends on the mass of neutrinos. As a main
+result of this project we found a characteristic divide in the qualitative
 behavior between small and large neutrino mass.
 
 For light neutrino masses the combined effects of oscillations in
@@ -887,161 +912,161 @@ the heavy mass range incompatible with observation, the neutrino-induced
 gravitational potentials will get stronger. By continuity we expect
 that in the intermediate mass region the clumped neutrino background
 becomes observable. 
-\todo{check for repetitions and shorten}
+\done\todo{check for repetitions and shorten}
 
 
 
 
-\section{\label{sec:Initial-parameters-for-nucamb}Initial parameters for
-generating the models in nuCAMB and in the N-Body simulation}
+%\section{\label{sec:Initial-parameters-for-nucamb}Initial parameters for
+%generating the models in nuCAMB and in the N-Body simulation}
+%
+%\begin{table}[H]
+%\tiny
+%\centering{}%
+%\begin{tabular}{|c|c|c|c|c|c|c|}
+%\hline 
+%CAMB values  & M1  & M2  & M3  & M4  & M5  & M6\tabularnewline
+%\hline 
+%\hline 
+%input: $\Omega_{\nu}h^{2}$  & 0.048  & 0.048  & 0.075  & 0.018  & 0.038  & 0.098\tabularnewline
+%\hline 
+%$\tilde{m}_{\nu}$ amplitude factor  & $8.35\times10^{-5}$  & $2.0\times10^{-4}$  & $6.0\times10^{-4}$  & $9.9\times10^{-3}$  & $8.8\times10^{-3}$  & $8.8\times10^{-3}$\tabularnewline
+%\hline 
+%input $\hat{r}_{\nu eV}$ factor  & 1.5045  & 1.5045  & 2.3508  & 0.5642  & 1.1911  & 3.0718\tabularnewline
+%\hline 
+%$V_{i}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$\tabularnewline
+%\hline 
+%\end{tabular}
+%\small
+%\protect\protect\protect\caption[Table of initial values for nuCAMB used in GNQ simulations.]{\label{tab:CAMB-inipars-1} Table of initial parameters for each model
+%computed with nuCAMB. $\tilde{m}_{\nu}$ is the neutrino mass amplitude
+%used in the simulations, $\hat{r}_{\nu eV}$ is the neutrino mass
+%units conversion factor between the simulations and nuCAMB. $V_{i}$
+%is the initial value of the cosmon potential. }
+%\end{table}
+%\normalsize
+%
+%\begin{table}[H]
+%\tiny
+%\centering{}%
+%\begin{tabular}{|c|c|c|}
+%\hline 
+%N-body parameters  & Values  & Meaning\tabularnewline
+%\hline 
+%\hline 
+%$L$  & $428$  & Box side length in Mpc/h\tabularnewline
+%\hline 
+%$N_{g}$  & 64  & Grid size per dimension\tabularnewline
+%\hline 
+%$N_{pdm}$  & 262144  & Number of dark matter particles in the simulation\tabularnewline
+%\hline 
+%$N_{p\nu}$  & 524288  & Number of neutrino particles in the simulation\tabularnewline
+%\hline 
+%$\mbox{ngs}_{\mbox{acc}}$  & $1.0\times10^{-5}$  & Numerical accuracy for the NGS solver\tabularnewline
+%\hline 
+%\end{tabular}
+%\small
+%\protect\protect\protect\caption[Table of numerical parameters for each
+%N-body simulation run in GNQ.]{\label{tab:Nbody-inipars-1-1} Table of numerical parameters for each
+%N-body simulation run. Several tests were performed varying these
+%parameters, but the overall behavior for the purposes of this work
+%was the same. We also tested model M2 with grid sizes of 128 and 8
+%times the number of particles, not noticing any qualitative difference
+%in the dynamics. Only deviations of the order of 10\% in perturbation
+%quantities were observed when varying the grid size or the number
+%of particles.}
+%\end{table}
+%\normalsize
 
-\begin{table}[H]
-\tiny
-\centering{}%
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline 
-CAMB values  & M1  & M2  & M3  & M4  & M5  & M6\tabularnewline
-\hline 
-\hline 
-input: $\Omega_{\nu}h^{2}$  & 0.048  & 0.048  & 0.075  & 0.018  & 0.038  & 0.098\tabularnewline
-\hline 
-$\tilde{m}_{\nu}$ amplitude factor  & $8.35\times10^{-5}$  & $2.0\times10^{-4}$  & $6.0\times10^{-4}$  & $9.9\times10^{-3}$  & $8.8\times10^{-3}$  & $8.8\times10^{-3}$\tabularnewline
-\hline 
-input $\hat{r}_{\nu eV}$ factor  & 1.5045  & 1.5045  & 2.3508  & 0.5642  & 1.1911  & 3.0718\tabularnewline
-\hline 
-$V_{i}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$  & $0.99\times10^{-7}$\tabularnewline
-\hline 
-\end{tabular}
-\small
-\protect\protect\protect\caption[Table of initial values for nuCAMB used in GNQ simulations.]{\label{tab:CAMB-inipars-1} Table of initial parameters for each model
-computed with nuCAMB. $\tilde{m}_{\nu}$ is the neutrino mass amplitude
-used in the simulations, $\hat{r}_{\nu eV}$ is the neutrino mass
-units conversion factor between the simulations and nuCAMB. $V_{i}$
-is the initial value of the cosmon potential. }
-\end{table}
-\normalsize
 
-\begin{table}[H]
-\tiny
-\centering{}%
-\begin{tabular}{|c|c|c|}
-\hline 
-N-body parameters  & Values  & Meaning\tabularnewline
-\hline 
-\hline 
-$L$  & $428$  & Box side length in Mpc/h\tabularnewline
-\hline 
-$N_{g}$  & 64  & Grid size per dimension\tabularnewline
-\hline 
-$N_{pdm}$  & 262144  & Number of dark matter particles in the simulation\tabularnewline
-\hline 
-$N_{p\nu}$  & 524288  & Number of neutrino particles in the simulation\tabularnewline
-\hline 
-$\mbox{ngs}_{\mbox{acc}}$  & $1.0\times10^{-5}$  & Numerical accuracy for the NGS solver\tabularnewline
-\hline 
-\end{tabular}
-\small
-\protect\protect\protect\caption[Table of numerical parameters for each
-N-body simulation run in GNQ.]{\label{tab:Nbody-inipars-1-1} Table of numerical parameters for each
-N-body simulation run. Several tests were performed varying these
-parameters, but the overall behavior for the purposes of this paper
-was the same. We also tested model M2 with grid sizes of 128 and 8
-times the number of particles, not noticing any qualitative difference
-in the dynamics. Only deviations of the order of 10\% in perturbation
-quantities were observed when varying the grid size or the number
-of particles.}
-\end{table}
-\normalsize
-
-
-\section{The effective and observed equation of state of dark energy\label{sec:The-effective-W}}
-
-\todo{think what to do with these appendices}
-The equation of state $w$ of a species is defined in terms of its
-pressure and density as 
-\begin{equation}
-w=\frac{p}{\rho}\,\,\,.
-\end{equation}
-For the case of coupled species, there have been several definitions
-in the literature (c.f. \cite{brookfield_cosmology_2007,das_super-acceleration_2006,perrotta_extended_1999,perrotta_dark_2002}).
-This is due to the fact that when there is an exchange of energy and
-momentum between a particle and a scalar field, the time evolution
-of matter does not correspond anymore to the volume dilution rule
-$\rho(a)=\rho_{0}a^{-3}$. Therefore the equation of state of the
-dark energy field will not be as simple as the equation of state of
-a homogeneous scalar field, namely
-
-\begin{equation}
-w_{\phi}=\frac{p_{\phi}}{\rho_{\phi}}=\frac{(1/2a^{2})\dot{\phi}^{2}+V(\phi)}{(1/2a^{2})\dot{\phi}^{2}-V(\phi)}\,\,\,.
-\end{equation}
-In \cite{das_super-acceleration_2006,brookfield_cosmology_2007} two
-definitions of the equation of state (e.o.s) of dark energy were investigated.
-The first one, called the effective e.o.s. $w_{eff}$, given by
-
-\begin{equation}
-w_{eff}\equiv w_{\phi}+\frac{\beta\dot{\phi}}{3H}\frac{\rho_{\nu}}{\rho_{\phi}}
-\end{equation}
-and the second one named ``apparent'' e.o.s. $w_{ap}$, defined
-by 
-\begin{equation}
-w_{ap}\equiv\frac{w_{\phi}}{1+x}\,\,\,,
-\end{equation}
-with 
-\begin{equation}
-x=-\frac{\rho_{\nu,0}}{a^{3}\rho_{\phi}}\left[\frac{m_{\nu}(\phi)}{m_{\nu}(\phi_{0})}-1\right]\,\,\,,
-\end{equation}
-where a $0$ subscript denotes quantities at $z=0$. Notice that by
-construction, $w_{ap}$ at the present epoch is identical to $w_{\phi}$
-and that $w_{ap}$ can be smaller than $-1$. We find that none of
-these two definitions of e.o.s. describe the dynamical dark energy
-field present in our model.
-
-Since in our model the neutrino and cosmon field behave together as
-a tightly coupled fluid, we are interested in the conserved equation
-of state for the combined fluid. This is given by the sum of both
-contributions from the pressure, divided by the sum of both densities.
-Therefore, we define $w_{\nu+\phi}$ as
-
-\begin{equation}
-w_{\nu+\phi}\equiv\frac{\bar{p}_{\phi}+\bar{p}_{\nu}}{\bar{\rho}_{\phi}+\bar{\rho}_{\nu}}\,\,\,.\label{eq:Wqnu-1}
-\end{equation}
-This definition should agree with what we can extract directly from
-observations of the Friedmann equation. The equation of state $w_{DE}(z)$
-of a general dark energy component that fulfills the continuity equation
-(if it is composed by two coupled fluids, the continuity equation
-is fulfilled for the sum of densities and pressures), appears in the
-Friedmann equation as
-
-\begin{equation}
-E^{2}(z)\equiv\frac{H^{2}(z)}{H_{0}^{2}}=\left[\Omega_{r,0}(1+z)^{4}+\Omega_{m,0}(1+z)^{3}+\Omega_{DE,0}\exp\left\{ \int_{0}^{z}\frac{3(1+w_{DE}(\tilde{z}))}{1+\tilde{z}}\mbox{d}\tilde{z}\right\} +\Omega_{k,0}(1+z)^{2}\right]\,\,\,.
-\end{equation}
-Moreover, in a flat Universe and with a negligible contribution from
-radiation, we can solve for $w_{DE}(z)$ and obtain \cite{amendola_dark_2010}:
-
-\begin{equation}
-w_{DE}(z)=\frac{(1+z)(E^{2}(z))'-3E^{2}(z)}{3\left[E^{2}(z)-\Omega_{m,0}(1+z)^{3}\right]}\,\,\,.\label{eq:wde-friednmann}
-\end{equation}
-Thus, from background expansion observations we can obtain a constrain
-on $w_{DE}(z)$, provided we know from large-scale structure or CMB
-observations the present value of $\Omega_{m}$. In the fig. \ref{fig:Wnuphi-Wde-model2}
-we compare $w_{DE}(z)$ obtained from eq.\ref{eq:wde-friednmann}
-and $w_{\nu\phi}(z)$ computed both consistently within the N-body
-simulation. In the former case, numerical noise in the derivatives
-of $E(z)$ create certain scatter in $w_{DE}(z)$ at late times.
-
-\begin{figure}
-\centering{}
-\includegraphics[width=0.85\textwidth]{Chapters/gnq/figures/wDEmeasured-nuphi-modelM1}
-\protect\protect\protect\caption[Different $w(z)$ curves in the case
-of model M1 computed with the N-body simulation and compared to linear
-theory in GNQ.]{\label{fig:Wnuphi-Wde-model2} Different $w(z)$ curves in the case
-of model M1 computed with the N-body simulation and compared to linear
-theory. The red dashed lines represent $w_{DE}$ computed from the
-Hubble function which is an output of the linear code nuCAMB. The
-solid orange line, representing $w_{\nu+\phi}$ is computed using
-the standard pressure and density outputs from the simulation. The
-blue dots stand for some set of computed values of $w_{DE}(z)$ obtained
-from the Hubble function calculated entirely within the N-body simulation.
-Due to numerical noise in the oscillating derivatives of $E(z)$,
-there is some scatter in the e.o.s. obtained in this case.}
-\end{figure}
+%\section{The effective and observed equation of state of dark energy\label{sec:The-effective-W}}
+%
+%\todo{think what to do with these appendices}
+%The equation of state $w$ of a species is defined in terms of its
+%pressure and density as 
+%\begin{equation}
+%w=\frac{p}{\rho}\,\,\,.
+%\end{equation}
+%For the case of coupled species, there have been several definitions
+%in the literature (c.f. \cite{brookfield_cosmology_2007,das_super-acceleration_2006,perrotta_extended_1999,perrotta_dark_2002}).
+%This is due to the fact that when there is an exchange of energy and
+%momentum between a particle and a scalar field, the time evolution
+%of matter does not correspond anymore to the volume dilution rule
+%$\rho(a)=\rho_{0}a^{-3}$. Therefore the equation of state of the
+%dark energy field will not be as simple as the equation of state of
+%a homogeneous scalar field, namely
+%
+%\begin{equation}
+%w_{\phi}=\frac{p_{\phi}}{\rho_{\phi}}=\frac{(1/2a^{2})\dot{\phi}^{2}+V(\phi)}{(1/2a^{2})\dot{\phi}^{2}-V(\phi)}\,\,\,.
+%\end{equation}
+%In \cite{das_super-acceleration_2006,brookfield_cosmology_2007} two
+%definitions of the equation of state (e.o.s) of dark energy were investigated.
+%The first one, called the effective e.o.s. $w_{eff}$, given by
+%
+%\begin{equation}
+%w_{eff}\equiv w_{\phi}+\frac{\beta\dot{\phi}}{3H}\frac{\rho_{\nu}}{\rho_{\phi}}
+%\end{equation}
+%and the second one named ``apparent'' e.o.s. $w_{ap}$, defined
+%by 
+%\begin{equation}
+%w_{ap}\equiv\frac{w_{\phi}}{1+x}\,\,\,,
+%\end{equation}
+%with 
+%\begin{equation}
+%x=-\frac{\rho_{\nu,0}}{a^{3}\rho_{\phi}}\left[\frac{m_{\nu}(\phi)}{m_{\nu}(\phi_{0})}-1\right]\,\,\,,
+%\end{equation}
+%where a $0$ subscript denotes quantities at $z=0$. Notice that by
+%construction, $w_{ap}$ at the present epoch is identical to $w_{\phi}$
+%and that $w_{ap}$ can be smaller than $-1$. We find that none of
+%these two definitions of e.o.s. describe the dynamical dark energy
+%field present in our model.
+%
+%Since in our model the neutrino and cosmon field behave together as
+%a tightly coupled fluid, we are interested in the conserved equation
+%of state for the combined fluid. This is given by the sum of both
+%contributions from the pressure, divided by the sum of both densities.
+%Therefore, we define $w_{\nu+\phi}$ as
+%
+%\begin{equation}
+%w_{\nu+\phi}\equiv\frac{\bar{p}_{\phi}+\bar{p}_{\nu}}{\bar{\rho}_{\phi}+\bar{\rho}_{\nu}}\,\,\,.\label{eq:Wqnu-1}
+%\end{equation}
+%This definition should agree with what we can extract directly from
+%observations of the Friedmann equation. The equation of state $w_{DE}(z)$
+%of a general dark energy component that fulfills the continuity equation
+%(if it is composed by two coupled fluids, the continuity equation
+%is fulfilled for the sum of densities and pressures), appears in the
+%Friedmann equation as
+%
+%\begin{equation}
+%E^{2}(z)\equiv\frac{H^{2}(z)}{H_{0}^{2}}=\left[\Omega_{r,0}(1+z)^{4}+\Omega_{m,0}(1+z)^{3}+\Omega_{DE,0}\exp\left\{ \int_{0}^{z}\frac{3(1+w_{DE}(\tilde{z}))}{1+\tilde{z}}\mbox{d}\tilde{z}\right\} +\Omega_{k,0}(1+z)^{2}\right]\,\,\,.
+%\end{equation}
+%Moreover, in a flat Universe and with a negligible contribution from
+%radiation, we can solve for $w_{DE}(z)$ and obtain \cite{amendola_dark_2010}:
+%
+%\begin{equation}
+%w_{DE}(z)=\frac{(1+z)(E^{2}(z))'-3E^{2}(z)}{3\left[E^{2}(z)-\Omega_{m,0}(1+z)^{3}\right]}\,\,\,.\label{eq:wde-friednmann}
+%\end{equation}
+%Thus, from background expansion observations we can obtain a constrain
+%on $w_{DE}(z)$, provided we know from large-scale structure or CMB
+%observations the present value of $\Omega_{m}$. In the fig. \ref{fig:Wnuphi-Wde-model2}
+%we compare $w_{DE}(z)$ obtained from eq.\ref{eq:wde-friednmann}
+%and $w_{\nu\phi}(z)$ computed both consistently within the N-body
+%simulation. In the former case, numerical noise in the derivatives
+%of $E(z)$ create certain scatter in $w_{DE}(z)$ at late times.
+%
+%\begin{figure}
+%\centering{}
+%\includegraphics[width=0.85\textwidth]{Chapters/gnq/figures/wDEmeasured-nuphi-modelM1}
+%\protect\protect\protect\caption[Different $w(z)$ curves in the case
+%of model M1 computed with the N-body simulation and compared to linear
+%theory in GNQ.]{\label{fig:Wnuphi-Wde-model2} Different $w(z)$ curves in the case
+%of model M1 computed with the N-body simulation and compared to linear
+%theory. The red dashed lines represent $w_{DE}$ computed from the
+%Hubble function which is an output of the linear code nuCAMB. The
+%solid orange line, representing $w_{\nu+\phi}$ is computed using
+%the standard pressure and density outputs from the simulation. The
+%blue dots stand for some set of computed values of $w_{DE}(z)$ obtained
+%from the Hubble function calculated entirely within the N-body simulation.
+%Due to numerical noise in the oscillating derivatives of $E(z)$,
+%there is some scatter in the e.o.s. obtained in this case.}
+%\end{figure}

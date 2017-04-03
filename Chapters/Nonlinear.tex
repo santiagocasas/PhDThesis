@@ -1,4 +1,4 @@
-\chapter{Non-linear power spectra: Resummation for Horndeski models \label{chap:nonlinear}} % Main chapter title
+\chapter{Non-linear power spectra: resummation for Horndeski models \label{chap:nonlinear}} % Main chapter title
 
  % For referencing the chapter elsewhere, use \ref{Chapter1} 
 
@@ -32,6 +32,9 @@ In order to do so, we will take some simplifying assumptions like the quasistati
 some specific variations of the $\mu$ and $\eta$ functions, previously
 defined in \crefrange{eq:mu_def}{eq:eta_def}.
 
+\footnote{This chapter is based on a publication in preparation by: 
+	Casas, S., Pettorino, V. and Pietroni, M.;
+}
 The chapter is organized as follows:
 In \cref{sec:nonlinear-fluid} we start from the Vlasov-Poisson
 system and write down the fluid equations for a non-relativistic matter component.
@@ -46,9 +49,6 @@ At the end of the chapter in \cref{sec:Computational} we make a short excursion 
 computational techniques, like N-body simulations and semi-analytical methods, which
 will be of importance for discussing this and the next chapter.
 \todo{Implement Florians comments}
-
-The equations, the results and most of the text of this chapter are based on a paper in preparation together with
-Dr. Massimo Pietroni and Dr. Valeria Pettorino.
 
 
 \section{Growth of perturbations for a Dark Matter component \label{sec:DM-growth}}
@@ -168,12 +168,13 @@ way, \cref{eq:Dplus-Integral} matches exactly the numerical solution
 of \cref{eq:deltaprimeprime}.
 
 \begin{figure}[tbph]
-	\includegraphics[width=0.47\linewidth]{Figures/fGrowthRate-ofa-Approx-vs-ExactHyper}
-	\includegraphics[width=0.47\linewidth]{Figures/fGrowthRate-Ratio-ofa-Approx-vs-ExactHyper-RatioToNumeric}
+	\centering{}
+	\includegraphics[width=0.6\linewidth]{Figures/fGrowthRate-ofa-Approx-vs-ExactHyper}\\
+	\includegraphics[width=0.6\linewidth]{Figures/fGrowthRate-Ratio-ofa-Approx-vs-ExactHyper-RatioToNumeric}
 	\caption[Growth rate comparison for CDM]{
-	\textbf{Left:} growth rate function $f(a)$, calculated by two different methods. In orange, the $\Omega^\gamma$-approximation, with $\gamma=5/9$, while
+	\textbf{Top:} growth rate function $f(a)$, calculated by two different methods. In orange, the $\Omega^\gamma$-approximation, with $\gamma=5/9$, while
 	in green the exact analytical solution from \cref{eq:Dplus-Hyper}.
-    \textbf{Right:} Ratio of each of the two methods to the numerical solution of \cref{eq:fgrowth-of-N}, same coloring as before. The exact and numerical solution
+    \textbf{Bottom:} Ratio of each of the two methods to the numerical solution of \cref{eq:fgrowth-of-N}, same coloring as before. The exact and numerical solution
 agree exactly, while the $\gamma$-approximation is fine at the per mille level.}
 	\label{fig:fgrowthrate-ofa-approx-vs-exacthyper}
 \end{figure}
@@ -640,7 +641,7 @@ f_{+}\pkn
 In this case, the growing projector can be written explicitly by subtracting the
 decaying projector from the unity matrix:
 \beeqp$ 
-\mathrm{\mathbf{M}}{}^{+}\pkn=\mathbb{1}-\mathrm{\mathbf{M}}{}^{-}\pkn=\frac{1}{f_{-}-f_{+}}\begin{pmatrix}f_{-} & -1\\
+\mathrm{\mathbf{M}}{}^{+}\pkn=\mathbbm{1}-\mathrm{\mathbf{M}}{}^{-}\pkn=\frac{1}{f_{-}-f_{+}}\begin{pmatrix}f_{-} & -1\\
 f_{-}f_{+} & -f_{+}
 \end{pmatrix}
 $
@@ -1133,8 +1134,9 @@ In recent years there has been substantial progress in this direction, with more
 methods, capable of calculating structure formation in modified gravity theories (see, \mcite{Winther, Baldi, COLA 2016, Li}).
 Moreover, we will also profit from recent Boltzmann codes like \textsc{EFTCAMB} by \cite{hu_eftcamb/eftcosmomc:_2014-1} and 
 \textsc{hi-CLASS} by \cite{zumalacarregui} that can provide a more exact initial power spectrum in the models
-we are studying here.\footnote{The results of this chapter so far, will be published in a paper together with Dr. Massimo Pietroni and
-Dr. Valeria Pettorino.}
+we are studying here.
+%\footnote{The results of this chapter so far, will be published in a paper together with Dr. Massimo Pietroni and
+%Dr. Valeria Pettorino.}
 
 
 
@@ -1189,8 +1191,7 @@ of simulating trillions of particles \mcite{Illustris, Coyote, DEUS}, including 
 gravitational physics, but also star formation, galactic and supernova feedback, magnetic fields and
 many more complicated astrophysical phenomena \mcite{Illustris, Springel}.
 
-\footnote{Parts of the following text have appeared as part of papers by the author 
-	(see attached list of papers)
+\footnote{Parts of the following text have appeared as part of papers by the author (see authorship declaration)
 and as part of the author's Master thesis, submitted at the University of Heidelberg, 2013.}
 To perform an exact evolution of the density fluctuations, beyond
 linear perturbations, the density field has to be represented by a
@@ -1359,7 +1360,8 @@ meaning that the force of a single particle on the group of particles
 of a distant cell is not calculated and therefore Newton's third law
 is violated. This can lead to fluctuations in the total energy of
 the N-body system, but it has been shows that these spurious effects
-can be kept quite small (see \citet{dehnen_n-body_2011}). \todo[maybe]{maybe an image}
+can be kept quite small (see \citet{dehnen_n-body_2011}). 
+\done\todo[maybe]{maybe an image}
 %In \ref{fig:5.1}
 %(top), the binary tree hierarchy of the simulation box can be seen
 %and (bottom) a comparison between the computation of the force with
