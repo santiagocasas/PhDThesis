@@ -19,7 +19,7 @@ There are two basic approaches one can take at this point, either couple this fi
 or couple the field just to a specific matter component, which we will call
 \emph{non-universally coupled theories}.
 
-Universally coupled theories include Quintessence, scalar-tensor theories (ST) \cite{Luca, Skordis, de Felice, etc.}, Horndeski theories \cite{cite Horndeski, Defayyet} and Effective Field Theories of Dark Energy \cite{cite, EFT, people}.
+Universally coupled theories include Quintessence, scalar-tensor theories (ST) \cite{skordis_consistent_2009,pourtsidou_models_2013-3,clifton_modified_2012,amendola_cosmology_2013, amendola_linear_2004-7, saltas_anisotropic_2014}, Horndeski theories \cite{de2012conditions, deffayet2013formal} and Effective Field Theories of Dark Energy \cite{gleyzes_essential_2013, gubitosi_effective_2013-1, }.
 We will review some of these models in \crefrange{sub:quintessence}{sub:EFT-of-DE}.
 Non-universally coupled theories are in general built in such a way that baryons remain uncoupled, due to the stringent local and solar system gravity tests that constrain the scalar field--baryon coupling to be practically negligible (see \cref{sec:nonuniversal-coupling} below). In this work we will 
 deal with two such theories: The Coupled Dark Energy model, which couples Dark Matter to a Dark Energy field, which will be treated in \cref{sub:CDE} and the Growing Neutrino Quintessence model, in which the neutrino mass is coupled to the ``cosmon`` scalar field, which will be the subject of \cref{sub:GNQ}.
@@ -30,7 +30,7 @@ deal with two such theories: The Coupled Dark Energy model, which couples Dark M
 		{Figures/DE-MG.pdf}
 	\end{center}
 	\caption[Dark Energy - Modified Gravity Flowchart]{Distinction between Dark Energy and
-		Modified Gravity Theories based on the Strong and Weak Equivalence Principles (SEP and WEP), according to \cite{Joyce, Lombrisier}.
+		Modified Gravity Theories based on the Strong and Weak Equivalence Principles (SEP and WEP), according to \cite{joyce_dark_2016-2}.
 		The violation of the SEP, implies the existence of an extra fifth-force among particles, 
 		or, equivalently, a modification of the standard Poisson equation. These are the so-called Modified Gravity theories.
 		If the scalar degree of freedom is not coupled to matter, then we can talk about a Dark Energy model.
@@ -70,7 +70,7 @@ We will specify the equations for these two different frames in
 
 The distinction between Modified Gravity and Dark Energy is somewhat diffuse, since as mentioned above, 
 an exotic form of matter in the Einstein's equations can always be considered as a modification 
-of involving geometry. However, we will use a definition introduced recently by \cite{cite Joyce, Lombrisier, Schmidt}
+of involving geometry. However, we will use a definition introduced recently by \cite{joyce_dark_2016-2}, 
 which is quite practical in terms of its observable properties. 
 
 In this definition, Dark Energy encompasses models which respect both the Weak and the Strong Equivalence
@@ -85,9 +85,9 @@ their composition. Usually, in these models baryons are uncoupled and therefore 
 
 The term ``modified gravity`` is also more general and it is used for
 any theory beyond GR that is able to explain the cosmological history
-of the Universe. This can include extra dimensions (see \cite{DGP}),
-massive bimetric gravities \cite{cite bimetric stuff} or Lorentz-violating theories
-(\cite{cite some by Blas, et al}). But these are out of the scope of this dissertation. 
+of the Universe. This can include extra dimensions \cite{deffayet2002accelerated},
+massive bimetric gravities \cite{akrami2015bimetric, konnig2014stable} or Lorentz-violating theories
+\cite{blas2011models}. However, these models are out of the scope of this dissertation. 
 For the rest of this work, when we mention Modified Gravity, we will refer to our definition according
 to our discussion above and the diagram \ref{fig:DE-vs-MG-WEP-SEP}.
 
@@ -115,17 +115,18 @@ which are going to be useful concepts in the following chapters. For the moment 
 $M_{Pl}^{2} = 1/(8 \pi G)$ is equal to unity.
 
 A scalar-tensor theory can be formulated in the "Jordan frame" as:
-\beeqc$\label{eq:jordan-frame-action}
-\mathcal{S} = \int \dx{4}{x} \sqrt{-g} \left[  \frac{1}{2} F(\varphi, R) - \frac{1}{2} K(\varphi) g^{\mu \nu}  \partial_{\mu}\varphi \partial_{\nu}\varphi 
-- U(\varphi)    \right] - \int \dx{4}{x} \mathcal{L}_m (g_{\mu \nu} , \varPsi_m )
+\beeqalsp$\label{eq:jordan-frame-action}
+\mathcal{S} =& \int \dx{4}{x} \sqrt{-g} \left[  \frac{1}{2} F(\varphi, R) - \frac{1}{2} K(\varphi) g^{\mu \nu}  \partial_{\mu}\varphi \partial_{\nu}\varphi 
+- U(\varphi)    \right]  \\
+& -\int \dx{4}{x} \sqrt{-g} \mathcal{L}^i_m (g_{\mu \nu} , \varPsi^i_m \zeta^{i}(\varphi)) \quad ,
 $
-where in the case of universal coupling, all matter species ``feel`` the same metric $g$, which is the one
-appearing in the gravitational 
-part of the action and doesn't contain any function of $\varphi$.
+where an index $i$ in the matter sector stands for each of the matter species in the Universe. 
+In the case of universal coupling, all matter species ``feel`` the same metric $g$, 
+ and are are coupled in the same way to the scalar field, through the function
+ $\zeta^{i}(\varphi)$. 
 In this frame, the Ricci scalar is non-minimally coupled to the field $\varphi$ through a function $F(R, \varphi)$ and, in general, 
 can also contain a potential term for $\varphi$ with an extra function $K(\varphi)$ multiplying the kinetic term of the scalar field.
 Matter particles follow the standard geodesics of GR and the energy momentum tensor of the matter species is covariantly conserved.
-The interaction between matter and the scalar field, occurs purely through the interaction with $g$.
 
 We can relate the Jordan to the Einstein frame, by doing a conformal transformation of the metric $g$, where
 this transformation is defined as:
@@ -139,19 +140,40 @@ $
 Then, the scalar-tensor action in the `Einstein-frame` takes the following form:
 \beeqc$\label{eq:einstein-frame-action}
 \mathcal{S} = \int \dx{4}{x} \sqrt{-\tilde{g}} \left[  \frac{1}{2} \tilde{R} - \frac{1}{2} \tilde{g}^{\mu \nu}  \partial_{\mu}\phi \partial_{\nu}\phi 
-- V(\phi)    \right] - \int \dx{4}{x} \mathcal{L}_m (\hat{g}^{(i)}_{\mu \nu} , \varPsi_m^{(i)} )
+- V(\phi)    \right] - \int \dx{4}{x} \mathcal{L}^i_m (\tilde{g}^{(i)}_{\mu \nu} , 
+\varPsi_m^{(i)} \tilde{\zeta}^{i}(\phi) )
 $
-where a tilde, stands for the conformally transformed quantities.
-Generally, each matter species $\varPsi_m^{(i)}$ could be coupled to a different "effective" metric $\hat{g}^{(i)}_{\mu \nu}$.
-In the case of universal coupling (see \cref{sec:universal-coupling} below), all metrics would be identical $\hat{g}^{(i)} = g^{(i)}$. \todo{change this g hat thing
-and rewrite the formalism}
-If there is non-universal coupling (see \cref{sec:nonuniversal-coupling} below) the coupled matter species with index $j$,
-would interact with a ``Jordan-frame`` metric: $\hat{g}^{(j)} = g$, while the uncoupled matter species with index $k$, would still  
-feel the conformally transformed ``Einstein-frame`` metric:  $\hat{g}^{(k)}=\tilde g$. The Einstein frame is defined as the 
+where a tilde stands for the conformally transformed quantities.
+In the case of universal coupling (see \cref{sec:universal-coupling} below), all matter species would couple to the same function $\tilde{\zeta}^{i}(\phi)$. 
+If there is non-universal coupling (see \cref{sec:nonuniversal-coupling} below) each species would
+have a different function $\tilde{\zeta}^{i}(\phi)$ or be totally uncoupled from the
+field with $\tilde{\zeta}^{i}(\phi) = 1$. 
+The Einstein frame is defined as the 
 frame in which the gravitational part of the action looks standard, since the Ricci scalar appears without multiplicative factors.
 In this formulation, the energy-momentum $T^{(m)}_{\mu \nu}$ of the coupled matter species is not conserved, but rather
 the sum of the energy momentum tensor of matter and the scalar field $T^{(m+\phi)}_{\mu \nu}$ is the conserved quantity.
+
+For non-relativistic particles this field dependent function $\zeta(\phi)$ can be also absorbed into the mass $m=m(\phi)$, giving rise to particles with varying mass, as we will see below.
+This field dependent mass can also be linked to an extra "fifth-force", 
+with a coupling strength $Q$
+defined by:
+\beeqc$\label{eq:definition-of-coupling-Q}
+Q(\phi) \equiv -\frac{1}{2}\frac{\partial \ln f}{\partial \phi}
+$
+where, in these theories, the function $F$ above takes the form: $F(\varphi, R) = f(\varphi)R-2U(\varphi)$, with
+$f$ and $U$ are free functions of the field.
+To go from the Jordan frame action \cref{eq:jordan-frame-action} to the Einstein frame action
+\cref{eq:einstein-frame-action} and at the same time keep a \emph{canonical} kinetic term,
+($1/2 \nabla^2 \phi$), a field redefinition has to be performed:
+\beeq$
+\phi = \int \dx{}{\varphi} \sqrt{(3/2)(f_{,\varphi}/f)^2 + K/f}
+$
+where the potentials $U$ and $V$ are related by $V = U/f^2$.
+
+
 For non-universal coupling, we will see two examples of theories formulated in the Einstein frame in \cref{sub:CDE} and \cref{sub:GNQ}.
+In \cref{sub:CDE} we will see an example of a constant coupling and in \cref{sub:GNQ} we will see an example of a field-dependent coupling, 
+giving rise to very different phenomenologies.
 
 For conformally-invariant theories (those theories in which null-geodesics are not modified by conformal transformations), the conformal factor
 just depends on the scalar field and can be written as $\Omega^2(\varphi)=\exp(2\varphi)$. 
@@ -159,20 +181,9 @@ This can be seen by performing the transformation $g \rightarrow e^{2\varphi} g$
 observing that, at first order in the
 scalar field and the gravitational potentials, $\Phi \rightarrow \Phi-\varphi$ and $\Psi \rightarrow \Psi+\varphi$, leaving 
 the Weyl (lensing) potential $\Phi_{\rm Weyl} = (1/2)(\Psi + \Phi)$ invariant.
-Therefore, in these theories, the function $F$ takes the form: $F(\varphi, R) = f(\varphi)R-2U(\varphi)$, where
-$f$ and $U$ are free functions of the field.
-For these theories to maintain a \emph{canonical} kinetic term ($1/2 \nabla^2 \phi$) in the Einstein frame, a field redefinition has to be done:
-\beeq$
-\phi = \int \dx{}{\varphi} \sqrt{(3/2)(f_{,\varphi}/f)^2 + K/f}
-$
-and the potentials $U$ and $V$ are related by $V = U/f^2$.
-Furthermore, particles will in general feel an extra "fifth-force", with a coupling strength $Q$
-defined by:
-\beeqp$\label{eq:definition-of-coupling-Q}
-Q(\phi) \equiv -\frac{1}{2}\frac{\partial \ln f}{\partial \phi}
-$
-In \cref{sub:CDE} we will see an example of a constant coupling and in \cref{sub:GNQ} we will see an example of a field-dependent coupling, 
-for two very distinct non-universally coupled theories.
+These theories are interesting, since they do not affect gravitational lensing observations,
+but still can provide interesting non-standard features in the clustering of matter.
+
 
 We have to emphasize that physical measurable quantities have to be frame-independent by definition,
 since this frame transformation amounts to nothing more than a coordinate and field redefinition 
@@ -185,39 +196,39 @@ the theory is invariant under general coordinate transformations.
 
 Scalar-tensor theories with universal coupling written in the Jordan frame \cref{eq:jordan-frame-action}, 
 encompass many of the most widely studied dark energy and modified gravity models in the literature. 
-For example, $f(R)$ theories \cite{cite, many, f(R), theories} are recovered when $F(R,\varphi) = f(R)$ and $K=0$;
-Brans-Dicke theory \cite{cite Brans Dicke, and, many, others} is recovered when $F(R,\varphi) = \varphi R $ and 
+For example, $f(R)$ theories \cite{de2010f} are recovered when $F(R,\varphi) = f(R)$ and $K=0$;
+Brans-Dicke theory \cite{brans1961mach} is recovered when $F(R,\varphi) = \varphi R $ and 
 $K(\varphi) = \omega_{BD}/\varphi$, where $\omega_{BD}$ is the Brans-Dicke parameter and finally "k-essence" 
-\cite{cite, Luca, and, some, kessence} is the case in which $F(R,\varphi) = R$ and $K$ can be a general
+\cite{armendariz2001essentials} is the case in which $F(R,\varphi) = R$ and $K$ can be a general
 function of $\varphi$ and its kinetic term $(\nabla \varphi)^2$. 
 
 There are also other theories of modified gravity with a scalar field, that are not encompassed in the set of "scalar-tensor"
-theories and that have gained a lot of attention recently. Namely, Galileons \cite{cite}, Horndeski \cite{cite} 
-and Beyond-Horndeski theories \cite{cite}. 
+theories and that have gained a lot of attention recently. Namely, Galileons \cite{deffayet2011k}, Horndeski \cite{deffayet2013formal} 
+and Beyond-Horndeski theories \cite{gleyzes2015exploring}. 
 These theories are universally coupled to matter, are formulated
 in the Jordan frame and cannot be expressed in the Einstein frame by a conformal transformation, since they contain much more complicated
-derivative interactions, for example free functions of $\Box \varphi$ (see \cite{cite Zuma, Defayyet, Sawicki, Bellini}).
+derivative interactions, for example free functions of $\Box \varphi$ (see \cite{zumalacarregui2014transforming}), where the ``box operator`` is defined as $\Box \equiv g^{\munu}\partial_{\mu}\partial_{\nu}$.
 
-Horndeski's theory is an interesting case, since it is the most general theory of 
+Horndeski's theory \cite{horndeski_original} is an interesting case, since it is the most general theory of 
 a scalar field coupled to a metric, with second order equations of motion and free of ghost instabilities. 
-This theory was first formulated by Horndeski in the 1970's \cite{Horndeski}, in a purely mathematical way and was re-discovered by \cite{Defayett}
-and others only in 2011 in the context of Galileon scalar fields. The simplest Galileon model, the so-called cubic Galileon, has a Lagrangian of the form:
+This theory was first formulated by Horndeski in the 1970's \cite{horndeski_original}, in a purely mathematical way and was re-discovered by \cite{deffayet2013formal}
+and others, at the beginning of the present decade, in the context of Galileon scalar fields. The simplest Galileon model, the so-called cubic Galileon, has a Lagrangian of the form:
 $\mathcal{L} \propto R/2 - (\partial \varphi)^2 - (1/\Lambda_3)\Box \varphi (\partial \varphi)^2$, 
 where $ \Lambda_3 $ is a free scale that can be set in the theory. The term Galileons, comes from the fact that
 these theories are the more general theories, which are invariant under a general Galiliean transformation of the field $\varphi \rightarrow \varphi + b_\mu x^\mu +c$.
 Beyond-Horndeski theories are extensions of Horndeski that have higher than second order equations of motion, when expressed 
 in the Newtonian gauge, but where the propagating scalar degree of freedom still obeys second order differential equations, avoiding
 instabilities, see
-\cite{cite Langlois, Gleyzes, Zuma} for more details on this.
+\cite{gleyzes2015exploring} and \cite{zumalacarregui2014transforming} for more details on this direction of research.
 
 For the purposes of this work, we will now detail one of the oldest models of Dark Energy, namely
-the Quintessence model \cite{Ratra-Peebles; Christof} and its extension
+the Quintessence model \cite{ratra_cosmological_1988, wetterich_cosmology_1988} and its extension
 Coupled Quintessence introduced by \cite{Amendola_2000}.
 
 Later on we will deal with general modifications of gravity, whose
 effect on structure formation can be parameterized by two functions of
 scale and time. Finally we will shortly explain one of the most general approaches
-to construct theories of modified gravity; the so-called Effective Field Theory of Dark Energy (EFToDE).
+to construct theories of modified gravity at linear order; the so-called Effective Field Theory of Dark Energy. We will show also its connection to Horndeski's theory.
 
 \subsection{Quintessence \label{sub:quintessence}}
 
@@ -225,7 +236,7 @@ The Quintessence model
 %, which takes its name from the Latin word for "fifth element"
 %is one of the oldest models of Dark Energy. It 
 was introduced by several authors almost 30 years
-ago \mcite{Wetterich_1988, Ratra, references in Lucas, book},
+ago \cite{ratra_cosmological_1988, wetterich_cosmology_1988},
 motivated by studying the 
 breaking of scale invariance, which could give rise to a dynamical cosmological constant.
 Its Lagrangian is of the form \cref{eq:jordan-frame-action}, with
@@ -236,13 +247,13 @@ straightforwardly from the energy-momentum tensor of a perfect fluid in a FLRW b
 &\rho_{\varphi} = -T^{0 (\varphi)}_0 = \frac{1}{2}\dot\varphi^2 + U(\varphi) \quad 
 &p_{\varphi} = \frac{1}{3} T^{i (\varphi)}_i = \frac{1}{2}\dot\varphi^2 - U(\varphi) \quad ,
 \end{align}
-which yields the equation of state (cf. \cref{eq.1stchap}) as
+which yields the equation of state:
 \beeqp$
 w_\varphi  = \frac{p_{\varphi}}\rho_{\varphi} = \frac{\dot\varphi^2 - U(\varphi)}{\dot\varphi^2 + U(\varphi)}
 $
-We can see that for obtaining the required behavior of $w\approx -1$ at late times, to fit 
+We can see that for obtaining the required behavior of $w\approx -1$ at late times, in order to fit 
 the observations of the expansion of the Universe, we need that the kinetic term $\dot\varphi^2$
-is much smaller than the potential term $U$.
+becomes much smaller than the potential term $U$.
 From the continuity equation for a perfect fluid or from the variation of the action with respect to $\varphi$,
 we can find the Klein-Gordon equation for this field:
 \beeqp$
@@ -258,7 +269,7 @@ at late times, which yields cosmic acceleration with $w_\varphi \approx -1+\xi$.
 The parameter $\xi$ is a combination of parameters entering the potential function $U(\varphi)$ and allows
 to distinguish Quintessence from a simple cosmological constant at present time.
 The most studied potentials are the exponential potential $U(\varphi) = U_0\exp(-\lambda \varphi)$ 
-(see \cite{cite copeland, wetterich}), where $\lambda$ is a free parameter
+(see \cite{copeland_exponential_1998}), where $\lambda$ is a free parameter
 and the inverse power-law potential $U(\varphi) = M^{4+n} \varphi^{-n}$,
 where $M$ is a mass scale of the theory.
 
@@ -281,7 +292,7 @@ $
 where, with $H_0 \approx 10^{-42} \mathrm{GeV} $, we get a mass scale of $M \approx 10^{-1} \mathrm{GeV}$
 for $n=2$, which is a scale compatible with Standard Model particles.
 Moreover, to satisfy the requirement of acceleration today, 
-the slow-roll condition (analogous to the one in inflation \mcite{cite infl}) must satisfy 
+the slow-roll condition (analogous to the one in inflation \cite{bartolo_non-gaussianity_2004}) must satisfy 
 $ \frac{M_{Pl} V_{,\varphi \varphi}}{V(\varphi_0)} \lessapprox 1$.
 Defining the mass of the scalar field $m_\varphi$ as the second derivative of the potential with respect to the field,
 $m^2_\varphi \equiv  V_{,\varphi \varphi} $, yields a condition for the scalar field mass:
@@ -290,9 +301,8 @@ m_\varphi \lessapprox H_0 \approx 10^{-33} \mathrm{eV}
 $
 So in order to be compatible with observations, 
 the scalar field mass must be extremely small.
-This could cause a problems for these models,
-since this small mass is maybe not stable under radiative corrections
- \mcite{Kolda, Lyth, Wetterich}.
+This could cause problems for quintessence models,
+since the stability of such small masses is not always guaranteed under radiative corrections \cite{kolda1999quintessential}.
 
 \subsection{Coupled Quintessence \label{sub:CQ}}
 
@@ -322,7 +332,7 @@ can yield a model compatible with observations as we will see below for the Coup
 
 If all matter fields are coupled, then some screening mechanism
 has to be invoked in order to pass the stringent Solar System and local gravity constraints.
-One possibility is the chameleon mechanism \cite{cite refs, in, Lucas book} , which
+One possibility is the chameleon mechanism (see the book by \citetitle{amendola_dark_2010}, for a comprehensive review), which
 is a coupled quintessence field whose effective potential (and therefore its effective mass)
 changes according to the environment it is in.
 These kind of theories can arise from an action like in \cref{eq:jordan-frame-action},
@@ -343,8 +353,8 @@ adding a scalar field with an kinetic term, a coupling and a potential without a
 of which terms are allowed or not.
 Recently, there have been substantial efforts by many authors to build an effective field theory 
 of dark energy and modified gravity that encompasses all possible terms that are allowed 
-in the action at second order (see \cite{Gubitosi2013, gleyzes, bloomfield}). Considering only one extra dynamical
-scalar field and under the symmetries of homogeneity and isotropy and respecting the Weak Equivalence Principle,
+in the action at second order (see \cite{Gubitosi2013, Gleyzes2016, bloomfield_dark_2013}). Considering only one extra dynamical
+scalar field, respecting the symmetries of homogeneity and isotropy and following the Weak Equivalence Principle (WEP),
 this theory can be uniquely formulated. Its action in the Jordan frame (and written in conformal time $\tau$) takes the form:
 \begin{align}\label{eq:EFT-action}
 \begin{split}
@@ -358,7 +368,7 @@ S ={}& \int \dx{4}{x} \sqrt{-g} \left[ \frac{M_{Pl}^2}{2} [1 + \Omega(\tau)] R +
 \end{align}
 To construct this action, the spacetime has been foliated (similarly to the 3+1 ADM decomposition) into a time direction
 and spatial hypersurfaces that coincide with the uniform scalar field hypersurfaces (this is the so-called unitary gauge). 
-The preferred time direction is then (c.f. \cite{gubitosi})
+The preferred time direction is then (c.f. \cite{Gubitosi2013})
 \beeqc$
 n_\mu \equiv -\frac{\partial_{\mu}\phi}{\sqrt{-(\partial \phi)^2}}
 $
@@ -373,12 +383,12 @@ $\{\Omega(\tau), \Lambda(\tau), c(\tau), M_{2}^4 (\tau), \bar{M}_{1}^3 (\tau), \
 This theory encompasses all theories of an extra dynamical scalar field, which respect the WEP.
 At the linear level in perturbations, it includes the Horndeski theory (mentioned above in \cref{sec:universal-coupling}) 
 and also theories which go beyond second order equations of motion (in the Newtonian gauge), also called
-Beyond-Horndeski theories (see \cite{Gleyzes2016, Piazza, Bellini})
+Beyond-Horndeski theories (see \cite{gleyzes2015exploring})
 
 Since these theory involves many free functions, we need to choose a parametrization for each of them and 
 we need to take some simplifying assumptions in order to be able to constrain this theory with data.
 Recently, a code capable of calculating the linear Einstein-Boltzmann system of equations for the EFT formalism
-has been made public, the so-called \textsc{EFTCAMB} (\cite{Hu, Raveri, Silvestri}), which is based 
+has been made public, the so-called \textsc{EFTCAMB} (\cite{hu_effective_2014, hu_eftcamb/eftcosmomc:_2014-2}), which is based 
 on the widely used \textsc{CAMB} code by\cite{lewis_efficient_2000}. 
 We will use this code to calculate the observables which we will 
 implement into our Fisher forecast in \cref{sec:EFT-forecasts}.
@@ -386,13 +396,13 @@ implement into our Fisher forecast in \cref{sec:EFT-forecasts}.
 Furthermore, we will use the assumptions taken in \cite{planck_collaboration_planck_2016} in order to simplify
 the theoretical modeling.
 If we assume a $\lcdm$ background, and choose freely a function
-$\Omega(\tau)$, the functions $\Lambda(\tau) \textrm{ and } c(\tau)$ are then fixed \cite{cite Hu 2014}.
+$\Omega(\tau)$, the functions $\Lambda(\tau) \textrm{ and } c(\tau)$ are then fixed \cite{hu_effective_2014}.
 Furthermore, we will impose $ m^2_2(\tau) = 0$ and $ \bar{M}_2^2 (\tau) = - \bar{M}_3^2 (\tau)$,
 which eliminates models which contain third-order spatial derivatives.
 Now we just have 5 free functions of time and a function specifying the background cosmology $H(\tau)$.
 These free functions of time can be mapped to the Bellini-Sawicki $\alpha_i (\tau)$ 
-functions (see \cite{bellini-sawicki}),
-which fully specify the evolution of Horndeski models, by the following relations:
+functions (see \cite{bellini_maximal_2014}),
+which fully specify the evolution of Horndeski models at linear order in perturbation theory. The following relations between the EFT functions and the $\alpha$ functions hold:
 \beeqal$ \label{eq:EFT-funcs}
 \begin{split}
 M_{*}^2 (\tau) & = M_{Pl}\Omega(\tau) + \bar{M}_2^2 (\tau) \\
@@ -408,7 +418,7 @@ These $\alpha_i$ functions are much easier to interpret physically than the EFT 
 
 The first four $\alpha_i$ functions, $\alpha_M$, $\alpha_K$,
 $\alpha_B$ and $\alpha_T$  describe fully the physics
-of linear perturbations in Horndeski's theory (see \cite{bellini, sawicki}).
+of linear perturbations in Horndeski's theory (see \cite{bellini_maximal_2014}).
 For instance, $\alpha_M$ (\emph{mass run rate}) is the rate of change of the effective Planck mass, 
 produces anisotropic stress; $\alpha_K$ (\emph{kineticity}) is present in Quintessence (\cref{sub:quintessence}) models, 
 but also in models where the scalar field has a non-zero sound speed, like k-essence models;
@@ -424,8 +434,8 @@ which can be compared easier with Large-Scale-Structure observations.
 In the previous sections we have seen how to construct Dark Energy and Modified Gravity theories 
 which have an extra scalar degree of freedom, besides the Einstein-Hilbert term and the matter and radiation species.
 As we have seen, one can successfully construct the most general theory of this kind, by either imposing
-some conditions on the equations of motion and the stability of the theory (as in Horndeski \cite{horndeski}) or by considering all
-possible terms allowed by symmetries in the second order action (see \cite{creminelli, gubitosi, gleyzes}).
+some conditions on the equations of motion and the stability of the theory (as in Horndeski theories) or by considering all
+possible terms allowed by symmetries in the second order action (as in EFT).
 
 However, for observations, these general theories are not so practical, since there is not enough data to constrain
 all the free functions in the Lagrangian. What we really can observe with Galaxy Clustering and Weak Lensing 
@@ -497,8 +507,7 @@ Throughout this work, we will denote the standard Lambda-Cold-Dark-Matter ($\Lam
 defined through the Einstein-Hilbert action with a cosmological constant, simply as Einstein-GR, where $\mu=\eta=\Sigma=1$. 
 If only $\mu$ deviates from unity at late times,
 it indicates either Modified Gravity or just a Dark Energy field that clusters.
-If $\eta$ deviates from unity, it is an indication for Modified Gravity models, according to our definitions above 
-(see \cite{Joyce, Lombrisier}).
+If $\eta$ deviates from unity, it is an indication for Modified Gravity models, according to our definitions above \cref{fig:DE-vs-MG-WEP-SEP}, based on \cite{joyce_dark_2016}.
 
 
 Using effective quantities like $\mu$ and $\eta$ has the advantage
@@ -611,7 +620,7 @@ The energy fraction of Dark Energy and that of Dark Matter are of the same
 order of magnitude only for a very short period of time in cosmological time scales and that time is precisely
 now when we are capable of making observations. This introduces the question if this is just a coincidence or 
 if somehow Dark Energy and Dark Matter are connected beyond simple gravitational physics.
-Therefore a natural way of alleviating this "coincidence problem" issue (which we reviewed in \cref{subsub:coinc-problem})
+Therefore a natural way of alleviating this "coincidence problem" issue (which we discussed in \cref{sub:CC-problem})
 is to imagine there is a coupling in the dark sector or some mechanism that connects the onset of non-linear 
 structure formation to the epoch of accelerated expansion of the Universe. As we will see, the coupling to baryons 
 is extremely well constrained by solar system and galactic observations and therefore a coupling to baryons 
@@ -657,9 +666,9 @@ and therefore $\beta^{2}=-3\bar{\gamma}/8$. A coupling $\beta_{\rm baryons}^{2}$
 appears then constrained to be smaller than $10^{-5}$ roughly, and
 we assume therefore that is completely negligible. As a consequence,
 baryons follow the usual geodesics of a FLRW cosmology, which allows
-coupled DE to pass the stringent local gravity constraints without
-the need to employ any screening mechanism \citep{2015arXiv150203888H}, 
-\mcite{Koury, screening, see Planck}.
+coupled DE to pass the stringent local gravity constraints without 
+the need to employ any screening mechanism \cite{hamilton_atom-interferometry_2015}, 
+\cite{khoury2010theories, bloomfield2015shape}.
 
 The background evolution for the coupled DE scenario model is described
 by the following equations, in which the subscripts $r$, $b$, $c$
@@ -733,7 +742,7 @@ explains the end of a cosmological scaling solution (in which dark
 energy scales as the dominant background) and the subsequent transition
 to a dark energy dominated era by the growing mass of neutrinos, induced
 by the change of the value of the cosmon field which is responsible
-for dynamical dark energy. \todo{add the m-nu argument w=-1+12 ev}
+for dynamical dark energy. 
 The dependence of the mass of neutrinos
 on the cosmon (dark energy) field $\phi$, 
 \begin{equation}

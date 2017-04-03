@@ -28,10 +28,10 @@ our galaxy and that these objects were receding away from us.
 %based on General Relativity, was developed by Lema\^{\i}tre, Friedmann, and Einstein himself among other
 %notable scientists.
 
-One century later, General Relativity has passed numerous very stringent tests; from laboratory experiments (\cite{cite}) , to
-low orbit tests (\cite{cite}) and solar system tests (\cite{cite}), to pulsar timing tests and the recent
-exciting first detection of gravitational waves (\cite{cite}).
-It is impressive that a theory that was formulated on the grounds of some very basic
+One century later, General Relativity (GR) has passed numerous very stringent tests; from laboratory experiments \cite{dimopoulos2007testing} , to
+low orbit \cite{iorio2003impact} and solar system tests \cite{bertotti_test_2003}, to constraints from pulsar timing \cite{kramer2006tests} and the recent
+exciting first detection of gravitational waves by the LIGO/VIRGO collaboration \cite{abbott2016observation}.
+It is impressive that a theory that was formulated on the grounds of some very fundamental
 principles, has proven to be so accurate across several orders of magnitude in scales.
 
 In \cref{sec:GR-framework} we will review the main principles and the mathematical 
@@ -39,13 +39,16 @@ formulation of General Relativity, its field equations and
 its linearized Newtonian limit.
 In \cref{sec:Standard-LCDM} we will deal with the composition of the Universe,
 its evolution and the standard cosmological scenario.
-To explain the accelerated expansion of the Universe, which was observationally verified almost 20 years ago,
-(\cite{cite, supernova, 1998}), Einstein's General Relativity needs to be supplemented with a Cosmological Constant (known as CC or $\Lambda$). Despite the fact that $\Lambda$ is allowed by the classical theory, as was proven by Lovelock in the 1970's (see \cref{sec:GR-framework}) and 
-it fits very well present cosmological observations (\mcite{Planck 2015}), it
-possesses many unsatisfactory properties from the theoretical point of view. 
-We will review the Cosmological Constant problem in \cref{sub:CC-problem} below.
 
-A popular alternative to the cosmological constant is to introduce an extra dynamical degree of freedom, which is able to explain the present acceleration of the Universe and its apparent dominance at late cosmological times, but which can lead 
+Despite the successes of standard GR, there is one extra ingredient that has to be added to explain the observations at the largest scales of the Universe.
+To account for the accelerated expansion of the Universe, which was observationally verified almost 20 years ago,
+(\cite{riess1998observational,perlmutter1999measurements}), Einstein's General Relativity needs to be supplemented with a Cosmological Constant (known as CC or $\Lambda$).
+Even taking into account the fact that $\Lambda$ is allowed by the classical theory, as was proven by Lovelock in the 1970's \cite{lovelock1971einstein} (see \cref{sec:GR-framework}) and 
+it fits well present cosmological observations \cite{planck_collaboration_planck_2016-2}, it
+possesses many unsatisfactory properties from the theoretical point of view. 
+We will review the problems associated to the Cosmological Constant in \cref{sub:CC-problem} below.
+
+A popular alternative to the cosmological constant is to introduce an extra dynamical degree of freedom, which is able to explain the present acceleration of the Universe and its apparent dominance at late cosmological times. Many of these models can also lead 
 to modifications of gravitational structure formation at small and large scales. This will
 be the main topic of this chapter and will be covered in \crefrange{sec:DE-MG-sec}{sec:nonuniversal-coupling}.
 
@@ -95,8 +98,8 @@ form, they can be obtained by varying the so-called Einstein-Hilbert action
 S = \frac{1}{16 \pi G} \int \textrm{d}x^4 \sqrt{-g}\left( R - 2\Lambda + \mathcal{L}_m \right) \quad 
 \end{equation}
 with respect to the metric $g_{\mu \nu}$.
-Here, $R=R^\mu_\nu$ is the Ricci scalar and $R^\munu$ is the Riemann tensor (see standard GR textbooks like \cite{wald} for its definition), 
-which are functions of derivatives of the metric. The volume element is defined as $\textrm{d}x^4 \sqrt{-g}$, where
+Here, $R=R^\mu_\mu$ is the Ricci scalar and $R^\munu$ is the Riemann tensor (see standard GR textbooks like the \citet{wald2010general}, for a thorough definition of these terms), 
+both of them which are functions of derivatives of the metric up to second order. The volume element is defined as $\textrm{d}x^4 \sqrt{-g}$, where
 $\sqrt{-g}$ is the square root of the determinant of the metric.
 Furthermore, the cosmological constant is $\Lambda$, the gravitational constant is $G$ and $\mathcal{L}_m $ is the Lagrangian of matter and radiation species.
 Then the variation ($\delta S / \delta g_{\mu \nu} = 0$), yields the field equations:
@@ -110,17 +113,17 @@ T_\munu = -\frac{2}{\sqrt{-g}} \frac{\delta \mathcal{L}_m}{\delta g_\munu}
 $
 What \cref{eq:Einstein-field-equations} expresses is that geometry (and therefore the dynamics of the metric) is sourced by 
 the energy and momentum of the fields living on this manifold.
-As it was famously expressed by \cite{Misner, Wheeler, Gravitation}:
-"Matter tells space-time how to curve and space-time tells geometry how to move" .
+As it was famously expressed by \citet{misner1973gravitation}:
+"Matter tells space-time how to curve and geometry tells matter how to move" .
 
-Another important property of these field equations, is that due to a purely geometric property called the Bianchi identity, which
+Another important property of these field equations, is that due to a geometric property called the Bianchi identity, which
 states that the covariant divergence of the Einstein tensor is identically zero, 
 $\nabla_{\mu} G^\munu = 0$, 
-we can ensure that the energy-momentum tensor is locally conserved:
+we can ensure that the energy-momentum tensor is covariantly conserved:
 \beeqc$
 \nabla_{\mu} T^\munu = 0
 $
-therefore one recovers all the properties of classical and fluid mechanics.
+therefore, locally, one recovers all the properties of classical and fluid mechanics.
 
 %Einstein's field equations are very complicated to solve analytically in its full glory. They consist on
 %10 coupled non-linear partial differential equations.
@@ -135,8 +138,8 @@ therefore one recovers all the properties of classical and fluid mechanics.
 One might then ask if these field equations are unique, especially if as in our case, 
 we are interested in testing these equations at the very largest scales of the Universe and we might 
 be interested in modifying General Relativity in order to match current observations.
-Thanks to a theorem by Vermeil and Cartan (\cite{cite Vermeil, Cartan, 1921}) 
-and further simplified by Lovelock (\cite{1970, Lovelock}) we can state that in 4 dimensions,
+Thanks to a theorem by Vermeil and Cartan (\cite{pesic2003weyl}) 
+and further simplified by Lovelock (\cite{lovelock1971einstein}) we can state that in 4 dimensions,
 the only divergence-free, rank-2 tensor $\mathcal{G}$, which depends on at most second derivatives
 of the metric must be of the form:
 \beeqp$
@@ -185,7 +188,7 @@ while "Latin" indices run from 1 to 3 as in equations involving only spatial coo
 
 \subsection{The Friedmann equations \label{sub:Friedmann-eqs}}
 
-The FLRW metric \cref{eq:FLRW-full} due to its scale factor, which is dependent on time, implies immediately that the Universe can expand
+The FLRW metric \cref{eq:FLRW-full} due to its scale factor, which is dependent on time, implies immediately that the Universe has dynamics
 in its spatial coordinates. The equations describing the evolution
 of the scale factor are called the \emph{Friedmann} equations. To derive them,
 we need to introduce in the right hand side of Einstein's equations \cref{eq:Einstein-field-equations} an energy-momentum tensor of a perfect fluid:
@@ -285,10 +288,10 @@ From the Hubble function, one can obtain measurable
 cosmological distances to astrophysical objects and the
 the age and the size of the observable Universe.
 
-Since the Universe is expanding and we measure astrophysical objects using mainly electromagnetic radiation (except after 2016 \cite{cite LIGO}, 
-where Gravitational Wave Astronomy was born), it is important to define certain distances that can be measured in cosmological observations.
+Since the Universe is expanding and we measure astrophysical objects using only electromagnetic radiation (except after 2016 
+when Gravitational Wave Astronomy was born \cite{abbott2016observation}), it is important to define certain distances that can be measured in cosmological observations.
 Light follows null-geodesics, so that under an FLRW metric as in \cref{eq:FLRW-full}, 
-light satisfies the equation:
+null-like particles satisfy the equation:
 \beeqc$
 - c dt^2 + a^2 (t) d\varsigma^2 = 0 
 $
@@ -352,20 +355,21 @@ $
 which is $10^{121}$ larger than the value found above in \cref{eq:rho-Lambda}. 
 This is the famous ``fine-tuning`` problem: If we want to reconcile the measured 
 value of $\Lambda$ with the expected vacuum energy provided by quantum fields, 
-there has to be a cancellation which is exact to 120 orders of magnitude.\todo{Review this according to Javi}
+there has to be a cancellation which is exact to 120 orders of magnitude.
+\done\todo{Review this according to Javi}
 
 However, we must stress here again that the result in \cref{eq:rho-vac-rough} 
 is a very rough calculation
 that does not consider the symmetries of the problem and does not respect the equation of state
 of vacuum energy: doing the above rough calculation also for the pressure 
-would yield $\langle p_{\rm vac} \rangle / \langle \rho_{\rm vac} \rangle  = 1/3$, instead of the expected $w=-1$ (see \mcite{Jerome, Martin}).
+would yield $\langle p_{\rm vac} \rangle / \langle \rho_{\rm vac} \rangle  = 1/3$, instead of the expected $w=-1$ (see \cite{martin_everything_2012}).
 Therefore, under a proper regularization scheme, the vacuum energy density is calculated to be 
 $\langle \rho_{\rm vac} \rangle \approxeq 10^{10} \mathrm{GeV}^4$, which is more or less "just"
-50 orders of magnitude larger than $\rho_{\Lambda}$ (see \mcite{Jerome, Martin}).
-Though this cancellation could be realized by different mechanisms, the problem is worse than that;
-the fine-tuning has to be performed at each subsequent order in quantum field perturbation theory (see the comprehensive review by \mcite{Jerome, Martin}). 
-One has to find a powerful symmetry that
-"screens" the vacuum energy from gravitating and affecting the Einstein's field equations.
+50 orders of magnitude larger than $\rho_{\Lambda}$ (see \cite{martin_everything_2012}).
+In the absence of a powerful symmetry able to cancel vacuum fluctuations, such as supersymmetry \cite{weinberg1982cosmological} or scale-invariance \cite{barrow2005exact}, this unnatural fine tuning has to be performed order by order in perturbation theory.
+This instability under radiative corrections, is the core of the Cosmological Constant problem 
+\cite{burgess2004quantum, martin_everything_2012}.
+
 
 \subsubsection*{The coincidence problem \label{subsub:coinc-problem}}
 
@@ -374,33 +378,33 @@ vacuum energy density, the value of $\Omega_{\Lambda}$ today is suspiciously clo
 value of $\Omega_m$, for no apparent reason, and this has been the case only very recently in cosmological time scales. The redshift at which both energy densities coincide ($z_{co}$) is:
 \beeqp$
 z_{co} = \left( \frac{\Omega_{\Lambda}}{1-\Omega_{\Lambda}}  \right)^{\frac{1}{3}} -1$
-(see \mcite{Luca, book}).
+(see \cite{amendola_dark_2010}).
 Therefore, for a value today of $\Omega_{\Lambda}=0.7$, the coincidence redshift is $z_{co}\approx 0.3$.
 This is indeed a very recent time and depends strongly on the ratio of $\Omega_{\Lambda}/\Omega_{m}$:
 if this ratio was just 10 times smaller or larger, we as observers would not measure accelerated expansion today.
 
 Several models have been proposed so far to deal with this apparent coincidence, for example
-Dark Energy models with tracker and scaling solutions (see \mcite{Luca, book}) in which $\rho_{DE}$ catches the trend of $\rho_{m}$ no matter which initial conditions have been chosen
+Dark Energy models with tracker and scaling solutions (see \cite{amendola_dark_2010}) in which $\rho_{DE}$ catches the trend of $\rho_{m}$ no matter which initial conditions have been chosen
 or where one constructs an equation of state for DE that changes just very recently in time.
 Other models try to link the onset of acceleration by connecting it with the evolution of non-linear
-structure formation, for example with backreaction effects (\mcite{Buchert}), 
-but these models have not been so successful so far.
+structure formation, for example through backreaction effects \cite{buchert2012backreaction}. 
+However, these models have not been able to fully explain the observations so far.
 
 In \cref{sub:GNQ} we will see how a coupling of the scalar field to the mass of neutrinos 
 could link the onset of acceleration to the neutrinos becoming non-relativistic and therefore
 it can alleviate the coincidence problem.
  
-Other scientists resort to the anthropic principle (\mcite{Luca, book, Weinberg})
+Other scientists resort to the anthropic principle \cite{weinberg1987anthropic, smolin2007scientific}
 and claim that for us observers to exist in a Universe with galaxies, stars and planets
 and to have evolved sufficiently to develop advanced civilizations, the Cosmological Constant
-can only have certain precise range of values \mcite{Weinberg}. While it is true that these constraints are applicable
+can only have certain precise range of values \cite{weinberg1989cosmological, weinberg1987anthropic}. While it is true that these constraints are applicable
 to our case, this explanation is not widely accepted as a "physical" solution of the problem.
 
 
 \subsection{ Linearized Einstein Equations \label{sub:linearized-Einstein-eqs}}
 
 Since we observe non-homogeneities in the Universe around us, we need to go beyond
-the background description of General Relativity given by the Friedmann equation \ref{eq:H-of-z-Lcdm}.
+the background description of General Relativity given by the Friedmann equations \ref{eq:Friedmann-1st}-\ref{eq:Friedmann-2nd}.
 Observations of the CMB tell us that the initial fluctuations are small ---of the order of $10^{-5}$---
 and therefore we can split the metric $g_\munu$ in a background part $\bar{g}_\munu$ 
 and a perturbation part $\delta{g}_\munu$.
@@ -409,9 +413,9 @@ Introducing the conformal time $\mathrm{d}\tau = \dx{}{t}/a $ and using the FLRW
 background one, the perturbed metric can be written as:
 \beeqalsp$
 ds^{2} &= a^2(\tau) \left(-(1+2\Psi)d\tau^{2} + (B_{,i} + S_i)d\tau dx^i \right. \\
-       & \left. -  (-2\Phi \delta_{ij} + 2E_{,ij} + F_{i,j} + F_{j,i} + h_{ij}) \right)
+       & \left. -  (-2\Phi \delta_{ij} + 2E_{,ij} + F_{i,j} + F_{j,i} + h_{ij})  dx^i dx^j \right)
 $
-where \todo{add the dx dx} we have decomposed the metric into 4 scalar functions $\Phi$, $\Psi$,
+where we have decomposed the metric into 4 scalar functions $\Phi$, $\Psi$,
 $E$ and $B$, two vectors $F_i$ and $S_i$  and a tensor $h_{ij}$ perturbation.
 Moreover the vector perturbations satisfy the constraints $F^i_{,i} =0$ and 
 $S^i_{,i} =0$ (divergence-free) and the tensor perturbation satisfies the traceless
@@ -421,7 +425,7 @@ components, which are the same independent components that a (symmetric) metric 
 
 Vector perturbations decay very quickly and therefore are uninteresting in standard cosmology. Tensor
 perturbations describe gravitational waves, and though there is an increased interest in them due
-to gravitational wave detection \mcite{LIGO} and B-mode polarization in the CMB \mcite{Planck, BICEP},
+to gravitational wave detection \cite{abbott2016observation} and B-mode polarization in the CMB \cite{ade2015joint},
 we will not treat them in this work.
 
 Moreover, it can be shown that under a change of coordinates $x^\mu \rightarrow x^\mu + \xi^\mu$, there is still a gauge freedom that can be fixed and therefore only 6 degrees of freedom are really independent. In the following we will choose the \emph{conformal Newtonian gauge }, which is defined
@@ -433,7 +437,7 @@ studying structure formation in the Universe. In our chosen Newtonian gauge, we 
 ds^{2}=-(1+2\Psi)dt^{2}+a^{2}(1-2\Phi)dx^{2}\,\,\,,
 $
 where the potentials $\Phi$ and $\Psi$ are functions of time and 
-agree with the gauge invariant ``Bardeen`` potentials, since in this gauge: $ E = B = 0$ \mcite{Mukhanov Book}.
+agree with the gauge invariant ``Bardeen`` potentials, since in this gauge: $ E = B = 0$ ( see \citet{mukhanov2005physical}).
 Let us now decompose the energy-momentum tensor $T_\munu $ also into a 
 background ($\bar T$) and a perturbation part ($\delta T$):
 \beeqalsp$\label{eq:perturbed-Tmunu}

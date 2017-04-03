@@ -104,7 +104,7 @@ parallel or perpendicular to the line of sight.
 
 \subsection{The power spectrum}
 
-\todo{check units of delta}
+
 If density fluctuations are exactly linear, or they remain small ($\delta \ll 1$) so that they can be linearized,
 we will see that observations of the fluctuations at different scales, remain independent of each other. 
 We can see this more clearly if we work in Fourier space.
@@ -173,7 +173,7 @@ This in turn makes the data covariance matrix $\mathbf{C}$ in Fourier space not 
 
 \section{Likelihood and the Bayesian approach}
 
-\todo{add Kevins comments}
+\done\todo{add Kevins comments}
 The subject of Bayesian statistics is a very complex, but very important topic in modern
 statistics, data science and the physical sciences \cite{gregory2005bayesian}
 and it is outside of the scope of this work to try to even review its more fundamental properties.
@@ -187,7 +187,6 @@ that can give us the probability distribution $p(x^i | \theta^i)$ to find the va
 inside an interval $\Delta x$ for a specific measurement.
 Then what physicists are interested in, is in constraining the model parameters $\theta_i$ and try to find
 the set of parameters (or the model) that best explains the data.
-
 There are two possibilities of analyzing the results of that experiment, the \emph{frequentist}
 and the \emph{Bayesian} approach.
 
@@ -669,7 +668,7 @@ Euclid\footnote{http://www.euclid-ec.org/} is a European Space Agency medium-cla
 Its main goal is to explore the expansion history of the Universe and the evolution of large scale cosmic structures by measuring shapes and redshifts of galaxies, covering 15000$\text{deg}^2$ of the sky, up to redshifts of about $z\sim2$. 
 It will be able to measure up to 100 million spectroscopic redshifts which can be used for Galaxy Clustering measurements and 2 billion photometric galaxy images, which can be used for Weak Lensing observations (for more details, see \cite{amendola_cosmology_2013, laureijs_euclid_2011}). 
 We will use in this work the  Euclid Redbook specifications for Galaxy Clustering and Weak Lensing forecasts \cite{laureijs_euclid_2011}, 
-some of which are listed in Tables \ref{tab:GC-specifications} and \ref{tab:WL-specifications} and the rest can be found in the above cited references.
+some of which are listed in \cref{tab:GC-specifications} and \cref{tab:WL-specifications} and the rest can be found in the above cited references.
 
 \begin{table}[h]
 	\centering{}
@@ -713,7 +712,7 @@ In this thesis we will use for our forecasts only the specifications for the ELG
 
 
 
-\begin{table}[h]\label{tab:GC-specifications} 
+\begin{table}[h]
 	\centering{}
 	\begin{tabular}{|c|cccc|c|}
 		\hline 
@@ -732,6 +731,7 @@ In this thesis we will use for our forecasts only the specifications for the ELG
          {Specifications for
 		the spectroscopic
 		galaxy redshift surveys used in this work. The number density of tracers $n(z)$ and the galaxy bias $b(z)$, can be found for SKA in \cite{santos_hi_2015} and for DESI in reference \cite{desi_collaboration_desi_2016-1}.}
+	\label{tab:GC-specifications} 
 \end{table}
 
 
@@ -963,7 +963,7 @@ which involves derivatives of the observed power spectrum and an integral over w
 For each redshift bin $n$, the derivatives are evaluated at the center of each bin $\bar{z}_n$ and 
 at the fiducial values of the parameters. The total number of redshift bins is $N_b$.
 
-Let us first consider the derivatives of the observed power spectrum (see \cref{eq:obs-power-basic}) 
+Let us first consider the derivatives of the observed power spectrum, \cref{eq:obs-power-basic},
 with respect to a number $N_p$ of redshift-independent parameters, which we will
 denote $\theta_i$, where the index $i$ runs from 1 to $N_p$.
 These are parameters of the model which are fixed numbers like $n_s$, or are defined at redshift $z=0$, like $\Omega_m$.
@@ -987,7 +987,7 @@ considered a redshift-dependent parameter.
 
 \textbf{2. Chain Rule method:}
 
-The observed power spectrum (\cref{eq:obs-power-basic}) depends on 5 functions of the redshift, which we can 
+The observed power spectrum \cref{eq:obs-power-basic} depends on 5 functions of the redshift, which we can 
 call redshift-dependent variables.
 However, just three of them,  $H(z)$, $D_A (z)$ and $f(z)$ depend on the cosmological parameters
 $\theta_i$.
