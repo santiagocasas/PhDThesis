@@ -1258,7 +1258,7 @@ by using appropriate functions in the $\texttt{Wolfram Mathematica}$ language.
 \textbf{Combination:} 
 If we want to combine the Fisher matrix from an observation (or experiment) $A$
 with another Fisher matrix from experiment $B$, where both $F_A$ and $F_B$ have
-the same fiducial parameters and the same ordering, we just need to add the Fisher matrices together: $F_{A+B} = F_A + F_B$ and from $F_{A+B}$ we can obtain the combined contours and errors.
+the same fiducial parameters and the same ordering, we just need to add the Fisher matrices together: $F_{A+B} = F_A + F_B$ and from $F_{A+B}$ we can obtain the combined contours and errors. However, there is a caveat: this can only be done if the experiments $A$ and $B$ are statistically independent from each other. Otherwise, we have to take into account cross-correlations \cite{mohammad_group-galaxy_2015}.
 
 \textbf{Changing of parameter basis: }
 If our Fisher matrix $F$ was performed in the parameter basis $X^i$ and we want to change to a different parameter basis $Y^i$; for example
