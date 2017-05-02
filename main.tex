@@ -25,7 +25,7 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 %oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
-english, % ngerman for German
+german, english,% ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
@@ -72,7 +72,7 @@ headsepline, % Uncomment to get a line under the header
 \usepackage{outlines}
 
 \usepackage{rotating}
-
+%\usepackage[ngerman,english]{babel}
 %authoryear-comp
 \usepackage[backend=bibtex,citestyle=numeric, bibstyle=numeric,natbib=true,
 backref=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
@@ -146,7 +146,7 @@ backref=true]{biblatex} % User the bibtex backend with the authoryear citation s
 
 \subject{Cosmology} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
 \keywords{Cosmology, Dark Energy, Large Scale Structure, Galaxy Surveys} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
-\university{\href{http://www.uni-heidelberg.de/}{Ruprecht-Karls-Universität Heidelberg}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\university{\href{http://www.uni-heidelberg.de/}{Ruperto-Carola-University of Heidelberg}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{\href{http://www.thphys.uni-heidelberg.de}{Institut für Theoretische Physik}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{\href{http://www.thphys.uni-heidelberg.de/~cosmo}{Cosmology Group}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
 \faculty{\href{http://www.physik.uni-heidelberg.de/}{Fakultät für Physik und Astronomie}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
@@ -165,6 +165,112 @@ backref=true]{biblatex} % User the bibtex backend with the authoryear citation s
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	\begin{center}
+		
+%		\textsc{\LARGE \univname}\\[1.5cm] % University name
+%		\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+%		
+%		\HRule \\[0.4cm] % Horizontal line
+%		{\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
+%		\HRule \\[1.5cm] % Horizontal line
+		
+%		\begin{minipage}{0.4\textwidth}
+%			\begin{flushleft} \large
+%				\emph{Author:}\\
+%				\href{http://www.thphys.uni-heidelberg.de/~casas/}{\authorname} % Author name - remove the \href bracket to remove the link
+%			\end{flushleft}
+%		\end{minipage}
+%		\begin{minipage}{0.4\textwidth}
+%			\begin{flushright} \large
+%				\emph{Supervisor:} \\
+%				\href{https://valeriapettorino.wordpress.com/}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+%			\end{flushright}
+%		\end{minipage}\\[3cm]
+		
+		
+		\large 
+		\textit{Dissertation\\
+			submitted to the\\
+			Combined Faculties for the Natural Sciences and for Mathematics\\
+			of the} \\ 
+		\univname  \\
+		%\\[0.2cm]
+		\textit{for the degree of\\
+			Doctor of Natural Sciences}
+		 \\[14cm]
+		
+		%\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+		%\textit{in the}\\[0.4cm]
+		%\facname \\ \deptname % Research group name and department name
+		Put forward by\\[0.2cm]
+			\textit{Santiago Casas}\\[0.2cm]
+			born in: \textit{Bogotá} \\[0.2cm]
+			Oral examination: \textit{June 14, 2017}
+		%{\large \today}\\[4cm] % Date
+		%\includegraphics{Logo} % University/department logo - uncomment to place it
+		
+		\vfill
+	\end{center}
+\end{titlepage}
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+	\begin{center}
+		
+		%		\textsc{\LARGE \univname}\\[1.5cm] % University name
+		%		\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+		%		
+		%		\HRule \\[0.4cm] % Horizontal line
+				{\large \bfseries \ttitle}\\[0.4cm] % Thesis title
+		%		\HRule \\[1.5cm] % Horizontal line
+		\vfill 
+				\begin{minipage}{0.6\textwidth}
+					\begin{flushleft} \large
+						\emph{Referees:}\\
+					\end{flushleft}
+				\end{minipage}
+				\begin{minipage}{0.6\textwidth}
+					\begin{flushright} \large
+						Dr. Valeria Pettorino \\
+						Prof. Dr. Volker Springel \\
+					\end{flushright}
+				\end{minipage}\\[1cm]
+		
+		
+%		\large 
+%		\textit{Dissertation\\
+%			submitted to the\\
+%			Combined Faculties for the Natural Sciences and for Mathematics\\
+%			of the} \\ 
+%		\univname  \\
+%		%\\[0.2cm]
+%		\textit{for the degree of\\
+%			Doctor of Natural Sciences}
+%		\\[14cm]
+		
+		%\large \textit{A thesis submitted in fulfillment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+		%\textit{in the}\\[0.4cm]
+		%\facname \\ \deptname % Research group name and department name
+		%{\large \today}\\[4cm] % Date
+		%\includegraphics{Logo} % University/department logo - uncomment to place it
+	\end{center}
+\end{titlepage}
+
+
+
+
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -215,100 +321,124 @@ Doctor of Natural Sciences} \\[2cm]
 \end{center}
 \end{titlepage}
 
-%----------------------------------------------------------------------------------------
-%	DECLARATION PAGE
-%----------------------------------------------------------------------------------------
-
-\begin{declaration}
-\addchaptertocentry{\authorshipname}
-\label{declaration-author}
-\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
-
-\begin{outline} 
-\1 This work was done wholly or mainly while in candidature for a research degree at this University.
-\1 Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
-\1 Where I have consulted the published work of others, this is always clearly attributed.
-\1 Where I have quoted from the work of others, the source is always given. 
-With the exception of such quotations, this thesis is entirely my own work. \done\todo{Add list of papers}
-\1 Parts of this dissertation have been published in the following articles:
-\2 Casas, S., Amendola, L., Baldi, M., Pettorino, V. and Vollmer, A. \\
-   Fitting and forecasting coupled dark energy in the non-linear regime. \\
-   JCAP, 2016, 045 (2016).
-\2 Casas, S., Pettorino, V. and Wetterich, C. \\ 
-   Dynamics of neutrino lumps in growing neutrino quintessence. \\
-   Phys. Rev. D 94, 103518 (2016).
-\2 Casas, S., Kunz, M., Martinelli, M. and Pettorino, V. \\ 
-   Linear and non-linear Modified Gravity forecasts with future surveys. \\ Preprint: arXiv:1703.01271 [astro-ph, physics:gr-qc] (2017). \\
-   Submitted to the Journal: Physics of the Dark Universe, Elsevier.
-\end{outline}
-\vspace{1cm}
-\noindent Signed:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
- 
-\noindent Date:\\
-\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
-\end{declaration}
-
-\clearpage
 
 %----------------------------------------------------------------------------------------
 %	QUOTATION PAGE
 %----------------------------------------------------------------------------------------
 
-%\vspace*{0.2\textheight}
-%
-%\noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism.}\bigbreak
-%
-%\hfill Dave Barry
+\vspace*{0.2\textheight}
+%%%
+\noindent\enquote{\itshape Die Natur verbirgt ihr Geheimnis durch die
+Erhabenheit ihres Wesens, aber nicht durch List.}\bigbreak
+%%%
+\hfill A. Einstein
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
 
+\begin{otherlanguage}{german} 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-
-We investigate in this thesis the importance of non-linear structure formation on the 
-determination of cosmological parameters for models beyond the standard $\lcdm$ scenario.
-A major motivation therefore is the ability of future galaxy surveys to measure the positions
-and shapes of approximately $10^7$ galaxies and precisely determine their two-point correlation function, 
-or its equivalent in wavevector space, the galaxy power spectrum. 
-If one is capable to extract the information encoded in the power spectrum at small scales,
-one can gain a substantial constraining power on the parameters of the underlying theory.
-This dissertation considers different models beyond $\lcdm$:
-Coupled Dark Energy, Growing Neutrino Quintessence, Effective Field Theory, Horndeski theory
-and general phenomenological parameterizations of Modified Gravity. 
-In this work we study non-linear structure formation with a variety of different methodologies:
-fitting formulae, semi-analytic prescriptions based on the Halo model, resummation methods in 
-cosmological perturbation theory and specialized N-body simulations.
-In order to forecast how well future surveys are able to constrain the cosmological parameters,
-we use the Bayesian Fisher matrix formalism, for which we developed a code designed to handle
-Galaxy Clustering and Weak Lensing observables.
-We obtain new results on linear and non-linear forecasts for Modified Gravity parameterizations
-with next-generation surveys, namely Euclid, SKA and DESI.
-We also determine the best combination of redshift-binned Modified Gravity parameters constrained by these upcoming surveys.
-Furthermore, we present the first forecasts on Coupled Dark Energy performed with fitting formulae obtained from N-body simulations.
-In these forecasts we find that including non-linear scales improves by more than an order of 
-magnitude the constraints obtained with linear theory only.
-For the Growing Neutrino Quintessence model we use special non-Newtonian N-body simulations. With them we are able to show that this model presents different regimes for the dynamics of neutrino lumps and that the lump interactions induce a heating of the neutrino fluid. 
-Moreover, we obtain the non-linear corrections to the power spectrum in the case of Horndeski models assuming the quasistatic regime. To achieve this, we apply a resummation method for higher order perturbation theory, which had so far only been used within the standard cosmological model.
-The main message of this thesis is that non-linear structure formation has a significant impact on cosmology and if we want to discriminate between competing theories, using forthcoming data, 
-we need to take non-linearities into account and understand their implications.
-
-
+\begin{center}
+	\textbf{Nicht-lineare Strukturentstehung in Modelle für Dunkle Energie und modifizierte Schwerkraft}
+\end{center}
+Im Rahmen dieser Arbeit untersuchen wir die Relevanz der nicht-linearen Strukturentstehung zur Bestimmung von kosmologischen Parametern in Modellen jenseits 
+des Standard-$\lcdm$-Szenarios.
+Zukünftige Galaxiendurchmusterungen werden die Zwei-Punkt-Korrelationsfunktion von mehr als $10^7$ Galaxien sehr präzise messen können. 
+Die Gewinnung der in dieser Funktion kodierten Information auf kleinen Skalen ermöglicht die Eingrenzung des zugrundeliegenden kosmologischen Modells.  
+Dabei betrachten wir verschiedene Modelle jenseits $\lcdm$: CDE (Coupled Dark Energy), GNQ (Growing Neutrino Quintessence), EFT (Effektive Feldtheorie),
+Horndeski-Theorie und allgemeine phänomenologische Parametrisierungen für modifizierte Schwerkraft.
+Um die nicht-linearen Effekte in diesen Modellen zu analysieren, benutzen wir verschiedene Methoden: Anpassformeln,
+semi-analytische Präskriptionen, die auf dem Halo-Modell basieren, Resummationsmethoden für die kosmologische Störungstheorie und
+spezialisierte N-body-Simulationen.
+Um die Eingrenzungsstärke der Durchmusterungen der nächsten Generation (z.B. Euclid, SKA und DESI) vorherzusagen,
+haben wir einen Code entwickelt, der den Bayesschen Fisher-Matrix-Formalismus benutzt. Damit lassen sich die abgeleiteten Fehler in den Parametern berechnen, die durch den Gravitationslinseneffekt und durch die Beobachtung der Galaxien-Häufung gewonnen werden können.
+Wir untersuchen hinsichtlich der modifizierten Schwerkraft die Auswirkungen, die verschiedene Parametrisierungen und nicht-lineare Präskriptionen auf die Fisher-Prognosen
+haben. Damit erhalten wir die besten Kombinationen aus ``Redshift-binned''-Parametern, die in zukünftigen Experimenten gemessen werden können.
+Im ``Coupled Dark Energy''-Szenario führen wir die ersten Prognosen durch, in denen die Anpassformeln aus N-body-Simulationen verwendet werden.
+Dabei zeigt sich, dass nicht-lineare Skalen die Eingrenzungen um mehr als eine Größenordnung im Vergleich zu den linearen Prognosen verbessern.
+Im GNQ-Modell benutzen wir nicht-Newtonsche N-body-Simulationen, um die verschiedenen Strukturen der Dynamik von Neutrinoklumpen zu untersuchen.
+Wir zeigen, dass es in diesem Modell realisierbare Kosmologien gibt und dass die Wechselwirkungen der Klumpen eine Erhitzung der Neutrino-Flüssigkeit induzieren. 
+Abschließend untersuchen wir die nicht-linearen Korrekturen am Leistungsspektrum im Falle der Horndeski-Theorie unter Berücksichtigung der quasistatischen Annahme.
+Um das zu erreichen, verwenden wir eine Resummationsmethode für Störungstheorien höherer Ordnung, die bislang nur im kosmologischen Standardmodell eingesetzt wurde.
+Die Hauptthese dieser Dissertation ist, dass die nicht-lineare Strukturenstehung einen signifikanten Einfluss auf die Schätzung der kosmologischen
+Parameter hat.
+Wenn wir unter Einbeziehung der zu erwartenden Daten aus den konkurrierenden Theorien auswählen wollen, müssen wir Nicht-Linearitäten 
+und ihre Implikationen berücksichtigen.
 
 \end{abstract}
+\end{otherlanguage}
+
+\begin{abstract}
+	\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+\begin{center}
+	\textbf{Non-linear structure formation in models of Dark Energy and Modified Gravity}
+\end{center}	
+In this thesis we investigate the importance of non-linear structure formation
+on the determination of cosmological parameters for models beyond the standard
+$\lcdm$ scenario. Future galaxy surveys will be able to determine the two-point correlation function of more than $10^7$ galaxies in a very precise way. Extracting the information encoded in this function at small scales, allows us to constrain the underlying cosmological model.
+Here we consider different models beyond $\lcdm$: Coupled Dark Energy, Growing Neutrino
+Quintessence, Effective Field Theory, Horndeski theory and general phenomenological
+parameterizations of Modified Gravity. To study the non-linear effects in these models, we use different methodologies: fitting formulae,
+semi-analytic prescriptions based on the Halo model, resummation methods in
+cosmological perturbation theory and specialized N-body simulations. In order to
+forecast the constraining power of  next-generation surveys, such as Euclid, SKA and DESI, we developed a code that uses the Bayesian Fisher matrix formalism to compute the inferred error on the parameters for Galaxy Clustering and Weak Lensing observables.
+For Modified Gravity we study the effect that different parameterizations and different non-linear prescriptions have on the Fisher forecasts. We obtain the best combination of redshift-binned parameters which will be measured by future experiments.
+Within the Coupled Dark Energy scenario we perform the first forecasts using fitting formulae from N-body simulations and show that using non-linear scales improves the constraints by more than an order of magnitude compared to linear forecasts.
+In the Growing Neutrino Quintessence model, we use non-Newtonian N-body
+simulations to study the different regimes for the dynamics of neutrino lumps. We show that there are viable cosmologies within this model and that the lump interactions induce a heating of the neutrino fluid. Finally, we also study analytically the non-linear corrections
+to the power spectrum in the case of Horndeski theory under the quasistatic
+approximation. To achieve this, we apply a resummation method for higher order perturbation theory, 
+which had so far only been employed within the standard cosmological
+model. The main message of this thesis is that non-linear structure formation has a
+significant impact on cosmological parameter estimation. In order to discriminate between competing theories, 
+using forthcoming data, we need to take non-linearities and their implications into account.
+	
+	
+	
+\end{abstract}
+
+
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
-%\begin{acknowledgements}
+\begin{acknowledgements}
 %\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 
-%The acknowledgments and the people to thank go here, don't forget to include your project advisor\ldots
+I would like to thank my supervisor Valeria Pettorino for her constant support, her honest feedback and her good advices during these years as a PhD student.
+As her first doctoral student, I think both of us have learned a lot from this experience.
 
-%\end{acknowledgements}
+I would also like to thank Luca Amendola, my second supervisor for the support, the interesting scientific discussions and the availability to always play football on the weekends.
+Thanks to Bjoern Schäfer, who sits in the next office, for always being willing to discuss about interesting and out-of-the-box topics, even in Spanish.
+I would like to thank Eduard Thommes, Georg Wolschin and Christof Wetterich for their support, their organizational skills and their interesting discussions during lunch and seminars.
+A great thank you to many others who have made the ITP a magnificent working place, Elmar, administration staff and all the secretaries, especially Tina and Manuela, which with their efficiency and kindness always solve all the problems that can possibly appear.
+
+To all the postdocs that have been at our group in these years, thanks for the funny moments and the interesting science, I cannot name you all. Special thanks to Matteo Martinelli, for being a great collaborator and to Javier Rubio, for being a good friend and having read large parts of this manuscript.
+
+Last but not least thanks to all the present and former students and visitors who have passed through our offices and made this group great again. I am sure I will forget some names: Adrian, Alejandro, Caroline, Emer, ln(a), Marvin, Janina, Alberto, Yves, Valeri, Io, Arpine, Laura, Margherita, Lorenzo, Sara Jamali, 
+Kevin (thanks for reading the draft), Manuel and finally Tham, who will always be remembered in our hearts. 
+
+Thanks to Frank for making the office less workable, for the statistics-seminar, the refreshments and the pressure to go to have lunch. Thanks to Henrik for making the group more crackpotty, especially after 19:00 and for reading parts of the draft. Thanks to Alessio for reading parts of the manuscript and for pointing out interesting observables all the time in and around the office.
+Thanks to Marta for trying to understand my code and bringing some nice Portuguese sweet stuff. Thanks to Florian for the collaboration and endless discussions about LSS and GNQ and for reading lots of parts of this draft.
+Finally thanks to Mauro and Oscar, also in the Phil12, for the friendship and the fun in these years wns. 
+Thanks to all the Italian, Spanish, Latinos, Chilean, Colombian, Costa Rican and German friends still in Heidelberg and all those who have already left. You have made these years really fun and enjoyable.
+\newpage
+Gracias a mis padres Monica y Roland por haberme apoyado siempre y haberme dado tanto cariño, desde que de pequeño decidí ser un físico. Sin ustedes nada de esto sería posible, gracias por enseñarme tantas cosas y por haber mantenido la familia a pesar de muchos obstáculos y giros del destino.
+Gracias a mi hermano Simón por siempre retarme con preguntas y haber creído que algún día sería un científico. También le dedico esto a mi padre biológico Iván que sé que estaría orgulloso de ver este logro.
+Gracias a toda mi familia en Colombia y Costa Rica que han estado siempre ahí para mí y me reciben con alegría cada vez que los visito.
+Un saludo a todos mis amigos ticos y todos los que también están aquí en Alemania, volver a CR siempre es pura vida gracias a ustedes!
+Vielen vielen Dank an die Oma und Bertram, diese 6 Jahre hier wären nicht so schön gewesen, ohne den ganzen Strudel und die ganzen guten Ratschläge, die Geschenke, die Hilfe und die schöne und ruhige Tage in Hausen.
+
+Finalmente gracias a mi novia y futura esposa Tina. Fui muy afortunado de haberla encontrado en el camino. Gracias por todo el cariño, por ayudarme a ser una mejor persona y por todos los viajes y momentos que hemos pasado en estos casi 5 años juntos.
+
+
+
+
+
+\end{acknowledgements}
 
 %----------------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES PAGES
@@ -331,6 +461,7 @@ we need to take non-linearities into account and understand their implications.
 \textbf{LSS} & \textbf{L}arge \textbf{S}cale \textbf{S}tructure\\
 \textbf{BAO} & \textbf{B}aryon \textbf{A}coustic \textbf{O}scillations\\
 \textbf{RSD} & \textbf{R}edshift \textbf{S}pace \textbf{D}istortions\\
+\textbf{FoG} & \textbf{F}ingers \textbf{o}f \textbf{G}od\\
 \textbf{SPT} & \textbf{S}tandard \textbf{P}erturbation \textbf{T}heory\\
 \textbf{RPT} & \textbf{R}enormalized \textbf{P}erturbation \textbf{T}heory\\
 \textbf{eRPT}& \textbf{e}ikonal \textbf{R}enormalized \textbf{P}erturbation \textbf{T}heory\\
@@ -342,9 +473,13 @@ we need to take non-linearities into account and understand their implications.
 \textbf{EdS} & \textbf{E}instein-\textbf{d}e \textbf{S}itter\\
 \textbf{MG} & \textbf{M}odified \textbf{G}ravity\\
 \textbf{DE} & \textbf{D}ark \textbf{E}nergy\\
+\textbf{CDE} & \textbf{C}oupled \textbf{D}ark \textbf{E}nergy\\
 \textbf{WL} & \textbf{W}eak \textbf{L}ensing\\
 \textbf{GC} & \textbf{G}alaxy \textbf{C}lustering\\
-
+\textbf{MCMC} & \textbf{M}arkov-\textbf{C}hain-\textbf{M}onte-\textbf{C}arlo\\
+\textbf{KL} & \textbf{K}ullback-\textbf{L}eibler\\
+\textbf{FoM} & \textbf{F}igure \textbf{o}f \textbf{M}erit\\
+\textbf{FoC} & \textbf{F}igure \textbf{o}f \textbf{C}orrelation
 
 \end{abbreviations}
 
@@ -411,6 +546,43 @@ we need to take non-linearities into account and understand their implications.
 %\include{Appendices/AppendixA}
 %\include{Appendices/AppendixB}
 %\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+	\addchaptertocentry{\authorshipname}
+	\label{declaration-author}
+	\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+	
+	\begin{outline} 
+		\1 Where any part of this thesis has previously been submitted for a degree or any other qualification at this University or any other institution, this has been clearly stated.
+		\1 Where I have consulted the published work of others, this is always clearly attributed.
+		\1 Where I have quoted from the work of others, the source is always given. 
+		With the exception of such quotations, this thesis is entirely my own work. 
+		\1 Parts of this dissertation have been published in the following articles:
+		\2 Casas, S., Amendola, L., Baldi, M., Pettorino, V. and Vollmer, A. \\
+		Fitting and forecasting coupled dark energy in the non-linear regime. \\
+		JCAP, 2016, 045 (2016).
+		\2 Casas, S., Pettorino, V. and Wetterich, C. \\ 
+		Dynamics of neutrino lumps in growing neutrino quintessence. \\
+		Phys. Rev. D 94, 103518 (2016).
+		\2 Casas, S., Kunz, M., Martinelli, M. and Pettorino, V. \\ 
+		Linear and non-linear Modified Gravity forecasts with future surveys. \\ Preprint: arXiv:1703.01271 [astro-ph, physics:gr-qc] (2017). \\
+		Submitted to the Journal: Physics of the Dark Universe, Elsevier.
+	\end{outline}
+	\vspace{1cm}
+%	\noindent Signed:\\
+%	\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+%	
+%	\noindent Date:\\
+%	\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+%\clearpage
+
+
 
 %----------------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
